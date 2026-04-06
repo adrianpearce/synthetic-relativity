@@ -1,0 +1,308 @@
+.reveal h1,
+.reveal h2,
+.reveal h3,
+.reveal h4,
+.reveal h5,
+.reveal h6 {
+  text-transform: none !important;
+}
+
+/* Remove the gap between a paragraph and the next list */
+.reveal .slides section p + ul,
+.reveal .slides section p + ol {
+  margin-top: 0 !important;
+}
+
+/* Also remove the paragraph's bottom margin in that case */
+.reveal .slides section p {
+  margin-bottom: 0 !important;
+}
+
+table, th, td {
+  border: 1px solid black;
+  border-collapse: collapse;
+}
+td, th {
+  padding: 6px;
+}
+
+.tight-cols {
+  margin-top: 0;
+  margin-bottom: 0;
+  gap: 0.3em;
+}
+
+/* scale sets for slides only */
+
+/* Shrink only the wrapped body content & Stop nested/children from compounding the shrink */
+.reveal section .shrink01 { font-size: 0.01em; }
+
+.reveal section .shrink02 { font-size: 0.02em; }
+
+.reveal section .shrink03 { font-size: 0.03em; }
+
+.reveal section .shrink04 { font-size: 0.04em; }
+
+.reveal section .shrink05 { font-size: 0.05em; }
+
+.reveal section .shrink06 { font-size: 0.06em; }
+
+.reveal section .shrink07 { font-size: 0.07em; }
+
+.reveal section .shrink08 { font-size: 0.08em; }
+
+.reveal section .shrink09 { font-size: 0.09em; }
+
+.reveal section .shrink10 { font-size: 0.10em; }
+
+.reveal section .shrink11 { font-size: 0.11em; }
+
+.reveal section .shrink12 { font-size: 0.12em; }
+
+.reveal section .shrink13 { font-size: 0.13em; }
+
+.reveal section .shrink14 { font-size: 0.14em; }
+
+.reveal section .shrink15 { font-size: 0.15em; }
+
+.reveal section .shrink16 { font-size: 0.16em; }
+
+.reveal section .shrink17 { font-size: 0.17em; }
+
+.reveal section .shrink18 { font-size: 0.18em; }
+
+.reveal section .shrink19 { font-size: 0.19em; }
+
+.reveal section .shrink20 { font-size: 0.20em; }
+
+.reveal section .shrink21 { font-size: 0.21em; }
+
+.reveal section .shrink22 { font-size: 0.22em; }
+
+.reveal section .shrink23 { font-size: 0.23em; }
+
+.reveal section .shrink24 { font-size: 0.24em; }
+
+.reveal section .shrink25 { font-size: 0.25em; }
+
+.reveal section .shrink26 { font-size: 0.26em; }
+
+.reveal section .shrink27 { font-size: 0.27em; }
+
+.reveal section .shrink28 { font-size: 0.28em; }
+
+.reveal section .shrink29 { font-size: 0.29em; }
+
+.reveal section .shrink30 { font-size: 0.30em; }
+
+.reveal section .shrink31 { font-size: 0.31em; }
+
+.reveal section .shrink32 { font-size: 0.32em; }
+
+.reveal section .shrink33 { font-size: 0.33em; }
+
+.reveal section .shrink34 { font-size: 0.34em; }
+
+.reveal section .shrink35 { font-size: 0.35em; }
+
+.reveal section .shrink36 { font-size: 0.36em; }
+
+.reveal section .shrink37 { font-size: 0.37em; }
+
+.reveal section .shrink38 { font-size: 0.38em; }
+
+.reveal section .shrink39 { font-size: 0.39em; }
+
+.reveal section .shrink40 { font-size: 0.40em; }
+
+.reveal section .shrink41 { font-size: 0.41em; }
+
+.reveal section .shrink42 { font-size: 0.42em; }
+
+.reveal section .shrink43 { font-size: 0.43em; }
+
+.reveal section .shrink44 { font-size: 0.44em; }
+
+.reveal section .shrink45 { font-size: 0.45em; }
+
+.reveal section .shrink46 { font-size: 0.46em; }
+
+.reveal section .shrink47 { font-size: 0.47em; }
+
+.reveal section .shrink48 { font-size: 0.48em; }
+
+.reveal section .shrink49 { font-size: 0.49em; }
+
+
+.reveal section .shrink50 { font-size: 0.50em; }
+
+
+.reveal section .shrink51 { font-size: 0.51em; }
+
+
+.reveal section .shrink52 { font-size: 0.52em; }
+
+
+.reveal section .shrink53 { font-size: 0.53em; }
+
+
+.reveal section .shrink54 { font-size: 0.54em; }
+
+
+.reveal section .shrink55 { font-size: 0.55em; }
+
+
+.reveal section .shrink56 { font-size: 0.56em; }
+
+
+.reveal section .shrink57 { font-size: 0.57em; }
+
+
+.reveal section .shrink58 { font-size: 0.58em; }
+
+
+.reveal section .shrink59 { font-size: 0.59em; }
+
+
+.reveal section .shrink60 { font-size: 0.60em; }
+
+
+.reveal section .shrink61 { font-size: 0.61em; }
+
+
+.reveal section .shrink62 { font-size: 0.62em; }
+
+
+.reveal section .shrink63 { font-size: 0.63em; }
+
+
+.reveal section .shrink64 { font-size: 0.64em; }
+
+
+.reveal section .shrink65 { font-size: 0.65em; }
+
+
+.reveal section .shrink66 { font-size: 0.66em; }
+
+
+.reveal section .shrink67 { font-size: 0.67em; }
+
+
+.reveal section .shrink68 { font-size: 0.68em; }
+
+
+.reveal section .shrink69 { font-size: 0.69em; }
+
+
+.reveal section .shrink70 { font-size: 0.70em; }
+
+
+.reveal section .shrink71 { font-size: 0.71em; }
+
+
+.reveal section .shrink72 { font-size: 0.72em; }
+
+
+.reveal section .shrink73 { font-size: 0.73em; }
+
+
+.reveal section .shrink74 { font-size: 0.74em; }
+
+
+.reveal section .shrink75 { font-size: 0.75em; }
+
+.reveal section .shrink76 { font-size: 0.76em; }
+
+
+.reveal section .shrink77 { font-size: 0.77em; }
+
+
+.reveal section .shrink78 { font-size: 0.78em; }
+
+
+.reveal section .shrink79 { font-size: 0.79em; }
+
+
+.reveal section .shrink80 { font-size: 0.80em; }
+
+
+.reveal section .shrink81 { font-size: 0.81em; }
+
+
+.reveal section .shrink82 { font-size: 0.82em; }
+
+
+.reveal section .shrink83 { font-size: 0.83em; }
+
+
+.reveal section .shrink84 { font-size: 0.84em; }
+
+
+.reveal section .shrink85 { font-size: 0.85em; }
+
+
+.reveal section .shrink86 { font-size: 0.86em; }
+
+
+.reveal section .shrink87 { font-size: 0.87em; }
+
+
+.reveal section .shrink88 { font-size: 0.88em; }
+
+
+.reveal section .shrink89 { font-size: 0.89em; }
+
+
+.reveal section .shrink90 { font-size: 0.90em; }
+
+
+.reveal section .shrink91 { font-size: 0.91em; }
+
+
+.reveal section .shrink92 { font-size: 0.92em; }
+
+
+.reveal section .shrink93 { font-size: 0.93em; }
+
+
+.reveal section .shrink94 { font-size: 0.94em; }
+
+
+.reveal section .shrink95 { font-size: 0.95em; }
+
+
+.reveal section .shrink96 { font-size: 0.96em; }
+
+
+.reveal section .shrink97 { font-size: 0.97em; }
+
+
+.reveal section .shrink98 { font-size: 0.98em; }
+
+
+.reveal section .shrink99 { font-size: 0.99em; }
+
+
+.video {
+  width: 100%;
+  aspect-ratio: 16 / 9;   /* adjust if needed */
+  position: relative;
+}
+.video > iframe {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  border: 0;
+}
+
+/* Catch callouts across Quarto/revealjs variants */
+.reveal div.callout,
+.reveal .callout,
+.reveal .callout[class*="callout-"] {
+  background-color: #f0f8ff; /* A light blue background color */
+}
+
+
+
+
