@@ -1,0 +1,92 @@
+/* book.css */
+
+/* Override body background for cosmo theme */
+body {
+  background-color: #fdf6e3;  /* solarized cream */
+}
+
+/* Optional: also override code cell/output background if you want them consistent */
+pre, code {
+  background-color: #eee8d5;  /* solarized base2 */
+}
+
+/* Solarized tones */
+:root {
+  --sol-cream: #fdf6e3; /* background */
+  --sol-base2: #eee8d5; /* subtle borders/fills */
+}
+
+/* Left book sidebar */
+#quarto-sidebar,
+#quarto-sidebar .sidebar,
+#quarto-sidebar .sidebar-menu-container,
+#quarto-sidebar .sidebar-content {
+  background-color: var(--sol-cream) !important;
+}
+
+/* Right margin sidebar (page ToC) */
+#quarto-margin-sidebar,
+#quarto-margin-sidebar .toc,
+#quarto-margin-sidebar nav[role="doc-toc"] {
+  background-color: var(--sol-cream) !important;
+}
+
+/* ToC/nav lists themselves */
+nav[role="doc-toc"],
+nav[role="doc-toc"] .nav,
+.sidebar .nav {
+  background-color: var(--sol-cream) !important;
+}
+
+/* Optional: soften borders & active/hover highlights to match Solarized */
+#quarto-sidebar .sidebar-item, 
+#quarto-sidebar .sidebar-section,
+#quarto-margin-sidebar .toc .nav li {
+  border-color: var(--sol-base2);
+}
+
+#quarto-sidebar .nav-link:hover,
+#quarto-sidebar .nav-link.active,
+#quarto-margin-sidebar .nav-link:hover,
+#quarto-margin-sidebar .nav-link.active {
+  background-color: var(--sol-base2);
+}
+
+table, th, td {
+  border: 1px solid black;
+  border-collapse: collapse;
+}
+td, th {
+  padding: 6px;
+}
+
+/* Conditional font sizing commands */
+
+/* neutralize in book output */
+.shrink01, .shrink02, .shrink03, .shrink04, .shrink05, .shrink06, .shrink07, .shrink08, .shrink09, .shrink10, .shrink11, .shrink12, .shrink13, .shrink14, .shrink15, .shrink16, .shrink17, .shrink18, .shrink19, .shrink20, .shrink21, .shrink22, .shrink23, .shrink24, .shrink25, .shrink26, .shrink27, .shrink28, .shrink29, .shrink30, .shrink31, .shrink32, .shrink33, .shrink34, .shrink35, .shrink36, .shrink37, .shrink38, .shrink39, .shrink40, .shrink41, .shrink42, .shrink43, .shrink44, .shrink45, .shrink46, .shrink47, .shrink48, .shrink49, .shrink50, .shrink51, .shrink52, .shrink53, .shrink54, .shrink55, .shrink56, .shrink57, .shrink58, .shrink59, .shrink60, .shrink61, .shrink62, .shrink63, .shrink64, .shrink65, .shrink66, .shrink67, .shrink68, .shrink69, .shrink70, .shrink71, .shrink72, .shrink73, .shrink74, .shrink75, .shrink76, .shrink77, .shrink78, .shrink79, .shrink80, .shrink81, .shrink82, .shrink83, .shrink84, .shrink85, .shrink86, .shrink87, .shrink88, .shrink89, .shrink90, .shrink91, .shrink92, .shrink93, .shrink94, .shrink95, .shrink96, .shrink97, .shrink98, .shrink99 {
+  /* do nothing */
+}
+
+.video {
+  width: 100%;
+  aspect-ratio: 16 / 9;   /* adjust if needed */
+  position: relative;
+}
+.video > iframe {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  border: 0;
+}
+
+/* Catch callouts across Quarto/revealjs variants */
+.reveal div.callout,
+.reveal .callout,
+.reveal .callout[class*="callout-"] {
+  background-color: #f0f8ff; /* A light blue background color */
+}
+
+
+
+
