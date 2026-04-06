@@ -1,0 +1,45 @@
+project:
+  type: book
+  preview:
+    browser: true
+    watch-inputs: true
+    navigate: true
+
+resources:
+  - slides
+  - pdfs
+  - media
+  - robots.txt
+
+book:
+  title: "Classical Planning & Reinforcement Learning"
+  author: "Adrian R. Pearce"
+  chapters:
+    - index.qmd
+    - introduction.qmd
+    - modelling.qmd
+    - search.qmd
+    - heuristics.qmd
+    - relaxation.qmd
+    - mdps.qmd
+    - mcts.qmd
+    - model_free_prediction.qmd
+    - model_free_control.qmd
+    - approximation.qmd
+    - policy_gradient.qmd
+    - deep_learning.qmd
+    - transformers.qmd
+    - appendix.qmd
+  site-url: https://comp90054.github.io/reinforcement-learning/
+
+format:
+  html:
+    smooth-scroll: true
+    html-math-method: mathjax
+    theme: cosmo
+    css: book.css     # overrides live here
+    toc: true
+    toc-location: left      # “mini-book” feel in one page
+    toc-depth: 1
+    number-sections: false
+

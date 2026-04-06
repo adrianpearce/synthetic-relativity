@@ -1,0 +1,41 @@
+project:
+  type: website
+  output-dir: slides
+  render:
+    - introduction.qmd
+    - modelling.qmd
+    - search.qmd
+    - heuristics.qmd
+    - relaxation.qmd
+    - mdps.qmd
+    - mcts.qmd
+    - model_free_prediction.qmd
+    - model_free_control.qmd
+    - approximation.qmd
+    - policy_gradient.qmd
+    - deep_learning.qmd
+    - transformers.qmd
+    - appendix.qmd
+
+resources:
+    - media
+
+format:
+  revealjs:
+    theme: solarized
+    css: slides.css
+    transition: slide
+    slide-number: true
+    toc: true
+    toc-depth: 1
+    center: false
+    html-math-method: mathjax
+    lib-dir: site_libs
+    plugins:
+      - chalkboard
+    chalkboard: true
+    oembed: true
+
+include-after-body:
+  - math-retypeset.js
+

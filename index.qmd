@@ -1,0 +1,24 @@
+---
+title: "Overview"
+author: 
+  - name: Adrian R. Pearce
+    email: adrianrp@unimelb.edu.au
+    orcid: 0000-0003-0089-8474
+    url: https://findanexpert.unimelb.edu.au/profile/14397-adrian-pearce
+    affiliations:
+      - ref: unimelb
+
+affiliations:
+  - id: unimelb
+    name: The University of Melbourne
+    department: School of Computing and Information Systems
+    address: Parkville
+    city: Melbourne
+    region: VIC
+    country: AU
+    postal-code: 3010
+---
+
+<br/>
+These are the notes and slides for Synthetic Relativity.
+

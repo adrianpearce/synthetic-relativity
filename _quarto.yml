@@ -1,0 +1,8 @@
+project:
+  type: default
+  preview:
+    browser: true
+
+execute:
+  freeze: auto
+  cache: true
