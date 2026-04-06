@@ -1,2 +1,2 @@
 # synthetic-relativity
-Synthstic relativity
+This is the synthstic relativity manuscript.
