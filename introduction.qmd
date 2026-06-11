@@ -14,4 +14,40 @@ This module is also available in the following versions
 
 # Overview
 
+Synthetic relativity
+
+
+# Proof pathway
+
+Synthetic Domain Theory -> Domain Theory in Logical Form (DTLF)
+
+Nets indexed by directed sets.
+
+Compact elements
+
+A compact element (sometimes called a finite element). An element $c$ is compact if, whenever $c$ is less than or equal to the limit of a directed set, $c$ is actually less than or equal to some element already inside that directed set.
+
+Ternary Relational Semantics (the Routley-Meyer semantics)
+
+"Dynamic Trimodal Logic with Ternary Relational Semantics"
+
+Relativistic Domain Theory in Logical Form
+
+Partial order.
+
+Scott Domains
+
+The Scott Topology perfectly matches a formal, inductive logic:
+
+The Logic (Syntax): A formula in standard DTLF represents a finite, verifiable piece of information.
+
+The Space (Semantics): This formula maps perfectly to a compact open set (a finite approximation) in the Scott Topology of the domain.
+
+The Proof Paths: Limit creation in the domain (taking the supremum of a directed set) corresponds exactly to logical entailment.
+
+Synthetic Relativity Axioms
+
+Open sets in the Scott Topology
+
+Topology of Throught in Transformers
 

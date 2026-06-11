@@ -69,6 +69,35 @@ ul.task-list li input[type="checkbox"] {
 }</script>
 <style>html{ scroll-behavior: smooth; }</style>
 
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN") {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
 
 <link rel="stylesheet" href="book.css">
 </head>
@@ -124,6 +153,7 @@ ul.task-list li input[type="checkbox"] {
    
   <ul>
   <li><a href="#overview" id="toc-overview" class="nav-link active" data-scroll-target="#overview">Overview</a></li>
+  <li><a href="#proof-pathway" id="toc-proof-pathway" class="nav-link" data-scroll-target="#proof-pathway">Proof pathway</a></li>
   </ul>
 </nav>
 </nav>
@@ -162,6 +192,26 @@ ul.task-list li input[type="checkbox"] {
 </section>
 <section id="overview" class="level1">
 <h1>Overview</h1>
+<p>Synthetic relativity</p>
+</section>
+<section id="proof-pathway" class="level1">
+<h1>Proof pathway</h1>
+<p>Synthetic Domain Theory -&gt; Domain Theory in Logical Form (DTLF)</p>
+<p>Nets indexed by directed sets.</p>
+<p>Compact elements</p>
+<p>A compact element (sometimes called a finite element). An element <span class="math inline">\(c\)</span> is compact if, whenever <span class="math inline">\(c\)</span> is less than or equal to the limit of a directed set, <span class="math inline">\(c\)</span> is actually less than or equal to some element already inside that directed set.</p>
+<p>Ternary Relational Semantics (the Routley-Meyer semantics)</p>
+<p>“Dynamic Trimodal Logic with Ternary Relational Semantics”</p>
+<p>Relativistic Domain Theory in Logical Form</p>
+<p>Partial order.</p>
+<p>Scott Domains</p>
+<p>The Scott Topology perfectly matches a formal, inductive logic:</p>
+<p>The Logic (Syntax): A formula in standard DTLF represents a finite, verifiable piece of information.</p>
+<p>The Space (Semantics): This formula maps perfectly to a compact open set (a finite approximation) in the Scott Topology of the domain.</p>
+<p>The Proof Paths: Limit creation in the domain (taking the supremum of a directed set) corresponds exactly to logical entailment.</p>
+<p>Synthetic Relativity Axioms</p>
+<p>Open sets in the Scott Topology</p>
+<p>Topology of Throught in Transformers</p>
 
 
 </section>

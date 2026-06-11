@@ -1,0 +1,25 @@
+
+13 Days:
+
+Strategy is to commence with the guts of the talk - the axioms and all the details, then wrap it up by telling how to tell the story around it, I think this is probably best, otherwise 100% I will lose the audience.
+
+Guts of the talk (keep this on track and do now waiver, won't have enough space or time to do that)
+
+- The relativity axioms
+
+- Logical Benders decomposition
+
+- Relativistic Domain Theory in Logical Form
+
+- Relativistic theory progression
+
+- Realisations
+
+How to tell the story (I think I need to avoid to long winded simlarities here)
+
+How things are different when you look at the world this way (concrete examples are best here)
+
+What the contributions are (choose relativity few and to the point)
+
+What problems fall out of this (comparisons could be good here too)
+
