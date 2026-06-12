@@ -152,8 +152,22 @@ window.Quarto = {
     <h2 id="toc-title">Table of contents</h2>
    
   <ul>
-  <li><a href="#overview" id="toc-overview" class="nav-link active" data-scroll-target="#overview">Overview</a></li>
-  <li><a href="#proof-pathway" id="toc-proof-pathway" class="nav-link" data-scroll-target="#proof-pathway">Proof pathway</a></li>
+  <li><a href="#synthetic-relativity" id="toc-synthetic-relativity" class="nav-link active" data-scroll-target="#synthetic-relativity">Synthetic relativity</a></li>
+  <li><a href="#physical-spacetime-interval-invariant" id="toc-physical-spacetime-interval-invariant" class="nav-link" data-scroll-target="#physical-spacetime-interval-invariant">Physical spacetime interval invariant</a></li>
+  <li><a href="#lorenz-transformation-in-logic" id="toc-lorenz-transformation-in-logic" class="nav-link" data-scroll-target="#lorenz-transformation-in-logic">Lorenz transformation in logic?</a></li>
+  <li><a href="#logical-interval-invariant" id="toc-logical-interval-invariant" class="nav-link" data-scroll-target="#logical-interval-invariant">Logical interval invariant?</a></li>
+  <li><a href="#the-physical-observer" id="toc-the-physical-observer" class="nav-link" data-scroll-target="#the-physical-observer">The physical observer</a></li>
+  <li><a href="#the-logical-observer" id="toc-the-logical-observer" class="nav-link" data-scroll-target="#the-logical-observer">The logical observer</a></li>
+  <li><a href="#self-reflective-reasoning-of-the-observer" id="toc-self-reflective-reasoning-of-the-observer" class="nav-link" data-scroll-target="#self-reflective-reasoning-of-the-observer">Self-reflective reasoning of the observer</a></li>
+  <li><a href="#inference-duality-logical-benders-decomposition" id="toc-inference-duality-logical-benders-decomposition" class="nav-link" data-scroll-target="#inference-duality-logical-benders-decomposition">Inference duality: Logical Benders decomposition</a></li>
+  <li><a href="#categorical-stone-duality-syntax-versus-semantics" id="toc-categorical-stone-duality-syntax-versus-semantics" class="nav-link" data-scroll-target="#categorical-stone-duality-syntax-versus-semantics">Categorical (Stone) duality: Syntax versus Semantics</a></li>
+  <li><a href="#the-problem-non-hausdorff" id="toc-the-problem-non-hausdorff" class="nav-link" data-scroll-target="#the-problem-non-hausdorff">The problem: non-Hausdorff</a></li>
+  <li><a href="#tri-modality-and-ternary-representation" id="toc-tri-modality-and-ternary-representation" class="nav-link" data-scroll-target="#tri-modality-and-ternary-representation">Tri-modality and ternary representation</a></li>
+  <li><a href="#aims" id="toc-aims" class="nav-link" data-scroll-target="#aims">Aims</a></li>
+  <li><a href="#duality" id="toc-duality" class="nav-link" data-scroll-target="#duality">Duality</a></li>
+  <li><a href="#guts-of-the-talk" id="toc-guts-of-the-talk" class="nav-link" data-scroll-target="#guts-of-the-talk">Guts of the talk</a></li>
+  <li><a href="#how-to-tell-the-story" id="toc-how-to-tell-the-story" class="nav-link" data-scroll-target="#how-to-tell-the-story">How to tell the story</a></li>
+  <li><a href="#related-things-i-will-likely-need-above" id="toc-related-things-i-will-likely-need-above" class="nav-link" data-scroll-target="#related-things-i-will-likely-need-above">Related things I will likely need above</a></li>
   </ul>
 </nav>
 </nav>
@@ -190,12 +204,137 @@ window.Quarto = {
 <li><a href="slides/introduction.html">slides (html)</a></li>
 </ul>
 </section>
-<section id="overview" class="level1">
-<h1>Overview</h1>
-<p>Synthetic relativity</p>
+<section id="synthetic-relativity" class="level1">
+<h1>Synthetic relativity</h1>
+<p><strong>Scope of talk</strong></p>
+<ul>
+<li><p>The relativity of axiomatic logic for self reflective reasoning</p></li>
+<li><p>‘Synthetic’ as in synthetic geometry, i.e.&nbsp;<em>axiomatic</em> as opposed to spacetime dimensions.</p></li>
+</ul>
+<p><strong>Out of scope</strong></p>
+<ul>
+<li><p>This is not a first-order logic foundation of relativity theories with accelerated observers, e.g.&nbsp;work by the <em>Budapest Relativity Research Group</em> (Madaráasz et al.&nbsp;2006, Székely et al.&nbsp;2010)</p></li>
+<li><p>This is not an axiomatisation that is complete for Lorentzian manifolds, although André et al., 2013 provided one including a pathway from special to general relativity.</p></li>
+</ul>
 </section>
-<section id="proof-pathway" class="level1">
-<h1>Proof pathway</h1>
+<section id="physical-spacetime-interval-invariant" class="level1">
+<h1>Physical spacetime interval invariant</h1>
+<p>In Minkowski spacetime (the geometry of special relativity), time is woven together with space as a fourth dimension. The equation for the “distance” between two events (a specific place at a specific time, denoted as <span class="math inline">\(\Delta s^2\)</span>) is the 4D version of the Pythagorean theorem:</p>
+<p><span class="math display">\[\Delta s^2 = (c\Delta t)^2 - (\Delta x^2 + \Delta y^2 + \Delta z^2)\]</span></p>
+<p>It is invariant because of the physical law: the constancy of the speed of light (<span class="math inline">\(c\)</span>) - <span class="math inline">\((c\Delta t)^2 - \text{distance}^2\)</span> must always equal <strong>exactly zero</strong><br>
+- Lorentz transformations are hyperbolic rotation of coordination axes, think <span style="color:blue">light cones</span> and the <span style="color:blue">event horizon</span>.</p>
+</section>
+<section id="lorenz-transformation-in-logic" class="level1">
+<h1>Lorenz transformation in logic?</h1>
+<p>An example in logic is the space-time tradeoff <strong>Memoisation</strong> versus <strong>lazy evaluation</strong>.</p>
+<p><strong>Memoization</strong> (Time <span class="math inline">\(\rightarrow\)</span> Space)</p>
+<p>You take a dynamic, temporal proof that requires many coinductive steps (Time), evaluate it in advance, and cache all the valid answers into a giant, static lookup table (Space/Induction). <span style="color:blue">You have contracted logical time and dilated logical space.</span></p>
+<p><strong>Lazy Evaluation</strong> (Space <span class="math inline">\(\rightarrow\)</span> Time)</p>
+<p>You take a massive, eagerly-evaluated structural memory footprint (Space/Induction) and collapse it. Instead of storing the data, you store a tiny coalgebric rule that generates the proofs sequentially, only exactly when requested (Time/Coinduction). <span style="color:blue">You have contracted logical space and dilated logical time.</span></p>
+</section>
+<section id="logical-interval-invariant" class="level1">
+<h1>Logical interval invariant?</h1>
+<p>Just as physical space and physical time are two mathematically intertwined ways of traversing the same underlying universe, in synthetic relativity, inductive structure and coinductive process are two mathematically intertwined ways of evaluating the same invariant truth.</p>
+<ul>
+<li><strong>Induction</strong> (static space/structure) and</li>
+<li><strong>Coinduction</strong> (unfolding time/process) are the coordinate axes, and</li>
+<li><strong>Realisation</strong> is the invariant interval.</li>
+</ul>
+<p><strong>Confluence</strong> (or the Church-Rosser theorem) states that if you have a valid computation, the path, perspective, or order in which you evaluate it does not change its final semantic truth.</p>
+<p>Rotating your logical frame of reference changes how much of the proof exists statically in spatial topology versus how much unfolds dynamically in computational time, but the invariant interval—the <strong>Realisation</strong>—remains perfectly preserved.</p>
+</section>
+<section id="the-physical-observer" class="level1">
+<h1>The physical observer</h1>
+<p>In standard physics, relativity is driven by the observer. The reality of the system depends entirely on the frame of reference from which it is being measured.</p>
+</section>
+<section id="the-logical-observer" class="level1">
+<h1>The logical observer</h1>
+<p>Different logical observers evaluate systems differently:</p>
+<ul>
+<li><strong>One observer</strong> (evaluating lazily/coinductively) stretches out the “time” of the proof into an infinite behavioral stream.</li>
+<li><strong>Another observer</strong> (evaluating eagerly/inductively) compresses the proof into a massive, static memory structure in “space”.</li>
+</ul>
+<p>However, the fundamental computational truth—the <strong>Realisation</strong>—cannot change.</p>
+<p>If truth were not invariant under these frame-shifts, logic would collapse into inconsistency. The spatial distortion of the data structure and the temporal delay in evaluation mathematically cancel out to preserve the invariant Realisation.</p>
+</section>
+<section id="self-reflective-reasoning-of-the-observer" class="level1">
+<h1>Self-reflective reasoning of the observer</h1>
+<p>For the system to be an observer, it cannot just process external inputs; it must be able to model its own reasoning process. It has to look inward.</p>
+</section>
+<section id="inference-duality-logical-benders-decomposition" class="level1">
+<h1>Inference duality: Logical Benders decomposition</h1>
+<p>Inference duality is the mechanism of the observer.</p>
+<p>-It is how the observer iteratively proposes a model of itself and verifies it.</p>
+<p>Master</p>
+<p>Subproblem</p>
+<p>Benders cuts</p>
+<p>Iterative solution</p>
+<p>Benders decomposition is competitive for IPC (Our paper…)</p>
+</section>
+<section id="categorical-stone-duality-syntax-versus-semantics" class="level1">
+<h1>Categorical (Stone) duality: Syntax versus Semantics</h1>
+<p>Stone duality</p>
+</section>
+<section id="the-problem-non-hausdorff" class="level1">
+<h1>The problem: non-Hausdorff</h1>
+<p>For this reflection to be rigorous, the syntax (the inference) must perfectly dualize to the semantics (the topology). This is where the limit of standard binary logic is met.</p>
+<ul>
+<li>Standard binary logic (Hausdorff spaces) cannot handle the topology of an observer reflecting upon itself.</li>
+</ul>
+<p>When dealing with continuous computation or fixpoint semantics, the strict, separable <span class="math inline">\(T_2\)</span> (Hausdorff) spaces of standard Stone duality begin to fail.</p>
+<ul>
+<li>The space becomes <strong>non-Hausdorff</strong>. The strict “true/false” binary is structurally insufficient to map self-reflective reasoning.</li>
+</ul>
+</section>
+<section id="tri-modality-and-ternary-representation" class="level1">
+<h1>Tri-modality and ternary representation</h1>
+<p>Because the categorical dual of a reflective system cannot be shoehorned into a strict boolean space without losing information, a ternary representation becomes geometrically and logically necessary</p>
+</section>
+<section id="aims" class="level1">
+<h1>Aims</h1>
+<p>Aims for physics: Aims for logic:</p>
+</section>
+<section id="duality" class="level1">
+<h1>Duality</h1>
+<ul>
+<li>Duality (Award winning paper at ICAPS &amp; Logical Benders Decomposition)</li>
+</ul>
+<p>c.f. The situation calculus, basic action theories.</p>
+<ul>
+<li>Self-reflection (Game structure paper, idea is to go one step beyond this…)</li>
+</ul>
+<p>c.f synthesising policies, infinite execution.</p>
+<p>…what is the language of learning?</p>
+<ul>
+<li>Autonomous theory progression (idea is relativistic version of this)</li>
+</ul>
+<p>Result: Self-transcending reasoning</p>
+<p>This now provides us with everything we need.</p>
+<p>Relativity needs to be there too.</p>
+</section>
+<section id="guts-of-the-talk" class="level1">
+<h1>Guts of the talk</h1>
+<p>Guts of the talk (keep this on track and do now waiver, won’t have enough space or time to do that)</p>
+<ul>
+<li><p>The relativity axioms</p></li>
+<li><p>Logical Benders decomposition</p></li>
+<li><p>Relativistic Domain Theory in Logical Form</p></li>
+<li><p>Relativistic theory progression</p></li>
+<li><p>Realisations</p></li>
+</ul>
+</section>
+<section id="how-to-tell-the-story" class="level1">
+<h1>How to tell the story</h1>
+<p>How to tell the story (I think I need to avoid to long winded simlarities here)</p>
+<p>Partial order (parallelisation)</p>
+<p>Turing complete</p>
+<p>Spatial completeness (check this term)</p>
+<p>How things are different when you look at the world this way (concrete examples are best here)</p>
+<p>What the contributions are (choose relativity few and to the point)</p>
+<p>What problems fall out of this (comparisons could be good here too)</p>
+</section>
+<section id="related-things-i-will-likely-need-above" class="level1">
+<h1>Related things I will likely need above</h1>
 <p>Synthetic Domain Theory -&gt; Domain Theory in Logical Form (DTLF)</p>
 <p>Nets indexed by directed sets.</p>
 <p>Compact elements</p>

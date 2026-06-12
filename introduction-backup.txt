@@ -1,0 +1,142 @@
+---
+title: "00 Introduction"
+show-answers: true
+---
+
+::: {.content-visible when-profile="book"}
+## Slides
+
+This module is also available in the following versions
+
+- [slides (html)](slides/introduction.html)
+
+:::
+
+# Synthetic relativity
+
+**Scope of this Talk**
+
+- The relativity of axiomatic logic
+
+- 'Synthetic' as in synthetic geometry, i.e. *axiomatic* as opposed to spacetime dimensions.
+
+**Out of Scope**
+
+- This is not a first-order logic foundation of relativity theories with accelerated observers, e.g. work by the *Budapest Relativity Research Group* (Madar&aacute;asz et al. 2006, Sz&eacute;kely et al. 2010)
+
+- This is not an axiomatisation that is complete for Lorentzian manifolds, although Andr&eacute; et al., 2013 provided one including a pathway from special to general relativity.
+
+# Lorenz transformation in logic?
+
+The space-time tradeoff Memoisation versus lazy evaluation.
+
+Memoization (Time $\rightarrow$ Space)
+
+You take a dynamic, temporal proof that requires many coinductive steps (Time), evaluate it in advance, and cache all the valid answers into a giant, static lookup table (Space/Induction). You have contracted logical time and dilated logical space.
+
+Lazy Evaluation (Space $\rightarrow$ Time)
+
+You take a massive, eagerly-evaluated structural memory footprint (Space/Induction) and collapse it. Instead of storing the data, you store a tiny coalgebric rule that generates the proofs sequentially, only exactly when requested (Time/Coinduction). You have contracted logical space and dilated logical time.
+
+# Prelude
+
+What needs to be in the prelude:
+
+Aims for physics:
+
+Aims for logic:
+
+
+Here what "space" and "time" mean.
+
+"Just as Einstein realized that physical space and physical time are two mathematically intertwined ways of traversing the same underlying universe, in synthetic logic, inductive structure and coinductive process are two mathematically intertwined ways of evaluating the same invariant truth.
+
+Rotating your logical frame of reference changes how much of the proof exists statically in spatial topology versus how much unfolds dynamically in computational time, but the invariant interval—the Realisation—remains perfectly preserved."
+
+Confluence (Church-Rosser theorem)
+
+In computer science and proof theory, there is a fundamental principle called Confluence (or the Church-Rosser theorem). It states that if you have a valid computation, the path, perspective, or order in which you evaluate it does not change its final semantic truth.
+
+- Duality (Award winning paper at ICAPS & Logical Benders Decomposition)
+
+c.f. The situation calculus, basic action theories.
+
+- Self-reflection (Game structure paper, idea is to go one step beyond this...)
+
+c.f synthesising policies, infinite execution.
+
+...what is the language of learning?
+
+- Autonomous theory progression (idea is relativistic version of this)
+
+Result: Self-transcending reasoning
+
+This now provides us with everything we need.
+
+Relativity needs to be there too.
+
+# Guts of the talk
+
+Guts of the talk (keep this on track and do now waiver, won't have enough space or time to do that)
+
+- The relativity axioms
+
+- Logical Benders decomposition
+
+- Relativistic Domain Theory in Logical Form
+
+- Relativistic theory progression
+
+- Realisations
+
+# How to tell the story
+
+How to tell the story (I think I need to avoid to long winded simlarities here)
+
+Partial order (parallelisation)
+
+Turing complete
+
+Spatial completeness (check this term)
+
+How things are different when you look at the world this way (concrete examples are best here)
+
+What the contributions are (choose relativity few and to the point)
+
+What problems fall out of this (comparisons could be good here too)
+
+
+# Related things I will likely need above
+
+Synthetic Domain Theory -> Domain Theory in Logical Form (DTLF)
+
+Nets indexed by directed sets.
+
+Compact elements
+
+A compact element (sometimes called a finite element). An element $c$ is compact if, whenever $c$ is less than or equal to the limit of a directed set, $c$ is actually less than or equal to some element already inside that directed set.
+
+Ternary Relational Semantics (the Routley-Meyer semantics)
+
+"Dynamic Trimodal Logic with Ternary Relational Semantics"
+
+Relativistic Domain Theory in Logical Form
+
+Partial order.
+
+Scott Domains
+
+The Scott Topology perfectly matches a formal, inductive logic:
+
+The Logic (Syntax): A formula in standard DTLF represents a finite, verifiable piece of information.
+
+The Space (Semantics): This formula maps perfectly to a compact open set (a finite approximation) in the Scott Topology of the domain.
+
+The Proof Paths: Limit creation in the domain (taking the supremum of a directed set) corresponds exactly to logical entailment.
+
+Synthetic Relativity Axioms
+
+Open sets in the Scott Topology
+
+Topology of Throught in Transformers
+

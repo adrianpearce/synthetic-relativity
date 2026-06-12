@@ -3,6 +3,46 @@
 
 Strategy is to commence with the guts of the talk - the axioms and all the details, then wrap it up by telling how to tell the story around it, I think this is probably best, otherwise 100% I will lose the audience.
 
+What needs to be in the prelude:
+
+Synthetic relativity
+
+Axiomatic relativity
+
+Aims for physics:
+
+Aims for logic:
+
+Lorenz transformation in logic: The space-time tradeoff Memoisation versus lazy evaluation.
+
+Here what "space" and "time" mean.
+
+"Just as Einstein realized that physical space and physical time are two mathematically intertwined ways of traversing the same underlying universe, in synthetic logic, inductive structure and coinductive process are two mathematically intertwined ways of evaluating the same invariant truth.
+
+Rotating your logical frame of reference changes how much of the proof exists statically in spatial topology versus how much unfolds dynamically in computational time, but the invariant interval—the Realisation—remains perfectly preserved."
+
+Confluence (Church-Rosser theorem)
+
+In computer science and proof theory, there is a fundamental principle called Confluence (or the Church-Rosser theorem). It states that if you have a valid computation, the path, perspective, or order in which you evaluate it does not change its final semantic truth.
+
+- Duality (Award winning paper at ICAPS & Logical Benders Decomposition)
+
+c.f. The situation calculus, basic action theories.
+
+- Self-reflection (Game structure paper, idea is to go one step beyond this...)
+
+c.f synthesising policies, infinite execution.
+
+...what is the language of learning?
+
+- Autonomous theory progression (idea is relativistic version of this)
+
+Result: Self-transcending reasoning
+
+This now provides us with everything we need.
+
+Relativity needs to be there too.
+
 Guts of the talk (keep this on track and do now waiver, won't have enough space or time to do that)
 
 - The relativity axioms
@@ -16,6 +56,12 @@ Guts of the talk (keep this on track and do now waiver, won't have enough space 
 - Realisations
 
 How to tell the story (I think I need to avoid to long winded simlarities here)
+
+Partial order (parallelisation)
+
+Turing complete
+
+Spatial completeness (check this term)
 
 How things are different when you look at the world this way (concrete examples are best here)
 
