@@ -35,18 +35,17 @@ The "distance" between two events (a specific place at a specific time, denoted 
 
 $$\Delta s^2 = (c\Delta t)^2 - (\Delta x^2 + \Delta y^2 + \Delta z^2)$$
 
-It is invariant because of the physical law: the constancy of the speed of light $c$
+It is invariant because of the physical law: the constancy of the speed of light ($c$)
 
  
 - $(c\Delta t)^2 - \text{distance}^2$ must always equal **exactly zero**
-- Think [light cones]{style="color:blue"} and the [event horizon]{style="color:blue"}
+- Think [light cones]{style="color:blue"} and the [event horizon]{style="color:blue"}.
+
 - Lorentz transformations are hyperbolic rotation of coordination axes
 
 # The physical observer
 
-In standard physics, relativity is driven by the observer. 
-
-- The reality of the system depends entirely on the frame of reference from which it is being measured.
+In standard physics, relativity is driven by the observer. The reality of the system depends entirely on the frame of reference from which it is being measured.
 
 # Lorenz transformation in logic?
 
@@ -89,17 +88,25 @@ If truth were not invariant under these frame-shifts, logic would collapse into 
 
 For the system to be an observer, it cannot just process external inputs; it must be able to model its own reasoning process. It has to look inward.
 
-# Inference Duality & Logical Benders Decomposition
+# Theory progression & Inference Duality
 
-Inference duality is the (algorithmic) mechanism of the observer. Logical Benders decomposition shows how the observer iteratively proposes a model of itself and verifies it.
+Inference duality is the mechanism of the observer. 
 
-- **The Master (The Proposer)**: The observer proposes a model of its current state or plan.
-- **The Subproblem (The Verifier)**: The observer reflects on this proposal, testing its logical consistency.
-- **The Cut (The Inference)**: When the proposal fails, the observer generates a logical inference (a Benders cut) that restricts its future reasoning.
+Logical Benders decomposition
 
-Davies, Pearce, Stuckey & Lipovetzky 2015, Sequencing Operator Counts
+-It is how the observer iteratively proposes a model of itself and verifies it.
 
-- Shown to be competivie for International Planning Competition (IPC) benchmarks
+Master
+
+Subproblem
+
+Benders cuts
+
+Iterative solution
+
+Benders decomposition is competitive for IPC (Our paper...)
+
+Autonomous theory progression and bimodal provability...but not the right modalities.
 
 # Categorical duality & Indction vs. Coinduction
 
@@ -107,18 +114,16 @@ Syntax versus Semantics
 
 Stone duality
 
-# The Semantic Crisis: Limits of $\mathbf{GLB}$
+## The Semantic Crisis: Limits of $\mathbf{GLB}$
 
-Autonomous theory progression and bimodal provability...but not the right modalities.
-
-- **Autonomous Theory Progression:** Polymodal provability logic ($\mathbf{GLB}$) indexes a system's ascent through levels of incompleteness.
+- **Autonomous Theory Progression:** Polymodal provability logic ($\mathbf{GLB}$) elegantly indexes a system's ascent through levels of incompleteness.
 - **The Inductive Trap:** The de Jongh-Sambin theorem guarantees a *unique* fixpoint in these spaces.
 - **The Collapse:** $\mathbf{GLB}$ forces a well-founded, purely inductive view of reflection.
 - **The Problem:** A logical observer is an active, continuous process. Classical logic collapses *induction* (proof generation) and *coinduction* (invariant state) into a single point.
 
 We can use GLB to model the observer generating logical inferences or Benders cuts inductively. But here is the crisis: we lose the coinductive reality of the observer itself. When our system acts as a continuous computational process, standard Hausdorff spaces and strict binary logic shatter. To untangle induction and coinduction, we have to look elsewhere.
 
-# The Bridge: Domain Theory in Logical Form
+## The Bridge: Domain Theory in Logical Form
 
 To capture the continuous reality of the logical observer, we must transition to the semantics of **DTLF**.
 

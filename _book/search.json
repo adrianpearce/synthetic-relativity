@@ -6,27 +6,57 @@
     "section": "",
     "text": "These are the notes and slides for Synthetic Relativity.",
     "crumbs": [
-      "<span class='chapter-number'>1</span>  <span class='chapter-title'>Overview</span>"
+      "<span class='chapter-number'>1</span>  <span class='chapter-title'>Synthetic Relativity</span>"
     ]
   },
   {
     "objectID": "introduction.html",
     "href": "introduction.html",
-    "title": "00 Introduction",
+    "title": "Synthetic Relativity: Tri-modality and the Fixpoint Semantics of the Logical Observer",
     "section": "",
     "text": "Slides\nThis module is also available in the following versions",
     "crumbs": [
-      "<span class='chapter-number'>2</span>  <span class='chapter-title'>00 Introduction</span>"
+      "<span class='chapter-number'>2</span>  <span class='chapter-title'>Synthetic Relativity: Tri-modality and the Fixpoint Semantics of the Logical Observer</span>"
     ]
   },
   {
     "objectID": "introduction.html#slides",
     "href": "introduction.html#slides",
-    "title": "00 Introduction",
+    "title": "Synthetic Relativity: Tri-modality and the Fixpoint Semantics of the Logical Observer",
     "section": "",
     "text": "slides (html)",
     "crumbs": [
-      "<span class='chapter-number'>2</span>  <span class='chapter-title'>00 Introduction</span>"
+      "<span class='chapter-number'>2</span>  <span class='chapter-title'>Synthetic Relativity: Tri-modality and the Fixpoint Semantics of the Logical Observer</span>"
+    ]
+  },
+  {
+    "objectID": "introduction.html#the-semantic-crisis-limits-of-mathbfglb",
+    "href": "introduction.html#the-semantic-crisis-limits-of-mathbfglb",
+    "title": "Synthetic Relativity: Tri-modality and the Fixpoint Semantics of the Logical Observer",
+    "section": "The Semantic Crisis: Limits of \\(\\mathbf{GLB}\\)",
+    "text": "The Semantic Crisis: Limits of \\(\\mathbf{GLB}\\)\n\nAutonomous Theory Progression: Polymodal provability logic (\\(\\mathbf{GLB}\\)) elegantly indexes a system’s ascent through levels of incompleteness.\nThe Inductive Trap: The de Jongh-Sambin theorem guarantees a unique fixpoint in these spaces.\nThe Collapse: \\(\\mathbf{GLB}\\) forces a well-founded, purely inductive view of reflection.\nThe Problem: A logical observer is an active, continuous process. Classical logic collapses induction (proof generation) and coinduction (invariant state) into a single point.\n\nWe can use GLB to model the observer generating logical inferences or Benders cuts inductively. But here is the crisis: we lose the coinductive reality of the observer itself. When our system acts as a continuous computational process, standard Hausdorff spaces and strict binary logic shatter. To untangle induction and coinduction, we have to look elsewhere.",
+    "crumbs": [
+      "<span class='chapter-number'>2</span>  <span class='chapter-title'>Synthetic Relativity: Tri-modality and the Fixpoint Semantics of the Logical Observer</span>"
+    ]
+  },
+  {
+    "objectID": "introduction.html#the-bridge-domain-theory-in-logical-form",
+    "href": "introduction.html#the-bridge-domain-theory-in-logical-form",
+    "title": "Synthetic Relativity: Tri-modality and the Fixpoint Semantics of the Logical Observer",
+    "section": "The Bridge: Domain Theory in Logical Form",
+    "text": "The Bridge: Domain Theory in Logical Form\nTo capture the continuous reality of the logical observer, we must transition to the semantics of DTLF.\n\nNon-Hausdorff Semantics: DTLF provides the formal generalized topological space (e.g., Scott topologies) required for continuous computation.\nUntangling Fixpoints: DTLF formally provides the architecture to distinguish between least fixpoints (induction) and greatest fixpoints (coinduction).\nThe Implication: Standard binary logic is structurally insufficient for an observer reflecting upon itself.\n\nDTLF is the proof that the crisis is real. It gives us the continuous semantics we need, proving that to maintain a rigorous categorical duality for our observer, we must leave standard discrete spaces behind. But how do we dynamically capture an inference dual inside these non-standard spaces?",
+    "crumbs": [
+      "<span class='chapter-number'>2</span>  <span class='chapter-title'>Synthetic Relativity: Tri-modality and the Fixpoint Semantics of the Logical Observer</span>"
+    ]
+  },
+  {
+    "objectID": "introduction.html#the-resolution-tri-modality",
+    "href": "introduction.html#the-resolution-tri-modality",
+    "title": "Synthetic Relativity: Tri-modality and the Fixpoint Semantics of the Logical Observer",
+    "section": "The Resolution: Tri-modality",
+    "text": "The Resolution: Tri-modality\nIf the semantic space is no longer strict and binary, the representational geometry must evolve to match.\n\nThe Tri-modal Shift: Introducing a ternary representation to dynamically navigate the relativistic observer.\nStructural Necessity: Tri-modality is the specific geometry required to house the non-standard continuous spaces of DTLF.\nThe Outcome: The observer can safely maintain its operational identity (coinduction) while formally stepping outside its previous logical bounds (induction).\n\nThis is the core of Synthetic Relativity. Tri-modality is not an arbitrary choice; it is a mathematical necessity. By moving to a ternary space, the framework successfully untangles the fixpoints, laying the formal foundation for a system that can ultimately achieve self-transcending reasoning.",
+    "crumbs": [
+      "<span class='chapter-number'>2</span>  <span class='chapter-title'>Synthetic Relativity: Tri-modality and the Fixpoint Semantics of the Logical Observer</span>"
     ]
   }
 ]
