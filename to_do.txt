@@ -1,5 +1,18 @@
 Synthetic Relativity:
+============ Things still needing to be addressed ==============
 
-Strategy is to commence with the guts of the talk - the axioms and all the details, then wrap it up by telling how to tell the story around it, I think this is probably best, otherwise 100% I will lose the audience.
+
+Do not use in this talk:
+=======================
+- Chaitin's algorithmic complexity
+- Partial order reasoning, e.g.  for analysing formation of latent states in attention-based transformers (topology of thought)
+
+
+
+
+
+
+
+
 
 
