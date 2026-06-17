@@ -261,6 +261,48 @@ $$ \mathrm{PDo}(N, O, S_r) \longrightarrow \mathrm{PDo}(X, Y, N) $$
 *   **The Arrow ($\longrightarrow$):** The Synthetic Transformation (Topological closure and Change of Base).
 *   **Right Side:** A new, higher-order autonomous progression begins. The complex limit $O$ has mathematically synthesized into an atomic, discrete baseline coordinate ($N$) for the new subproblem ($X$).
 
+# Encoding Planning in R-DTLF
+
+**From Static Axioms to Topological Morphogenesis**
+
+Classical planning (e.g., Situation Calculus) relies on a global, static Basic Action Theory (BAT), where goals are Boolean theorems ($\exists s. \mathrm{Goal}(s)$). This rigidity often leads to combinatorial explosion.
+
+In **Synthetic Relativity (R-DTLF)**, planning is constructed bottom-up:
+
+*   **Environment (BAT) $\rightarrow$ Reference Frame ($S_r$):** 
+    Dictates the local inductive bias—bounding what is currently observable and what logical entailments ($\vdash$) are legally allowed.
+*   **Actions $\rightarrow$ DTLF Primitives ($\mathrm{RDo}$):** 
+    Physical steps are encoded as finite compact elements (e.g., *observe clear path* $\vdash$ *move forward*) actively accumulated as a directed proof path.
+*   **Goal $\rightarrow$ Semantic Target ($\mathrm{ODo}$):** 
+    Encoded as a **Target Semantic Attractor**—the topological limit the system attempts to computationally evaluate and mathematically realise.
+*   **The Plan $\rightarrow$ Relativistic Engine ($\mathrm{PDo}$):** 
+    The autonomous, recursive unrolling of the modalities until the target fixpoint is caught.
+
+# Execution & Macro-Action Synthesis
+
+**Navigating from Start (A) $\to$ Target (C) via Waypoint (B)**
+
+**1. Local Unrolling (Micro-Actions)**
+Starting at $A$, the engine recursively accumulates primitive motor steps (turn, move), continuously evaluating semantic progress toward $C$:
+$$ \mathrm{PDo}\Big(\, \mathrm{RDo}\big(\text{Move}, \mathrm{RDo}(\text{Turn}, A)\big),\; \mathrm{ODo}\big(O_{\text{waypoint}}, C\big),\; S_r \,\Big) $$
+
+**2. Realisation of the Sub-Goal**
+The system evaluates $O_{\text{waypoint}}$ as *"I am at Waypoint B."* A local semantic limit is mathematically caught.
+
+**3. The Synthetic Transformation (Skill Chunking)**
+The Transitivity Axiom fires, executing a categorical Change of Base:
+$$ \mathrm{PDo}(N_{A \to B}, O_{\text{waypoint}}, S_r) \longrightarrow \mathrm{PDo}(X, Y, \mathbf{N_{A \to B}}) $$
+
+* **The Relativistic Advantage:** The highly complex trace of microscopic actions mathematically compresses into a single, atomic baseline symbol ($\mathbf{N_{A \to B}}$). The agent discards the obsolete computational history (bypassing the Frame Problem) and plans the next leg ($B \to C$) using a newly synthesized, higher-order macro-action.
+
+# Comparison with Inductive Logic Programming (ILP)
+
+To prove A relative to B with respect to C is to reject the notion of an absolute, context-free proof. In this ternary relation, C ($S_r$) serves as the topological Reference Frame (the environment or inductive bias). A (RDo) is the active, syntactic accumulation of finite evidence. B (ODo) is the evaluated semantic limit.
+
+Therefore, the proof formally guarantees that within the strict geometric bounds of frame C, the evidence A is structurally sufficient to synthesise the invariant meaning B.
+
+Unlike classical Inductive Logic Programming (ILP) where background knowledge is static and human-coded, or standard ML where inductive bias is fixed globally by architecture, the Synthetic Relativity framework is dynamic. The system’s background knowledge (Frame C) continuously evolves via the Transitivity Axiom, allowing the network to recursively synthesize and bootstrap its own higher-order inductive biases at each new layer of cognitive progression."
+
 # Comparison between Synthetic Relativity and Situation Calculus
 
 Unique predecessor
@@ -271,8 +313,7 @@ Non-unique predecessors
 
 Partial order (parallelisation)
 
-
-
+Algebraic compactness
 
 
 

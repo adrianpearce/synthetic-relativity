@@ -1,6 +1,15 @@
 Synthetic Relativity:
 ============ Things still needing to be addressed ==============
 
+1. Introduce some of the logcal details of DTLF (there was a bunch of stuff on that in one of the chats on Gemini)
+
+2. Tweak the example so it is more understandable, perhaps use and/or cultivate an example earlier on when introducing DTLF.
+
+3. Build up the comparison slide (with the situation calculus pobably best)
+
+4. Put somewhere: It operates from the inside out (endogenous). Because your local Topos operates on constructive logic, your framework relies on Kleene's Realizability and the BHK (Brouwer-Heyting-Kolmogorov) Interpretation. In this realm, Truth is physically identical to the computational program that builds it.
+
+5. Go through and put in the form of slides (so I can speak to it)
 
 Do not use in this talk:
 =======================
