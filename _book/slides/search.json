@@ -1,0 +1,135 @@
+[
+  {
+    "objectID": "introduction.html#the-observers-dual-logic-syntax-vs.-semantics",
+    "href": "introduction.html#the-observers-dual-logic-syntax-vs.-semantics",
+    "title": "Synthetic Relativity: Tri-modality and the Fixpoint Semantics of the Logical Observer",
+    "section": "The Observer’s Dual Logic (Syntax vs. Semantics)",
+    "text": "The Observer’s Dual Logic (Syntax vs. Semantics)\nTo execute our modalities, we require an architecture that natively fuses classical (inductive) logic with intuitionistic (coinductive) logic.\n\nMemoisation (Induction / The Actor): Constructive in the data sense. It explicitly builds and stores finite, historical knowledge. It captures logical invariants and acts as the proof of what has been physically done.\nLazy Evaluation (Coinduction / The Observer): Constructive in the intuitionistic sense. A “thunk” (an unevaluated promise) is an observable property. The runtime intuitively maintains the topology of an infinite stream, only verifying when locally forced.\nThe Incompleteness Boundary: Logic remains classically monotonic locally. However, due to relative incompleteness (Gödel’s Incompleteness & Beklemishev’s reflection principles), a static system cannot resolve global limits. The observer must step outside the local system."
+  },
+  {
+    "objectID": "introduction.html#the-foundational-logic-domain-theory-in-logical-form",
+    "href": "introduction.html#the-foundational-logic-domain-theory-in-logical-form",
+    "title": "Synthetic Relativity: Tri-modality and the Fixpoint Semantics of the Logical Observer",
+    "section": "The Foundational Logic: Domain Theory in Logical Form",
+    "text": "The Foundational Logic: Domain Theory in Logical Form\nTo map this topology of reasoning, we ground our system in Abramsky’s DTLF (1991). We abandon the absolute “God’s eye” Boolean view (\\(A \\lor \\neg A\\)) for an endogenous, inside-out construction of truth.\n\nBaseline Ignorance (\\(\\bot\\)): Computation does not start at “False”; it starts at Bottom (\\(\\bot\\))—a mathematical coordinate of zero information.\nCompact Elements: Variables are not absolute binary states; they are discrete, finite pieces of verifiable evidence (e.g., a specific sensor reading).\nDirected Accumulation: Knowledge is actively gathered. Because you cannot empirically “observe” an infinite negative in finite time, DTLF relies on a strictly positive logic, generating an upward, directed proof path (\\(\\sqsubseteq\\))."
+  },
+  {
+    "objectID": "introduction.html#spatial-completeness-the-static-limitation",
+    "href": "introduction.html#spatial-completeness-the-static-limitation",
+    "title": "Synthetic Relativity: Tri-modality and the Fixpoint Semantics of the Logical Observer",
+    "section": "Spatial Completeness & The Static Limitation",
+    "text": "Spatial Completeness & The Static Limitation\nThe profound mathematical power of vanilla DTLF lies in Spatial Completeness (rooted in Stone Duality).\n\nThe Guarantee: It proves a 1-to-1 isomorphism between the algebraic, step-by-step Syntax (\\(\\phi \\vdash \\psi\\)) and the continuous, geometric Semantics (\\([\\![\\phi]\\!] \\subseteq [\\![\\psi]\\!]\\)).\nCatching Limits: Computations resolve exactly when the directed path of finite evidence mathematically catches an infinite continuous topological limit (a Supremum).\nThe Flaw (The Crisis): Vanilla DTLF perfectly describes a single, static universe. To untangle induction from coinduction and model dynamic, continuous learning, the Reference Frame itself must dynamically shift."
+  },
+  {
+    "objectID": "introduction.html#encoding-planning-in-synthetic-relativity-r-dtlf",
+    "href": "introduction.html#encoding-planning-in-synthetic-relativity-r-dtlf",
+    "title": "Synthetic Relativity: Tri-modality and the Fixpoint Semantics of the Logical Observer",
+    "section": "Encoding Planning in Synthetic Relativity (R-DTLF)",
+    "text": "Encoding Planning in Synthetic Relativity (R-DTLF)\nClassical planning (e.g., Situation Calculus) relies on a global, static Basic Action Theory (BAT), leading to combinatorial explosion. In R-DTLF, planning is constructed dynamically, bottom-up:\n\nEnvironment (BAT) \\(\\rightarrow\\) Reference Frame (\\(S_r\\)): Dictates the local inductive bias—bounding what is currently observable and what logical entailments (\\(\\vdash\\)) are legally allowed.\nActions \\(\\rightarrow\\) DTLF Primitives (\\(\\mathrm{RDo}\\)): Physical steps are encoded as finite compact elements (e.g., observe clear path \\(\\vdash\\) move forward) actively accumulated as a directed proof path.\nGoal \\(\\rightarrow\\) Semantic Target (\\(\\mathrm{ODo}\\)): Encoded as a Target Semantic Attractor—the topological limit the system attempts to evaluate and catch.\nThe Plan \\(\\rightarrow\\) Relativistic Engine (\\(\\mathrm{PDo}\\)): The autonomous, recursive unrolling of the modalities."
+  },
+  {
+    "objectID": "introduction.html#execution-macro-action-synthesis",
+    "href": "introduction.html#execution-macro-action-synthesis",
+    "title": "Synthetic Relativity: Tri-modality and the Fixpoint Semantics of the Logical Observer",
+    "section": "Execution & Macro-Action Synthesis",
+    "text": "Execution & Macro-Action Synthesis\nNavigating from Start (A) \\(\\to\\) Target (C) via Waypoint (B)\n1. Local Unrolling (Micro-Actions): The engine recursively accumulates primitive steps, continuously evaluating semantic progress toward \\(C\\):\n\\[\n\\mathrm{PDo}\\Big(\\, \\mathrm{RDo}\\big(\\text{Move}, \\mathrm{RDo}(\\text{Turn}, A)\\big),\\; \\mathrm{ODo}\\big(O_{\\text{waypoint}}, C\\big),\\; S_r \\,\\Big)\n\\]\n2. Limit Catching: The system evaluates \\(O_{\\text{waypoint}}\\) as “I am at Waypoint B.” A local semantic limit is mathematically caught.\n3. The Synthetic Transformation (Skill Chunking): The Transitivity Axiom fires, executing a Change of Base:\n\\[\n\\mathrm{PDo}(N_{A \\to B}, O_{\\text{waypoint}}, S_r) \\longrightarrow \\mathrm{PDo}(X, Y, \\mathbf{N_{A \\to B}})\n\\]\nThe Relativistic Advantage: The highly complex trace of microscopic actions mathematically compresses into a single, atomic baseline symbol (\\(\\mathbf{N_{A \\to B}}\\)). The obsolete history is discarded (bypassing the Frame Problem)."
+  },
+  {
+    "objectID": "introduction.html#bridging-worlds-topological-booleanization",
+    "href": "introduction.html#bridging-worlds-topological-booleanization",
+    "title": "Synthetic Relativity: Tri-modality and the Fixpoint Semantics of the Logical Observer",
+    "section": "Bridging Worlds: Topological Booleanization",
+    "text": "Bridging Worlds: Topological Booleanization\nR-DTLF does not discard classical logic; it functionally generates it at the semantic limits.\n\nTopological Booleanization: Utilizing the Lawvere-Tierney double-negation (\\(\\neg \\neg\\)) topology, continuous intuitionistic proof paths “collapse” into discrete Boolean states once verification is complete.\nCompiling Successor State Axioms (SSAs): This geometric compression is mathematically homologous to Reiter’s Explanation Closure compiling into SSAs.\nHybrid Execution: Because of this backward compatibility, we can confidently run standard Situation Calculus securely alongside the continuous, shifting R-DTLF engine."
+  },
+  {
+    "objectID": "introduction.html#domain-theory-in-logical-form-dtlf",
+    "href": "introduction.html#domain-theory-in-logical-form-dtlf",
+    "title": "Synthetic Relativity: Tri-modality and the Fixpoint Semantics of the Logical Observer",
+    "section": "Domain Theory in Logical Form (DTLF)",
+    "text": "Domain Theory in Logical Form (DTLF)\nIntroduced by Samson Abramsky (1991), DTLF provides the foundational “physics” of computation. To map the true topology of reasoning, we must first abandon classical, absolute logic.\n\nThe Classical Flaw: Standard logic (Boolean) assumes an absolute, “God’s eye” view of reality (True/False). It relies on the Law of Excluded Middle (\\(A \\lor \\neg A\\)) and ignores how a system physically computes truth.\nIntuitionistic & Constructive: DTLF operates from the inside out. Truth is not a static given; it must be actively constructed step-by-step.\nThe Logic of Partial Information: In DTLF, variables do not represent absolute boolean states; they represent observable properties and evolving states of partial knowledge."
+  },
+  {
+    "objectID": "introduction.html#the-scott-domain",
+    "href": "introduction.html#the-scott-domain",
+    "title": "Synthetic Relativity: Tri-modality and the Fixpoint Semantics of the Logical Observer",
+    "section": "The Scott Domain",
+    "text": "The Scott Domain\nIn DTLF, computation is an upward, continuous climb from baseline ignorance toward a fully realised concept within a geometric Scott Domain.\n\nBaseline Ignorance (\\(\\bot\\)): The logic does not start at “False.” It starts at Bottom (\\(\\bot\\))—a formal mathematical coordinate representing zero information and zero computation.\nCompact Elements (The Primitives): The finite, discrete pieces of verifiable evidence a system can physically observe (e.g., a specific sensor reading, or a sequential token).\nDirected Accumulation: Knowledge is actively gathered. The system continuously accumulates these compact elements, generating a directed proof path (\\(\\sqsubseteq\\))."
+  },
+  {
+    "objectID": "introduction.html#spatial-completeness",
+    "href": "introduction.html#spatial-completeness",
+    "title": "Synthetic Relativity: Tri-modality and the Fixpoint Semantics of the Logical Observer",
+    "section": "Spatial Completeness",
+    "text": "Spatial Completeness\nThe profound mathematical power of vanilla DTLF lies in Abramsky’s Spatial Completeness Theorem, rooted in Stone Duality.\nIt proves a mathematically perfect, 1-to-1 isomorphism between:\n\nThe Syntax: The algebraic, step-by-step logical code (\\(\\phi \\vdash \\psi\\)).\nThe Semantics: The continuous, geometric space of concepts (\\([\\![\\phi]\\!] \\subseteq [\\![\\psi]\\!]\\)).\n\nThe Guarantee: Every step of logical deduction perfectly corresponds to navigating a continuous topology. Computations resolve exactly when the directed path of evidence catches a continuous topological limit (Supremum, \\(\\bigsqcup\\)).\nLimitation: Vanilla DTLF perfectly describes a single, static universe. To model continuous learning and dynamic abstraction, the Reference Frame itself must shift…"
+  },
+  {
+    "objectID": "introduction.html#the-core-philosophy",
+    "href": "introduction.html#the-core-philosophy",
+    "title": "Synthetic Relativity: Tri-modality and the Fixpoint Semantics of the Logical Observer",
+    "section": "The Core Philosophy",
+    "text": "The Core Philosophy\nExogenous Truth vs. Endogenous Observation\n\nClassical Logic is Exogenous: It looks at abstract, eternal truths from the outside.\nVanilla DTLF is Endogenous: It is built from the inside out.\nObservable Properties: In DTLF, a formula \\(\\phi\\) does not represent an absolute “Truth.” It represents a finite, computationally observable property (a compact open set in the Scott Topology).\nThe Act of Verification: To assert \\(\\phi\\) is to mathematically state: “Based on a finite amount of inductive computational steps, I have actively gathered the evidence to verify property \\(\\phi\\).”"
+  },
+  {
+    "objectID": "introduction.html#the-formal-syntax",
+    "href": "introduction.html#the-formal-syntax",
+    "title": "Synthetic Relativity: Tri-modality and the Fixpoint Semantics of the Logical Observer",
+    "section": "The Formal Syntax",
+    "text": "The Formal Syntax\nA Strictly Positive Propositional Logic\nBecause a system can only assert what it can finitely verify, the baseline syntax is strictly positive: \\[ \\phi, \\psi  ::=  \\mathbf{t}  \\mid  \\mathbf{f}  \\mid  \\phi \\land \\psi  \\mid  \\phi \\lor \\psi  \\mid  \\text{Constructors}(\\phi) \\]\n\n\\(\\mathbf{t}\\) (True / Baseline): The empty observation. Requires zero information (topologically, the bottom \\(\\bot\\) of the domain, where you know nothing).\n\\(\\mathbf{f}\\) (False / Contradiction): Impossible information (a computational crash).\n\\(\\phi \\land \\psi\\) (Conjunction): The active accumulation of evidence (both verified).\n\\(\\phi \\lor \\psi\\) (Disjunction): Nondeterministic branching (verified at least one, but current frame hasn’t isolated which).\n\nWhat is missing? Classical Negation (\\(\\neg \\phi\\)) and Implication (\\(\\phi \\rightarrow \\psi\\)). You cannot empirically “observe” an infinite negative. If a program runs forever, you can never halt it at a finite step to confidently declare “This will never happen.” Negation only emerges at the continuous limit."
+  },
+  {
+    "objectID": "introduction.html#the-engine-catching-limits",
+    "href": "introduction.html#the-engine-catching-limits",
+    "title": "Synthetic Relativity: Tri-modality and the Fixpoint Semantics of the Logical Observer",
+    "section": "The Engine & Catching Limits",
+    "text": "The Engine & Catching Limits\nEntailment (\\(\\vdash\\)) and Syntactic Fixpoints\nInstead of static Boolean truth tables, DTLF uses an Entailment Relation to mathematically move “up” the directed poset towards a limit. \\(\\phi \\vdash \\psi\\) : “Any state of information satisfying \\(\\phi\\) automatically contains enough information to satisfy \\(\\psi\\).” * Rules: Reflexivity (\\(\\phi \\vdash \\phi\\)), Transitivity (if \\(\\phi \\vdash \\psi\\) and \\(\\psi \\vdash \\chi\\), then \\(\\phi \\vdash \\chi\\)), Conjunction (\\(\\phi \\land \\psi \\vdash \\phi\\)).\nHow Vanilla DTLF Catches Limits: Because syntax is finite, an infinite continuous limit cannot be a single finite formula. * Limits as Filters: A semantic limit is a Filter or Ideal—an infinite, directed set of formulas mutually entailing each other (\\(\\phi_1 \\vdash \\phi_2 \\vdash \\phi_3 \\dots\\)). * The Fixpoint Operator (\\(\\mu\\)): To handle recursive loops, vanilla DTLF relies on a static, syntactic variable axiom (\\(\\mu X. F(X)\\)) to declare that a least fixpoint exists."
+  },
+  {
+    "objectID": "introduction.html#categorical-stone-duality-domain-theory-in-logical-form-dtlf-scott-topologies",
+    "href": "introduction.html#categorical-stone-duality-domain-theory-in-logical-form-dtlf-scott-topologies",
+    "title": "Synthetic Relativity: Tri-modality and the Fixpoint Semantics of the Logical Observer",
+    "section": "Categorical (Stone) duality: Domain Theory in Logical Form (DTLF) & Scott topologies",
+    "text": "Categorical (Stone) duality: Domain Theory in Logical Form (DTLF) & Scott topologies\nThrough Stone duality, DTLF proves that these two sides are mathematically isomorphic:\n\nThe Spatial Side (Semantics): Domains of computational values equipped with the Scott topology.\nThe Algebraic Side (Syntax): The logic of observable properties, structured as an algebraic lattice.\n\nTo capture the continuous reality of the logical observer, we must transition to the semantics of DTLF.\nAbramsky, S. (1987). Domain theory in logical form. Proceedings of the Symposium on Logic in Computer Science (LICS ’87), 47-53. IEEE.\nAbramsky, S. (1991). Domain theory in logical form. Annals of Pure and Applied Logic, 51(1-2), 1-77.\n\nNon-Hausdorff Semantics: DTLF provides the formal generalised topological space (e.g., Scott topologies) required for continuous computation.\nUntangling Fixpoints: DTLF formally provides the architecture to distinguish between least fixpoints (induction) and greatest fixpoints (coinduction).\nThe Implication: Standard binary logic is structurally insufficient for an observer reflecting upon itself.\n\nDTLF is the proof that the crisis is real. It gives us the continuous semantics we need, proving that to maintain a rigorous categorical duality for our observer, we must leave standard discrete spaces behind.\n\nDTLF demonstrates how Stone Duality must be generalised (into non-Hausdorff spaces and Scott topologies) to handle continuous computation and fixpoints.\n\nLimitations:\nBut how do we dynamically capture an inference dual inside these non-standard spaces?\n\nHowever: While DTLF provides the continuous semantics, dynamically capturing the relativistic observer and the inference dual requires a structural upgrade."
+  },
+  {
+    "objectID": "introduction.html#dtlf-spaces-are-t_0-kolmogorov-spaces-why-it-is-non-hausdorff",
+    "href": "introduction.html#dtlf-spaces-are-t_0-kolmogorov-spaces-why-it-is-non-hausdorff",
+    "title": "Synthetic Relativity: Tri-modality and the Fixpoint Semantics of the Logical Observer",
+    "section": "DTLF spaces are \\(T_0\\) (Kolmogorov) spaces (Why it is non Hausdorff)",
+    "text": "DTLF spaces are \\(T_0\\) (Kolmogorov) spaces (Why it is non Hausdorff)\nFor a topological space to be Hausdorff (\\(T_2\\)), you must be able to take any two distinct points \\(x\\) and \\(y\\) and put them in completely separate, non-overlapping “bubbles” (disjoint open sets).\nIn domain theory, points are not independent locations in space; they represent stages of computation ordered by information content (\\(x \\sqsubseteq y\\) means “\\(x\\) is a partial approximation of \\(y\\)”).\nBecause open sets in DTLF represent observable properties, the Scott topology dictates that every open set must be upward-closed. If an observable property is true of a partial computation \\(x\\) (e.g., “it has printed the letter A”), it must remain true for any further refinement \\(y\\) (e.g., “it has printed A, B, and C”). Information is monotonic; it cannot be “un-learned.”"
+  },
+  {
+    "objectID": "introduction.html#compactness-finite-observability",
+    "href": "introduction.html#compactness-finite-observability",
+    "title": "Synthetic Relativity: Tri-modality and the Fixpoint Semantics of the Logical Observer",
+    "section": "Compactness & finite observability",
+    "text": "Compactness & finite observability\nThe syntax (the logic): Bounded Distributive Lattices\nThe semantics (the geometry): Spectral spaces\nCompact open sets & finite observability:\nCompactness bridges infinite mathematical semantics with finite computational syntax."
+  },
+  {
+    "objectID": "introduction.html#qualities-of-dtlf",
+    "href": "introduction.html#qualities-of-dtlf",
+    "title": "Synthetic Relativity: Tri-modality and the Fixpoint Semantics of the Logical Observer",
+    "section": "Qualities of DTLF",
+    "text": "Qualities of DTLF\nThe Scott Topology perfectly matches a formal, inductive logic: Open sets in the Scott Topology The Logic (Syntax): A formula in standard DTLF represents a finite, verifiable piece of information. The Space (Semantics): This formula maps perfectly to a compact open set (a finite approximation) in the Scott Topology of the domain. The Proof Paths: Limit creation in the domain (taking the supremum of a directed set) corresponds exactly to logical entailment.\n\nNets indexed by directed sets.\nCompact elements\n\nA compact element (sometimes called a finite element). An element \\(c\\) is compact if, whenever \\(c\\) is less than or equal to the limit of a directed set, \\(c\\) is actually less than or equal to some element already inside that directed set.\n\nTuring complete\nSpatial completeness (theorem)"
+  },
+  {
+    "objectID": "introduction.html#sequences-of-finite-posets-sfps-partial-ordering",
+    "href": "introduction.html#sequences-of-finite-posets-sfps-partial-ordering",
+    "title": "Synthetic Relativity: Tri-modality and the Fixpoint Semantics of the Logical Observer",
+    "section": "Sequences of Finite Posets (SFPs): Partial ordering",
+    "text": "Sequences of Finite Posets (SFPs): Partial ordering\nSequences of Finite Posets (SFP), often called Bifinite domains, were introduced by Gordon Plotkin in 1976, they are domains constructed entirely as the limit of finite approximations. They are the ‘gold standard’ in DTLF because they are robust enough to model complex features like higher-order functions and non-determinism, while retaining the exact topological properties—compactness—required for finite observability and Stone Duality\n\nIn Computation (Semantics): It models the growth of information (\\(x \\sqsubseteq y\\) means \\(x\\) approximates \\(y\\)).\nIn Topology (Scott Topology): It dictates what is observable (properties must be “upward-closed” along the order).\nIn Logic (Syntax): It defines proof rules and deduction (\\(A \\le B\\) means \\(A\\) entails \\(B\\)).\nIn Space Design (SFP): SFP relies on sequences of finite partial orders to safely bridge the gap between finite verifiable steps and infinite computations."
+  },
+  {
+    "objectID": "introduction.html#comparison-with-inductive-logic-programming-ilp",
+    "href": "introduction.html#comparison-with-inductive-logic-programming-ilp",
+    "title": "Synthetic Relativity: Tri-modality and the Fixpoint Semantics of the Logical Observer",
+    "section": "Comparison with Inductive Logic Programming (ILP)",
+    "text": "Comparison with Inductive Logic Programming (ILP)\nTo prove A relative to B with respect to C is to reject the notion of an absolute, context-free proof. In this ternary relation, C (\\(S_r\\)) serves as the topological Reference Frame (the environment or inductive bias). A (RDo) is the active, syntactic accumulation of finite evidence. B (ODo) is the evaluated semantic limit.\nTherefore, the proof formally guarantees that within the strict geometric bounds of frame C, the evidence A is structurally sufficient to synthesise the invariant meaning B.\n\nUnlike classical Inductive Logic Programming (ILP) where background knowledge is static and human-coded, or standard ML where inductive bias is fixed globally by architecture, the Synthetic Relativity framework is dynamic.\nThe system’s background knowledge (Frame C) continuously evolves via the Transitivity Axiom, allowing the network to recursively synthesize and bootstrap its own higher-order inductive biases at each new layer of cognitive progression."
+  },
+  {
+    "objectID": "introduction.html#comparison-with-inductive-logic-programming-ilp-continued",
+    "href": "introduction.html#comparison-with-inductive-logic-programming-ilp-continued",
+    "title": "Synthetic Relativity: Tri-modality and the Fixpoint Semantics of the Logical Observer",
+    "section": "Comparison with Inductive Logic Programming (ILP) (continued)",
+    "text": "Comparison with Inductive Logic Programming (ILP) (continued)\nGordon Plotkin proved in 1971 that the Relative Least General Generalization (RLGG) of two clauses—relative to a background theory of arbitrary Horn clauses—may not exist as a finite clause under \\(\\theta\\)-subsumption.\n\nInverse entailment: grounding background knowledge relative to a specific example, IE constructs the most specific finite clause that entails the example. The search space for the algorithm is then strictly bounded between the empty clause (the most general) and this finite bottom clause (the most specific), completely circumventing the need to generate an infinite RLGG (Muggleton, 1995).\nExtracting structure from higher order ILP (Cropper et al. 2020))\nMetainterpretive learning and language bias: Recent systems avoid infinite generalizations by applying strict language biases and utilizing Meta-Interpretive Learning (MIL) (Zhang et al., 2024).\nEquational Anti-Univfication: In modern program synthesis and library learning (such as the systems Babble or DreamCoder), anti-unification is applied over \\(E\\)-graphs to compress code and discover common programmatic substructures efficiently without diverging into infinite spaces (Cerna & Kutsia, 2023)."
+  }
+]

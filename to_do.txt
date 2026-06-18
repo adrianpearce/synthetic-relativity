@@ -1,11 +1,6 @@
 Synthetic Relativity:
-============ Things still needing to be addressed ==============
-
-Framing the main theorems and axioms - the Gemini Chat perfectly frames these axioms and theorems. 
-
-Tweak the planning example, priming example for action theory in DTLF, then in R-DTLF, then in SSA...
-
-Finish tweaking the comparison table at the end
 
 Finally, go through and put in the form of slides (so I can speak to it), save the complete copy of that first, as it will form basis of manuscript.
+
+The comparison is still going to need tweaking, but that can come following putting into the form of slides.
 
