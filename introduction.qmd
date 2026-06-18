@@ -10,6 +10,7 @@ show-answers: true
 This module is also available in the following versions
 
 - [slides (html)](slides/introduction.html)
+- [slides (pdf)](pdfs/introduction.pdf)
 
 :::
 
