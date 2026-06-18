@@ -15,7 +15,8 @@ book:
   author: "Adrian R. Pearce"
   chapters:
     - index.qmd
-    - introduction.qmd
+    - talk.qmd
+    - appendix.qmd
   site-url: https://adrianpearce.github.io/synthetic-relativity/
 
 format:

@@ -1,5 +1,5 @@
 ---
-title: "Synthetic Relativity"
+title: "Introduction"
 author: 
   - name: Adrian R. Pearce
     email: adrianrp@unimelb.edu.au

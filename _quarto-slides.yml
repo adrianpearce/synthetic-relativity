@@ -2,7 +2,8 @@ project:
   type: website
   output-dir: slides
   render:
-    - introduction.qmd
+    - talk.qmd
+    - appendix.qmd
 
 format:
   revealjs:
