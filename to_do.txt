@@ -1,27 +1,23 @@
 Synthetic Relativity:
 ============ Things still needing to be addressed ==============
 
-1. Introduce some of the logcal details of DTLF (there was a bunch of stuff on that in one of the chats on Gemini)
+Go through and put in the form of slides (so I can speak to it)
 
-2. Tweak the example so it is more understandable, perhaps use and/or cultivate an example earlier on when introducing DTLF.
+Framing the main theorem (Realisation): See Gemini chat
 
-3. Build up the comparison slide (with the situation calculus pobably best)
+- $(c\Delta t)^2 - \text{distance}^2$ must always equal **exactly zero**
 
-4. Put somewhere: It operates from the inside out (endogenous). Because your local Topos operates on constructive logic, your framework relies on Kleene's Realizability and the BHK (Brouwer-Heyting-Kolmogorov) Interpretation. In this realm, Truth is physically identical to the computational program that builds it.
+Framing Property persistence as cetegoriy duality: See Gemini chat for that too
 
-5. Go through and put in the form of slides (so I can speak to it)
+At present there are too many slides for DTLF, and it is not being introduced as R-DTLF
+- First, differentiate R-DTLF when it is first introduced, START with R-DTLF (and point out it is founded on DTLF, better I think)
+- Then cut down redundent information in the existing slides and consider re-ordering; some of the e.g. completeness information might be best to come after the example.
+- Then consider a query to tighten up these slide progressions.
 
-Do not use in this talk:
-=======================
-- Chaitin's algorithmic complexity
-- Partial order reasoning, e.g.  for analysing formation of latent states in attention-based transformers (topology of thought)
+Query the "Fix(PDo)" notation, what is that and do we use something like it in the AIJ property persistence paper?
 
+Come up with priming example for action theory in DTLF, then in R-DTLF, then in SSA...
+- Tweak the example so it is more understandable, perhaps use and/or cultivate an example earlier on when introducing DTLF.
 
-
-
-
-
-
-
-
+Finish tweaking the population of the comparison slide
 
