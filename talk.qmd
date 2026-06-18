@@ -22,7 +22,7 @@ This module is also available in the following versions
 
 **Scope of talk**
 
-- 'Synthet axiomaticic' as in synthetic geometry, or synthetic domain theory, i.e. *axiomatic* 
+- Synthetic relativity as in synthetic geometry, or synthetic domain theory, i.e. *axiomatic* 
 
 - **Focus:** Self-reflection and reasoning about theories of action
 
@@ -102,6 +102,8 @@ Note in the **situation calculus** that since *regression* is trivially **conflu
 ## Inference duality of the observer
 
 ::: {.shrink70}
+
+![](figs/ipc.jpg){width=10% fig-align="center"}
 
 **Logical Benders decomposition** (Hooker & Ottosson, 2003) shows how the observer iteratively proposes a model of itself and verifies it via self-reflection.
 
