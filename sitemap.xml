@@ -2,10 +2,14 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://adrianpearce.github.io/synthetic-relativity/index.html</loc>
-    <lastmod>2026-06-14T07:00:30.826Z</lastmod>
+    <lastmod>2026-06-18T19:38:17.784Z</lastmod>
   </url>
   <url>
-    <loc>https://adrianpearce.github.io/synthetic-relativity/introduction.html</loc>
+    <loc>https://adrianpearce.github.io/synthetic-relativity/talk.html</loc>
     <lastmod>2026-06-18T19:27:53.507Z</lastmod>
+  </url>
+  <url>
+    <loc>https://adrianpearce.github.io/synthetic-relativity/appendix.html</loc>
+    <lastmod>2026-06-18T19:39:13.819Z</lastmod>
   </url>
 </urlset>
