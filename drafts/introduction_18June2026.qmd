@@ -161,9 +161,8 @@ Recognizing this duality laid the exact foundation required for the 2016 work wi
 
 Recall **Stretch goal:** self-transcending reasoning
 
-- A relativistic framework for reasoning about limits and topological structure
+- A relativistic framework for synthesising topological structure
 - A framework for the autonomous progression of action theories
-- A partial order approach to both synthesiting and hypothesising the existence of limits
 
 # Tri-modality & ternary representation
 
@@ -245,87 +244,24 @@ The Theorem of Semantic Realisation formally computes a **Bilimit**. At the exac
 
 *When this limit shifts to become the new Reference Frame ($S_f$) via the Transitivity Axiom, it acts entirely as a Greatest Fixpoint—a persistent, assumed law of physics for all subsequent computations, natively solving the Frame Problem.*
 
-## The Observer's Dual Logic (Syntax vs. Semantics)
+# Need for intuitionistic (coinductive/constructionist) logic $+$ classical (inductive) logic: Syntax versus Semantics
 
-To execute our modalities, we require an architecture that natively fuses classical (inductive) logic with intuitionistic (coinductive) logic. 
+There creates a need for both intuitionistic logic + classical inductive logic:
 
-* **Memoisation (Induction / The Actor):** Constructive in the *data* sense. It explicitly builds and stores finite, historical knowledge. It captures logical invariants and acts as the proof of what has been physically done.
-* **Lazy Evaluation (Coinduction / The Observer):** Constructive in the *intuitionistic* sense. A "thunk" (an unevaluated promise) is an observable property. The runtime intuitively maintains the topology of an infinite stream, only verifying when locally forced.
-* **The Incompleteness Boundary:** Logic remains classically monotonic locally. However, due to relative incompleteness (Gödel’s Incompleteness & Beklemishev’s reflection principles), a static system cannot resolve global limits. The observer must step outside the local system.
+Lazy evaluation is in fact a form of intuitionistic logic...perhaps before DTLF...highlighting syntax versus semantics...
 
-## The Foundational Logic: Domain Theory in Logical Form
+- Memoisation (Induction / The Actor): Is constructive in the data sense. It explicitly builds and stores finite, historical knowledge. It is the proof of what has been done.
 
-To map this topology of reasoning, we ground our system in Abramsky’s **DTLF** (1991). We abandon the absolute "God's eye" Boolean view ($A \lor \neg A$) for an endogenous, inside-out construction of truth.
+- Lazy Evaluation (Coinduction / The Observer): Is constructive in the DTLF / intuitionistic sense. A "thunk" (an unevaluated promise) is an observable property. The runtime engine does not build the infinite stream; it intuitively maintains the topology of the stream, only verifying the observation when locally forced to do so.
 
-* **Baseline Ignorance ($\bot$):** Computation does not start at "False"; it starts at Bottom ($\bot$)—a mathematical coordinate of zero information.
-* **Compact Elements:** Variables are not absolute binary states; they are discrete, finite pieces of verifiable evidence (e.g., *a specific sensor reading*).
-* **Directed Accumulation:** Knowledge is actively gathered. Because you cannot empirically "observe" an infinite negative in finite time, DTLF relies on a strictly positive logic, generating an upward, directed proof path ($\sqsubseteq$).
+- The first (memoisation)  is it quite nicely captures the idea of logical invariants
+- The second (lazy evaluation) is that it quite naturally captures classical logic versus need to intuitionistic (contructive) logic.
 
-## Spatial Completeness & The Static Limitation
+Note that Logic remains classically monotonic, from the local perspective.
 
-The profound mathematical power of vanilla DTLF lies in **Spatial Completeness** (rooted in Stone Duality).
+Levels of incompleteness, and notion of relative incompleteness (Beklesmev....), and  Godel's <what?>
 
-* **The Guarantee:** It proves a 1-to-1 isomorphism between the algebraic, step-by-step **Syntax** ($\phi \vdash \psi$) and the continuous, geometric **Semantics** ($[\![\phi]\!] \subseteq [\![\psi]\!]$). 
-* **Catching Limits:** Computations resolve exactly when the directed path of finite evidence mathematically catches an infinite continuous topological limit (a Supremum).
-* **The Flaw (The Crisis):** Vanilla DTLF perfectly describes a single, *static* universe. To untangle induction from coinduction and model dynamic, continuous learning, **the Reference Frame itself must dynamically shift.**
-
-## Encoding Planning in Synthetic Relativity (R-DTLF)
-
-Classical planning (e.g., Situation Calculus) relies on a global, static Basic Action Theory (BAT), leading to combinatorial explosion. In **R-DTLF**, planning is constructed dynamically, bottom-up:
-
-* **Environment (BAT) $\rightarrow$ Reference Frame ($S_r$):** Dictates the local inductive bias—bounding what is currently observable and what logical entailments ($\vdash$) are legally allowed.
-* **Actions $\rightarrow$ DTLF Primitives ($\mathrm{RDo}$):** Physical steps are encoded as finite compact elements (e.g., *observe clear path* $\vdash$ *move forward*) actively accumulated as a directed proof path.
-* **Goal $\rightarrow$ Semantic Target ($\mathrm{ODo}$):** Encoded as a **Target Semantic Attractor**—the topological limit the system attempts to evaluate and catch.
-* **The Plan $\rightarrow$ Relativistic Engine ($\mathrm{PDo}$):** The autonomous, recursive unrolling of the modalities.
-
-## Execution & Macro-Action Synthesis
-
-**Navigating from Start (A) $\to$ Target (C) via Waypoint (B)**
-
-**1. Local Unrolling (Micro-Actions):** 
-The engine recursively accumulates primitive steps, continuously evaluating semantic progress toward $C$:
-
-$$ 
-\mathrm{PDo}\Big(\, \mathrm{RDo}\big(\text{Move}, \mathrm{RDo}(\text{Turn}, A)\big),\; \mathrm{ODo}\big(O_{\text{waypoint}}, C\big),\; S_r \,\Big) 
-$$
-
-**2. Limit Catching:** 
-The system evaluates $O_{\text{waypoint}}$ as *"I am at Waypoint B."* A local semantic limit is mathematically caught.
-
-**3. The Synthetic Transformation (Skill Chunking):** 
-The Transitivity Axiom fires, executing a Change of Base:
-
-$$ 
-\mathrm{PDo}(N_{A \to B}, O_{\text{waypoint}}, S_r) \longrightarrow \mathrm{PDo}(X, Y, \mathbf{N_{A \to B}}) 
-$$
-
-**The Relativistic Advantage:** The highly complex trace of microscopic actions mathematically compresses into a single, atomic baseline symbol ($\mathbf{N_{A \to B}}$). The obsolete history is discarded (bypassing the Frame Problem).
-
-## Bridging Worlds: Topological Booleanization
-
-R-DTLF does not discard classical logic; it functionally generates it at the semantic limits.
-
-* **Topological Booleanization:** Utilizing the Lawvere-Tierney double-negation ($\neg \neg$) topology, continuous intuitionistic proof paths "collapse" into discrete Boolean states once verification is complete.
-* **Compiling Successor State Axioms (SSAs):** This geometric compression is mathematically homologous to Reiter's Explanation Closure compiling into SSAs.
-* **Hybrid Execution:** Because of this backward compatibility, we can confidently run standard Situation Calculus securely alongside the continuous, shifting R-DTLF engine.
-
-# Comparison between Synthetic Relativity and Situation Calculus
-
-::: {.shrink53}
-
-| Aspect             | *Synthetic Relativity (R-DTLF)*                                                                            | *Situation Calculus (BATs/SSAs)*                                                                                                            | *Bi-model Provability logic (GLB)* |
-| :----------------- | :---------------------------------------------------------------------------------- | :----------------------------------------------------------------------------------------------------------------- | :----- |
-| *Ordering*        | Sequences of finite Posets, non-unique predecessors, non-well ordered                | Successor function, Unique predecessors, non-well ordered   |  Transfinite ordinality: limits, Non-unique predecessors, well-ordered |
-| *Compactness?* | Yes (Algebraic compactness) | No | No |
-| *Completeness?* | Turing Complete & Spatial Completeness |  | Ordinally Complete |
-| *Realizability?* | Kleene's Realizability & BHK (Brouwer-Heyting-Kolmogorov) Interpretation) | No  | No |
-| *Parellisable?* | Yes (partially ordered) | No | No |
-
-:::
-
-# Appendix
-
-## Domain Theory in Logical Form (DTLF)
+# Domain Theory in Logical Form (DTLF)
 
 Introduced by Samson Abramsky (1991), DTLF provides the foundational "physics" of computation. To map the true topology of reasoning, we must first abandon classical, absolute logic.
 
@@ -333,7 +269,7 @@ Introduced by Samson Abramsky (1991), DTLF provides the foundational "physics" o
 *   **Intuitionistic & Constructive:** DTLF operates from the inside out. Truth is not a static given; it must be actively constructed step-by-step. 
 *   **The Logic of Partial Information:** In DTLF, variables do not represent absolute boolean states; they represent *observable properties* and evolving states of partial knowledge.
 
-## The Scott Domain
+# The Scott Domain
 
 In DTLF, computation is an upward, continuous climb from baseline ignorance toward a fully realised concept within a geometric **Scott Domain**.
 
@@ -344,7 +280,7 @@ In DTLF, computation is an upward, continuous climb from baseline ignorance towa
 *   **Directed Accumulation:** 
     Knowledge is actively gathered. The system continuously accumulates these compact elements, generating a directed proof path ($\sqsubseteq$).
 
-## Spatial Completeness
+# Spatial Completeness
 
 The profound mathematical power of vanilla DTLF lies in Abramsky's **Spatial Completeness Theorem**, rooted in Stone Duality.
 
@@ -358,7 +294,7 @@ Every step of logical deduction perfectly corresponds to navigating a continuous
 
 *Limitation: Vanilla DTLF perfectly describes a single, static universe. To model continuous learning and dynamic abstraction, the Reference Frame itself must shift...*
 
-## The Core Philosophy
+# The Core Philosophy
 
 **Exogenous Truth vs. Endogenous Observation**
 
@@ -367,7 +303,7 @@ Every step of logical deduction perfectly corresponds to navigating a continuous
 *   **Observable Properties:** In DTLF, a formula $\phi$ does not represent an absolute "Truth." It represents a finite, computationally *observable property* (a compact open set in the Scott Topology).
 *   **The Act of Verification:** To assert $\phi$ is to mathematically state: *"Based on a finite amount of inductive computational steps, I have actively gathered the evidence to verify property $\phi$."*
 
-## The Formal Syntax
+# The Formal Syntax
 
 **A Strictly Positive Propositional Logic**
 
@@ -382,7 +318,7 @@ $$ \phi, \psi  ::=  \mathbf{t}  \mid  \mathbf{f}  \mid  \phi \land \psi  \mid  \
 **What is missing? Classical Negation ($\neg \phi$) and Implication ($\phi \rightarrow \psi$).**
 *You cannot empirically "observe" an infinite negative. If a program runs forever, you can never halt it at a finite step to confidently declare "This will never happen." Negation only emerges at the continuous limit.*
 
-## The Engine & Catching Limits
+# The Engine & Catching Limits
 
 **Entailment ($\vdash$) and Syntactic Fixpoints**
 
@@ -395,7 +331,7 @@ Because syntax is finite, an infinite continuous limit cannot be a single finite
 *   **Limits as Filters:** A semantic limit is a *Filter* or *Ideal*—an infinite, directed set of formulas mutually entailing each other ($\phi_1 \vdash \phi_2 \vdash \phi_3 \dots$).
 *   **The Fixpoint Operator ($\mu$):** To handle recursive loops, vanilla DTLF relies on a static, syntactic variable axiom ($\mu X. F(X)$) to declare that a least fixpoint exists.
 
-## Categorical (Stone) duality: Domain Theory in Logical Form (DTLF) & Scott topologies
+# Categorical (Stone) duality: Domain Theory in Logical Form (DTLF) & Scott topologies
 
 Through Stone duality, DTLF proves that these two sides are mathematically isomorphic:
 
@@ -423,7 +359,7 @@ But how do we dynamically capture an inference dual inside these non-standard sp
 
 - However: While DTLF provides the continuous semantics, dynamically capturing the relativistic observer and the inference dual requires a structural upgrade.
 
-## DTLF spaces are $T_0$ (Kolmogorov) spaces (Why it is non Hausdorff) 
+# DTLF spaces are $T_0$ (Kolmogorov) spaces (Why it is non Hausdorff) 
 
 For a topological space to be Hausdorff ($T_2$), you must be able to take any two distinct points $x$ and $y$ and put them in completely separate, non-overlapping "bubbles" (disjoint open sets).  
 
@@ -431,7 +367,7 @@ In domain theory, points are not independent locations in space; they represent 
 
 Because open sets in DTLF represent observable properties, the Scott topology dictates that every open set must be upward-closed. If an observable property is true of a partial computation $x$ (e.g., "it has printed the letter A"), it must remain true for any further refinement $y$ (e.g., "it has printed A, B, and C"). Information is monotonic; it cannot be "un-learned."
 
-## Compactness & finite observability
+# Compactness & finite observability
 
 The syntax (the logic): Bounded Distributive Lattices
 
@@ -441,27 +377,12 @@ The semantics (the geometry): Spectral spaces
 
 Compactness bridges infinite mathematical semantics with finite computational syntax.
 
-## Qualities of DTLF
+# Sequences of Finite Posets (SFPs): Partial ordering
 
-The Scott Topology perfectly matches a formal, inductive logic: Open sets in the Scott Topology
-The Logic (Syntax): A formula in standard DTLF represents a finite, verifiable piece of information.
-The Space (Semantics): This formula maps perfectly to a compact open set (a finite approximation) in the Scott Topology of the domain.
-The Proof Paths: Limit creation in the domain (taking the supremum of a directed set) corresponds exactly to logical entailment.
 
-- Nets indexed by directed sets.
+SFP stands for Sequences of Finite Posets (often called Bifinite domains). Introduced by Gordon Plotkin in 1976, they are domains constructed entirely as the limit of finite approximations. They are the 'gold standard' in DTLF because they are robust enough to model complex features like higher-order functions and non-determinism, while retaining the exact topological properties—compactness—required for finite observability and Stone Duality
 
-- Compact elements
-
-A compact element (sometimes called a finite element). An element $c$ is compact if, whenever $c$ is less than or equal to the limit of a directed set, $c$ is actually less than or equal to some element already inside that directed set.
-
-- Turing complete
-
-- Spatial completeness (theorem)
-
-## Sequences of Finite Posets (SFPs): Partial ordering
-
-Sequences of Finite Posets (SFP), often called Bifinite domains, were introduced by Gordon Plotkin in 1976, they are domains constructed entirely as the limit of finite approximations. They are the 'gold standard' in DTLF because they are robust enough to model complex features like higher-order functions and non-determinism, while retaining the exact topological properties—compactness—required for finite observability and Stone Duality
-
+- Partial order....limits...  Can go in both directions, there could be a limit that...
 
 - In Computation (Semantics): It models the growth of information ($x \sqsubseteq y$ means $x$ approximates $y$).
 
@@ -471,7 +392,82 @@ Sequences of Finite Posets (SFP), often called Bifinite domains, were introduced
 
 - In Space Design (SFP): SFP relies on sequences of finite partial orders to safely bridge the gap between finite verifiable steps and infinite computations.
 
-## Comparison with Inductive Logic Programming (ILP)
+
+
+# Qualities of DTLF
+
+The Scott Topology perfectly matches a formal, inductive logic: Open sets in the Scott Topology
+The Logic (Syntax): A formula in standard DTLF represents a finite, verifiable piece of information.
+The Space (Semantics): This formula maps perfectly to a compact open set (a finite approximation) in the Scott Topology of the domain.
+The Proof Paths: Limit creation in the domain (taking the supremum of a directed set) corresponds exactly to logical entailment.
+
+Nets indexed by directed sets.
+
+Compact elements
+
+A compact element (sometimes called a finite element). An element $c$ is compact if, whenever $c$ is less than or equal to the limit of a directed set, $c$ is actually less than or equal to some element already inside that directed set.
+
+Turing complete
+
+Spatial completeness (theorem)
+
+# Encoding Planning in R-DTLF
+
+Classical planning (e.g., Situation Calculus) relies on a global, static Basic Action Theory (BAT), where goals are Boolean theorems ($\exists s. \mathrm{Goal}(s)$). This rigidity often leads to combinatorial explosion.
+
+In **Synthetic Relativity (R-DTLF)**, planning is constructed bottom-up:
+
+*   **Environment (BAT) $\rightarrow$ Reference Frame ($S_r$):** 
+    Dictates the local inductive bias—bounding what is currently observable and what logical entailments ($\vdash$) are legally allowed.
+*   **Actions $\rightarrow$ DTLF Primitives ($\mathrm{RDo}$):** 
+    Physical steps are encoded as finite compact elements (e.g., *observe clear path* $\vdash$ *move forward*) actively accumulated as a directed proof path.
+*   **Goal $\rightarrow$ Semantic Target ($\mathrm{ODo}$):** 
+    Encoded as a **Target Semantic Attractor**—the topological limit the system attempts to computationally evaluate and mathematically realise.
+*   **The Plan $\rightarrow$ Relativistic Engine ($\mathrm{PDo}$):** 
+    The autonomous, recursive unrolling of the modalities until the target fixpoint is caught.
+
+# Execution & Macro-Action Synthesis
+
+**Navigating from Start (A) $\to$ Target (C) via Waypoint (B)**
+
+**1. Local Unrolling (Micro-Actions)**
+Starting at $A$, the engine recursively accumulates primitive motor steps (turn, move), continuously evaluating semantic progress toward $C$:
+$$ \mathrm{PDo}\Big(\, \mathrm{RDo}\big(\text{Move}, \mathrm{RDo}(\text{Turn}, A)\big),\; \mathrm{ODo}\big(O_{\text{waypoint}}, C\big),\; S_r \,\Big) $$
+
+**2. Realisation of the Sub-Goal**
+The system evaluates $O_{\text{waypoint}}$ as *"I am at Waypoint B."* A local semantic limit is mathematically caught.
+
+**3. The Synthetic Transformation (Skill Chunking)**
+The Transitivity Axiom fires, executing a categorical Change of Base:
+$$ \mathrm{PDo}(N_{A \to B}, O_{\text{waypoint}}, S_r) \longrightarrow \mathrm{PDo}(X, Y, \mathbf{N_{A \to B}}) $$
+
+* **The Relativistic Advantage:** The highly complex trace of microscopic actions mathematically compresses into a single, atomic baseline symbol ($\mathbf{N_{A \to B}}$). The agent discards the obsolete computational history (bypassing the Frame Problem) and plans the next leg ($B \to C$) using a newly synthesised, higher-order macro-action.
+
+# Topological Booleanization: Compiling Successor State Axiom (SSAs)
+
+- Topological Booleanization (the Lwvere-Tierney $\not \not$ not topology) 
+
+- Much like Reiter's Explanation Closure compiling into Successor State Axioms (SSAs).
+
+- Can also run the situation calculus with a basic action theory (BAT) alongside R-DTLF.
+
+
+# Comparison between Synthetic Relativity and Situation Calculus
+
+::: {.shrink53}
+
+| Aspect             | *Synthetic Relativity (R-DTLF)*                                                                            | *Situation Calculus (BATs/SSAs)*                                                                                                            | *Bi-model Provability logic (GLB)* |
+| :----------------- | :---------------------------------------------------------------------------------- | :----------------------------------------------------------------------------------------------------------------- | :----- |
+| *Ordering*        | Sequences of finite Posets, non-unique predecessors, non-well ordered                | Successor function, Unique predecessors, non-well ordered   |  Transfinite ordinality: limits, Non-unique predecessors, well-ordered |
+| *Compactness?* | Yes (Algebraic compactness) | No | No |
+| *Completeness?* | Turing Complete & Spatial Completeness |  | Ordinally Complete |
+| *Realizability?* | Kleene's Realizability & BHK (Brouwer-Heyting-Kolmogorov) Interpretation) | No  | No |
+| *Parellisable?* | Yes (partially ordered) | No | No |
+
+:::
+
+
+# Comparison with Inductive Logic Programming (ILP)
 
 To prove A relative to B with respect to C is to reject the notion of an absolute, context-free proof. In this ternary relation, C ($S_r$) serves as the topological Reference Frame (the environment or inductive bias). A (RDo) is the active, syntactic accumulation of finite evidence. B (ODo) is the evaluated semantic limit.
 
@@ -480,7 +476,7 @@ Therefore, the proof formally guarantees that within the strict geometric bounds
 - Unlike classical Inductive Logic Programming (ILP) where background knowledge is static and human-coded, or standard ML where inductive bias is fixed globally by architecture, the Synthetic Relativity framework is dynamic. 
 - The system’s background knowledge (Frame C) continuously evolves via the Transitivity Axiom, allowing the network to recursively synthesize and bootstrap its own higher-order inductive biases at each new layer of cognitive progression.
 
-## Comparison with Inductive Logic Programming (ILP) (continued)
+---
 
 Gordon Plotkin proved in 1971 that the Relative Least General Generalization (RLGG) of two clauses—relative to a background theory of arbitrary Horn clauses—may not exist as a finite clause under $\theta$-subsumption.
 

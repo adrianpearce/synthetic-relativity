@@ -1,23 +1,11 @@
 Synthetic Relativity:
 ============ Things still needing to be addressed ==============
 
-Go through and put in the form of slides (so I can speak to it)
+Framing the main theorems and axioms - the Gemini Chat perfectly frames these axioms and theorems. 
 
-Framing the main theorem (Realisation): See Gemini chat
+Tweak the planning example, priming example for action theory in DTLF, then in R-DTLF, then in SSA...
 
-- $(c\Delta t)^2 - \text{distance}^2$ must always equal **exactly zero**
+Finish tweaking the comparison table at the end
 
-Framing Property persistence as cetegoriy duality: See Gemini chat for that too
-
-At present there are too many slides for DTLF, and it is not being introduced as R-DTLF
-- First, differentiate R-DTLF when it is first introduced, START with R-DTLF (and point out it is founded on DTLF, better I think)
-- Then cut down redundent information in the existing slides and consider re-ordering; some of the e.g. completeness information might be best to come after the example.
-- Then consider a query to tighten up these slide progressions.
-
-Query the "Fix(PDo)" notation, what is that and do we use something like it in the AIJ property persistence paper?
-
-Come up with priming example for action theory in DTLF, then in R-DTLF, then in SSA...
-- Tweak the example so it is more understandable, perhaps use and/or cultivate an example earlier on when introducing DTLF.
-
-Finish tweaking the population of the comparison slide
+Finally, go through and put in the form of slides (so I can speak to it), save the complete copy of that first, as it will form basis of manuscript.
 
