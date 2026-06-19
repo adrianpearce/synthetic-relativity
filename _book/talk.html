@@ -264,7 +264,9 @@ window.Quarto = {
 <li><strong>Realisation</strong> is the invariant interval.</li>
 </ul>
 <p>Rotating logical frame of reference changes how much proof exists in spatial topology versus how much unfolds dynamically in computational time, but invariant interval—the <strong>realisation</strong>—is preserved.</p>
-<p>Note in the <strong>situation calculus</strong> that since <em>regression</em> is trivially <strong>confluent</strong>, as per Church-Rosser theorem as it is deterministic, the order in which you evaluate it does not change its final semantic truth, so the <strong>realisation</strong> is preserved.</p>
+<ul>
+<li>Note in the <strong>situation calculus</strong> that since <em>regression</em> is trivially <strong>confluent</strong>, as per Church-Rosser theorem as it is deterministic, the order in which you evaluate it does not change its final semantic truth, so the <strong>realisation</strong> is preserved.</li>
+</ul>
 </div>
 </section>
 </section>
@@ -272,28 +274,26 @@ window.Quarto = {
 <h1>Inference and Categorical Duality</h1>
 <section id="inference-duality-of-the-observer" class="level2">
 <h2 class="anchored" data-anchor-id="inference-duality-of-the-observer">Inference duality of the observer</h2>
-<div class="shrink70">
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="figs/ipc.jpg" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:10.0%"></p>
-</figure>
-</div>
+<div class="shrink75">
 <p><strong>Logical Benders decomposition</strong> (Hooker &amp; Ottosson, 2003) shows how the observer iteratively proposes a model of itself and verifies it via self-reflection.</p>
-<p>(Davies, Pearce, Stuckey &amp; Lipovetzky 2015) showed this to be competitive with state of the art planners on International Planning Competition (IPC) benchmarks</p>
 <ul>
 <li><strong>The Master (The Proposer)</strong>: The observer proposes a relaxed model of its current state or plan. <span style="color:blue">Operator (action) counting using MIP</span></li>
 <li><strong>The Subproblem (The Verifier)</strong>: The observer reflects on this proposal, testing its logical consistency with respect to the overall problem. <span style="color:blue">Sequencing actions using SAT</span></li>
 <li><strong>The Cut (The Inference)</strong>: When the proposal fails, the observer generates a logical inference (a Benders cut) that restricts its future reasoning. <span style="color:blue">Conflict driven clause learning (SAT).</span></li>
 </ul>
-<p>Proven to converge to the optimal feasible solution. It can be modelled as finding a fixpoint of a monotonic constraint-generation operator</p>
+<div style="margin-top: -0.8em;">
+
+</div>
+<p>(Davies, Pearce, Stuckey &amp; Lipovetzky 2015, ICAPS Outstanding Paper Award) showed approach competitive with state of the art planners on International Planning Competition (IPC) benchmarks—proven to converge to the optimal feasible solution.</p>
 </div>
 </section>
 <section id="inference-duality-of-the-observer---limitations" class="level2">
 <h2 class="anchored" data-anchor-id="inference-duality-of-the-observer---limitations">Inference duality of the observer - Limitations</h2>
 <div class="shrink80">
-<p>It does not compute a “least fixpoint” in the traditional sense as it intentionally stops early once optimal feasibility is proven (it is based on propositional logic)</p>
+<p>Inference duality like Benders decomposition can be modelled as finding a fixpoint of a monotonic constraint-generation operator.</p>
 <ul>
-<li>Note that the <strong>situation calculus</strong> <em>does</em> rely on least fixpoint in first order logic.</li>
+<li><p>However, it does not compute a “least fixpoint” in the traditional sense as it intentionally stops early once optimal feasibility is proven (it is based on propositional logic)</p></li>
+<li><p>Note that the <strong>situation calculus</strong> <em>does</em> rely on least fixpoint in first order logic.</p></li>
 </ul>
 </div>
 </section>
@@ -317,7 +317,7 @@ window.Quarto = {
 </div>
 <hr>
 <div class="shrink80">
-<p><strong>Result:</strong> Iteratively applying this meta-level calculation computes the maximal invariant without explicitly invoking the induction axiom.</p>
+<p>Iteratively applying this meta-level calculation computes the maximal invariant without explicitly invoking the induction axiom.</p>
 <ul>
 <li>By wrapping the single-step regression operator inside a monotonic formula transformer, we evaluate the future back in the current state.</li>
 <li>Taking the greatest fixpoint of this regression operator yields the exact, most permissive preconditions required for the property to persist indefinitely using only first-order logic.</li>
@@ -340,12 +340,15 @@ window.Quarto = {
 </div>
 <hr>
 <div class="shrink80">
-<p>The exact same regression-based fixpoint mathematics we used for property persistence natively empowers the <span class="math inline">\(\mu\)</span>-calculus. - By upgrading the quantifier prefix from ‘nature does anything’ to alternating game quantifiers, we can use both greatest and least fixpoints to automatically synthesise strategies and guarantee winnability in infinite-state games.</p>
+<p>The modal <span class="math inline">\(\mu\)</span>-calculus derives its expressive power from the same foundational fixpoint mathematics—least and greatest fixpoints—used to compute backward reachability and property persistence in model checking.</p>
+<ul>
+<li>By upgrading the quantifier prefix from ‘nature does anything’ to <span style="color:blue">alternating game quantifiers</span>, we can use both greatest and least fixpoints to automatically synthesise strategies and guarantee winnability in infinite-state games.</li>
+</ul>
 </div>
 </section>
 <section id="categorical-duality" class="level2">
 <h2 class="anchored" data-anchor-id="categorical-duality">Categorical duality</h2>
-<div class="shrink87">
+<div class="shrink79">
 <p><span style="color:red">Is property persistence just an algorithmic trick with regression?</span> No.&nbsp;It represents a fundamental categorical duality in action theories.</p>
 <ul>
 <li><strong>The Inductive Action Theory (Standard SitCalc):</strong>
@@ -361,15 +364,23 @@ window.Quarto = {
 <li>Employs <strong>Regression</strong> (the <em>right adjoint</em> to progression) to compute maximal invariants.</li>
 </ul></li>
 </ul>
-<p><strong>The Takeaway:</strong> By framing persistence as a greatest fixpoint over single-step regression, we embedded the <strong>coinductive dual</strong> of reachability into the Situation Calculus. This exact mathematical duality made the transition to alternating <span class="math inline">\(\mu\)</span>-calculus for game synthesis (ECAI 2016) a natural evolution.</p>
-<p>In retrospect, what we were doing in 2010 was exploiting a categorical duality. The standard Situation Calculus is fundamentally inductive—an initial algebra. But persistence is fundamentally coinductive—a terminal coalgebra. By evaluating persistence via regression, we mapped a forward-looking infinite problem into its computable, right-adjoint dual.</p>
-<p>Recognising this duality laid the exact foundation required for the 2016 work with Giuseppe and Yves. Once you formalise the dual spaces of safety (greatest fixpoints over regression) and reachability (least fixpoints), strategy synthesis in the full mu-calculus is just the natural interleaving of these mathematical duals.</p>
+</div>
+<hr>
+<div class="shrink82">
+<p>By framing persistence as a greatest fixpoint over single-step regression, we embedded the <strong>coinductive dual</strong> of reachability into the Situation Calculus.</p>
+<ul>
+<li>This mathematical duality made the transition to alternating <span class="math inline">\(\mu\)</span>-calculus for game synthesis (ECAI 2016) a natural evolution.</li>
+</ul>
+<p>In retrospect, what we were doing in 2010 was exploiting a <strong>categorical duality</strong>. The standard Situation Calculus is fundamentally inductive—an initial algebra. But persistence is fundamentally coinductive—a terminal coalgebra. By evaluating persistence via regression, we mapped a forward-looking infinite problem into its computable, right-adjoint dual.</p>
+<ul>
+<li><span style="color:blue">Once you formalise the dual spaces of safety (greatest fixpoints over regression) and reachability (least fixpoints), strategy synthesis in the full <span class="math inline">\(\mu\)</span>-calculus is just the natural interleaving of these mathematical duals.</span></li>
+</ul>
 </div>
 </section>
 <section id="limitations" class="level2">
 <h2 class="anchored" data-anchor-id="limitations">Limitations</h2>
-<div class="shrink87">
-<p><span style="color:red">What are the limitations of our approach?</span></p>
+<div class="shrink79">
+<p><span style="color:red">What was the limitations of our approach?</span></p>
 <ul>
 <li>Regression is handled <em>separately</em> by different logics: <span class="math inline">\(\mu\)</span> calculus (greatest fixpoint <span class="math inline">\(\mu\)</span> and least fixpoint <span class="math inline">\(\nu\)</span>) <span class="math inline">\(+\)</span> situation calculus (least fixpoint <span class="math inline">\(\mu\)</span>)</li>
 <li>Neither the <span class="math inline">\(\mu\)</span> calculus nor the situation calculus captures <em>inference duality</em> or <em>categorical duality</em> explicitly</li>
@@ -388,26 +399,27 @@ window.Quarto = {
 <h1>Synthetic relativity axioms</h1>
 <section id="tri-modality-ternary-representation" class="level2">
 <h2 class="anchored" data-anchor-id="tri-modality-ternary-representation">Tri-modality &amp; ternary representation</h2>
-<div class="shrink87">
-<p>Because the categorical dual of a reflective system cannot be handled in a strict boolean space without losing information, a ternary representation becomes geometrically and logically necessary.</p>
-<p>Standard provability logics like GLB (Gödel-Löb Bimodal Provability Logic) rely on absolute binary provability: <span class="math inline">\(x R y\)</span> assumes an absolute background space where <span class="math inline">\(y\)</span> is provable from <span class="math inline">\(x\)</span>.</p>
+<div class="shrink85">
+<p>Standard provability logics like <span class="math inline">\(\mathrm{GLB}\)</span> (Gödel-Löb Bimodal Provability Logic) rely on absolute binary provability: <span class="math inline">\(x R y\)</span> assumes an absolute background space where <span class="math inline">\(y\)</span> is provable from <span class="math inline">\(x\)</span>.</p>
 <ul>
 <li>In a ternary structure (drawing from Routley-Meyer semantics for substructural, relevance, and intuitionistic logics), you have a relation <span class="math inline">\(R(x, y, z)\)</span>.</li>
 <li>This allows us to decouple the synthetic transformation from the topological space. The ternary relation natively introduces the Observer’s frame. It reads: “Relative to reference frame <span class="math inline">\(x\)</span>, the accumulation of inductive evidence <span class="math inline">\(y\)</span> yields the coinductively realised semantic limit <span class="math inline">\(z\)</span>.”</li>
 </ul>
-<p>If the semantic space is no longer strict and binary, the representational geometry must evolve to match.</p>
+</div>
+<hr>
+<div class="shrink85">
+<p>As the semantic space is no longer strict and binary, the representational geometry must evolve to match the problem.</p>
 <ul>
-<li><strong>The Tri-modal Shift:</strong> Introducing a ternary representation to dynamically navigate the relativistic observer.</li>
-<li><strong>Structural Necessity:</strong> Tri-modality is the specific geometry required to house the non-standard continuous spaces of DTLF.</li>
-<li><strong>The Outcome:</strong> The observer can safely maintain its operational identity (coinduction) while formally stepping outside its previous logical bounds (induction).</li>
+<li><strong>The Tri-modal Shift:</strong> Introduces a ternary representation to dynamically navigate the relativistic observer.</li>
+<li><strong>Structural Necessity:</strong> Tri-modality is the specific geometry required to house the non-standard continuous spaces.</li>
+<li><strong>The Outcome:</strong> The observer can achieve self reflection (coinduction) while formally stepping outside its previous logical bounds (induction).</li>
 </ul>
-<p>This is the core of Synthetic Relativity. Tri-modality is not an arbitrary choice; it is a mathematical necessity. By moving to a ternary space, the framework successfully untangles the fixpoints, laying the formal foundation for a system that can ultimately achieve self-transcending reasoning.</p>
 </div>
 </section>
 <section id="synthetic-relativity-the-structural-axioms" class="level2">
 <h2 class="anchored" data-anchor-id="synthetic-relativity-the-structural-axioms">Synthetic Relativity: The Structural Axioms</h2>
-<div class="shrink87">
-<p><strong>Dynamic Trimodal Logic with Ternary Relational Semantics:</strong> The framework replaces absolute global topologies with a relativistic reasoning architecture governed by foundational structural postulates.</p>
+<div class="shrink68">
+<p><strong>Dynamic Trimodal Logic with Ternary Relational Semantics:</strong></p>
 <p><strong>Axiom 1: The Ternary Relational Axiom</strong> Logical entailment is governed by three interacting modalities relative to a specific baseline Reference Frame (<span class="math inline">\(S_f\)</span>):</p>
 <ul>
 <li><strong><span class="math inline">\(\mathrm{RDo}\)</span> (The Subproblem / Syntax): The Inductive Accumulator (<span class="math inline">\(\Box_1\)</span>)</strong> Operates in constructive, non-Boolean logic. Recursively gathers finite, computationally observable properties (compact elements) along a directed logical path. <span class="math inline">\(\mathrm{RDo}\)</span> is equivalent to the <span class="math inline">\(\Box\)</span> modality of bimodal provability logic GLB: <em>“There exists a finite, step-by-step mechanical proof of this property.”</em></li>
@@ -418,9 +430,10 @@ window.Quarto = {
 </section>
 <section id="constructive-accumulation-realisation" class="level2">
 <h2 class="anchored" data-anchor-id="constructive-accumulation-realisation">Constructive Accumulation &amp; Realisation</h2>
-<div class="shrink87">
+<div class="shrink75">
 <p><strong>Axiom 2: The Axiom of Constructive Accumulation</strong> Within a given reference frame (<span class="math inline">\(S_f\)</span>), the Relativistic Engine (<span class="math inline">\(\mathrm{PDo}\)</span>) iteratively drives the state forward, nesting inductive syntax (<span class="math inline">\(\mathrm{RDo}\)</span>) and semantic coinductions (<span class="math inline">\(\mathrm{ODo}\)</span>): <span class="math display">\[ \mathrm{PDo}(S_r, S_o, S_f) \]</span> <span class="math display">\[ \mathrm{PDo}\big(\, \mathrm{RDo}(R_1, S_r),\; \mathrm{ODo}(O_1, S_o),\; S_f \,\big) \]</span> <span class="math display">\[ \mathrm{PDo}\Big(\, \mathrm{RDo}\big(R_2, \mathrm{RDo}(R_1,S_r)\big),\; \mathrm{ODo}\big(O_2, \mathrm{ODo}(O_1,S_o)\big),\; S_f \,\Big) \]</span> <span class="math display">\[ \mathit{etc.} \]</span></p>
 </div>
+<hr>
 <div class="callout callout-style-default callout-note no-icon callout-titled" title="Theorem I: Semantic Realisation">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
@@ -431,14 +444,25 @@ Theorem I: Semantic Realisation
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>Because progression builds strictly upon finite verifiable observables, autonomous progression strictly halts when the topology reaches Algebraic Compactness. This is the moment of mathematical <strong>Realisation</strong>: <span class="math display">\[ \mu (\mathrm{PDo}) = \mathrm{ODo} \left( \bigsqcup_{i \in R} \mathrm{RDo}_i(\bot) \right) \]</span></p>
+<p>Because progression builds strictly upon finite verifiable observables, autonomous progression strictly halts when the topology reaches Algebraic Compactness. This is the moment of mathematical <strong>Realisation</strong>:</p>
+<div style="margin-top: -0.8em;">
+
+</div>
+<p><span class="math display">\[ \mu (\mathrm{PDo}) = \mathrm{ODo} \left( \bigsqcup_{i \in R} \mathrm{RDo}_i(\bot) \right) \]</span></p>
+<div style="margin-top: -0.8em;">
+
+</div>
 <ul>
-<li><strong>The Inside (<span class="math inline">\(\bigsqcup \mathrm{RDo}\)</span>):</strong> Purely Syntax. The builder generates a raw, directed chain of evidence from the ground up. A syntax string alone has no inherent “meaning.” -`<strong>The Outside (<span class="math inline">\(\mathrm{ODo}\)</span>):</strong> Semantics. The top-down evaluator reads the syntax trace and evaluates its truth value.</li>
+<li><strong><span class="math inline">\(\bigsqcup \mathrm{RDo}\)</span> (Syntax):</strong> The builder generates a raw, directed chain of evidence from the ground up. A syntax string alone has no inherent “meaning.”</li>
+<li><strong><span class="math inline">\(\mathrm{ODo}\)</span> (Semantics):</strong> The top-down evaluator reads the syntax trace and evaluates its truth value.</li>
 <li><strong>The Proof Mechanism:</strong> Corresponds to the computation of the <strong>Kleene Fixed-Point Theorem</strong>.</li>
 </ul>
 </div>
 </div>
-<div class="shrink87">
+<div style="margin-top: -0.4em;">
+
+</div>
+<div class="shrink55">
 <ul>
 <li>The ultimate stable fixpoint (<span class="math inline">\(\mu\)</span>) is caught exactly when <span class="math inline">\(\mathrm{ODo}\)</span> evaluates the limit (Supremum, <span class="math inline">\(\bigsqcup\)</span>) of iteratively applying the recursively enumerable inductive proofs (<span class="math inline">\(\mathrm{RDo}\)</span>) from baseline ignorance (<span class="math inline">\(\bot\)</span>).</li>
 <li>This realised limit acts as the interval semantic invariant.</li>
@@ -447,7 +471,7 @@ Theorem I: Semantic Realisation
 </section>
 <section id="the-synthetic-transformation" class="level2">
 <h2 class="anchored" data-anchor-id="the-synthetic-transformation">The Synthetic Transformation</h2>
-<div class="shrink87">
+<div class="shrink80">
 <p><strong>Axiom 3: The Transitivity Axiom</strong> Once Realisation is achieved, the relativistic reference frame shifts. The categorically preserved invariant (the semantic limit, <span class="math inline">\(O\)</span>) becomes the new reference frame (<span class="math inline">\(S_f\)</span>) for the next order of progression.</p>
 <p><span class="math display">\[ \mathrm{PDo}(N, O, S_f) \longrightarrow \mathrm{PDo}(X, Y, \mathbf{O}) \]</span></p>
 <ul>
@@ -456,6 +480,7 @@ Theorem I: Semantic Realisation
 <li><strong>Right Side:</strong> A new, higher-order autonomous progression begins. The complex limit <span class="math inline">\(O\)</span> has mathematically synthesised into an atomic, discrete baseline coordinate for the new subproblem (<span class="math inline">\(X\)</span>).</li>
 </ul>
 </div>
+<hr>
 <div class="callout callout-style-default callout-note no-icon callout-titled" title="Theorem II: Relativistic Invariance (Preserving the Interval)">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
@@ -472,14 +497,22 @@ Theorem II: Relativistic Invariance (Preserving the Interval)
 </section>
 <section id="the-dual-fixpoints" class="level2">
 <h2 class="anchored" data-anchor-id="the-dual-fixpoints">The Dual Fixpoints</h2>
-<div class="shrink87">
+<div class="shrink78">
 <p><strong>Unifying Reachability (<span class="math inline">\(\mu\)</span>) and Persistence (<span class="math inline">\(\nu\)</span>)</strong></p>
 <p>By natively intertwining syntax (<span class="math inline">\(\mathrm{RDo}\)</span>) and semantics (<span class="math inline">\(\mathrm{ODo}\)</span>), the Relativistic Engine mathematically fuses two distinct forms of logical progression:</p>
 <ol type="1">
 <li><strong>Induction / Least Fixpoint (<span class="math inline">\(\mu\)</span>):</strong> Governed by the <span class="math inline">\(\mathrm{RDo}\)</span> modality. The bottom-up synthesis of finite evidence from baseline ignorance (<span class="math inline">\(\bot\)</span>). It guarantees computational <em>Reachability</em>.</li>
 <li><strong>Coinduction / Greatest Fixpoint (<span class="math inline">\(\nu\)</span>):</strong> Governed by the <span class="math inline">\(\mathrm{ODo}\)</span> modality. The top-down evaluation of continuous semantics. It guarantees <em>Safety and Property Persistence</em>.</li>
 </ol>
+<div style="margin-top: -0.8em;">
+
+</div>
 <p><strong>Algebraic Compactness (<span class="math inline">\(\mu = \nu\)</span>)</strong> <strong>Theorem I (Semantic Realisation)</strong> formally computes a <strong>Bilimit</strong>. At the exact coordinate of convergence, the active inductive trace (<span class="math inline">\(\mu\)</span>) perfectly fulfills the persistent semantic invariant (<span class="math inline">\(\nu\)</span>).</p>
+</div>
+<div style="margin-top: -0.3em;">
+
+</div>
+<div class="shrink50">
 <p><em>When this limit shifts to become the new Reference Frame (<span class="math inline">\(S_f\)</span>) via the Transitivity Axiom, <strong>Theorem II</strong> guarantees it acts entirely as a Greatest Fixpoint—a persistent, assumed law of physics for all subsequent computations, natively solving the Frame Problem.</em></p>
 </div>
 </section>
@@ -488,78 +521,125 @@ Theorem II: Relativistic Invariance (Preserving the Interval)
 <h1>Synthetic relativity logic</h1>
 <section id="the-observers-dual-logic-syntax-vs.-semantics" class="level2">
 <h2 class="anchored" data-anchor-id="the-observers-dual-logic-syntax-vs.-semantics">The Observer’s Dual Logic (Syntax vs.&nbsp;Semantics)</h2>
-<div class="shrink87">
+<div class="shrink80">
 <p>To execute our modalities, we require an architecture that natively fuses classical (inductive) logic with intuitionistic (coinductive) logic.</p>
 <ul>
 <li><strong>Memoisation (Induction / The Actor):</strong> Constructive in the <em>data</em> sense. It explicitly builds and stores finite, historical knowledge. It captures logical invariants and acts as the proof of what has been physically done.</li>
-<li><strong>Lazy Evaluation (Coinduction / The Observer):</strong> Constructive in the <em>intuitionistic</em> sense. A “thunk” (an unevaluated promise) is an observable property. The runtime intuitively maintains the topology of an infinite stream, only verifying when locally forced.</li>
-<li><strong>The Incompleteness Boundary:</strong> Logic remains classically monotonic locally. However, due to relative incompleteness (Gödel’s Incompleteness &amp; Beklemishev’s reflection principles), a static system cannot resolve global limits. The observer must step outside the local system.</li>
+<li><strong>Lazy Evaluation (Coinduction / The Observer):</strong> Constructive in the <em>intuitionistic</em> sense. The runtime intuitively maintains the topology of an infinite stream, only verifying when locally forced.</li>
 </ul>
+<p><strong>The Incompleteness Boundary:</strong> Logic remains classically monotonic locally. However, due to relative incompleteness (Gödel’s Incompleteness &amp; Beklemishev’s reflection principles), a static system cannot resolve global limits. The observer must step outside the local system.</p>
 </div>
 </section>
 <section id="the-foundational-logic-domain-theory-in-logical-form" class="level2">
 <h2 class="anchored" data-anchor-id="the-foundational-logic-domain-theory-in-logical-form">The Foundational Logic: Domain Theory in Logical Form</h2>
-<div class="shrink87">
-<p>To map this topology of reasoning, we ground our system in Abramsky’s <strong>DTLF</strong> (1991). We abandon the absolute “God’s eye” Boolean view (<span class="math inline">\(A \lor \neg A\)</span>) for an endogenous, inside-out construction of truth.</p>
+<div class="shrink85">
+<p>To map this topology of reasoning, we ground our system in Abramsky’s <strong>DTLF</strong> (1991), based on an <strong>intuitionistic</strong> construction of truth.</p>
 <ul>
-<li><strong>Baseline Ignorance (<span class="math inline">\(\bot\)</span>):</strong> Computation does not start at “False”; it starts at Bottom (<span class="math inline">\(\bot\)</span>)—a mathematical coordinate of zero information.</li>
-<li><strong>Compact Elements:</strong> Variables are not absolute binary states; they are discrete, finite pieces of verifiable evidence (e.g., <em>a specific sensor reading</em>).</li>
-<li><strong>Directed Accumulation:</strong> Knowledge is actively gathered. Because you cannot empirically “observe” an infinite negative in finite time, DTLF relies on a strictly positive logic, generating an upward, directed proof path (<span class="math inline">\(\sqsubseteq\)</span>).</li>
+<li><strong>Baseline Ignorance (<span class="math inline">\(\bot\)</span>):</strong> Computation initiates at Bottom (<span class="math inline">\(\bot\)</span>)—the mathematical coordinate of zero information.</li>
+<li><strong>Compact Elements (Finite Observability):</strong> Basic propositions serve as atomic, observable quanta. In DTLF, logical formulas correspond directly to compact elements, meaning any verified property must be confirmable in finite time.</li>
+<li><strong>Directed Accumulation (<span class="math inline">\(\sqsubseteq\)</span>):</strong> Knowledge grows monotonically. The logic is strictly positive and constructive, meaning once an observation is verified, it establishes an upward, directed path toward the limit without retraction.</li>
 </ul>
 </div>
 </section>
 <section id="spatial-completeness-the-static-limitation" class="level2">
 <h2 class="anchored" data-anchor-id="spatial-completeness-the-static-limitation">Spatial Completeness &amp; The Static Limitation</h2>
 <div class="shrink87">
-<p>The profound mathematical power of vanilla DTLF lies in <strong>Spatial Completeness</strong> (rooted in Stone Duality).</p>
+<p>The mathematical power of vanilla DTLF lies in <strong>Spatial Completeness</strong> (rooted in Stone Duality).</p>
 <ul>
 <li><strong>The Guarantee:</strong> It proves a 1-to-1 isomorphism between the algebraic, step-by-step <strong>Syntax</strong> (<span class="math inline">\(\phi \vdash \psi\)</span>) and the continuous, geometric <strong>Semantics</strong> (<span class="math inline">\([\![\phi]\!] \subseteq [\![\psi]\!]\)</span>).</li>
-<li><strong>Catching Limits:</strong> Computations resolve exactly when the directed path of finite evidence mathematically catches an infinite continuous topological limit (a Supremum).</li>
-<li><strong>The Flaw (The Crisis):</strong> Vanilla DTLF perfectly describes a single, <em>static</em> universe. To untangle induction from coinduction and model dynamic, continuous learning, <strong>the Reference Frame itself must dynamically shift.</strong></li>
+<li><strong>Catching Limits:</strong> Computations resolve exactly when the directed path of finite evidence mathematically catches (satisfies) an infinite continuous topological limit (a Supremum).</li>
 </ul>
+<p>Vanilla DTLF perfectly describes a single, <em>static</em> universe. However, to differentiate induction from coinduction and model dynamic, continuous learning, <strong>the Reference Frame itself must dynamically shift.</strong></p>
 </div>
 </section>
 <section id="encoding-planning-in-synthetic-relativity-r-dtlf" class="level2">
 <h2 class="anchored" data-anchor-id="encoding-planning-in-synthetic-relativity-r-dtlf">Encoding Planning in Synthetic Relativity (R-DTLF)</h2>
-<div class="shrink87">
+<div class="shrink71">
 <p>Classical planning (e.g., Situation Calculus) relies on a global, static Basic Action Theory (BAT), where rigid evaluation across absolute history leads to combinatorial explosion. In <strong>R-DTLF</strong>, planning is constructed dynamically:</p>
 <ul>
-<li><strong>Initial Database <span class="math inline">\(\rightarrow\)</span> Reference Frame (<span class="math inline">\(S_f\)</span>):</strong> Dictates the local inductive bias—bounding exactly which <em>fluents</em> (e.g., Disk positions) are currently observable, replacing the rigid global space.</li>
+<li><strong>Initial Database <span class="math inline">\(\rightarrow\)</span> Reference Frame (<span class="math inline">\(S_f\)</span>):</strong> Dictates the local inductive bias—bounding exactly which <em>fluents</em> <span style="color:blue">(e.g., Disk positions in Towers of Hanoi)</span> are currently observable.</li>
 <li><strong>The Situation Term (<span class="math inline">\(do(a,s)\)</span>) <span class="math inline">\(\rightarrow\)</span> Inductive Accumulation (<span class="math inline">\(\mathrm{RDo}\)</span>):</strong> Instead of an endlessly nested string of rigid state-jumps, actions are encoded as verifiable proof steps recursively accumulating along a directed path.</li>
 <li><strong>Goal Formula (<span class="math inline">\(\exists s. G(s)\)</span>) <span class="math inline">\(\rightarrow\)</span> Semantic Target (<span class="math inline">\(\mathrm{ODo}\)</span>):</strong> The goal is not a static Boolean theorem. It is encoded as a <strong>Target Semantic Attractor</strong>—the fluent configuration or overarching invariant the system coinductively attempts to catch.</li>
 <li><strong>Deductive Search <span class="math inline">\(\rightarrow\)</span> Relativistic Engine (<span class="math inline">\(\mathrm{PDo}\)</span>):</strong> The autonomous, recursive unrolling of these modalities.</li>
 </ul>
 </div>
 </section>
-<section id="execution-invariant-synthesis" class="level2">
-<h2 class="anchored" data-anchor-id="execution-invariant-synthesis">Execution &amp; Invariant Synthesis</h2>
-<div class="shrink87">
-<p><strong>Towers of Hanoi: Solving Combinatorial Explosion</strong></p>
+<section id="execution-invariant-synthesis-towers-of-hanoi-example" class="level2">
+<h2 class="anchored" data-anchor-id="execution-invariant-synthesis-towers-of-hanoi-example">Execution &amp; Invariant Synthesis: Towers of Hanoi example</h2>
+<div class="shrink75">
+<p><strong>1. Local Unrolling (Building the Situation Trace):</strong> The engine recursively accumulates primitive actions <span style="color:blue">(moving disks)</span>, generating the topological equivalent of a nested <span class="math inline">\(do()\)</span> sequence:</p>
+<div style="margin-top: -0.8em;">
+
+</div>
+<p><span class="math display">\[ \mathrm{PDo}\Big(\, \mathrm{RDo}\big({\color{blue}{\text{move}(D_1, P_2)}}, \dots S_f\big),\; \mathrm{ODo}\big(O_{\text{target}}, \text{Goal}\big),\; S_f \,\Big) \]</span></p>
+<div style="margin-top: -0.8em;">
+
+</div>
+<p><strong>2. Limit Catching:</strong> Through top-down semantic reflection (<span class="math inline">\(\Box_\omega\)</span>), the <span class="math inline">\(\mathrm{ODo}\)</span> modality mathematically coinduces a structural property of the optimal traces: <span style="color:blue">The Parity Invariant (<span class="math inline">\(O_{\text{parity}}\)</span>). <em>(The smallest disk <span class="math inline">\(D_1\)</span> must cycle consistently in one fixed direction, while every alternate move is the single legal play between the remaining two pegs, never involving <span class="math inline">\(D_1\)</span>).</em></span></p>
+<p><strong>3. The Synthetic Transformation (Change of Base):</strong> The Transitivity Axiom fires, executing a categorical Change of Base:</p>
+<div style="margin-top: -0.6em;">
+
+</div>
+<p><span class="math display">\[ \mathrm{PDo}(N_{\text{trace}}, {\color{blue}{O_{\text{parity}}}}, S_f) \longrightarrow \mathrm{PDo}(X, Y, {\color{blue}{\mathbf{O_{\text{parity}}}}}) \]</span></p>
+<div style="margin-top: -0.8em;">
+
+</div>
+</div>
+<hr>
+<div class="shrink73">
+<p><span style="color:red">Why is the <span style="color:blue">parity invariant</span> found in synthetic relativity (R-DTLF)?</span></p>
+<ul>
+<li>The alternate move is discovered as the only topologically valid way to accumulate new information.</li>
+<li>In topological terms, reversing the cycle leads to a “dead end” in the domain—a state that cannot act as a supremum for a directed set leading to the goal limit.</li>
+<li>The invariant (cycle <span class="math inline">\(D_1\)</span>, alternate move, cycle <span class="math inline">\(D_1\)</span>) emerges as the unique, strictly positive proof path through the state space.</li>
+</ul>
 <p>In standard classical planners, the Towers of Hanoi puzzle has a continuous branching factor of 3, leading to intractable combinatorial explosion for deep goals.</p>
-<p><strong>1. Local Unrolling (Building the Situation Trace):</strong> The engine recursively accumulates primitive actions (moving disks), generating the topological equivalent of a nested <span class="math inline">\(do()\)</span> sequence: <span class="math display">\[ \mathrm{PDo}\Big(\, \mathrm{RDo}\big(\text{move}(D_1, P_2), \dots S_f\big),\; \mathrm{ODo}\big(O_{\text{target}}, \text{Goal}\big),\; S_f \,\Big) \]</span></p>
-<p><strong>2. Limit Catching (The Parity Invariant):</strong> Through top-down semantic reflection (<span class="math inline">\(\Box_\omega\)</span>), the <span class="math inline">\(\mathrm{ODo}\)</span> modality mathematically coinduces a structural property of the optimal traces: <strong>The Parity Invariant</strong> (<span class="math inline">\(O_{\text{parity}}\)</span>). <em>(The smallest disk <span class="math inline">\(D_1\)</span> must cycle consistently, and alternate moves must never involve <span class="math inline">\(D_1\)</span>).</em></p>
-<p><strong>3. The Synthetic Transformation (Change of Base):</strong> The Transitivity Axiom fires, executing a categorical Change of Base: <span class="math display">\[ \mathrm{PDo}(N_{\text{trace}}, O_{\text{parity}}, S_f) \longrightarrow \mathrm{PDo}(X, Y, \mathbf{O_{\text{parity}}}) \]</span></p>
-<p><strong>The Relativistic Advantage:</strong> The newly discovered invariant shifts to become the absolute Reference Frame. By adopting this rule as a lifted axiom, <strong>the search tree branching factor strictly collapses from 3 down to exactly 1.</strong></p>
+<ul>
+<li><p>The new parity invariant shifts to become the Reference Frame. By adopting this rule as a <strong>lifted axiom</strong>, <em>the search tree branching factor strictly collapses from 3 down to exactly 1.</em></p></li>
+<li><p>Note computational complexity of problem doesn’t, just <em>where</em> the computational effort is spent between a classical recursive approach versus Synthetic Relativity (DTLF) progression.</p></li>
+</ul>
 </div>
 </section>
-<section id="concrete-syntax-visualising-the-encoding" class="level2">
-<h2 class="anchored" data-anchor-id="concrete-syntax-visualising-the-encoding">Concrete Syntax: Visualising the Encoding</h2>
-<div class="shrink87">
-<p><strong>Translating Continuous Syntax into Classical Axioms</strong></p>
-<p>How does the continuous logic of R-DTLF physically bypass the Frame Problem and compile heuristics?</p>
+<section id="translating-continuous-syntax-into-successor-state-axioms" class="level2">
+<h2 class="anchored" data-anchor-id="translating-continuous-syntax-into-successor-state-axioms">Translating Continuous Syntax into Successor State Axioms</h2>
+<div class="shrink68">
 <p><strong>1. Sidestepping the Frame Problem (SSA vs.&nbsp;R-DTLF)</strong></p>
 <ul>
-<li><strong>SitCalc SSA (Global Tracking):</strong> Evaluates the entire history (<span class="math inline">\(s\)</span>) across rigid Successor State Axioms: <span class="math display">\[ \mathit{On}(d, p, do(a, s)) \equiv a = \text{move}(d, p) \lor \big( \mathit{On}(d, p, s) \land \neg \exists p'. a = \text{move}(d, p') \big) \]</span></li>
-<li><strong>R-DTLF (Local Entailment):</strong> Operates purely on verifiable observables. Irrelevant global variables are topologically invisible (no frame axioms are computed during unrolling): <span class="math display">\[ \mathrm{RDo}\big(\text{move}(d, p), S_f\big) \vdash \mathit{On}(d, p) \]</span></li>
+<li><strong>SitCalc SSA (Global Tracking):</strong> Evaluates the entire history (<span class="math inline">\(s\)</span>) across rigid Successor State Axioms:</li>
 </ul>
-<p><strong>2. Endogenous Code Generation (Compiling the Precondition)</strong> Once <span class="math inline">\(O_{\text{parity}}\)</span> is realised, the engine autonomously exports the invariant into a discrete classical <strong>Action Precondition Axiom (<span class="math inline">\(\mathit{Poss}\)</span>)</strong> for the new baseline: <span class="math display">\[ \mathit{Poss}_{\text{new}}(\text{move}(d, p), s) \equiv \mathit{Poss}_{\text{old}} \land \mathbf{\big(d = D_1 \leftrightarrow \text{LastMoved}(s) \neq D_1\big)} \]</span></p>
-<p><em>By autonomously synthesising this exact constraint, the logic physically forces deterministic execution.</em></p>
+<div style="margin-top: -0.9em;">
+
+</div>
+<p><span class="math display">\[\mathit{On}(d, p, do(a, s)) \equiv a = \text{move}(d, p) \lor \big( \mathit{On}(d, p, s) \land \neg \exists p'. a = \text{move}(d, p') \big) \]</span></p>
+<div style="margin-top: -0.9em;">
+
+</div>
+<ul>
+<li><strong>R-DTLF (Local Entailment):</strong> Operates purely on verifiable observables. Irrelevant global variables are topologically invisible (no frame axioms are computed during unrolling):</li>
+</ul>
+<div style="margin-top: -1.2em;">
+
+</div>
+<p><span class="math display">\[ \mathrm{RDo}\big(\text{move}(d, p), S_f\big) \vdash \mathit{On}(d, p) \]</span></p>
+<div style="margin-top: -0.7em;">
+
+</div>
+<p><strong>2. Endogenous Code Generation (Compiling the Precondition)</strong> Once <span class="math inline">\(O_{\text{parity}}\)</span> is realised, the engine autonomously exports the invariant into a discrete classical <strong>Action Precondition Axiom (<span class="math inline">\(\mathit{Poss}\)</span>)</strong> for the new baseline:</p>
+<div style="margin-top: -0.6em;">
+
+</div>
+<p><span class="math display">\[ \mathit{Poss}_{\text{new}}(\text{move}(d, p), s) \equiv \mathit{Poss}_{\text{old}} \land \mathbf{\big(d = D_1 \leftrightarrow \text{LastMoved}(s) \neq D_1\big)} \]</span></p>
+<div style="margin-top: -0.6em;">
+
+</div>
+<p><em>By autonomously synthesising this SSA, the logic enforces deterministic execution.</em></p>
 </div>
 </section>
 <section id="bridging-worlds-endogenous-logic-compilation" class="level2">
 <h2 class="anchored" data-anchor-id="bridging-worlds-endogenous-logic-compilation">Bridging Worlds: Endogenous Logic Compilation</h2>
 <div class="shrink87">
 <p>R-DTLF does not discard classical logic; it functionally <em>generates</em> it at the semantic limits.</p>
+</div>
 <div class="callout callout-style-default callout-note no-icon callout-titled" title="Theorem III: Topological Booleanization (Compiling Successor State Axioms)">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
@@ -570,12 +650,15 @@ Theorem III: Topological Booleanization (Compiling Successor State Axioms)
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>Upon semantic realisation, the continuous intuitionistic trace generated by <span class="math inline">\(\mathrm{RDo}\)</span> can be losslessly compiled into a discrete, classical First-Order baseline via the <strong>Lawvere-Tierney Double Negation (<span class="math inline">\(\neg\neg\)</span>) Topology</strong>. Topos theory formally guarantees that inside every fluid, intuitionistic space exists a rigid Boolean sub-lattice that can be safely projected onto.</p>
+<p>Upon semantic realisation, the continuous intuitionistic trace generated by <span class="math inline">\(\mathrm{RDo}\)</span> can be losslessly compiled into a discrete, classical First-Order baseline via the <strong>Lawvere-Tierney Double Negation (<span class="math inline">\(\neg\neg\)</span>) Topology</strong>.</p>
+<p>Topos theory formally guarantees that inside every fluid, intuitionistic space exists a rigid Boolean sub-lattice that can be safely projected onto.</p>
 </div>
 </div>
+<hr>
+<div class="shrink85">
 <ul>
-<li><strong>Compiling Successor State Axioms (SSAs):</strong> This geometric compression is mathematically homologous to Ray Reiter’s famous <strong>Explanation Closure</strong>. The Relativistic Engine acts as an endogenous logic compiler—synthesising complex discovered invariants directly into rigid First-Order logical rules.</li>
-<li><strong>Hybrid Execution:</strong> Because of this formal theorem, we can securely export newly learned R-DTLF heuristics directly into standard classical Basic Action Theories (BATs). This allows R-DTLF to handle complex structural learning, while legacy solvers (like Golog) execute the compiled rules at <span class="math inline">\(O(1)\)</span> speeds.</li>
+<li><strong>Compiling Successor State Axioms (SSAs):</strong> This geometric compression is mathematically homologous to Ray Reiter’s <strong>Explanation Closure</strong>. The Relativistic Engine acts as an endogenous logic compiler—synthesising complex discovered invariants directly into rigid First-Order logical rules.</li>
+<li><strong>Hybrid Execution:</strong> Because of this formal theorem, we can securely export newly learned R-DTLF heuristics directly into standard classical Basic Action Theories (BATs). This allows R-DTLF to handle complex structural learning, and legacy solvers (like Golog).</li>
 </ul>
 </div>
 </section>
@@ -584,19 +667,19 @@ Theorem III: Topological Booleanization (Compiling Successor State Axioms)
 <h1>Comparison</h1>
 <section id="synthetic-relativity-versus-situation-calculus-versus-glb" class="level2">
 <h2 class="anchored" data-anchor-id="synthetic-relativity-versus-situation-calculus-versus-glb">Synthetic Relativity versus Situation Calculus versus GLB</h2>
-<div class="shrink65">
+<div class="shrink55">
 <table class="caption-top table">
 <colgroup>
-<col style="width: 8%">
-<col style="width: 37%">
-<col style="width: 51%">
-<col style="width: 2%">
+<col style="width: 3%">
+<col style="width: 31%">
+<col style="width: 32%">
+<col style="width: 31%">
 </colgroup>
 <thead>
 <tr class="header">
 <th style="text-align: left;">Aspect</th>
 <th style="text-align: left;"><em>Synthetic Relativity (R-DTLF)</em></th>
-<th style="text-align: left;"><em>Situation Calculus (BATs/SSAs)</em></th>
+<th style="text-align: left;"><em>Situation Calculus (BATs/SSAs) <span class="math inline">\(+\)</span> variants of <span class="math inline">\(\mu\)</span>-calculus</em></th>
 <th style="text-align: left;"><em>Bimodal Provability logic (GLB)</em></th>
 </tr>
 </thead>
@@ -604,8 +687,8 @@ Theorem III: Topological Booleanization (Compiling Successor State Axioms)
 <tr class="odd">
 <td style="text-align: left;"><em>Modalities</em></td>
 <td style="text-align: left;"><span class="math inline">\(\mathrm{RDo}\)</span>, <span class="math inline">\(\mathrm{ODo}\)</span> &amp; <span class="math inline">\(\mathrm{PDo}\)</span></td>
-<td style="text-align: left;"></td>
-<td style="text-align: left;"></td>
+<td style="text-align: left;"><span class="math inline">\(\mathrm{PDo}\)</span>, <span class="math inline">\(\langle a \rangle \phi\)</span> (possibility), <span class="math inline">\([a] \phi\)</span> (necessity)</td>
+<td style="text-align: left;"><span class="math inline">\(\Box\)</span>, <span class="math inline">\(\Box_\omega\)</span></td>
 </tr>
 <tr class="even">
 <td style="text-align: left;"><em>Ordering</em></td>
@@ -614,28 +697,16 @@ Theorem III: Topological Booleanization (Compiling Successor State Axioms)
 <td style="text-align: left;">Transfinite ordinality: limits, Non-unique predecessors, well-ordered</td>
 </tr>
 <tr class="odd">
-<td style="text-align: left;"><em>Compactness?</em></td>
-<td style="text-align: left;">Yes (Algebraic compactness)</td>
-<td style="text-align: left;">No</td>
-<td style="text-align: left;">No</td>
-</tr>
-<tr class="even">
 <td style="text-align: left;"><em>Completeness?</em></td>
-<td style="text-align: left;">Both spatially complete (retains continuous geometry) and Turing complete (gains universal computation via recursive domains), but inherently arithmetically incomplete (triggers Gödel’s incompleteness precisely because it can compute)</td>
-<td style="text-align: left;">Turing complete (can compute anything), but neither spatially complete (blind to continuous geometry) nor arithmetically complete (fails Gödel’s test).</td>
-<td style="text-align: left;">Arithmetically complete (flawlessly models the bounds of provability), but neither Turing complete (strictly decidable, cannot compute loops) nor spatially complete (blind to geometry)</td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;"><em>Realizability?</em></td>
-<td style="text-align: left;">Kleene’s Realizability &amp; BHK (Brouwer-Heyting-Kolmogorov) Interpretation)</td>
-<td style="text-align: left;">No</td>
-<td style="text-align: left;">No</td>
+<td style="text-align: left;">Spatially complete (continuous geometry) and Turing complete (universal computation via recursive domains); Arithmetically incomplete (triggers Gödel’s incompleteness).</td>
+<td style="text-align: left;">Turing complete (can compute anything), but neither spatially complete (no continuous geometry) nor arithmetically complete (subject to Gödel’s incompleteness).</td>
+<td style="text-align: left;">Arithmetically complete (flawlessly models the bounds of provability), but neither Turing complete (strictly decidable, cannot compute loops) nor spatially complete.</td>
 </tr>
 <tr class="even">
-<td style="text-align: left;"><em>Parellisable?</em></td>
-<td style="text-align: left;">Yes (partially ordered)</td>
-<td style="text-align: left;">No</td>
-<td style="text-align: left;">No</td>
+<td style="text-align: left;"><em>Other</em></td>
+<td style="text-align: left;">Algebraic compactness. Kleene’s Realizability &amp; BHK (Brouwer-Heyting-Kolmogorov) Interpretation.</td>
+<td style="text-align: left;">Regression Theorem (solves the frame problem). Fixpoint Semantics &amp; Knaster-Tarski Theorem.</td>
+<td style="text-align: left;">Japaridze’s Arithmetical Completeness Theorem. Löb’s Theorem &amp; Well-founded Kripke Semantics.</td>
 </tr>
 </tbody>
 </table>
