@@ -70,6 +70,35 @@ ul.task-list li input[type="checkbox"] {
 }</script>
 <style>html{ scroll-behavior: smooth; }</style>
 
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN") {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
 
 <link rel="stylesheet" href="book.css">
 </head>
@@ -125,7 +154,13 @@ ul.task-list li input[type="checkbox"] {
 </li>
     </ul>
     </div>
-    
+    <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Table of contents</h2>
+   
+  <ul>
+  <li><a href="#synthetic-relativity-tri-modality-and-the-fixpoint-semantics-of-the-logical-observer" id="toc-synthetic-relativity-tri-modality-and-the-fixpoint-semantics-of-the-logical-observer" class="nav-link active" data-scroll-target="#synthetic-relativity-tri-modality-and-the-fixpoint-semantics-of-the-logical-observer">Synthetic Relativity: Tri-modality and the Fixpoint Semantics of the Logical Observer</a></li>
+  </ul>
+</nav>
 </nav>
 <div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
@@ -166,9 +201,24 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<p><br> These are the notes and slides for Synthetic Relativity.</p>
+<section id="synthetic-relativity-tri-modality-and-the-fixpoint-semantics-of-the-logical-observer" class="level1">
+<h1>Synthetic Relativity: Tri-modality and the Fixpoint Semantics of the Logical Observer</h1>
+<section id="author" class="level2">
+<h2 class="anchored" data-anchor-id="author">Author</h2>
+<p>Professor Adrian R. Pearce, School of Computing and Information Systems, The University of Melbourne</p>
+</section>
+<section id="abstract" class="level2">
+<h2 class="anchored" data-anchor-id="abstract">Abstract</h2>
+<p>There has been a rich history of using extensions to the Situation Calculus, such as the <span class="math inline">\(\mu\)</span>-calculus, to compute least and greatest fixpoints for solving problems like strategy synthesis and verifying temporally extended properties. Traditionally, these approaches have relied on the encoding of static, global Basic Action Theories. Here, we show how problems of this nature can more generally be thought of as logical self-reflection, involving both inference duality and categorical duality. We introduce a relativistic framework founded on Stone duality for the computation of greatest and least fixpoints, leading to a more integrated approach not only for solving existing problems, but potentially for progressing basic action theories themselves-yielding <em>self-transcending action theories</em>.</p>
+<p>To formalise self-reflection as a dynamic, computationally tractable process, this talk introduces Synthetic Relativity, presenting a new and unique set of structural axioms and corresponding mathematical theorems. We show how these foundational axioms can utilise a Relativistic version of Domain Theory in Logical Form (R-DTLF) to establish a trimodal logic, natively dividing computation into an inductive syntactic accumulator (<span class="math inline">\(\mathrm{RDo}\)</span>), a coinductive semantic observer (<span class="math inline">\(\mathrm{ODo}\)</span>), and a relativistic progression engine (<span class="math inline">\(\mathrm{PDo}\)</span>). Through Semantic Realisation, we demonstrate how bottom-up syntactic proof traces and top-down semantic invariants mathematically lock at a state of Algebraic Compactness (<span class="math inline">\(\mu = \nu\)</span>). This topological resolution permits a categorical Change of Base via a Transitivity Axiom, allowing an autonomous agent to dynamically shift its baseline reference frame. Finally, via Topological Booleanization, we illustrate how the semantic observer can act as a logic compiler, mathematically deducing hidden structural invariants and compiling them into classical Successor State Axioms (SSAs).</p>
+</section>
+<section id="biography" class="level2">
+<h2 class="anchored" data-anchor-id="biography">Biography</h2>
+<p>Adrian R. Pearce is a Professor and Deputy Head of School (Engagement) in the School of Computer Science and Information Systems at the University of Melbourne.</p>
 
 
+</section>
+</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
