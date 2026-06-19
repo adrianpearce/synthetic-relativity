@@ -1,0 +1,31 @@
+
+Lose scope, does not mean anything to Michael...
+
+Picked up a few typos, Coalgebra...look for it...
+
+Things to define:
+
+Coalgebra - what is it?
+coinduction - what is that and how does it differ from induction?
+Situation calculus - what is it and how does inference work (go back to lecture slides)?
+
+...what are you trying to do?
+
+Giuseppe is likely to know...
+
+e.g. Michael did not know that situation calculus computes least fixpoint...
+
+Explain the situation calculus, including second order induction axiom...
+
+The duality aspect stuff is quite good
+
+The theorems seem to come too late, bring them forward.
+
+Memoisation - probably just lose it.
+
+Major surgery, lose a lot of the slides.
+
+Most of the audience will only know about 25%
+
+Be less ambitious
+

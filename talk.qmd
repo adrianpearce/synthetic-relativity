@@ -28,7 +28,7 @@ This module is also available in the following versions
 
 **Out of scope**
 
-This is *not* a first-order logic foundation of physical relativity theories with accelerated observers e.g. work by the *Budapest Relativity Research Group* (Madar&aacute;asz et al. 2006, Sz&eacute;kely et al. 2010)
+This is *not* a first-order logic foundation of physical relativity theories with accelerated observers e.g. work by the *Budapest Relativity Research Group* (Madar&aacute;sz et al. 2006, Sz&eacute;kely et al. 2010)
 
 - Andr&eacute; et al., 2013 provides an axiomatisation complete for Lorentzian manifolds, i.e. the Lorentz interval invariant $(c\Delta t)^2 - \mathit{distance}^2$ always equals zero.
 
@@ -62,7 +62,7 @@ You take a proof that requires coinductive steps (Time), evaluate it in advance,
 
 **Lazy Evaluation** (Space $\rightarrow$ Time)
 
-You take memory (Space/Induction) and collapse it. Instead of storing the data, you store a coalgebric rule that generates proofs sequentially, only when requested (Time/Coinduction)---[You have contracted logical space and dilated logical time (proof).]{style="color:blue"}
+You take memory (Space/Induction) and collapse it. Instead of storing the data, you store a coalgebraic rule that generates proofs sequentially, only when requested (Time/Coinduction)---[You have contracted logical space and dilated logical time (proof).]{style="color:blue"}
 
 :::
 
