@@ -95,7 +95,7 @@
     "href": "talk.html#synthetic-relativity",
     "title": "Synthetic Relativity: Tri-modality and the Fixpoint Semantics of the Logical Observer",
     "section": "Synthetic Relativity",
-    "text": "Synthetic Relativity\n\nScope of talk\n\nSynthetic relativity as in synthetic geometry, or synthetic domain theory, i.e. axiomatic\nFocus: Self-reflection and reasoning about theories of action\n\nOut of scope\nThis is not a first-order logic foundation of physical relativity theories with accelerated observers e.g. work by the Budapest Relativity Research Group (Madaráasz et al. 2006, Székely et al. 2010)\n\nAndré et al., 2013 provides an axiomatisation complete for Lorentzian manifolds, i.e. the Lorentz interval invariant \\((c\\Delta t)^2 - \\mathit{distance}^2\\) always equals zero."
+    "text": "Synthetic Relativity\n\nScope of talk\n\nSynthetic relativity as in synthetic geometry, or synthetic domain theory, i.e. axiomatic\nFocus: Self-reflection and reasoning about theories of action\n\nOut of scope\nThis is not a first-order logic foundation of physical relativity theories with accelerated observers e.g. work by the Budapest Relativity Research Group (Madarász et al. 2006, Székely et al. 2010)\n\nAndré et al., 2013 provides an axiomatisation complete for Lorentzian manifolds, i.e. the Lorentz interval invariant \\((c\\Delta t)^2 - \\mathit{distance}^2\\) always equals zero."
   },
   {
     "objectID": "talk.html#self-reflective-reasoning-about-action",
@@ -109,7 +109,7 @@
     "href": "talk.html#transformation-example-in-logic",
     "title": "Synthetic Relativity: Tri-modality and the Fixpoint Semantics of the Logical Observer",
     "section": "Transformation example in logic",
-    "text": "Transformation example in logic\n\nThe space-time tradeoff Memoisation versus lazy evaluation.\nMemoisation (Time \\(\\rightarrow\\) Space)\nYou take a proof that requires coinductive steps (Time), evaluate it in advance, and cache the valid answers into a lookup table (Space/Induction)—You have contracted logical time (proof) and dilated logical space.\nLazy Evaluation (Space \\(\\rightarrow\\) Time)\nYou take memory (Space/Induction) and collapse it. Instead of storing the data, you store a coalgebric rule that generates proofs sequentially, only when requested (Time/Coinduction)—You have contracted logical space and dilated logical time (proof)."
+    "text": "Transformation example in logic\n\nThe space-time tradeoff Memoisation versus lazy evaluation.\nMemoisation (Time \\(\\rightarrow\\) Space)\nYou take a proof that requires coinductive steps (Time), evaluate it in advance, and cache the valid answers into a lookup table (Space/Induction)—You have contracted logical time (proof) and dilated logical space.\nLazy Evaluation (Space \\(\\rightarrow\\) Time)\nYou take memory (Space/Induction) and collapse it. Instead of storing the data, you store a coalgebraic rule that generates proofs sequentially, only when requested (Time/Coinduction)—You have contracted logical space and dilated logical time (proof)."
   },
   {
     "objectID": "talk.html#the-logical-observer",

@@ -14,13 +14,78 @@ This module is also available in the following versions
 
 :::
 
-# Categorical Duality
+# Introduction to Synthetic Relativity
+
+## Synthetic Relativity
+
+::: {.shrink87}
+
+**Scope of talk**
+
+- Synthetic relativity as in synthetic geometry, or synthetic domain theory, i.e. *axiomatic* 
+
+- **Focus:** Self-reflection and reasoning about theories of action
+
+**Out of scope**
+
+This is *not* a first-order logic foundation of physical relativity theories with accelerated observers e.g. work by the *Budapest Relativity Research Group* (Madar&aacute;sz et al. 2006, Sz&eacute;kely et al. 2010)
+
+- Andr&eacute; et al., 2013 provides an axiomatisation complete for Lorentzian manifolds, i.e. the Lorentz interval invariant $(c\Delta t)^2 - \mathit{distance}^2$ always equals zero.
+
+:::
+
+## Self-reflective reasoning about action
+
+::: {.shrink87}
+
+**Motivation**: Understand role of self-reflection for reasoning about action, for tasks such as 
+
+- Classical planning,
+- Generalised planning,
+- Strategic reasoning (strategy synthesis, winnability, etc.).
+
+**Reach goal:**
+
+- Self-transcending reasoning, [i.e. autonomous theory progression for transcending a theory of action toward solving *new problems*]{style="color:blue"}
+
+:::
+
+## Transformation example in logic
+
+::: {.shrink87}
+
+The space-time tradeoff **Memoisation** versus **lazy evaluation**.
+
+**Memoisation** (Time $\rightarrow$ Space)
+
+You take a proof that requires coinductive steps (Time), evaluate it in advance, and cache the valid answers into a lookup table (Space/Induction)---[You have contracted logical time (proof) and dilated logical space.]{style="color:blue"}
+
+**Lazy Evaluation** (Space $\rightarrow$ Time)
+
+You take memory (Space/Induction) and collapse it. Instead of storing the data, you store a coalgebraic rule that generates proofs sequentially, only when requested (Time/Coinduction)---[You have contracted logical space and dilated logical time (proof).]{style="color:blue"}
+
+:::
+
+## The logical observer
+
+::: {.shrink87}
+
+Different logical observers evaluate systems differently:
+
+- **One observer** (evaluating lazily/[coinductively]{style="color:blue"}) stretches out the "time" of the proof.
+- **Another observer** (evaluating eagerly/[inductively]{style="color:blue"}) compresses the proof into into memory "space". 
+
+However, the fundamental computational truth---[the realisation]{style="color:blue"}---cannot change. 
+
+If truth were not invariant under these frame-shifts, logic would collapse into inconsistency. The spatial distortion of the data structure and the temporal delay in evaluation mathematically cancel out to preserve the invariant **realisation**.
+
+:::
 
 ## Logical interval invariant?
 
 ::: {.shrink80}
 
-Inductive structure and coinductive process are two mathematically intertwined ways of evaluating the same invariant truth.
+In synthetic relativity, inductive structure and coinductive process are two mathematically intertwined ways of evaluating the same invariant truth.
 
 - **Induction** (static space/structure) and 
 - **Coinduction** (unfolding time/process) are the coordinate axes, and 
@@ -32,6 +97,40 @@ Rotating logical frame of reference changes how much proof exists in spatial top
 
 :::
 
+# Inference and Categorical Duality
+
+## Inference duality of the observer
+
+::: {.shrink75}
+
+**Logical Benders decomposition** (Hooker & Ottosson, 2003) shows how the observer iteratively proposes a model of itself and verifies it via self-reflection.
+
+- **The Master (The Proposer)**: The observer proposes a relaxed model of its current state or plan. 
+[Operator (action) counting using MIP]{style="color:blue"}
+- **The Subproblem (The Verifier)**: The observer reflects on this proposal, testing its logical consistency with respect to the overall problem.
+[Sequencing actions using SAT]{style="color:blue"}
+- **The Cut (The Inference)**: When the proposal fails, the observer generates a logical inference (a Benders cut) that restricts its future reasoning.
+[Conflict driven clause learning (SAT). 
+]{style="color:blue"}
+
+<div style="margin-top: -0.8em;"></div>
+
+(Davies, Pearce, Stuckey & Lipovetzky 2015, ICAPS Outstanding Paper Award) showed approach competitive with state of the art planners on International Planning Competition (IPC) benchmarks---proven to converge to the optimal feasible solution. 
+
+
+:::
+
+## Inference duality of the observer - Limitations
+
+::: {.shrink80}
+
+Inference duality like Benders decomposition can be modelled as finding a fixpoint of a monotonic constraint-generation operator.
+
+- However, it does not compute a "least fixpoint" in the traditional sense as it intentionally stops early once optimal feasibility is proven (it is based on propositional logic)
+
+- Note that the **situation calculus** *does* rely on least fixpoint in first order logic.
+
+:::
 
 ## Property Persistence as a Greatest Fixpoint
 
@@ -65,6 +164,29 @@ Iteratively applying this meta-level calculation computes the maximal invariant 
 
 :::
 
+## Strategy Synthesis in Multi-Agent Games
+
+::: {.shrink75}
+
+- **Scaling Fixpoint Framework:** Property persistence scales natively from single-agent persistence to adversarial settings via *Situation Calculus Synchronous Game Structures (SCSGSs)*.
+- **General Game Playing (GDL):** (De Giacomo, Lesp&eacute;rance & Pearce, ECAI 2016)  model joint, synchronous multi-player moves over infinite domains via a single `tick(m_1, ..., m_n)` action.
+- **First-Order Alternating-Time $\mu$-Calculus:**
+  - **Safety:** Greatest fixpoints ($\nu Z$) — Generalising persistence to maintain a winning condition against any opponent (*Weak Winnability*).
+  - **Liveness:** Least fixpoints ($\mu Z$) — Enforcing reachability to force a win in a finite number of steps (*Strong Winnability*).
+- **Synthesis:** By upgrading the quantifier prefix to alternating game quantifiers ($\exists \vec{m}_{agt} \forall \vec{m}_{env}$), interleaving regression with fixpoint approximations automates strategy synthesis.
+
+:::
+
+---
+
+::: {.shrink80}
+
+The modal $\mu$-calculus derives its expressive power from the same foundational fixpoint mathematics—least and greatest fixpoints—used to compute backward reachability and property persistence in model checking.
+
+- By upgrading the quantifier prefix from 'nature does anything' to [alternating game quantifiers]{style="color:blue"}, we can use both greatest and least fixpoints to automatically synthesise strategies and guarantee winnability in infinite-state games.
+
+:::
+
 ## Categorical duality
 
 ::: {.shrink79}
@@ -93,6 +215,26 @@ By framing persistence as a greatest fixpoint over single-step regression, we em
 
 In retrospect, what we were doing in 2010 was exploiting a **categorical duality**. The standard Situation Calculus is fundamentally inductive—an initial algebra. But persistence is fundamentally coinductive—a terminal coalgebra. By evaluating persistence via regression, we mapped a forward-looking infinite problem into its computable, right-adjoint dual.
 
+- [Once you formalise the dual spaces of safety (greatest fixpoints over regression) and reachability (least fixpoints), strategy synthesis in the full $\mu$-calculus is just the natural interleaving of these mathematical duals.]{style="color:blue"}
+
+:::
+
+## Limitations
+
+::: {.shrink79}
+
+[What was the limitations of our approach?]{style="color:red"}
+
+- Regression is handled *separately* by different logics: $\mu$ calculus (greatest fixpoint $\mu$ and least fixpoint $\nu$) $+$ situation calculus (least fixpoint $\mu$)
+- Neither the $\mu$ calculus nor the situation calculus captures *inference duality* or *categorical duality* explicitly
+- They rely on a hand-coded basic action theory (BAT) 
+
+Recall **Stretch goal:** self-transcending reasoning
+
+- A relativistic framework for reasoning about limits and topological structure
+- A framework for the autonomous progression of action theories
+- A partial order approach to both synthesising and hypothesising the existence of limits
+
 :::
 
 # Synthetic relativity axioms
@@ -105,6 +247,18 @@ Standard provability logics like $\mathrm{GLB}$ (G&ouml;del-L&ouml;b Bimodal Pro
 
 - In a ternary structure (drawing from Routley-Meyer semantics for substructural, relevance, and intuitionistic logics), you have a relation $R(x, y, z)$.
 - This allows us to decouple the synthetic transformation from the topological space. The ternary relation natively introduces the Observer's frame. It reads: "Relative to reference frame $x$, the accumulation of inductive evidence $y$ yields the coinductively realised semantic limit $z$."
+
+:::
+
+---
+
+::: {.shrink85}
+
+As the semantic space is no longer strict and binary, the representational geometry must evolve to match the problem.
+
+- **The Tri-modal Shift:** Introduces a ternary representation to dynamically navigate the relativistic observer.
+- **Structural Necessity:** Tri-modality is the specific geometry required to house the non-standard continuous spaces.
+- **The Outcome:** The observer can achieve self reflection (coinduction) while formally stepping outside its previous logical bounds (induction).
 
 :::
 
@@ -215,17 +369,28 @@ By natively intertwining syntax ($\mathrm{RDo}$) and semantics ($\mathrm{ODo}$),
 
 # Synthetic relativity logic
 
-## Domain Theory in Logical Form (Syntax versus Semantics)
+## The Observer's Dual Logic (Syntax vs. Semantics)
 
-::: {.shrink70}
+::: {.shrink80}
 
-To execute our modalities, we require an architecture that natively fuses classical (inductive) logic with intuitionistic (coinductive) logic. We ground our system in Abramsky’s **DTLF** (1991), based on an **intuitionistic** construction of truth.
+To execute our modalities, we require an architecture that natively fuses classical (inductive) logic with intuitionistic (coinductive) logic. 
+
+- **Memoisation (Induction / The Actor):** Constructive in the *data* sense. It explicitly builds and stores finite, historical knowledge. It captures logical invariants and acts as the proof of what has been physically done.
+- **Lazy Evaluation (Coinduction / The Observer):** Constructive in the *intuitionistic* sense. The runtime intuitively maintains the topology of an infinite stream, only verifying when locally forced.
+
+**The Incompleteness Boundary:** Logic remains classically monotonic locally. However, due to relative incompleteness (G&ouml;del's Incompleteness & Beklemishev's reflection principles), a static system cannot resolve global limits. The observer must step outside the local system.
+:::
+
+## The Foundational Logic: Domain Theory in Logical Form
+
+::: {.shrink85}
+
+To map this topology of reasoning, we ground our system in Abramsky’s **DTLF** (1991), based on an **intuitionistic** construction of truth.
 
 - **Baseline Ignorance ($\bot$):** Computation initiates at Bottom ($\bot$)—the mathematical coordinate of zero information.
 - **Compact Elements (Finite Observability):** Basic propositions serve as atomic, observable quanta. In DTLF, logical formulas correspond directly to compact elements, meaning any verified property must be confirmable in finite time.
 - **Directed Accumulation ($\sqsubseteq$):** Knowledge grows monotonically. The logic is strictly positive and constructive, meaning once an observation is verified, it establishes an upward, directed path toward the limit without retraction.
 
-**The Incompleteness Boundary:** Logic remains classically monotonic locally. However, due to relative incompleteness (G&ouml;del's Incompleteness & Beklemishev's reflection principles), a static system cannot resolve global limits. The observer must step outside the local system.
 :::
 
 ## Spatial Completeness & The Static Limitation

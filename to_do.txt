@@ -1,6 +1,58 @@
 Synthetic Relativity:
 
-Finally, go through and put in the form of slides (so I can speak to it), save the complete copy of that first, as it will form basis of manuscript.
+Have to show HOW situation calculus corresponds to least fixpoint
 
-The comparison is still going to need tweaking, but that can come following putting into the form of slides.
+Also, there are too may slides that are really just notes to the speaker...or meta-dialogue.
+
+Feedback & Tweaking:
+
+Lose scope, does not mean anything to Michael...
+
+Things to define:
+
+Coalgebra - what is it?
+coinduction - what is that and how does it differ from induction?
+
+Explain the situation calculus, including second order induction axiom of how inference works: Situation calculus - what is it and how does inference work (go back to lecture slides)?
+
+...what are you trying to do?
+
+Giuseppe is likely to know...
+
+I think Michael wants to see a little magic...
+
+e.g. Michael did not know that situation calculus computes least fixpoint...
+
+The duality aspect stuff is quite good
+
+The theorems seem to come too late, bring them forward.
+
+Memoisation - probably just lose it.
+
+Major surgery, lose a lot of the slides.
+
+Most of the audience will only know about 25%
+
+Be less ambitious
+
+
+Questions to tackle:
+
+Do I need all 3 of logical benders, property persistence and strategy synthesis?
+
+Perhaps lose Benders decomposition and strategy synthesis altogether...just rely on Property persistence...
+
+New sections:
+
+# Introduction
+
+## The situation calculus & Second Order Induction axiom
+
+## Algebras & Coalgebras
+
+## Induction and coinduction
+
+## Least and Greatest Fixpoints
+
+
 
