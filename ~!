@@ -517,7 +517,7 @@ Topos theory formally guarantees that inside every fluid, intuitionistic space e
 
 ::: {.shrink85}
 
-- **Compiling Successor State Axioms (SSAs):** This geometric compression is mathematically homologous to Ray Reiter's **Explanation Closure**. The Relativistic Engine acts as an endogenous logic compiler—synthesising complex discovered invariants directly into rigid First-Order logical rules.
+- **Compiling Successor State Axioms (SSAs):** This geometric compression is mathematically homologous to Ray Reiter's famous **Explanation Closure**. The Relativistic Engine acts as an endogenous logic compiler—synthesising complex discovered invariants directly into rigid First-Order logical rules.
 - **Hybrid Execution:** Because of this formal theorem, we can securely export newly learned R-DTLF heuristics directly into standard classical Basic Action Theories (BATs). This allows R-DTLF to handle complex structural learning, and legacy solvers (like Golog).
 
 :::
@@ -526,14 +526,16 @@ Topos theory formally guarantees that inside every fluid, intuitionistic space e
 
 ## Synthetic Relativity versus Situation Calculus versus GLB
 
-::: {.shrink55}
+::: {.shrink35}
 
-| Aspect             | *Synthetic Relativity (R-DTLF)* | *Situation Calculus (BATs/SSAs) $+$ variants of $\mu$-calculus* | *Bimodal Provability logic (GLB)* |
-| :----------------- | :------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | :------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | :------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| *Modalities* | $\mathrm{RDo}$, $\mathrm{ODo}$ & $\mathrm{PDo}$                                                                                                                            | $\mathrm{PDo}$, $\langle a \rangle \phi$ (possibility), $[a] \phi$ (necessity)                                                                                                   | $\Box$, $\Box_\omega$                                                                                                                                                      |
-| *Ordering* | Sequences of finite Posets, non-unique predecessors, non-well ordered                                                                                                      | Successor function, Unique predecessors, non-well ordered                                                                                                                        | Transfinite ordinality: limits, Non-unique predecessors, well-ordered                                                                                                      |
-| *Completeness?* | Spatially complete (continuous geometry) and Turing complete (universal computation via recursive domains); Arithmetically incomplete (triggers Gödel's incompleteness). | Turing complete (can compute anything), but neither spatially complete (no continuous geometry) nor arithmetically complete (subject to Gödel's incompleteness).                 | Arithmetically complete (flawlessly models the bounds of provability), but neither Turing complete (strictly decidable, cannot compute loops) nor spatially complete.      |
-| *Other* | Algebraic compactness. Kleene's Realizability & BHK (Brouwer-Heyting-Kolmogorov) Interpretation.                                                                           | Regression Theorem (solves the frame problem). Fixpoint Semantics & Knaster-Tarski Theorem.                                                                                      | Japaridze's Arithmetical Completeness Theorem. L&ouml;b’s Theorem & Well-founded Kripke Semantics.                                                                              |
+| Aspect             | *Synthetic Relativity (R-DTLF)*                                                                            | *Situation Calculus (BATs/SSAs)*                                                                                                            | *Bimodal Provability logic (GLB)* |
+| :----------------- | :---------------------------------------------------------------------------------- | :----------------------------------------------------------------------------------------------------------------- | :----- |
+| *Modalities*        | $\mathrm{RDo}$, $\mathrm{ODo}$ & $\mathrm{PDo}$ | |   |
+| *Ordering*        | Sequences of finite Posets, non-unique predecessors, non-well ordered                | Successor function, Unique predecessors, non-well ordered   |  Transfinite ordinality: limits, Non-unique predecessors, well-ordered |
+| *Compactness?* | Yes (Algebraic compactness) | No | No |
+| *Completeness?* | Both spatially complete (retains continuous geometry) and Turing complete (gains universal computation via recursive domains), but inherently arithmetically incomplete (triggers Gödel's incompleteness precisely because it can compute) | Turing complete (can compute anything), but neither spatially complete (blind to continuous geometry) nor arithmetically complete (fails Gödel's test). | Arithmetically complete (flawlessly models the bounds of provability), but neither Turing complete (strictly decidable, cannot compute loops) nor spatially complete (blind to geometry) |
+| *Realizability?* | Kleene's Realizability & BHK (Brouwer-Heyting-Kolmogorov) Interpretation) | No  | No |
+| *Parellisable?* | Yes (partially ordered) | No | No |
 
 :::
 

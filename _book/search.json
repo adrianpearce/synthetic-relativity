@@ -10,6 +10,36 @@
     ]
   },
   {
+    "objectID": "index.html#author",
+    "href": "index.html#author",
+    "title": "Synthetic Relativity",
+    "section": "Author",
+    "text": "Author\nProfessor Adrian R. Pearce, School of Computing and Information Systems, The University of Melbourne",
+    "crumbs": [
+      "<span class='chapter-number'>1</span>  <span class='chapter-title'>Introduction</span>"
+    ]
+  },
+  {
+    "objectID": "index.html#abstract",
+    "href": "index.html#abstract",
+    "title": "Synthetic Relativity",
+    "section": "Abstract",
+    "text": "Abstract\nThere has been a rich history of using extensions to the Situation Calculus, such as variations of the \\(\\mu\\)-calculus, to compute least and greatest fixpoints for solving problems like strategy synthesis and verifying temporally extended properties. Traditionally, these approaches have relied on the encoding of static, global Basic Action Theories. Here, we show how problems of this nature can more generally be thought of as logical self-reflection, involving both inference duality and categorical duality. We introduce a relativistic framework founded on Stone duality for the computation of greatest and least fixpoints, leading to a more integrated approach not only for solving existing problems, but potentially for progressing basic action theories themselves-yielding self-transcending action theories.\nTo formalise self-reflection as a dynamic, computationally tractable process, this talk introduces Synthetic Relativity, presenting a new and unique set of structural axioms and corresponding mathematical theorems. We show how these foundational axioms can utilise a Relativistic version of Domain Theory in Logical Form (R-DTLF) to establish a trimodal logic, natively dividing computation into an inductive syntactic accumulator (\\(\\mathrm{RDo}\\)), a coinductive semantic observer (\\(\\mathrm{ODo}\\)), and a relativistic progression engine (\\(\\mathrm{PDo}\\)). Through Semantic Realisation, we demonstrate how bottom-up syntactic proof traces and top-down semantic invariants mathematically lock at a state of Algebraic Compactness (\\(\\mu = \\nu\\)). This topological resolution permits a categorical Change of Base via a Transitivity Axiom, allowing an autonomous agent to dynamically shift its baseline reference frame. Finally, via Topological Booleanization, we illustrate how the semantic observer can act as a logic compiler, mathematically deducing hidden structural invariants and compiling them into classical Successor State Axioms (SSAs).",
+    "crumbs": [
+      "<span class='chapter-number'>1</span>  <span class='chapter-title'>Introduction</span>"
+    ]
+  },
+  {
+    "objectID": "index.html#biography",
+    "href": "index.html#biography",
+    "title": "Synthetic Relativity",
+    "section": "Biography",
+    "text": "Biography\nAdrian R. Pearce is a Professor and Deputy Head of School (Engagement) in the School of Computer Science and Information Systems at the University of Melbourne.",
+    "crumbs": [
+      "<span class='chapter-number'>1</span>  <span class='chapter-title'>Introduction</span>"
+    ]
+  },
+  {
     "objectID": "talk.html",
     "href": "talk.html",
     "title": "Synthetic Relativity: Tri-modality and the Fixpoint Semantics of the Logical Observer",
@@ -417,46 +447,6 @@
     "text": "Comparison with Inductive Logic Programming (ILP) (continued)\n\nGordon Plotkin proved in 1971 that the Relative Least General Generalisation (RLGG) of two clauses—relative to a background theory of arbitrary Horn clauses—may not exist as a finite clause under \\(\\theta\\)-subsumption.\n\nInverse entailment: grounding background knowledge relative to a specific example, IE constructs the most specific finite clause that entails the example. The search space for the algorithm is then strictly bounded between the empty clause (the most general) and this finite bottom clause (the most specific), completely circumventing the need to generate an infinite RLGG (Muggleton, 1995).\nExtracting structure from higher order ILP (Cropper et al. 2020))\nMetainterpretive learning and language bias: Recent systems avoid infinite generalisations by applying strict language biases and utilizing Meta-Interpretive Learning (MIL) (Zhang et al., 2024).\nEquational Anti-Univfication: In modern program synthesis and library learning (such as the systems Babble or DreamCoder), anti-unification is applied over \\(E\\)-graphs to compress code and discover common programmatic substructures efficiently without diverging into infinite spaces (Cerna & Kutsia, 2023).",
     "crumbs": [
       "<span class='chapter-number'>3</span>  <span class='chapter-title'>Appendix</span>"
-    ]
-  },
-  {
-    "objectID": "index.html#auther",
-    "href": "index.html#auther",
-    "title": "Synthetic Relativity",
-    "section": "Auther",
-    "text": "Auther\nProfessor Adrian R. Pearce, School of Computing and Information Systems, The University of Melbourne",
-    "crumbs": [
-      "<span class='chapter-number'>1</span>  <span class='chapter-title'>Introduction</span>"
-    ]
-  },
-  {
-    "objectID": "index.html#abstract",
-    "href": "index.html#abstract",
-    "title": "Synthetic Relativity",
-    "section": "Abstract",
-    "text": "Abstract\nThere has been a rich history of using extensions to the Situation Calculus, such as the \\(\\mu\\)-calculus, to compute least and greatest fixpoints for solving problems like strategy synthesis and verifying temporally extended properties. Traditionally, these approaches have relied on the encoding of static, global Basic Action Theories. Here, we show how problems of this nature can more generally be thought of as logical self-reflection, involving both inference duality and categorical duality. We introduce a relativistic framework founded on Stone duality for the computation of greatest and least fixpoints, leading to a more integrated approach not only for solving existing problems, but potentially for progressing basic action theories themselves-yielding self-transcending action theories.\nTo formalise self-reflection as a dynamic, computationally tractable process, this talk introduces Synthetic Relativity, presenting a new and unique set of structural axioms and corresponding mathematical theorems. We show how these foundational axioms can utilise a Relativistic version of Domain Theory in Logical Form (R-DTLF) to establish a trimodal logic, natively dividing computation into an inductive syntactic accumulator (\\(\\mathrm{RDo}\\)), a coinductive semantic observer (\\(\\mathrm{ODo}\\)), and a relativistic progression engine (\\(\\mathrm{PDo}\\)). Through Semantic Realisation, we demonstrate how bottom-up syntactic proof traces and top-down semantic invariants mathematically lock at a state of Algebraic Compactness (\\(\\mu = \\nu\\)). This topological resolution permits a categorical Change of Base via a Transitivity Axiom, allowing an autonomous agent to dynamically shift its baseline reference frame. Finally, via Topological Booleanization, we illustrate how the semantic observer can act as a logic compiler, mathematically deducing hidden structural invariants and compiling them into classical Successor State Axioms (SSAs).",
-    "crumbs": [
-      "<span class='chapter-number'>1</span>  <span class='chapter-title'>Introduction</span>"
-    ]
-  },
-  {
-    "objectID": "index.html#biography",
-    "href": "index.html#biography",
-    "title": "Synthetic Relativity",
-    "section": "Biography",
-    "text": "Biography\nAdrian R. Pearce is a Professor and Deputy Head of School (Engagement) in the School of Computer Science and Information Systems at the University of Melbourne.",
-    "crumbs": [
-      "<span class='chapter-number'>1</span>  <span class='chapter-title'>Introduction</span>"
-    ]
-  },
-  {
-    "objectID": "index.html#author",
-    "href": "index.html#author",
-    "title": "Synthetic Relativity",
-    "section": "Author",
-    "text": "Author\nProfessor Adrian R. Pearce, School of Computing and Information Systems, The University of Melbourne",
-    "crumbs": [
-      "<span class='chapter-number'>1</span>  <span class='chapter-title'>Introduction</span>"
     ]
   }
 ]
