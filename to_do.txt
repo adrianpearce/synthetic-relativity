@@ -1,5 +1,70 @@
 Synthetic Relativity:
 
+Remaining Questions:
+
+Is quantification over different situations required for coninducing the parity constraint, or can it be directly coinduced? 
+- No it is not, Gemini tells me how to capture them.
+
+When inductively a cyle/fixpoint occurs, then ODo occurs:
+- What is atomoticity of this and how does partity constraint get learned here?
+
+What does coinduction look like, I suppose it needs to be in in DTLF and not successor state axioms, right?
+- A coalgebra tells you how to continuously observe an ongoing state.
+
+- Every transition system is mathematically a Coalgebra. It is a function that constantly takes the current state, outputs an observable behavior, and unfolds into the next state.
+
+- Co-induction is simply the formal logical proof technique used to search for Greatest Fixpoints over coalgebras—allowing you to prove that an infinite stream sustains a specific relativistic pattern forever without having to wait until the "end of time."
+
+- Bisimulation quotient space
+- Terminal coalgebra
+
+- Establish Bisimulation (The Co-inductive Proof)
+Therefore, the logic mathematically proves a bisimulation equivalence:
+$$ +1 \sim -2 $$ (because these movements are indestinguisable)
+
+Categorical (Stone) duality:
+
+The Total Category (The Complete Duality) (equivalent to Overall problem)
+
+The Syntactic Logic (RDo / Co-induction) (equivalent Master problem)
+
+The Semantic Coalgebra (ODo / Unfolding State (equivalent Subproblem)
+
+Bisimulation equivalences (equivalent to Benders cuts)
+
+Example in DTLF logic:
+- See Gemini, it has perfectly written out the logical DTLF form of the parity invariant.
+
+========== Slides to create ===========
+
+Sit calc 
+- Slides from Toronto
+
+Progression (here or later on?)
+
+Second order induction axiom...
+
+Fact it is itself a least fixpoint...
+
+Syntactic Transformation into first order logic (SSAs)
+- Sebastians slide
+- Slides from Toronto
+- Ray reiters own slides 
+
+Do axiom (semantics of Golog...)...it is also a fixpoint (Knapster-Tarski thereom)...
+- Gemini has the most comprehensive suggested treatment of this
+- Does Do rely on the syntactic transformation to SSAs in the situation calculus?
+-- Yes, but qualified, Claude give the best answer to this.
+
+Property persistence in the situation calculus
+- Ryans slides, I think the one on knowledge or property persistence has the best one
+
+Then show on a slide what I am doing for implementing that...
+- Gemini has an amazing table for this, in the Towers of Hanoi slide Chat.
+
+
+========== Up to here ===========
+
 Have to show HOW situation calculus corresponds to least fixpoint
 
 Also, there are too may slides that are really just notes to the speaker...or meta-dialogue.

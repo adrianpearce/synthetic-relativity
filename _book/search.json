@@ -60,71 +60,11 @@
     ]
   },
   {
-    "objectID": "talk.html#synthetic-relativity",
-    "href": "talk.html#synthetic-relativity",
-    "title": "Synthetic Relativity: Tri-modality and the Fixpoint Semantics of the Logical Observer",
-    "section": "Synthetic Relativity",
-    "text": "Synthetic Relativity\n\nScope of talk\n\nSynthetic relativity as in synthetic geometry, or synthetic domain theory, i.e. axiomatic\nFocus: Self-reflection and reasoning about theories of action\n\nOut of scope\nThis is not a first-order logic foundation of physical relativity theories with accelerated observers e.g. work by the Budapest Relativity Research Group (Madarász et al. 2006, Székely et al. 2010)\n\nAndré et al., 2013 provides an axiomatisation complete for Lorentzian manifolds, i.e. the Lorentz interval invariant \\((c\\Delta t)^2 - \\mathit{distance}^2\\) always equals zero.",
-    "crumbs": [
-      "<span class='chapter-number'>2</span>  <span class='chapter-title'>Synthetic Relativity: Tri-modality and the Fixpoint Semantics of the Logical Observer</span>"
-    ]
-  },
-  {
-    "objectID": "talk.html#self-reflective-reasoning-about-action",
-    "href": "talk.html#self-reflective-reasoning-about-action",
-    "title": "Synthetic Relativity: Tri-modality and the Fixpoint Semantics of the Logical Observer",
-    "section": "Self-reflective reasoning about action",
-    "text": "Self-reflective reasoning about action\n\nMotivation: Understand role of self-reflection for reasoning about action, for tasks such as\n\nClassical planning,\nGeneralised planning,\nStrategic reasoning (strategy synthesis, winnability, etc.).\n\nReach goal:\n\nSelf-transcending reasoning, i.e. autonomous theory progression for transcending a theory of action toward solving new problems",
-    "crumbs": [
-      "<span class='chapter-number'>2</span>  <span class='chapter-title'>Synthetic Relativity: Tri-modality and the Fixpoint Semantics of the Logical Observer</span>"
-    ]
-  },
-  {
-    "objectID": "talk.html#transformation-example-in-logic",
-    "href": "talk.html#transformation-example-in-logic",
-    "title": "Synthetic Relativity: Tri-modality and the Fixpoint Semantics of the Logical Observer",
-    "section": "Transformation example in logic",
-    "text": "Transformation example in logic\n\nThe space-time tradeoff Memoisation versus lazy evaluation.\nMemoisation (Time \\(\\rightarrow\\) Space)\nYou take a proof that requires coinductive steps (Time), evaluate it in advance, and cache the valid answers into a lookup table (Space/Induction)—You have contracted logical time (proof) and dilated logical space.\nLazy Evaluation (Space \\(\\rightarrow\\) Time)\nYou take memory (Space/Induction) and collapse it. Instead of storing the data, you store a coalgebraic rule that generates proofs sequentially, only when requested (Time/Coinduction)—You have contracted logical space and dilated logical time (proof).",
-    "crumbs": [
-      "<span class='chapter-number'>2</span>  <span class='chapter-title'>Synthetic Relativity: Tri-modality and the Fixpoint Semantics of the Logical Observer</span>"
-    ]
-  },
-  {
-    "objectID": "talk.html#the-logical-observer",
-    "href": "talk.html#the-logical-observer",
-    "title": "Synthetic Relativity: Tri-modality and the Fixpoint Semantics of the Logical Observer",
-    "section": "The logical observer",
-    "text": "The logical observer\n\nDifferent logical observers evaluate systems differently:\n\nOne observer (evaluating lazily/coinductively) stretches out the “time” of the proof.\nAnother observer (evaluating eagerly/inductively) compresses the proof into into memory “space”.\n\nHowever, the fundamental computational truth—the realisation—cannot change.\nIf truth were not invariant under these frame-shifts, logic would collapse into inconsistency. The spatial distortion of the data structure and the temporal delay in evaluation mathematically cancel out to preserve the invariant realisation.",
-    "crumbs": [
-      "<span class='chapter-number'>2</span>  <span class='chapter-title'>Synthetic Relativity: Tri-modality and the Fixpoint Semantics of the Logical Observer</span>"
-    ]
-  },
-  {
     "objectID": "talk.html#logical-interval-invariant",
     "href": "talk.html#logical-interval-invariant",
     "title": "Synthetic Relativity: Tri-modality and the Fixpoint Semantics of the Logical Observer",
     "section": "Logical interval invariant?",
-    "text": "Logical interval invariant?\n\nIn synthetic relativity, inductive structure and coinductive process are two mathematically intertwined ways of evaluating the same invariant truth.\n\nInduction (static space/structure) and\nCoinduction (unfolding time/process) are the coordinate axes, and\nRealisation is the invariant interval.\n\nRotating logical frame of reference changes how much proof exists in spatial topology versus how much unfolds dynamically in computational time, but invariant interval—the realisation—is preserved.\n\nNote in the situation calculus that since regression is trivially confluent, as per Church-Rosser theorem as it is deterministic, the order in which you evaluate it does not change its final semantic truth, so the realisation is preserved.",
-    "crumbs": [
-      "<span class='chapter-number'>2</span>  <span class='chapter-title'>Synthetic Relativity: Tri-modality and the Fixpoint Semantics of the Logical Observer</span>"
-    ]
-  },
-  {
-    "objectID": "talk.html#inference-duality-of-the-observer",
-    "href": "talk.html#inference-duality-of-the-observer",
-    "title": "Synthetic Relativity: Tri-modality and the Fixpoint Semantics of the Logical Observer",
-    "section": "Inference duality of the observer",
-    "text": "Inference duality of the observer\n\nLogical Benders decomposition (Hooker & Ottosson, 2003) shows how the observer iteratively proposes a model of itself and verifies it via self-reflection.\n\nThe Master (The Proposer): The observer proposes a relaxed model of its current state or plan. Operator (action) counting using MIP\nThe Subproblem (The Verifier): The observer reflects on this proposal, testing its logical consistency with respect to the overall problem. Sequencing actions using SAT\nThe Cut (The Inference): When the proposal fails, the observer generates a logical inference (a Benders cut) that restricts its future reasoning. Conflict driven clause learning (SAT).\n\n\n\n\n(Davies, Pearce, Stuckey & Lipovetzky 2015, ICAPS Outstanding Paper Award) showed approach competitive with state of the art planners on International Planning Competition (IPC) benchmarks—proven to converge to the optimal feasible solution.",
-    "crumbs": [
-      "<span class='chapter-number'>2</span>  <span class='chapter-title'>Synthetic Relativity: Tri-modality and the Fixpoint Semantics of the Logical Observer</span>"
-    ]
-  },
-  {
-    "objectID": "talk.html#inference-duality-of-the-observer---limitations",
-    "href": "talk.html#inference-duality-of-the-observer---limitations",
-    "title": "Synthetic Relativity: Tri-modality and the Fixpoint Semantics of the Logical Observer",
-    "section": "Inference duality of the observer - Limitations",
-    "text": "Inference duality of the observer - Limitations\n\nInference duality like Benders decomposition can be modelled as finding a fixpoint of a monotonic constraint-generation operator.\n\nHowever, it does not compute a “least fixpoint” in the traditional sense as it intentionally stops early once optimal feasibility is proven (it is based on propositional logic)\nNote that the situation calculus does rely on least fixpoint in first order logic.",
+    "text": "Logical interval invariant?\n\nInductive structure and coinductive process are two mathematically intertwined ways of evaluating the same invariant truth.\n\nInduction (static space/structure) and\nCoinduction (unfolding time/process) are the coordinate axes, and\nRealisation is the invariant interval.\n\nRotating logical frame of reference changes how much proof exists in spatial topology versus how much unfolds dynamically in computational time, but invariant interval—the realisation—is preserved.\n\nNote in the situation calculus that since regression is trivially confluent, as per Church-Rosser theorem as it is deterministic, the order in which you evaluate it does not change its final semantic truth, so the realisation is preserved.",
     "crumbs": [
       "<span class='chapter-number'>2</span>  <span class='chapter-title'>Synthetic Relativity: Tri-modality and the Fixpoint Semantics of the Logical Observer</span>"
     ]
@@ -140,31 +80,11 @@
     ]
   },
   {
-    "objectID": "talk.html#strategy-synthesis-in-multi-agent-games",
-    "href": "talk.html#strategy-synthesis-in-multi-agent-games",
-    "title": "Synthetic Relativity: Tri-modality and the Fixpoint Semantics of the Logical Observer",
-    "section": "Strategy Synthesis in Multi-Agent Games",
-    "text": "Strategy Synthesis in Multi-Agent Games\n\n\nScaling Fixpoint Framework: Property persistence scales natively from single-agent persistence to adversarial settings via Situation Calculus Synchronous Game Structures (SCSGSs).\nGeneral Game Playing (GDL): (De Giacomo, Lespérance & Pearce, ECAI 2016) model joint, synchronous multi-player moves over infinite domains via a single tick(m_1, ..., m_n) action.\nFirst-Order Alternating-Time \\(\\mu\\)-Calculus:\n\nSafety: Greatest fixpoints (\\(\\nu Z\\)) — Generalising persistence to maintain a winning condition against any opponent (Weak Winnability).\nLiveness: Least fixpoints (\\(\\mu Z\\)) — Enforcing reachability to force a win in a finite number of steps (Strong Winnability).\n\nSynthesis: By upgrading the quantifier prefix to alternating game quantifiers (\\(\\exists \\vec{m}_{agt} \\forall \\vec{m}_{env}\\)), interleaving regression with fixpoint approximations automates strategy synthesis.\n\n\n\n\nThe modal \\(\\mu\\)-calculus derives its expressive power from the same foundational fixpoint mathematics—least and greatest fixpoints—used to compute backward reachability and property persistence in model checking.\n\nBy upgrading the quantifier prefix from ‘nature does anything’ to alternating game quantifiers, we can use both greatest and least fixpoints to automatically synthesise strategies and guarantee winnability in infinite-state games.",
-    "crumbs": [
-      "<span class='chapter-number'>2</span>  <span class='chapter-title'>Synthetic Relativity: Tri-modality and the Fixpoint Semantics of the Logical Observer</span>"
-    ]
-  },
-  {
-    "objectID": "talk.html#categorical-duality",
-    "href": "talk.html#categorical-duality",
+    "objectID": "talk.html#categorical-duality-1",
+    "href": "talk.html#categorical-duality-1",
     "title": "Synthetic Relativity: Tri-modality and the Fixpoint Semantics of the Logical Observer",
     "section": "Categorical duality",
-    "text": "Categorical duality\n\nIs property persistence just an algorithmic trick with regression? No. It represents a fundamental categorical duality in action theories.\n\nThe Inductive Action Theory (Standard SitCalc):\n\nBuilds state histories forward from \\(S_0\\).\nCategorically maps to Initial Algebras and Least Fixpoints (\\(\\mu\\)).\nNaturally solves reachability and liveness.\n\nThe Coinductive Persistence Theory (AIJ 2010):\n\nPersistence is an infinite-horizon safety property.\nCategorically maps to Terminal Coalgebras and Greatest Fixpoints (\\(\\nu\\)).\nEmploys Regression (the right adjoint to progression) to compute maximal invariants.\n\n\n\n\n\nBy framing persistence as a greatest fixpoint over single-step regression, we embedded the coinductive dual of reachability into the Situation Calculus.\n\nThis mathematical duality made the transition to alternating \\(\\mu\\)-calculus for game synthesis (ECAI 2016) a natural evolution.\n\nIn retrospect, what we were doing in 2010 was exploiting a categorical duality. The standard Situation Calculus is fundamentally inductive—an initial algebra. But persistence is fundamentally coinductive—a terminal coalgebra. By evaluating persistence via regression, we mapped a forward-looking infinite problem into its computable, right-adjoint dual.\n\nOnce you formalise the dual spaces of safety (greatest fixpoints over regression) and reachability (least fixpoints), strategy synthesis in the full \\(\\mu\\)-calculus is just the natural interleaving of these mathematical duals.",
-    "crumbs": [
-      "<span class='chapter-number'>2</span>  <span class='chapter-title'>Synthetic Relativity: Tri-modality and the Fixpoint Semantics of the Logical Observer</span>"
-    ]
-  },
-  {
-    "objectID": "talk.html#limitations",
-    "href": "talk.html#limitations",
-    "title": "Synthetic Relativity: Tri-modality and the Fixpoint Semantics of the Logical Observer",
-    "section": "Limitations",
-    "text": "Limitations\n\nWhat was the limitations of our approach?\n\nRegression is handled separately by different logics: \\(\\mu\\) calculus (greatest fixpoint \\(\\mu\\) and least fixpoint \\(\\nu\\)) \\(+\\) situation calculus (least fixpoint \\(\\mu\\))\nNeither the \\(\\mu\\) calculus nor the situation calculus captures inference duality or categorical duality explicitly\nThey rely on a hand-coded basic action theory (BAT)\n\nRecall Stretch goal: self-transcending reasoning\n\nA relativistic framework for reasoning about limits and topological structure\nA framework for the autonomous progression of action theories\nA partial order approach to both synthesising and hypothesising the existence of limits",
+    "text": "Categorical duality\n\nIs property persistence just an algorithmic trick with regression? No. It represents a fundamental categorical duality in action theories.\n\nThe Inductive Action Theory (Standard SitCalc):\n\nBuilds state histories forward from \\(S_0\\).\nCategorically maps to Initial Algebras and Least Fixpoints (\\(\\mu\\)).\nNaturally solves reachability and liveness.\n\nThe Coinductive Persistence Theory (AIJ 2010):\n\nPersistence is an infinite-horizon safety property.\nCategorically maps to Terminal Coalgebras and Greatest Fixpoints (\\(\\nu\\)).\nEmploys Regression (the right adjoint to progression) to compute maximal invariants.\n\n\n\n\n\nBy framing persistence as a greatest fixpoint over single-step regression, we embedded the coinductive dual of reachability into the Situation Calculus.\n\nThis mathematical duality made the transition to alternating \\(\\mu\\)-calculus for game synthesis (ECAI 2016) a natural evolution.\n\nIn retrospect, what we were doing in 2010 was exploiting a categorical duality. The standard Situation Calculus is fundamentally inductive—an initial algebra. But persistence is fundamentally coinductive—a terminal coalgebra. By evaluating persistence via regression, we mapped a forward-looking infinite problem into its computable, right-adjoint dual.",
     "crumbs": [
       "<span class='chapter-number'>2</span>  <span class='chapter-title'>Synthetic Relativity: Tri-modality and the Fixpoint Semantics of the Logical Observer</span>"
     ]
@@ -174,7 +94,7 @@
     "href": "talk.html#tri-modality-ternary-representation",
     "title": "Synthetic Relativity: Tri-modality and the Fixpoint Semantics of the Logical Observer",
     "section": "Tri-modality & ternary representation",
-    "text": "Tri-modality & ternary representation\n\nStandard provability logics like \\(\\mathrm{GLB}\\) (Gödel-Löb Bimodal Provability Logic) rely on absolute binary provability: \\(x R y\\) assumes an absolute background space where \\(y\\) is provable from \\(x\\).\n\nIn a ternary structure (drawing from Routley-Meyer semantics for substructural, relevance, and intuitionistic logics), you have a relation \\(R(x, y, z)\\).\nThis allows us to decouple the synthetic transformation from the topological space. The ternary relation natively introduces the Observer’s frame. It reads: “Relative to reference frame \\(x\\), the accumulation of inductive evidence \\(y\\) yields the coinductively realised semantic limit \\(z\\).”\n\n\n\n\nAs the semantic space is no longer strict and binary, the representational geometry must evolve to match the problem.\n\nThe Tri-modal Shift: Introduces a ternary representation to dynamically navigate the relativistic observer.\nStructural Necessity: Tri-modality is the specific geometry required to house the non-standard continuous spaces.\nThe Outcome: The observer can achieve self reflection (coinduction) while formally stepping outside its previous logical bounds (induction).",
+    "text": "Tri-modality & ternary representation\n\nStandard provability logics like \\(\\mathrm{GLB}\\) (Gödel-Löb Bimodal Provability Logic) rely on absolute binary provability: \\(x R y\\) assumes an absolute background space where \\(y\\) is provable from \\(x\\).\n\nIn a ternary structure (drawing from Routley-Meyer semantics for substructural, relevance, and intuitionistic logics), you have a relation \\(R(x, y, z)\\).\nThis allows us to decouple the synthetic transformation from the topological space. The ternary relation natively introduces the Observer’s frame. It reads: “Relative to reference frame \\(x\\), the accumulation of inductive evidence \\(y\\) yields the coinductively realised semantic limit \\(z\\).”",
     "crumbs": [
       "<span class='chapter-number'>2</span>  <span class='chapter-title'>Synthetic Relativity: Tri-modality and the Fixpoint Semantics of the Logical Observer</span>"
     ]
@@ -220,21 +140,11 @@
     ]
   },
   {
-    "objectID": "talk.html#the-observers-dual-logic-syntax-vs.-semantics",
-    "href": "talk.html#the-observers-dual-logic-syntax-vs.-semantics",
+    "objectID": "talk.html#domain-theory-in-logical-form-syntax-versus-semantics",
+    "href": "talk.html#domain-theory-in-logical-form-syntax-versus-semantics",
     "title": "Synthetic Relativity: Tri-modality and the Fixpoint Semantics of the Logical Observer",
-    "section": "The Observer’s Dual Logic (Syntax vs. Semantics)",
-    "text": "The Observer’s Dual Logic (Syntax vs. Semantics)\n\nTo execute our modalities, we require an architecture that natively fuses classical (inductive) logic with intuitionistic (coinductive) logic.\n\nMemoisation (Induction / The Actor): Constructive in the data sense. It explicitly builds and stores finite, historical knowledge. It captures logical invariants and acts as the proof of what has been physically done.\nLazy Evaluation (Coinduction / The Observer): Constructive in the intuitionistic sense. The runtime intuitively maintains the topology of an infinite stream, only verifying when locally forced.\n\nThe Incompleteness Boundary: Logic remains classically monotonic locally. However, due to relative incompleteness (Gödel’s Incompleteness & Beklemishev’s reflection principles), a static system cannot resolve global limits. The observer must step outside the local system.",
-    "crumbs": [
-      "<span class='chapter-number'>2</span>  <span class='chapter-title'>Synthetic Relativity: Tri-modality and the Fixpoint Semantics of the Logical Observer</span>"
-    ]
-  },
-  {
-    "objectID": "talk.html#the-foundational-logic-domain-theory-in-logical-form",
-    "href": "talk.html#the-foundational-logic-domain-theory-in-logical-form",
-    "title": "Synthetic Relativity: Tri-modality and the Fixpoint Semantics of the Logical Observer",
-    "section": "The Foundational Logic: Domain Theory in Logical Form",
-    "text": "The Foundational Logic: Domain Theory in Logical Form\n\nTo map this topology of reasoning, we ground our system in Abramsky’s DTLF (1991), based on an intuitionistic construction of truth.\n\nBaseline Ignorance (\\(\\bot\\)): Computation initiates at Bottom (\\(\\bot\\))—the mathematical coordinate of zero information.\nCompact Elements (Finite Observability): Basic propositions serve as atomic, observable quanta. In DTLF, logical formulas correspond directly to compact elements, meaning any verified property must be confirmable in finite time.\nDirected Accumulation (\\(\\sqsubseteq\\)): Knowledge grows monotonically. The logic is strictly positive and constructive, meaning once an observation is verified, it establishes an upward, directed path toward the limit without retraction.",
+    "section": "Domain Theory in Logical Form (Syntax versus Semantics)",
+    "text": "Domain Theory in Logical Form (Syntax versus Semantics)\n\nTo execute our modalities, we require an architecture that natively fuses classical (inductive) logic with intuitionistic (coinductive) logic. We ground our system in Abramsky’s DTLF (1991), based on an intuitionistic construction of truth.\n\nBaseline Ignorance (\\(\\bot\\)): Computation initiates at Bottom (\\(\\bot\\))—the mathematical coordinate of zero information.\nCompact Elements (Finite Observability): Basic propositions serve as atomic, observable quanta. In DTLF, logical formulas correspond directly to compact elements, meaning any verified property must be confirmable in finite time.\nDirected Accumulation (\\(\\sqsubseteq\\)): Knowledge grows monotonically. The logic is strictly positive and constructive, meaning once an observation is verified, it establishes an upward, directed path toward the limit without retraction.\n\nThe Incompleteness Boundary: Logic remains classically monotonic locally. However, due to relative incompleteness (Gödel’s Incompleteness & Beklemishev’s reflection principles), a static system cannot resolve global limits. The observer must step outside the local system.",
     "crumbs": [
       "<span class='chapter-number'>2</span>  <span class='chapter-title'>Synthetic Relativity: Tri-modality and the Fixpoint Semantics of the Logical Observer</span>"
     ]
