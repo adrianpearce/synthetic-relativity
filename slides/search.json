@@ -91,25 +91,95 @@
     "text": "Comparison with Inductive Logic Programming (ILP) (continued)\n\nGordon Plotkin proved in 1971 that the Relative Least General Generalisation (RLGG) of two clauses—relative to a background theory of arbitrary Horn clauses—may not exist as a finite clause under \\(\\theta\\)-subsumption.\n\nInverse entailment: grounding background knowledge relative to a specific example, IE constructs the most specific finite clause that entails the example. The search space for the algorithm is then strictly bounded between the empty clause (the most general) and this finite bottom clause (the most specific), completely circumventing the need to generate an infinite RLGG (Muggleton, 1995).\nExtracting structure from higher order ILP (Cropper et al. 2020))\nMetainterpretive learning and language bias: Recent systems avoid infinite generalisations by applying strict language biases and utilizing Meta-Interpretive Learning (MIL) (Zhang et al., 2024).\nEquational Anti-Univfication: In modern program synthesis and library learning (such as the systems Babble or DreamCoder), anti-unification is applied over \\(E\\)-graphs to compress code and discover common programmatic substructures efficiently without diverging into infinite spaces (Cerna & Kutsia, 2023)."
   },
   {
-    "objectID": "talk.html#logical-interval-invariant",
-    "href": "talk.html#logical-interval-invariant",
+    "objectID": "talk.html#the-situation-calculus-towers-of-hanoi",
+    "href": "talk.html#the-situation-calculus-towers-of-hanoi",
     "title": "Synthetic Relativity: Tri-modality and the Fixpoint Semantics of the Logical Observer",
-    "section": "Logical interval invariant?",
-    "text": "Logical interval invariant?\n\nInductive structure and coinductive process are two mathematically intertwined ways of evaluating the same invariant truth.\n\nInduction (static space/structure) and\nCoinduction (unfolding time/process) are the coordinate axes, and\nRealisation is the invariant interval.\n\nRotating logical frame of reference changes how much proof exists in spatial topology versus how much unfolds dynamically in computational time, but invariant interval—the realisation—is preserved.\n\nNote in the situation calculus that since regression is trivially confluent, as per Church-Rosser theorem as it is deterministic, the order in which you evaluate it does not change its final semantic truth, so the realisation is preserved."
+    "section": "The situation calculus (Towers of Hanoi)",
+    "text": "The situation calculus (Towers of Hanoi)\n\n\n\n\n\n\n\n\n\\(OnPeg(d, p, s)\\)\n\\(move(d, p_{from}, p_{to})\\)\nInitial Situation, \\(S_0\\):\n\\[\n\\begin{align*}\n& OnPeg(D_1, Peg_A, S_0) \\land \\\\\n& OnPeg(D_2, Peg_A, S_0) \\land \\\\\n& OnPeg(D_3, Peg_A, S_0)\n\\end{align*}\n\\]"
+  },
+  {
+    "objectID": "talk.html#reiters-induction-axiom",
+    "href": "talk.html#reiters-induction-axiom",
+    "title": "Synthetic Relativity: Tri-modality and the Fixpoint Semantics of the Logical Observer",
+    "section": "Reiter’s Induction Axiom",
+    "text": "Reiter’s Induction Axiom\n\n\n\n\nThe Foundational (Second Order) Induction Axiom\n\n\n\\[ \\forall P.\\,[P(S_0) \\land \\forall a,s\\,(P(s)\\to P(do(a,s)))]\\to \\forall s\\,P(s) \\]\n\nEvery valid situation is mathematically guaranteed to be a finite sequence of actions rooted at \\(S_0\\).\nEstablishes the situation domain as an inductive datatype.\n\n\n\n\n\n\nNote that standard first order logic cannot enforce reachability due to the Compactness Theorem."
+  },
+  {
+    "objectID": "talk.html#actions-situations",
+    "href": "talk.html#actions-situations",
+    "title": "Synthetic Relativity: Tri-modality and the Fixpoint Semantics of the Logical Observer",
+    "section": "Actions (Situations)",
+    "text": "Actions (Situations)\n\nInitial state: \\(S_0\\)\nStep 1: \\(do(move(D_1, Peg_A, Peg_C), S_0)\\)\nStep 2: \\(do(move(D_2, \\mathit{Peg}_A, \\mathit{Peg}_B), do(move(D_1, Peg_A, Peg_C), S_0))\\)\nStep 3: \\(do(move(D_1, C, B), do(move(D_2, \\mathit{Peg}_A, \\mathit{Peg}_B), do(move(D_1, Peg_A, Peg_C), S_0))\\)"
+  },
+  {
+    "objectID": "talk.html#situations-as-a-least-fixpoint",
+    "href": "talk.html#situations-as-a-least-fixpoint",
+    "title": "Synthetic Relativity: Tri-modality and the Fixpoint Semantics of the Logical Observer",
+    "section": "Situations as a Least Fixpoint",
+    "text": "Situations as a Least Fixpoint\nLet \\(\\mathcal{A}\\) be actions and \\(\\mathcal{S}\\) be the universe of situations. Define a monotonic operator \\(\\Gamma\\): \\[ \\Gamma(X) = \\{S_0\\} \\cup \\{ do(a, s) \\mid a \\in \\mathcal{A}, s \\in X \\} \\]\n\n\\(P(S_0) \\land \\forall a,s\\,(P(s)\\to P(do(a,s)))\\) translates to \\(\\Gamma(P) \\subseteq P\\). Here, \\(P\\) is a pre-fixed point.\n\\(\\forall s\\,P(s)\\) asserts that the universe of situations \\(\\mathcal{S}\\) is a subset of \\(P\\).\nThe axiom states \\(\\mathcal{S}\\) is a subset of every pre-fixed point, meaning it is bounded by their intersection.\n\n\n\n\n\nThe Knaster-Tarski Theorem: least fixpoint\n\n\nThe intersection of all pre-fixed points of a monotonic operator is exactly its least fixpoint.\nTherefore, the axiom enforces \\(\\mathcal{S} = \\mu X.\\Gamma(X)\\)."
+  },
+  {
+    "objectID": "talk.html#syntactic-transformation-to-first-order-logic",
+    "href": "talk.html#syntactic-transformation-to-first-order-logic",
+    "title": "Synthetic Relativity: Tri-modality and the Fixpoint Semantics of the Logical Observer",
+    "section": "Syntactic transformation to First Order Logic",
+    "text": "Syntactic transformation to First Order Logic\nBasic Action Theories [Lin and Reiter 94] define Theory \\(\\mathcal{D} = \\Sigma \\cup \\mathcal{D}_{S_0} \\cup \\mathcal{D}_{Poss} \\cup \\mathcal{D}_{SSA} \\cup \\mathcal{D}_{UNA}\\), where:\n\n\\(\\color{blue}{\\mathcal{D}_{S_0}}\\): axioms describing the initial state of the fluents in \\(S_0\\)\n\\(\\color{blue}{\\mathcal{D}_{poss}}\\): axioms describing the prerequisites of the primitive actions, of the form: \\[\nPoss(A(\\vec{x}), s) \\equiv \\Theta_A(\\vec{x}, s),\n\\] one for each primitive action \\(A\\).\n\\(\\color{blue}{\\mathcal{D}_{ssa}}\\): axioms describing the effects and non-effects of actions, of the form: \\[\nF(\\vec{x}, do(a, s)) \\equiv \\psi_F(\\vec{x}, a, s),\n\\] one for each fluent \\(F\\).\n\\(\\color{blue}{\\mathcal{D}_{una}}\\): unique name axioms for the actions and objects, e.g. \\(move(d_1, p_1, p_2) = move(d_2, p_3, p_4) \\supset (d_1 = d_2 \\land p_1 = p_3 \\land p_2 = p_4)\\), \\((D_1 \\neq D_2) \\land (D_2 \\neq D_3) \\land (D_1 \\neq D_3)\\) and \\((P_0 \\neq P_1) \\land (P_1 \\neq P_2) \\land (P_0 \\neq P_2)\\).\n\\(\\color{blue}{\\Sigma}\\): some foundational domain-independent axioms, e.g. \\(Smaller(d^{\\prime}, d)\\)"
+  },
+  {
+    "objectID": "talk.html#action-precondition-possibility-axioms",
+    "href": "talk.html#action-precondition-possibility-axioms",
+    "title": "Synthetic Relativity: Tri-modality and the Fixpoint Semantics of the Logical Observer",
+    "section": "Action Precondition (Possibility) Axioms",
+    "text": "Action Precondition (Possibility) Axioms\n\\[\n\\begin{align*}\nPoss(move(d, p_{from}, p_{to}), s) \\equiv \\;& Disk(d) \\land (p_{from} \\neq p_{to}) \\land OnPeg(d, p_{from}, s) \\land \\\\\n& \\neg \\exists d' \\Big( Disk(d') \\land Smaller(d', d) \\land \\\\\n& \\big( OnPeg(d', p_{from}, s) \\lor OnPeg(d', p_{to}, s) \\big) \\Big)\n\\end{align*}\n\\]"
+  },
+  {
+    "objectID": "talk.html#a-solution-to-the-frame-problem-sometimes-reiter-91",
+    "href": "talk.html#a-solution-to-the-frame-problem-sometimes-reiter-91",
+    "title": "Synthetic Relativity: Tri-modality and the Fixpoint Semantics of the Logical Observer",
+    "section": "A solution to the frame problem (sometimes) [Reiter 91]",
+    "text": "A solution to the frame problem (sometimes) [Reiter 91]\n\nPositive effect axioms:\n\n\\[\n\\exists p_{from} \\ (a = move(d, p_{from}, p)) \\supset OnPeg(d, p, do(a, s))\n\\]\n\nNegative effect axioms:\n\n\\[\n\\exists p_{to} \\ (a = move(d, p, p_{to})) \\supset \\neg OnPeg(d, p, do(a, s))\n\\]\n\nFrame axioms:\n\n\\[\nOnPeg(d, p, s) \\land \\neg \\exists p_{to} \\ (a = move(d, p, p_{to})) \\supset OnPeg(d, p, do(a, s))\n\\]\n\nCompleteness assumption (explanation closure):\n\n\\[\n\\neg OnPeg(d, p, s) \\land OnPeg(d, p, do(a, s)) \\supset \\exists p_{from} \\ (a = move(d, p_{from}, p))\n\\]\nSuccessor state axioms \\(=\\) positive effect axioms \\(+\\) negative effect axioms \\(+\\) frame axioms \\(+\\) completeness assumption"
+  },
+  {
+    "objectID": "talk.html#successor-state-axioms-regression",
+    "href": "talk.html#successor-state-axioms-regression",
+    "title": "Synthetic Relativity: Tri-modality and the Fixpoint Semantics of the Logical Observer",
+    "section": "Successor State Axioms & Regression",
+    "text": "Successor State Axioms & Regression\nSo, suppose that for fluent \\(F(\\vec{x}, s)\\):\n\\(\\gamma_F^+(\\vec{x}, a, s)\\) encodes all positive effects; and\n\\(\\gamma_F^-(\\vec{x}, a, s)\\) encodes all negative effects.\nThe successor state axiom solution has the following form:\n\\[\n\\color{blue}{F(\\vec{x}, do(a, s)) \\equiv \\gamma_F^+(\\vec{x}, a, s) \\lor F(\\vec{x}, s) \\land \\neg \\gamma_F^-(\\vec{x}, a, s)}\n\\]\nIn our example:\n\\[\n\\begin{align*}\n\\gamma_{OnPeg}^+(d, p, a, s) \\;&\\stackrel{\\text{def}}{=}\\; \\exists p_{from} \\ (a = move(d, p_{from}, p)) \\\\\n\\gamma_{OnPeg}^-(d, p, a, s) \\;&\\stackrel{\\text{def}}{=}\\; \\exists p_{to} \\ (a = move(d, p, p_{to}))\n\\end{align*}\n\\]\nSo successor state axiom is:\n\\[\n\\begin{align*}\nOnPeg(d, p, do(a, s)) \\equiv \\;& \\\\\n& [\\exists p_{from} \\ (a = move(d, p_{from}, p))] \\lor \\\\\n& OnPeg(d, p, s) \\land \\neg [\\exists p_{to} \\ (a = move(d, p, p_{to}))]\n\\end{align*}\n\\]"
+  },
+  {
+    "objectID": "talk.html#reasoning-about-actions",
+    "href": "talk.html#reasoning-about-actions",
+    "title": "Synthetic Relativity: Tri-modality and the Fixpoint Semantics of the Logical Observer",
+    "section": "Reasoning about actions",
+    "text": "Reasoning about actions\n\n\\(\\color{blue}{\\text{Projection task:}}\\) given a sequence of actions \\(s = a_1, \\dots, a_n\\), does condition \\(\\phi(s)\\) hold?: \\[\n\\mathcal{D} \\models OnPeg(D_2, Peg_B, do(move(D_2, Peg_A, Peg_B), do(move(D_1, Peg_A, Peg_C), S_0)))\n\\]\n\\(\\color{blue}{\\text{Deductive planning:}}\\) find a sequence of actions to make \\(\\phi(s)\\) true (e.g., solve the puzzle): \\[\n\\mathcal{D} \\vdash \\exists s .\\ OnPeg(D_1, Peg_C, s) \\land OnPeg(D_2, Peg_C, s) \\land OnPeg(D_3, Peg_C, s) \\land executable(s)\n\\]\n\\(\\color{blue}{\\text{Inductive proofs:}}\\) proving global invariants across all reachable states (e.g., a disk is never on two pegs at once): \\[\n\\mathcal{D} \\models \\forall s .\\ executable(s) \\supset \\forall d, p_1, p_2 .\\ (OnPeg(d, p_1, s) \\land OnPeg(d, p_2, s) \\supset p_1 = p_2)\n\\]"
   },
   {
     "objectID": "talk.html#property-persistence-as-a-greatest-fixpoint",
     "href": "talk.html#property-persistence-as-a-greatest-fixpoint",
     "title": "Synthetic Relativity: Tri-modality and the Fixpoint Semantics of the Logical Observer",
     "section": "Property Persistence as a Greatest Fixpoint",
-    "text": "Property Persistence as a Greatest Fixpoint\n\nThe Challenge: Verifying universally quantified temporal queries (e.g., “\\(\\phi\\) persists indefinitely”) requires second-order induction, which strictly limits automated first-order reasoning.\nThe Single-Step Operator: (Kelly & Pearce, AIJ 2010) captures the condition for \\(\\phi\\) holding now and being preserved after any single legal action via regression (\\(\\mathcal{R}\\)):\n\n\n\n\\[ \\Gamma(Z) \\equiv \\phi(s) \\land \\forall a \\big( \\textit{Poss}(a, s) \\to \\mathcal{R}[\\, Z(do(a, s)) \\,] \\big) \\]\n\n\n\nGreatest Fixpoint (\\(\\nu Z\\)):\n\nPersistence is an infinite-horizon safety property.\nThe persistence condition is the greatest fixpoint of this operator: \\(\\nu Z.\\, \\Gamma(Z)\\)."
+    "text": "Property Persistence as a Greatest Fixpoint\n\nVerifying universally quantified temporal queries (e.g., “property \\(\\phi\\) persists indefinitely”) requires second-order induction, however Kelly & Pearce AIJ 2010 show how this can be obtained using a single step regression operator.\nThe Single-Step Operator: (Kelly & Pearce, AIJ 2010) captures the condition for \\(\\phi\\) holding now and being preserved after any single legal action via regression (\\(\\mathcal{R}\\)):\n\n\n\n\\[ \\Gamma(Z) \\equiv \\phi(s) \\land \\forall a \\big( \\textit{Poss}(a, s) \\to \\mathcal{R}[\\, Z(do(a, s)) \\,] \\big) \\]\n\n\n\nIteratively applying this meta-level calculation computes the maximal invariant without explicitly invoking the induction axiom.\n\nBy wrapping the single-step regression operator inside a monotonic formula transformer, we evaluate the future back in the current state.\nTaking the greatest fixpoint of this regression operator yields the exact, most permissive preconditions required for the property to persist indefinitely using only first-order logic.\n\n\n\n\n\n\nGreatest Fixpoint (\\(\\nu Z\\))\n\n\n\nProperty persistence is an infinite-horizon safety property.\nThe persistence condition is the greatest fixpoint of this operator: \\(\\nu Z.\\, \\Gamma(Z)\\)."
   },
   {
-    "objectID": "talk.html#categorical-duality-1",
-    "href": "talk.html#categorical-duality-1",
+    "objectID": "talk.html#defining-the-observer-coinduction",
+    "href": "talk.html#defining-the-observer-coinduction",
     "title": "Synthetic Relativity: Tri-modality and the Fixpoint Semantics of the Logical Observer",
-    "section": "Categorical duality",
-    "text": "Categorical duality\n\nIs property persistence just an algorithmic trick with regression? No. It represents a fundamental categorical duality in action theories.\n\nThe Inductive Action Theory (Standard SitCalc):\n\nBuilds state histories forward from \\(S_0\\).\nCategorically maps to Initial Algebras and Least Fixpoints (\\(\\mu\\)).\nNaturally solves reachability and liveness.\n\nThe Coinductive Persistence Theory (AIJ 2010):\n\nPersistence is an infinite-horizon safety property.\nCategorically maps to Terminal Coalgebras and Greatest Fixpoints (\\(\\nu\\)).\nEmploys Regression (the right adjoint to progression) to compute maximal invariants."
+    "section": "Defining the Observer: Coinduction",
+    "text": "Defining the Observer: Coinduction\n\nCoalgebras formalize the observable system and Coinduction is the proof engine. Let’s stop looking at absolute SitCalc coordinates (\\(OnPeg\\)) and observe the relative movement \\(\\Delta p \\equiv (p_{to} - p_{from}) \\pmod 3\\) of the smallest disk.\nThe physical puzzle generates an infinite coalgebraic stream of spatial jumps: \\[ \\langle +1 \\rangle, \\langle +1 \\rangle, \\langle -2 \\rangle, \\langle +1 \\rangle \\dots \\]\nSuppose we want to coinduce an idealized universe where the disk always moves \\(+1\\). We mathematically propose the Greatest Fixpoint: \\[\nCyclicInvariant \\equiv \\nu X.\\ \\langle +1 \\rangle X\n\\]\nThe problem: Reality eventually generates a jump of \\(-2\\). How can our idealized Greatest Fixpoint survive this physical contradiction?\nWhile standard induction proves a base case and builds up, coinduction proposes a Greatest Fixpoint (an infinite rule) and verifies it locally step-by-step. If an observation holds right now, and the rules guarantee it holds in the next step, the Greatest Fixpoint is guaranteed to hold forever.\n\n\\(\\nu X.\\ \\Phi(X)\\) : The Greatest Fixpoint. “Define \\(X\\) as the largest endlessly repeating stream satisfying \\(\\Phi(X)\\).”"
+  },
+  {
+    "objectID": "talk.html#the-dual-problem-category-theory",
+    "href": "talk.html#the-dual-problem-category-theory",
+    "title": "Synthetic Relativity: Tri-modality and the Fixpoint Semantics of the Logical Observer",
+    "section": "The Dual Problem & Category Theory",
+    "text": "The Dual Problem & Category Theory\nHowever, to formally synthesize infinite invariants natively, we need a mathematical framework built for continuous forward observation. We must transition from Algebras to Coalgebras.\nIn Category Theory, we use an endofunctor (\\(F\\)) over a state space (\\(S\\)) as a structural template that shapes our data. \\(F(S)\\) is simply the resulting combined data object.\n\nAlgebra (SitCalc / Constructor): Morphism arrows point inward: \\(\\; F(S) \\to S\\)\n\nOur endofunctor shapes the input ingredients: \\(F(S) = Action \\times S\\)\nThe morphism evaluates exactly to: \\((Action \\times State_{current}) \\to State_{next}\\)\nConcept: We combine pieces to construct a history from the bottom-up.\n\nCoalgebra (DTLF / Observer): Morphism arrows point outward: \\(\\; S \\to F(S)\\)\n\nOur endofunctor shapes the emitted data: \\(F(S) = Observation \\times S\\)\nThe morphism evaluates exactly to: \\(State_{current} \\to (Observation \\times State_{next})\\)\nConcept: We take an opaque running state, break off a visible observation, and silently unfold the remaining state into the future."
+  },
+  {
+    "objectID": "talk.html#stone-duality-and-the-syntactic-transformation",
+    "href": "talk.html#stone-duality-and-the-syntactic-transformation",
+    "title": "Synthetic Relativity: Tri-modality and the Fixpoint Semantics of the Logical Observer",
+    "section": "Stone Duality and the Syntactic Transformation",
+    "text": "Stone Duality and the Syntactic Transformation\nIn Category Theory, Stone Duality dictates a perfect, inverse mirror-image between Syntax (logical equivalence) and Semantics (topological state space).\nWhen our coalgebra hits the \\(-2\\) transition, it evaluates the topological future and discovers the physical branching of jumping left twice (\\(-2\\)) is completely indistinguishable from jumping right once (\\(+1\\)). We enforce this Bisimulation Equivalence by injecting a logical cut:\n\\[\n\\forall \\phi.\\ \\langle -2 \\rangle \\phi \\;\\equiv\\; \\langle +1 \\rangle \\phi\n\\]\nBy syntactically equating these propositions, Stone Duality automatically forces the underlying semantic space to fold into a modulo-3 quotient ring (\\(\\mathbb{Z}_3\\)). This is our new syntactic transformation!"
   },
   {
     "objectID": "talk.html#tri-modality-ternary-representation",
@@ -137,7 +207,7 @@
     "href": "talk.html#the-synthetic-transformation",
     "title": "Synthetic Relativity: Tri-modality and the Fixpoint Semantics of the Logical Observer",
     "section": "The Synthetic Transformation",
-    "text": "The Synthetic Transformation\n\nAxiom 3: The Transitivity Axiom Once Realisation is achieved, the relativistic reference frame shifts. The categorically preserved invariant (the semantic limit, \\(O\\)) becomes the new reference frame (\\(S_f\\)) for the next order of progression.\n\\[ \\mathrm{PDo}(N, O, S_f) \\longrightarrow \\mathrm{PDo}(X, Y, \\mathbf{O}) \\]\n\nLeft Side: The fully realised state within the initial reference frame (\\(S_f\\)).\nThe Arrow (\\(\\longrightarrow\\)): The Synthetic Transformation (Topological closure and Change of Base).\nRight Side: A new, higher-order autonomous progression begins. The complex limit \\(O\\) has mathematically synthesised into an atomic, discrete baseline coordinate for the new subproblem (\\(X\\))."
+    "text": "The Synthetic Transformation\n\nAxiom 3: The Transitivity Axiom Once Realisation is achieved, the relativistic reference frame shifts. The categorically preserved invariant (the semantic limit, \\(O\\)) becomes the new reference frame (\\(S_f\\)) for the next order of progression.\n\\[ \\mathrm{PDo}(N, O, S_f) \\longrightarrow \\mathrm{PDo}(X, Y, \\mathrm{O}) \\]\n\nLeft Side: The fully realised state within the initial reference frame (\\(S_f\\)).\nThe Arrow (\\(\\longrightarrow\\)): The Synthetic Transformation (Topological closure and Change of Base).\nRight Side: A new, higher-order autonomous progression begins. The complex limit \\(O\\) has mathematically synthesised into an atomic, discrete baseline coordinate for the new subproblem (\\(X\\))."
   },
   {
     "objectID": "talk.html#the-dual-fixpoints",
@@ -172,14 +242,14 @@
     "href": "talk.html#execution-invariant-synthesis-towers-of-hanoi-example",
     "title": "Synthetic Relativity: Tri-modality and the Fixpoint Semantics of the Logical Observer",
     "section": "Execution & Invariant Synthesis: Towers of Hanoi example",
-    "text": "Execution & Invariant Synthesis: Towers of Hanoi example\n\n1. Local Unrolling (Building the Situation Trace): The engine recursively accumulates primitive actions (moving disks), generating the topological equivalent of a nested \\(do()\\) sequence:\n\n\n\n\\[ \\mathrm{PDo}\\Big(\\, \\mathrm{RDo}\\big({\\color{blue}{\\text{move}(D_1, P_2)}}, \\dots S_f\\big),\\; \\mathrm{ODo}\\big(O_{\\text{target}}, \\text{Goal}\\big),\\; S_f \\,\\Big) \\]\n\n\n\n2. Limit Catching: Through top-down semantic reflection (\\(\\Box_\\omega\\)), the \\(\\mathrm{ODo}\\) modality mathematically coinduces a structural property of the optimal traces: The Parity Invariant (\\(O_{\\text{parity}}\\)). (The smallest disk \\(D_1\\) must cycle consistently in one fixed direction, while every alternate move is the single legal play between the remaining two pegs, never involving \\(D_1\\)).\n3. The Synthetic Transformation (Change of Base): The Transitivity Axiom fires, executing a categorical Change of Base:\n\n\n\n\\[ \\mathrm{PDo}(N_{\\text{trace}}, {\\color{blue}{O_{\\text{parity}}}}, S_f) \\longrightarrow \\mathrm{PDo}(X, Y, {\\color{blue}{\\mathbf{O_{\\text{parity}}}}}) \\]"
+    "text": "Execution & Invariant Synthesis: Towers of Hanoi example\n\n1. Local Unrolling (Building the Situation Trace): The engine recursively accumulates primitive actions (moving disks), generating the topological equivalent of a nested \\(do()\\) sequence:\n\n\n\n\\[ \\mathrm{PDo}\\Big(\\, \\mathrm{RDo}\\big({\\color{blue}{\\text{move}(D_1, P_2)}}, \\dots S_f\\big),\\; \\mathrm{ODo}\\big(O_{\\text{target}}, \\text{Goal}\\big),\\; S_f \\,\\Big) \\]\n\n\n\n2. Limit Catching: Through top-down semantic reflection (\\(\\Box_\\omega\\)), the \\(\\mathrm{ODo}\\) modality mathematically coinduces a structural property of the optimal traces: The Parity Invariant (\\(O_{\\text{parity}}\\)). (The smallest disk \\(D_1\\) must cycle consistently in one fixed direction, while every alternate move is the single legal play between the remaining two pegs, never involving \\(D_1\\)).\n3. The Synthetic Transformation (Change of Base): The Transitivity Axiom fires, executing a categorical Change of Base:\n\n\n\n\\[ \\mathrm{PDo}(N_{\\text{trace}}, {\\color{blue}{O_{\\text{parity}}}}, S_f) \\longrightarrow \\mathrm{PDo}(X, Y, {\\color{blue}{\\mathrm{O_{\\text{parity}}}}}) \\]"
   },
   {
     "objectID": "talk.html#translating-continuous-syntax-into-successor-state-axioms",
     "href": "talk.html#translating-continuous-syntax-into-successor-state-axioms",
     "title": "Synthetic Relativity: Tri-modality and the Fixpoint Semantics of the Logical Observer",
     "section": "Translating Continuous Syntax into Successor State Axioms",
-    "text": "Translating Continuous Syntax into Successor State Axioms\n\n1. Sidestepping the Frame Problem (SSA vs. R-DTLF)\n\nSitCalc SSA (Global Tracking): Evaluates the entire history (\\(s\\)) across rigid Successor State Axioms:\n\n\n\n\n\\[\\mathit{On}(d, p, do(a, s)) \\equiv a = \\text{move}(d, p) \\lor \\big( \\mathit{On}(d, p, s) \\land \\neg \\exists p'. a = \\text{move}(d, p') \\big) \\]\n\n\n\n\nR-DTLF (Local Entailment): Operates purely on verifiable observables. Irrelevant global variables are topologically invisible (no frame axioms are computed during unrolling):\n\n\n\n\n\\[ \\mathrm{RDo}\\big(\\text{move}(d, p), S_f\\big) \\vdash \\mathit{On}(d, p) \\]\n\n\n\n2. Endogenous Code Generation (Compiling the Precondition) Once \\(O_{\\text{parity}}\\) is realised, the engine autonomously exports the invariant into a discrete classical Action Precondition Axiom (\\(\\mathit{Poss}\\)) for the new baseline:\n\n\n\n\\[ \\mathit{Poss}_{\\text{new}}(\\text{move}(d, p), s) \\equiv \\mathit{Poss}_{\\text{old}} \\land \\mathbf{\\big(d = D_1 \\leftrightarrow \\text{LastMoved}(s) \\neq D_1\\big)} \\]\n\n\n\nBy autonomously synthesising this SSA, the logic enforces deterministic execution."
+    "text": "Translating Continuous Syntax into Successor State Axioms\n\n1. Sidestepping the Frame Problem (SSA vs. R-DTLF)\n\nSitCalc SSA (Global Tracking): Evaluates the entire history (\\(s\\)) across rigid Successor State Axioms:\n\n\n\n\n\\[\\mathit{On}(d, p, do(a, s)) \\equiv a = \\text{move}(d, p) \\lor \\big( \\mathit{On}(d, p, s) \\land \\neg \\exists p'. a = \\text{move}(d, p') \\big) \\]\n\n\n\n\nR-DTLF (Local Entailment): Operates purely on verifiable observables. Irrelevant global variables are topologically invisible (no frame axioms are computed during unrolling):\n\n\n\n\n\\[ \\mathrm{RDo}\\big(\\text{move}(d, p), S_f\\big) \\vdash \\mathit{On}(d, p) \\]\n\n\n\n2. Endogenous Code Generation (Compiling the Precondition) Once \\(O_{\\text{parity}}\\) is realised, the engine autonomously exports the invariant into a discrete classical Action Precondition Axiom (\\(\\mathit{Poss}\\)) for the new baseline:\n\n\n\n\\[ \\mathit{Poss}_{\\text{new}}(\\text{move}(d, p), s) \\equiv \\mathit{Poss}_{\\text{old}} \\land \\mathrm{\\big(d = D_1 \\leftrightarrow \\text{LastMoved}(s) \\neq D_1\\big)} \\]\n\n\n\nBy autonomously synthesising this SSA, the logic enforces deterministic execution."
   },
   {
     "objectID": "talk.html#bridging-worlds-endogenous-logic-compilation",
