@@ -216,7 +216,7 @@ Iteratively applying this meta-level calculation computes the maximal invariant 
 - The persistence condition is the **greatest fixpoint** of this operator: $\nu Z.\, \Gamma(Z)$.
 :::
 
-## The Categorial Observer & Coinduction
+## The Categorical Observer & Coinduction
 
 
 - **Induction** builds and verifies finite situations from the "bottom up" (starting from the initial base situation $S_{0}$ and progressing via the successor function $do(a, s)$).
@@ -238,12 +238,12 @@ $$
 \langle +2 \rangle
 \dots $$
 
-Suppose we want to coinduce an idealized universe where the disk *always* moves $-1$. We mathematically *propose* the Greatest Fixpoint (using the exact same fixpoint architecture as our property persistence):
+Suppose we want to coinduce an idealised universe where the disk *always* moves $-1$. We mathematically *propose* the Greatest Fixpoint (using the exact same fixpoint architecture as our property persistence):
 $$
 ParityInvariant \equiv \nu Z.\ \langle -1 \rangle Z
 $$
 
-*The problem:* This sequence also generates a jump of $+2$, so how can our idealized Greatest Fixpoint survive this contradiction?
+*The problem:* This sequence also generates a jump of $+2$, so how can our idealised Greatest Fixpoint survive this contradiction?
 
 While standard induction proves a base case and builds up, coinduction *proposes* a Greatest Fixpoint (an infinite rule) and verifies it locally step-by-step. If an observation holds right now, and the rules guarantee it holds in the next step, the Greatest Fixpoint is guaranteed to hold forever.
 
@@ -436,16 +436,16 @@ By natively intertwining syntax ($\mathrm{RDo}$) and semantics ($\mathrm{ODo}$),
 
 ## Theory-Driven Generalization via Categorical Duality
 
-Instead of relying on algorithmic heuristics (e.g., IC3 or Interpolation) to guess invariants, the system treats generalization as a native categorical operation over its Reference Theory ($S_F$). We reframe invariant proposal through the foundational duality of fibrations and adjunctions.
+Instead of relying on algorithmic heuristics (e.g., IC3 or Interpolation) to guess invariants, the system treats generalisation as a native categorical operation over its Reference Theory ($S_F$). We reframe invariant proposal through the foundational duality of fibrations and adjunctions.
 
 * **1. Change of Base (The Fibrational Shift)**
   * In categorical logic, logical properties form a *Total Category* fibered over a *Base Category* of physical states. 
   * The system performs a mathematical **Change of Base** from the absolute physical space ($ODo$) to the relativistic space ($RDo$). This functor maps complex, absolute histories into simplified, periodic differential streams.
 
 * **2. Adjoint Duality (Swapping the Problem)**
-  * Generalizing a safe invariant is structurally identical to the problem of deductive planning, simply with the functors reversed (an Adjunction: $Left \dashv Right$).
+  * Generalising a safe invariant is structurally identical to the problem of deductive planning, simply with the functors reversed (an Adjunction: $Left \dashv Right$).
   * *Planning (Left Adjoint):* Inductive, bottom-up synthesis of a finite trace (Least Fixpoint).
-  * *Generalizing (Right Adjoint):* Coinductive, top-down projection of an infinite bound (Greatest Fixpoint). The finite local observations mathematically push across the adjunction to form the exact coinductive proposal.
+  * *Generalising (Right Adjoint):* Coinductive, top-down projection of an infinite bound (Greatest Fixpoint). The finite local observations mathematically push across the adjunction to form the exact coinductive proposal.
 
 * **3. Universal Properties (Terminal Coalgebras)**
   * The system requires no external engineering templates or "Syntax-Guided" rules.
@@ -475,13 +475,13 @@ In this framework, formulas do not describe static states; they describe observa
 * **$\top$ (True):** The baseline trivial observation (meaning a transition occurred and the system did not crash).
 * **$\phi \land \psi \ / \ \phi \lor \psi$ (Conjunction / Disjunction):** "I simultaneously observe both $\phi$ and $\psi$" / "I observe either $\phi$ or $\psi$."
 * **$\langle \delta \rangle \phi$ (The Coalgebraic Transition Modality):** This is the literal "arrow breaking in two." It reads: *"The system makes a visible relativistic jump of $\delta$ (where $\delta \in \mathbb{Z}$), and the continuing, unobserved future stream will satisfy property $\phi$."*
-* **$\nu X.\ \Phi(X)$ (The Greatest Fixpoint / Co-induction Operator):** The primitive for co-induction. It binds a variable $X$ to define a recursive, infinite behavior. It reads: *"Define property $X$ as the largest possible, endlessly repeating stream that continuously satisfies the rule $\Phi(X)$ forever."*
+* **$\nu X.\ \Phi(X)$ (The Greatest Fixpoint / Co-induction Operator):** The primitive for co-induction. It binds a variable $X$ to define a recursive, infinite behaviour. It reads: *"Define property $X$ as the largest possible, endlessly repeating stream that continuously satisfies the rule $\Phi(X)$ forever."*
 
 ## Example: Computing the Hanoi Parity Invariant
 
-We can now express our hypothesis for the Towers of Hanoi natively in DTLF. We want to co-induce an idealized invariant where the smallest disk flawlessly cycles one peg to the right ($+1$) forever. 
+We can now express our hypothesis for the Towers of Hanoi natively in DTLF. We want to co-induce an idealised invariant where the smallest disk flawlessly cycles one peg to the right ($+1$) forever. 
 
-**1. Proposing the Idealized Rule:**
+**1. Proposing the Idealised Rule:**
 We propose this continuous property as our Greatest Fixpoint:
 $$
 Ideal \equiv \nu X.\ \langle +1 \rangle X
@@ -494,7 +494,7 @@ Physical \equiv \nu X.\ (\langle +1 \rangle X \lor \langle -2 \rangle X)
 $$
 
 **3. Syntactic Bisimulation Equivalence:**
-Because the topological futures of $-2$ and $+1$ land on the identical peg, we apply our syntactic equivalence ($\langle -2 \rangle \phi \equiv \langle +1 \rangle \phi$). This cleanly collapses the messy physical stream into our idealized property:
+Because the topological futures of $-2$ and $+1$ land on the identical peg, we apply our syntactic equivalence ($\langle -2 \rangle \phi \equiv \langle +1 \rangle \phi$). This cleanly collapses the messy physical stream into our idealised property:
 $$
 \nu X.\ (\langle +1 \rangle X \lor \langle -2 \rangle X) \;\equiv\; \nu X.\ \langle +1 \rangle X
 $$
