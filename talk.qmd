@@ -20,12 +20,16 @@ This module is also available in the following versions
 
 ::: {.columns}
 ::: {.column width="40%"}
-![](figs/towers1_sharpened_transparent.png){width=50% fig-align="center"}
+![](figs/towers1_sharpened_transparent.png){height=47% width=47% fig-align="center"}
 :::
 ::: {.column width="60%"}
-::: {.shrink80}
-$\mathit{OnPeg}(d, p, s)$
+::: {.shrink75}
 
+<div style="margin-top: 0.6em;"></div>
+
+[Fluents:]{style="color:blue"} $\mathit{OnPeg}(d, p, s)$
+
+<div style="margin-top: 0.1em;"></div>
 
 [*Initial Situation:*]{style="color:blue"}
 
@@ -37,12 +41,23 @@ $$
 \end{align*}
 $$
 
-*Actions:* $move(d, p_{from}, p_{to})$
+[*Actions:*]{style="color:blue"} $move(d, p_{from}, p_{to})$
 
-[Goal:]{Style="color:blue"} All disks on $Peg_3$.
+<div style="margin-top: 1.0em;"></div>
+
+[*Goal:*]{style="color:blue"} All disks on $Peg_3$.
 
 :::
 :::
+:::
+
+<div style="margin-top: -1.3em;"></div>
+::: {.shrink75}
+
+[Why Towers of Hanoi?]{style="color:blue"}
+
+- Naturally highly recursive, problem naturally decomposes into subproblems
+- You learn how to solve it during search, for larger instances of $n$
 :::
 
 
@@ -62,14 +77,17 @@ $$
 ![](figs/towers2_sharpened_transparent.png){height=25% width=25% fig-align="center"}
 
 ::: {.shrink63}
-*Initial situation:* $S_0$
+[*Initial situation:*]{style="color:blue"} $S_0$
 
-*Step 1:* $do(move(D_1, Peg_1, Peg_3), S_0)$
+[*Step 1:*]{style="color:blue"} $do(move(D_1, Peg_1, Peg_3), S_0)$
 
-*Step 2:* $do(move(D_2, \mathit{Peg}_1, \mathit{Peg}_2), do(move(D_1, Peg_1, Peg_3), S_0))$
+[*Step 2:*]{style="color:blue"} $do(move(D_2, \mathit{Peg}_1, \mathit{Peg}_2), do(move(D_1, Peg_1, Peg_3), S_0))$
 
-*Step 3:* $do(move(D_1, C, B), do(move(D_2, \mathit{Peg}_1, \mathit{Peg}_2), do(move(D_1, Peg_1, Peg_3), S_0))$
+[*Step 3:*]{style="color:blue"} $do(move(D_1, C, B), do(move(D_2, \mathit{Peg}_1, \mathit{Peg}_2), do(move(D_1, Peg_1, Peg_3), S_0))$
+
+[*Step 4-:*]{style="color:blue"} etc.
 :::
+
 
 ## Situations as a Least Fixpoint
 
