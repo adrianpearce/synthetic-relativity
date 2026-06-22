@@ -158,7 +158,7 @@ window.Quarto = {
     <h2 id="toc-title">Table of contents</h2>
    
   <ul>
-  <li><a href="#categorical-duality" id="toc-categorical-duality" class="nav-link active" data-scroll-target="#categorical-duality">Categorical Duality</a></li>
+  <li><a href="#the-situation-calculus" id="toc-the-situation-calculus" class="nav-link active" data-scroll-target="#the-situation-calculus">The situation calculus</a></li>
   <li><a href="#synthetic-relativity-axioms" id="toc-synthetic-relativity-axioms" class="nav-link" data-scroll-target="#synthetic-relativity-axioms">Synthetic relativity axioms</a></li>
   <li><a href="#synthetic-relativity-logic" id="toc-synthetic-relativity-logic" class="nav-link" data-scroll-target="#synthetic-relativity-logic">Synthetic relativity logic</a></li>
   <li><a href="#comparison" id="toc-comparison" class="nav-link" data-scroll-target="#comparison">Comparison</a></li>
@@ -199,27 +199,185 @@ window.Quarto = {
 <li><a href="pdfs/talk.pdf">slides (pdf)</a></li>
 </ul>
 </section>
-<section id="categorical-duality" class="level1">
-<h1>Categorical Duality</h1>
-<section id="logical-interval-invariant" class="level2">
-<h2 class="anchored" data-anchor-id="logical-interval-invariant">Logical interval invariant?</h2>
-<div class="shrink80">
-<p>Inductive structure and coinductive process are two mathematically intertwined ways of evaluating the same invariant truth.</p>
+<section id="the-situation-calculus" class="level1">
+<h1>The situation calculus</h1>
+<section id="the-situation-calculus-towers-of-hanoi" class="level2">
+<h2 class="anchored" data-anchor-id="the-situation-calculus-towers-of-hanoi">The situation calculus (Towers of Hanoi)</h2>
+<div class="columns">
+<div class="column" style="width:40%;">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="figs/towers1.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:50.0%"></p>
+</figure>
+</div>
+</div><div class="column" style="width:60%;">
+<p><span class="math inline">\(OnPeg(d, p, s)\)</span></p>
+<p><span class="math inline">\(move(d, p_{from}, p_{to})\)</span></p>
+<p>Initial Situation, <span class="math inline">\(S_0\)</span>:</p>
+<p><span class="math display">\[
+\begin{align*}
+&amp; OnPeg(D_1, Peg_A, S_0) \land \\
+&amp; OnPeg(D_2, Peg_A, S_0) \land \\
+&amp; OnPeg(D_3, Peg_A, S_0)
+\end{align*}
+\]</span></p>
+</div>
+</div>
+</section>
+<section id="reiters-induction-axiom" class="level2">
+<h2 class="anchored" data-anchor-id="reiters-induction-axiom">Reiter’s Induction Axiom</h2>
+<div class="callout callout-style-default callout-note no-icon callout-titled" title="The Foundational (Second Order) Induction Axiom">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+The Foundational (Second Order) Induction Axiom
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p><span class="math display">\[ \forall P.\,[P(S_0) \land \forall a,s\,(P(s)\to P(do(a,s)))]\to \forall s\,P(s) \]</span></p>
 <ul>
-<li><strong>Induction</strong> (static space/structure) and</li>
-<li><strong>Coinduction</strong> (unfolding time/process) are the coordinate axes, and</li>
-<li><strong>Realisation</strong> is the invariant interval.</li>
-</ul>
-<p>Rotating logical frame of reference changes how much proof exists in spatial topology versus how much unfolds dynamically in computational time, but invariant interval—the <strong>realisation</strong>—is preserved.</p>
-<ul>
-<li>Note in the <strong>situation calculus</strong> that since <em>regression</em> is trivially <strong>confluent</strong>, as per Church-Rosser theorem as it is deterministic, the order in which you evaluate it does not change its final semantic truth, so the <strong>realisation</strong> is preserved.</li>
+<li>Every valid situation is mathematically guaranteed to be a finite sequence of actions rooted at <span class="math inline">\(S_0\)</span>.</li>
+<li>Establishes the situation domain as an <strong>inductive</strong> datatype.</li>
 </ul>
 </div>
+</div>
+<ul>
+<li>Note that standard first order logic cannot enforce reachability due to the Compactness Theorem.</li>
+</ul>
+</section>
+<section id="actions-situations" class="level2">
+<h2 class="anchored" data-anchor-id="actions-situations">Actions (Situations)</h2>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="figs/towers2.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:20.0%"></p>
+</figure>
+</div>
+<p><em>Initial state:</em> <span class="math inline">\(S_0\)</span></p>
+<p><em>Step 1:</em> <span class="math inline">\(do(move(D_1, Peg_A, Peg_C), S_0)\)</span></p>
+<p><em>Step 2:</em> <span class="math inline">\(do(move(D_2, \mathit{Peg}_A, \mathit{Peg}_B), do(move(D_1, Peg_A, Peg_C), S_0))\)</span></p>
+<p><em>Step 3:</em> <span class="math inline">\(do(move(D_1, C, B), do(move(D_2, \mathit{Peg}_A, \mathit{Peg}_B), do(move(D_1, Peg_A, Peg_C), S_0))\)</span></p>
+</section>
+<section id="situations-as-a-least-fixpoint" class="level2">
+<h2 class="anchored" data-anchor-id="situations-as-a-least-fixpoint">Situations as a Least Fixpoint</h2>
+<p>Let <span class="math inline">\(\mathcal{A}\)</span> be actions and <span class="math inline">\(\mathcal{S}\)</span> be the universe of situations. Define a monotonic operator <span class="math inline">\(\Gamma\)</span>: <span class="math display">\[ \Gamma(X) = \{S_0\} \cup \{ do(a, s) \mid a \in \mathcal{A}, s \in X \} \]</span></p>
+<ul>
+<li><span class="math inline">\(P(S_0) \land \forall a,s\,(P(s)\to P(do(a,s)))\)</span> translates to <span class="math inline">\(\Gamma(P) \subseteq P\)</span>. Here, <span class="math inline">\(P\)</span> is a <strong>pre-fixed point</strong>.</li>
+<li><span class="math inline">\(\forall s\,P(s)\)</span> asserts that the universe of situations <span class="math inline">\(\mathcal{S}\)</span> is a subset of <span class="math inline">\(P\)</span>.</li>
+<li>The axiom states <span class="math inline">\(\mathcal{S}\)</span> is a subset of <em>every</em> pre-fixed point, meaning it is bounded by their intersection.</li>
+</ul>
+<div class="callout callout-style-default callout-note no-icon callout-titled" title="The Knaster-Tarski Theorem: least fixpoint">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+The Knaster-Tarski Theorem: least fixpoint
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>The intersection of all pre-fixed points of a monotonic operator is exactly its <strong>least fixpoint</strong>.</p>
+<p>Therefore, the axiom enforces <span class="math inline">\(\mathcal{S} = \mu X.\Gamma(X)\)</span>.</p>
+</div>
+</div>
+</section>
+<section id="syntactic-transformation-to-first-order-logic" class="level2">
+<h2 class="anchored" data-anchor-id="syntactic-transformation-to-first-order-logic">Syntactic transformation to First Order Logic</h2>
+<p><strong>Basic Action Theories</strong> [Lin and Reiter 94] define Theory <span class="math inline">\(\mathcal{D} = \Sigma \cup \mathcal{D}_{S_0} \cup \mathcal{D}_{Poss} \cup \mathcal{D}_{SSA} \cup \mathcal{D}_{UNA}\)</span>, where:</p>
+<ul>
+<li><p><span class="math inline">\(\color{blue}{\mathcal{D}_{S_0}}\)</span>: axioms describing the initial state of the fluents in <span class="math inline">\(S_0\)</span></p></li>
+<li><p><span class="math inline">\(\color{blue}{\mathcal{D}_{poss}}\)</span>: axioms describing the prerequisites of the primitive actions, of the form: <span class="math display">\[
+Poss(A(\vec{x}), s) \equiv \Theta_A(\vec{x}, s),
+\]</span> one for each primitive action <span class="math inline">\(A\)</span>.</p></li>
+<li><p><span class="math inline">\(\color{blue}{\mathcal{D}_{ssa}}\)</span>: axioms describing the effects and non-effects of actions, of the form: <span class="math display">\[
+F(\vec{x}, do(a, s)) \equiv \psi_F(\vec{x}, a, s),
+\]</span> one for each fluent <span class="math inline">\(F\)</span>.</p></li>
+<li><p><span class="math inline">\(\color{blue}{\mathcal{D}_{una}}\)</span>: unique name axioms for the actions and objects, e.g.&nbsp;<span class="math inline">\(move(d_1, p_1, p_2) = move(d_2, p_3, p_4) \supset (d_1 = d_2 \land p_1 = p_3 \land p_2 = p_4)\)</span>, <span class="math inline">\((D_1 \neq D_2) \land (D_2 \neq D_3) \land (D_1 \neq D_3)\)</span> and <span class="math inline">\((P_0 \neq P_1) \land (P_1 \neq P_2) \land (P_0 \neq P_2)\)</span>.</p></li>
+<li><p><span class="math inline">\(\color{blue}{\Sigma}\)</span>: some foundational domain-independent axioms, e.g.&nbsp;<span class="math inline">\(Smaller(d^{\prime}, d)\)</span></p></li>
+</ul>
+</section>
+<section id="action-precondition-possibility-axioms" class="level2">
+<h2 class="anchored" data-anchor-id="action-precondition-possibility-axioms">Action Precondition (Possibility) Axioms</h2>
+<p><span class="math display">\[
+\begin{align*}
+Poss(move(d, p_{from}, p_{to}), s) \equiv \;&amp; Disk(d) \land (p_{from} \neq p_{to}) \land OnPeg(d, p_{from}, s) \land \\
+&amp; \neg \exists d' \Big( Disk(d') \land Smaller(d', d) \land \\
+&amp; \big( OnPeg(d', p_{from}, s) \lor OnPeg(d', p_{to}, s) \big) \Big)
+\end{align*}
+\]</span></p>
+</section>
+<section id="a-solution-to-the-frame-problem-sometimes-reiter-91" class="level2">
+<h2 class="anchored" data-anchor-id="a-solution-to-the-frame-problem-sometimes-reiter-91">A solution to the frame problem (<span style="color:blue">sometimes</span>) [Reiter 91]</h2>
+<ol type="1">
+<li>Positive effect axioms:</li>
+</ol>
+<p><span class="math display">\[
+\exists p_{from} \ (a = move(d, p_{from}, p)) \supset OnPeg(d, p, do(a, s))
+\]</span></p>
+<ol start="2" type="1">
+<li>Negative effect axioms:</li>
+</ol>
+<p><span class="math display">\[
+\exists p_{to} \ (a = move(d, p, p_{to})) \supset \neg OnPeg(d, p, do(a, s))
+\]</span></p>
+<ol start="3" type="1">
+<li>Frame axioms:</li>
+</ol>
+<p><span class="math display">\[
+OnPeg(d, p, s) \land \neg \exists p_{to} \ (a = move(d, p, p_{to})) \supset OnPeg(d, p, do(a, s))
+\]</span></p>
+<ol start="4" type="1">
+<li>Completeness assumption (explanation closure):</li>
+</ol>
+<p><span class="math display">\[
+\neg OnPeg(d, p, s) \land OnPeg(d, p, do(a, s)) \supset \exists p_{from} \ (a = move(d, p_{from}, p))
+\]</span></p>
+<p><strong>Successor state axioms</strong> <span class="math inline">\(=\)</span> positive effect axioms <span class="math inline">\(+\)</span> negative effect axioms <span class="math inline">\(+\)</span> frame axioms <span class="math inline">\(+\)</span> <span style="color:blue">completeness assumption</span></p>
+</section>
+<section id="successor-state-axioms-regression" class="level2">
+<h2 class="anchored" data-anchor-id="successor-state-axioms-regression">Successor State Axioms &amp; Regression</h2>
+<p>So, suppose that for fluent <span class="math inline">\(F(\vec{x}, s)\)</span>:<br>
+<span class="math inline">\(\gamma_F^+(\vec{x}, a, s)\)</span> encodes all <em>positive</em> effects; and<br>
+<span class="math inline">\(\gamma_F^-(\vec{x}, a, s)\)</span> encodes all <em>negative</em> effects.</p>
+<p>The <span style="color:blue;">successor state axiom</span> solution has the following form:</p>
+<p><span class="math display">\[
+\color{blue}{F(\vec{x}, do(a, s)) \equiv \gamma_F^+(\vec{x}, a, s) \lor F(\vec{x}, s) \land \neg \gamma_F^-(\vec{x}, a, s)}
+\]</span></p>
+<p>In our example:</p>
+<p><span class="math display">\[
+\begin{align*}
+\gamma_{OnPeg}^+(d, p, a, s) \;&amp;\stackrel{\text{def}}{=}\; \exists p_{from} \ (a = move(d, p_{from}, p)) \\
+\gamma_{OnPeg}^-(d, p, a, s) \;&amp;\stackrel{\text{def}}{=}\; \exists p_{to} \ (a = move(d, p, p_{to}))
+\end{align*}
+\]</span></p>
+<p>So successor state axiom is:</p>
+<p><span class="math display">\[
+\begin{align*}
+OnPeg(d, p, do(a, s)) \equiv \;&amp; \\
+&amp; [\exists p_{from} \ (a = move(d, p_{from}, p))] \lor \\
+&amp; OnPeg(d, p, s) \land \neg [\exists p_{to} \ (a = move(d, p, p_{to}))]
+\end{align*}
+\]</span></p>
+</section>
+<section id="reasoning-about-actions" class="level2">
+<h2 class="anchored" data-anchor-id="reasoning-about-actions">Reasoning about actions</h2>
+<ul>
+<li><p><span class="math inline">\(\color{blue}{\text{Projection task:}}\)</span> <em>given a sequence of actions <span class="math inline">\(s = a_1, \dots, a_n\)</span>, does condition <span class="math inline">\(\phi(s)\)</span> hold?:</em> <span class="math display">\[
+\mathcal{D} \models OnPeg(D_2, Peg_B, do(move(D_2, Peg_A, Peg_B), do(move(D_1, Peg_A, Peg_C), S_0)))
+\]</span></p></li>
+<li><p><span class="math inline">\(\color{blue}{\text{Deductive planning:}}\)</span> <em>find a sequence of actions to make <span class="math inline">\(\phi(s)\)</span> true (e.g., solve the puzzle):</em> <span class="math display">\[
+\mathcal{D} \vdash \exists s .\ OnPeg(D_1, Peg_C, s) \land OnPeg(D_2, Peg_C, s) \land OnPeg(D_3, Peg_C, s) \land executable(s)
+\]</span></p></li>
+<li><p><span class="math inline">\(\color{blue}{\text{Inductive proofs:}}\)</span> <em>proving global invariants across all reachable states (e.g., a disk is never on two pegs at once):</em> <span class="math display">\[
+\mathcal{D} \models \forall s .\ executable(s) \supset \forall d, p_1, p_2 .\ (OnPeg(d, p_1, s) \land OnPeg(d, p_2, s) \supset p_1 = p_2)
+\]</span></p></li>
+</ul>
 </section>
 <section id="property-persistence-as-a-greatest-fixpoint" class="level2">
 <h2 class="anchored" data-anchor-id="property-persistence-as-a-greatest-fixpoint">Property Persistence as a Greatest Fixpoint</h2>
 <div class="shrink80">
-<p><strong>The Challenge:</strong> Verifying universally quantified temporal queries (e.g., “<span class="math inline">\(\phi\)</span> persists indefinitely”) requires second-order induction, which strictly limits automated first-order reasoning.</p>
+<p>Verifying universally quantified temporal queries (e.g., “property <span class="math inline">\(\phi\)</span> persists indefinitely”) requires second-order induction, however Kelly &amp; Pearce AIJ 2010 show how this can be obtained using a single step regression operator.</p>
 <p><strong>The Single-Step Operator:</strong> (Kelly &amp; Pearce, AIJ 2010) captures the condition for <span class="math inline">\(\phi\)</span> holding <em>now</em> and being preserved after <em>any single legal action</em> via regression (<span class="math inline">\(\mathcal{R}\)</span>):</p>
 <div style="margin-top: -0.8em;">
 
@@ -228,48 +386,74 @@ window.Quarto = {
 <div style="margin-top: -0.8em;">
 
 </div>
-<p><strong>Greatest Fixpoint (<span class="math inline">\(\nu Z\)</span>):</strong></p>
-<ul>
-<li>Persistence is an infinite-horizon <strong>safety property</strong>.</li>
-<li>The persistence condition is the <strong>greatest fixpoint</strong> of this operator: <span class="math inline">\(\nu Z.\, \Gamma(Z)\)</span>.</li>
-</ul>
-</div>
-<hr>
-<div class="shrink80">
 <p>Iteratively applying this meta-level calculation computes the maximal invariant without explicitly invoking the induction axiom.</p>
 <ul>
 <li>By wrapping the single-step regression operator inside a monotonic formula transformer, we evaluate the future back in the current state.</li>
 <li>Taking the greatest fixpoint of this regression operator yields the exact, most permissive preconditions required for the property to persist indefinitely using only first-order logic.</li>
 </ul>
 </div>
+<div class="callout callout-style-default callout-note no-icon callout-titled" title="Greatest Fixpoint ($\nu Z$)">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Greatest Fixpoint (<span class="math inline">\(\nu Z\)</span>)
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<ul>
+<li>Property persistence is an infinite-horizon <strong>safety property</strong>.</li>
+<li>The persistence condition is the <strong>greatest fixpoint</strong> of this operator: <span class="math inline">\(\nu Z.\, \Gamma(Z)\)</span>.</li>
+</ul>
+</div>
+</div>
 </section>
-<section id="categorical-duality-1" class="level2">
-<h2 class="anchored" data-anchor-id="categorical-duality-1">Categorical duality</h2>
-<div class="shrink79">
-<p><span style="color:red">Is property persistence just an algorithmic trick with regression?</span> No.&nbsp;It represents a fundamental categorical duality in action theories.</p>
+<section id="defining-the-observer-coinduction" class="level2">
+<h2 class="anchored" data-anchor-id="defining-the-observer-coinduction">Defining the Observer: Coinduction</h2>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="figs/towers2.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:20.0%"></p>
+</figure>
+</div>
+<p>Coalgebras formalize the observable system and Coinduction is the proof engine. Let’s stop looking at absolute SitCalc coordinates (<span class="math inline">\(OnPeg\)</span>) and observe the <em>relative movement</em> <span class="math inline">\(\Delta p \equiv (p_{to} - p_{from}) \pmod 3\)</span> of the smallest disk.</p>
+<p>The physical puzzle generates an infinite coalgebraic stream of spatial jumps: <span class="math display">\[ \langle +1 \rangle, \langle +1 \rangle, \langle -2 \rangle, \langle +1 \rangle \dots \]</span></p>
+<p>Suppose we want to coinduce an idealized universe where the disk <em>always</em> moves <span class="math inline">\(+1\)</span>. We mathematically propose the Greatest Fixpoint: <span class="math display">\[
+CyclicInvariant \equiv \nu X.\ \langle +1 \rangle X
+\]</span></p>
+<p><em>The problem:</em> Reality eventually generates a jump of <span class="math inline">\(-2\)</span>. How can our idealized Greatest Fixpoint survive this physical contradiction?</p>
+<p>While standard induction proves a base case and builds up, coinduction <em>proposes</em> a Greatest Fixpoint (an infinite rule) and verifies it locally step-by-step. If an observation holds right now, and the rules guarantee it holds in the next step, the Greatest Fixpoint is guaranteed to hold forever.</p>
 <ul>
-<li><strong>The Inductive Action Theory (Standard SitCalc):</strong>
+<li><span class="math inline">\(\nu X.\ \Phi(X)\)</span> : <em>The Greatest Fixpoint.</em> “Define <span class="math inline">\(X\)</span> as the largest endlessly repeating stream satisfying <span class="math inline">\(\Phi(X)\)</span>.”</li>
+</ul>
+</section>
+<section id="the-dual-problem-category-theory" class="level2">
+<h2 class="anchored" data-anchor-id="the-dual-problem-category-theory">The Dual Problem &amp; Category Theory</h2>
+<p>However, to formally synthesize infinite invariants natively, we need a mathematical framework built for continuous forward observation. We must transition from <strong>Algebras</strong> to <strong>Coalgebras</strong>.</p>
+<p>In Category Theory, we use an <strong>endofunctor</strong> (<span class="math inline">\(F\)</span>) over a state space (<span class="math inline">\(S\)</span>) as a structural template that shapes our data. <span class="math inline">\(F(S)\)</span> is simply the resulting combined data object.</p>
 <ul>
-<li>Builds state histories forward from <span class="math inline">\(S_0\)</span>.</li>
-<li>Categorically maps to <strong>Initial Algebras</strong> and <strong>Least Fixpoints (<span class="math inline">\(\mu\)</span>)</strong>.</li>
-<li>Naturally solves <em>reachability</em> and <em>liveness</em>.</li>
+<li><strong>Algebra (SitCalc / Constructor):</strong> Morphism arrows point <em>inward</em>: <span class="math inline">\(\; F(S) \to S\)</span>
+<ul>
+<li>Our endofunctor shapes the input ingredients: <span class="math inline">\(F(S) = Action \times S\)</span></li>
+<li>The morphism evaluates exactly to: <span class="math inline">\((Action \times State_{current}) \to State_{next}\)</span></li>
+<li><em>Concept:</em> We combine pieces to <em>construct</em> a history from the bottom-up.</li>
 </ul></li>
-<li><strong>The Coinductive Persistence Theory (AIJ 2010):</strong>
+<li><strong>Coalgebra (DTLF / Observer):</strong> Morphism arrows point <em>outward</em>: <span class="math inline">\(\; S \to F(S)\)</span>
 <ul>
-<li>Persistence is an infinite-horizon safety property.</li>
-<li>Categorically maps to <strong>Terminal Coalgebras</strong> and <strong>Greatest Fixpoints (<span class="math inline">\(\nu\)</span>)</strong>.</li>
-<li>Employs <strong>Regression</strong> (the <em>right adjoint</em> to progression) to compute maximal invariants.</li>
+<li>Our endofunctor shapes the emitted data: <span class="math inline">\(F(S) = Observation \times S\)</span></li>
+<li>The morphism evaluates exactly to: <span class="math inline">\(State_{current} \to (Observation \times State_{next})\)</span></li>
+<li><em>Concept:</em> We take an opaque running state, break off a visible <em>observation</em>, and silently unfold the remaining state into the future.</li>
 </ul></li>
 </ul>
-</div>
-<hr>
-<div class="shrink82">
-<p>By framing persistence as a greatest fixpoint over single-step regression, we embedded the <strong>coinductive dual</strong> of reachability into the Situation Calculus.</p>
-<ul>
-<li>This mathematical duality made the transition to alternating <span class="math inline">\(\mu\)</span>-calculus for game synthesis (ECAI 2016) a natural evolution.</li>
-</ul>
-<p>In retrospect, what we were doing in 2010 was exploiting a <strong>categorical duality</strong>. The standard Situation Calculus is fundamentally inductive—an initial algebra. But persistence is fundamentally coinductive—a terminal coalgebra. By evaluating persistence via regression, we mapped a forward-looking infinite problem into its computable, right-adjoint dual.</p>
-</div>
+</section>
+<section id="stone-duality-and-the-syntactic-transformation" class="level2">
+<h2 class="anchored" data-anchor-id="stone-duality-and-the-syntactic-transformation">Stone Duality and the Syntactic Transformation</h2>
+<p>In Category Theory, <strong>Stone Duality</strong> dictates a perfect, inverse mirror-image between Syntax (logical equivalence) and Semantics (topological state space).</p>
+<p>When our coalgebra hits the <span class="math inline">\(-2\)</span> transition, it evaluates the topological future and discovers the physical branching of jumping left twice (<span class="math inline">\(-2\)</span>) is completely indistinguishable from jumping right once (<span class="math inline">\(+1\)</span>). We enforce this <strong>Bisimulation Equivalence</strong> by injecting a logical cut:</p>
+<p><span class="math display">\[
+\forall \phi.\ \langle -2 \rangle \phi \;\equiv\; \langle +1 \rangle \phi
+\]</span></p>
+<p>By <em>syntactically</em> equating these propositions, <strong>Stone Duality</strong> automatically forces the underlying <em>semantic space</em> to fold into a modulo-3 quotient ring (<span class="math inline">\(\mathbb{Z}_3\)</span>). This is our new syntactic transformation!</p>
 </section>
 </section>
 <section id="synthetic-relativity-axioms" class="level1">
@@ -312,7 +496,7 @@ Theorem I: Semantic Realisation
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>Because progression builds strictly upon finite verifiable observables, autonomous progression strictly halts when the topology reaches Algebraic Compactness. This is the moment of mathematical <strong>Realisation</strong>:</p>
+<p>Because this builds strictly upon finite verifiable observables, autonomous progression strictly halts when the topology reaches Algebraic Compactness. This is the moment of mathematical <strong>Realisation</strong>:</p>
 <div style="margin-top: -0.8em;">
 
 </div>
@@ -341,7 +525,7 @@ Theorem I: Semantic Realisation
 <h2 class="anchored" data-anchor-id="the-synthetic-transformation">The Synthetic Transformation</h2>
 <div class="shrink80">
 <p><strong>Axiom 3: The Transitivity Axiom</strong> Once Realisation is achieved, the relativistic reference frame shifts. The categorically preserved invariant (the semantic limit, <span class="math inline">\(O\)</span>) becomes the new reference frame (<span class="math inline">\(S_f\)</span>) for the next order of progression.</p>
-<p><span class="math display">\[ \mathrm{PDo}(N, O, S_f) \longrightarrow \mathrm{PDo}(X, Y, \mathbf{O}) \]</span></p>
+<p><span class="math display">\[ \mathrm{PDo}(N, O, S_f) \longrightarrow \mathrm{PDo}(X, Y, \mathrm{O}) \]</span></p>
 <ul>
 <li><strong>Left Side:</strong> The fully realised state within the initial reference frame (<span class="math inline">\(S_f\)</span>).</li>
 <li><strong>The Arrow (<span class="math inline">\(\longrightarrow\)</span>):</strong> The Synthetic Transformation (Topological closure and Change of Base).</li>
@@ -438,7 +622,7 @@ Theorem II: Relativistic Invariance (Preserving the Interval)
 <div style="margin-top: -0.6em;">
 
 </div>
-<p><span class="math display">\[ \mathrm{PDo}(N_{\text{trace}}, {\color{blue}{O_{\text{parity}}}}, S_f) \longrightarrow \mathrm{PDo}(X, Y, {\color{blue}{\mathbf{O_{\text{parity}}}}}) \]</span></p>
+<p><span class="math display">\[ \mathrm{PDo}(N_{\text{trace}}, {\color{blue}{O_{\text{parity}}}}, S_f) \longrightarrow \mathrm{PDo}(X, Y, {\color{blue}{\mathrm{O_{\text{parity}}}}}) \]</span></p>
 <div style="margin-top: -0.8em;">
 
 </div>
@@ -486,7 +670,7 @@ Theorem II: Relativistic Invariance (Preserving the Interval)
 <div style="margin-top: -0.6em;">
 
 </div>
-<p><span class="math display">\[ \mathit{Poss}_{\text{new}}(\text{move}(d, p), s) \equiv \mathit{Poss}_{\text{old}} \land \mathbf{\big(d = D_1 \leftrightarrow \text{LastMoved}(s) \neq D_1\big)} \]</span></p>
+<p><span class="math display">\[ \mathit{Poss}_{\text{new}}(\text{move}(d, p), s) \equiv \mathit{Poss}_{\text{old}} \land \mathrm{\big(d = D_1 \leftrightarrow \text{LastMoved}(s) \neq D_1\big)} \]</span></p>
 <div style="margin-top: -0.6em;">
 
 </div>

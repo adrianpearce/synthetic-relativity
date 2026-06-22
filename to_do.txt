@@ -11,9 +11,13 @@ When inductively a cyle/fixpoint occurs, then ODo occurs:
 What does coinduction look like, I suppose it needs to be in in DTLF and not successor state axioms, right?
 - A coalgebra tells you how to continuously observe an ongoing state.
 
-- Every transition system is mathematically a Coalgebra. It is a function that constantly takes the current state, outputs an observable behavior, and unfolds into the next state.
+Every transition system is mathematically a Coalgebra. 
 
-- Co-induction is simply the formal logical proof technique used to search for Greatest Fixpoints over coalgebras—allowing you to prove that an infinite stream sustains a specific relativistic pattern forever without having to wait until the "end of time."
+- It is a function that constantly takes the current state, outputs an observable behavior, and unfolds into the next state.
+
+Co-induction is simply the formal logical proof technique used to search for Greatest Fixpoints over coalgebras
+
+—allowing you to prove that an infinite stream sustains a specific relativistic pattern forever without having to wait until the "end of time."
 
 - Bisimulation quotient space
 - Terminal coalgebra
@@ -35,12 +39,24 @@ Bisimulation equivalences (equivalent to Benders cuts)
 Example in DTLF logic:
 - See Gemini, it has perfectly written out the logical DTLF form of the parity invariant.
 
+Towers of HAnoi:
+
+Towers of Hanoi mathematically requires \(2^N - 1\) moves, with a highly recursive solution style.
+
+Planners can sove this, e.g. a domain-specific heuristics, Hierarchical Task Network (HTN) planners, or pattern databases can solve large numbers of disks in seconds by restricting the search to optimal paths.
+- Select a "pattern" sub-problem (e.g., tracking only the 4 largest disks out of an 8-disk puzzle).
+- E.g. Fast Downward uses such databases, uses interactive PDB (iPDB).
+(F Pommerening, G Röger, M Helmert 2013)
+
+Chosen example because it illustrates how can be decomposed recursively.
+
+
 ========== Slides to create ===========
 
 Sit calc 
 - Slides from Toronto
 
-Progression (here or later on?)
+Projection (here!)
 
 Second order induction axiom...
 
@@ -59,8 +75,19 @@ Do axiom (semantics of Golog...)...it is also a fixpoint (Knapster-Tarski thereo
 Property persistence in the situation calculus
 - Ryans slides, I think the one on knowledge or property persistence has the best one
 
-Then show on a slide what I am doing for implementing that...
-- Gemini has an amazing table for this, in the Towers of Hanoi slide Chat.
+========= UP TO HERE:
+
+
+Delta peg - put formula in there...
+
+Finish the transition, Gemini is still helping me with this...
+- Fixing what coalgebras are...stay away from the etherial slides...
+- I like defining the observer, use that for Towers slide and put the fixpoint in there too...
+- Might need to unify how I write the fixpoints, does it have formula in it in the version I am using for the slides?
+
+The iterative bit, like in Benders decomposition, how will i allude to this?
+
+Then show on a slide what I am doing for implementing that using Gemini's comparison table for this, in the Towers of Hanoi slide Chat....
 
 
 ========== Up to here ===========

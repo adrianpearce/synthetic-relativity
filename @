@@ -18,181 +18,144 @@ This module is also available in the following versions
 
 ## The situation calculus (Towers of Hanoi)
 
-::: {.columns}
-::: {.column width="40%"}
-![](figs/towers1.png){width=50% fig-align="center"}
-:::
-::: {.column width="60%"}
-$OnPeg(d, p, s)$
+![](figs/towers1.png){width=20% fig-align="center"}
 
-$move(d, p_{from}, p_{to})$
+$$OnPeg(d, p, s)$$
 
-Initial Situation, $S_0$:
+$$move(d, p_{from}, p_{to})$$
+
+$$OnPeg(D_1, Peg_A, S_0) \land OnPeg(D_2, Peg_A, S_0) \land OnPeg(D_3, Peg_A, S_0)$$
+
+## Action Precondition Axiom
 
 $$
 \begin{align*}
-& OnPeg(D_1, Peg_A, S_0) \land \\
-& OnPeg(D_2, Peg_A, S_0) \land \\
-& OnPeg(D_3, Peg_A, S_0) 
+Poss(move(d, p_{from}, p_{to}), s) \equiv \;& Disk(d) \land Peg(p_{from}) \land Peg(p_{to}) \land (p_{from} \neq p_{to}) \land OnPeg(d, p_{from}, s) \land \\
+& \neg \exists d' \Big( Disk(d') \land Smaller(d', d) \land \big( OnPeg(d', p_{from}, s) \lor OnPeg(d', p_{to}, s) \big) \Big)
 \end{align*}
 $$
 
-:::
-:::
+## Successor State Axiom
+
+The successor state axiom is the heart of the basic action theory. It elegantly resolves the frame problem by compiling the positive and negative effects of an action into a single logically equivalent formula.
 
 
-## Reiter's Induction Axiom
+$$
+OnPeg(d, p, do(a, s)) \equiv \Big( \exists p_{from}.\ a = move(d, p_{from}, p) \Big) \lor \Big( OnPeg(d, p, s) \land \neg \exists p_{to}.\ a = move(d, p, p_{to}) \Big)
+$$
 
-::: {.callout-note icon=false title="The Foundational (Second Order) Induction Axiom"}
+A disk is on a specific peg in the next state if and only if the action explicitly moved it to that peg, or it was already on that peg and the action did not explicitly move it away to a different destination.
+## Basic Action Theories [Lin and Reiter 94]
 
-  $$ \forall P.\,[P(S_0) \land \forall a,s\,(P(s)\to P(do(a,s)))]\to \forall s\,P(s) $$
+Theory $\mathcal{D} = \Sigma \cup \mathcal{D}_{S_0} \cup \mathcal{D}_{Poss} \cup \mathcal{D}_{SSA} \cup \mathcal{D}_{UNA}$, where:
 
-- Every valid situation is mathematically guaranteed to be a finite sequence of actions rooted at $S_0$.
-- Establishes the situation domain as an **inductive** datatype.
-:::
-
-- Note that standard first order logic cannot enforce reachability due to the Compactness Theorem.
-
-## Actions (Situations)
-
-![](figs/towers2.png){width=20% fig-align="center"}
-
-*Initial state:* $S_0$
-
-*Step 1:* $do(move(D_1, Peg_A, Peg_C), S_0)$
-
-*Step 2:* $do(move(D_2, \mathit{Peg}_A, \mathit{Peg}_B), do(move(D_1, Peg_A, Peg_C), S_0))$
-
-*Step 3:* $do(move(D_1, C, B), do(move(D_2, \mathit{Peg}_A, \mathit{Peg}_B), do(move(D_1, Peg_A, Peg_C), S_0))$
-
-## Situations as a Least Fixpoint
-
-Let $\mathcal{A}$ be actions and $\mathcal{S}$ be the universe of situations. Define a monotonic operator $\Gamma$:
-$$ \Gamma(X) = \{S_0\} \cup \{ do(a, s) \mid a \in \mathcal{A}, s \in X \} $$
-
-- $P(S_0) \land \forall a,s\,(P(s)\to P(do(a,s)))$ translates to $\Gamma(P) \subseteq P$. 
-  Here, $P$ is a **pre-fixed point**.
-- $\forall s\,P(s)$ asserts that the universe of situations $\mathcal{S}$ is a subset of $P$.
-- The axiom states $\mathcal{S}$ is a subset of *every* pre-fixed point, meaning it is bounded by their intersection.
-
-::: {.callout-note icon=false title="The Knaster-Tarski Theorem: least fixpoint"}
-The intersection of all pre-fixed points of a monotonic operator is exactly its **least fixpoint**. 
-
-Therefore, the axiom enforces $\mathcal{S} = \mu X.\Gamma(X)$.
-:::
-
-
-## Syntactic transformation to First Order Logic 
-
-**Basic Action Theories** [Lin and Reiter 94] define Theory $\mathcal{D} = \Sigma \cup \mathcal{D}_{S_0} \cup \mathcal{D}_{Poss} \cup \mathcal{D}_{SSA} \cup \mathcal{D}_{UNA}$, where:
-
-* $\color{blue}{\mathcal{D}_{S_0}}$: axioms describing the initial state of the fluents in $S_0$
-* $\color{blue}{\mathcal{D}_{poss}}$: axioms describing the prerequisites of the primitive actions, of the form:
+* $\color{red}{\mathcal{D}_{S_0}}$: axioms describing the initial state of the fluents in $S_0$;
+  $\implies$ allows for incomplete knowledge!
+* $\color{red}{\mathcal{D}_{poss}}$: axioms describing the prerequisites of the primitive actions, of the form:
   $$
   Poss(A(\vec{x}), s) \equiv \Theta_A(\vec{x}, s),
   $$
   one for each primitive action $A$.
-* $\color{blue}{\mathcal{D}_{ssa}}$: axioms describing the effects and non-effects of actions, of the form:
+* $\color{red}{\mathcal{D}_{ssa}}$: axioms describing the effects and non-effects of actions, of the form:
   $$
   F(\vec{x}, do(a, s)) \equiv \psi_F(\vec{x}, a, s),
   $$
   one for each fluent $F$.
-* $\color{blue}{\mathcal{D}_{una}}$: unique name axioms for the actions and objects, e.g.  $move(d_1, p_1, p_2) = move(d_2, p_3, p_4) \supset (d_1 = d_2 \land p_1 = p_3 \land p_2 = p_4)$, $(D_1 \neq D_2) \land (D_2 \neq D_3) \land (D_1 \neq D_3)$ and $(P_0 \neq P_1) \land (P_1 \neq P_2) \land (P_0 \neq P_2)$.
+* $\color{red}{\mathcal{D}_{una}}$: unique name axioms for the actions.
+* $\color{red}{\Sigma}$: some foundational domain-independent axioms.
 
-* $\color{blue}{\Sigma}$: some foundational domain-independent axioms, e.g. $Smaller(d^{\prime}, d)$
-
-## Action Precondition (Possibility) Axioms
-
-$$
-\begin{align*}
-Poss(move(d, p_{from}, p_{to}), s) \equiv \;& Disk(d) \land (p_{from} \neq p_{to}) \land OnPeg(d, p_{from}, s) \land \\
-& \neg \exists d' \Big( Disk(d') \land Smaller(d', d) \land \\
-& \big( OnPeg(d', p_{from}, s) \lor OnPeg(d', p_{to}, s) \big) \Big)
-\end{align*}
-$$
-
-
-## A solution to the frame problem ([sometimes]{style="color:blue"}) [Reiter 91]
+## A solution to the frame problem (sometimes) [Reiter 91]
 
 1. Positive effect axioms:
+   $$
+   Holding(x, s) \land Fragile(x, s) \supset Broken(x, \underline{do(drop(x), s)})
+   $$
 
-$$
-\exists p_{from} \ (a = move(d, p_{from}, p)) \supset OnPeg(d, p, do(a, s))
-$$
+2. Positive effect axioms:
+   $$
+   HasGlue(s) \land Broken(x, s) \supset \neg Broken(x, \underline{do(repair(x), s)})
+   $$
 
-2. Negative effect axioms:
+3. Frame axiom axioms:
+   $$
+   \neg Broken(x, s) \land (y \neq x \lor \neg Fragile(x, s)) \supset \neg Broken(x, \underline{do(drop(y), s)})
+   $$
 
-$$
-\exists p_{to} \ (a = move(d, p, p_{to})) \supset \neg OnPeg(d, p, do(a, s))
-$$
+4. Completeness assumption:
+   $$
+   \neg Broken(x, s) \land Broken(x, do(a, s)) \supset Fragile(x, s) \land a = drop(x)
+   $$
 
-3. Frame axioms:
+$\color{red}{\text{Successor state axioms}}$ = positive effect axioms + positive effect axioms + frame axioms + $\color{blue}{\text{completeness assumption}}$
 
-$$
-OnPeg(d, p, s) \land \neg \exists p_{to} \ (a = move(d, p, p_{to})) \supset OnPeg(d, p, do(a, s))
-$$
+## A solution to the frame problem (sometimes) [Reiter 91]
 
-4. Completeness assumption (explanation closure):
-
-$$
-\neg OnPeg(d, p, s) \land OnPeg(d, p, do(a, s)) \supset \exists p_{from} \ (a = move(d, p_{from}, p))
-$$
-
-**Successor state axioms** $=$ positive effect axioms $+$ negative effect axioms $+$ frame axioms $+$ [completeness assumption]{style="color:blue"}
-
-## Successor State Axioms & Regression
-
-So, suppose that for fluent $F(\vec{x}, s)$:  
-$\gamma_F^+(\vec{x}, a, s)$ encodes all *positive* effects; and  
+So, suppose that for fluent $F(\vec{x}, s)$:
+$\gamma_F^+(\vec{x}, a, s)$ encodes all *positive* effects; and
 $\gamma_F^-(\vec{x}, a, s)$ encodes all *negative* effects.
 
-The <span style="color:blue;">successor state axiom</span> solution has the following form:
-
+The $\color{red}{\text{successor state axiom}}$ solution has the following form:
 $$
-\color{blue}{F(\vec{x}, do(a, s)) \equiv \gamma_F^+(\vec{x}, a, s) \lor F(\vec{x}, s) \land \neg \gamma_F^-(\vec{x}, a, s)}
+\color{red}{F(\vec{x}, do(a, s)) \equiv \gamma_F^+(\vec{x}, a, s) \lor F(\vec{x}, s) \land \neg \gamma_F^-(\vec{x}, a, s)}
 $$
 
 In our example:
+$$
+\gamma_{Broken}^+(\vec{x}, a, s) \stackrel{\text{def}}{=} a = drop(x) \land Holding(x, s) \land Fragile(x, s)
+$$
+$$
+\gamma_{Broken}^-(\vec{x}, a, s) \stackrel{\text{def}}{=} a = repair(x) \land HasGlue(x, s)
+$$
 
 $$
 \begin{align*}
-\gamma_{OnPeg}^+(d, p, a, s) \;&\stackrel{\text{def}}{=}\; \exists p_{from} \ (a = move(d, p_{from}, p)) \\
-\gamma_{OnPeg}^-(d, p, a, s) \;&\stackrel{\text{def}}{=}\; \exists p_{to} \ (a = move(d, p, p_{to}))
-\end{align*}
-$$
-
-So successor state axiom is:
-
-$$
-\begin{align*}
-OnPeg(d, p, do(a, s)) \equiv \;& \\
-& [\exists p_{from} \ (a = move(d, p_{from}, p))] \lor \\
-& OnPeg(d, p, s) \land \neg [\exists p_{to} \ (a = move(d, p, p_{to}))]
+Broken(x, do(a, s)) &\equiv \\
+& [Holding(x, s) \land Fragile(x, s) \land a = drop(x)] \lor \\
+& \color{blue}{Broken(x, s)} \land \neg[a = repair(x) \land HasGlue(s)]
 \end{align*}
 $$
 
 ## Reasoning about actions
 
-* $\color{blue}{\text{Projection task:}}$ *given a sequence of actions $s = a_1, \dots, a_n$, does condition $\phi(s)$ hold?:*
+* $\color{blue}{\text{Projection task:}}$ *given a sequence of actions $a_1, \dots, a_n$, does condition $\phi(s)$ holds?:*
   $$
-  \mathcal{D} \models OnPeg(D_2, Peg_B, do(move(D_2, Peg_A, Peg_B), do(move(D_1, Peg_A, Peg_C), S_0)))
-  $$
-
-* $\color{blue}{\text{Deductive planning:}}$ *find a sequence of actions to make $\phi(s)$ true (e.g., solve the puzzle):*
-  $$
-  \mathcal{D} \vdash \exists s .\ OnPeg(D_1, Peg_C, s) \land OnPeg(D_2, Peg_C, s) \land OnPeg(D_3, Peg_C, s) \land executable(s)
+  \mathcal{D} \models \phi(do(a_n, do(a_{n-1}, \dots, do(a_1, S_0)))\dots)
   $$
 
-* $\color{blue}{\text{Inductive proofs:}}$ *proving global invariants across all reachable states (e.g., a disk is never on two pegs at once):*
+* $\color{blue}{\text{Deductive planning:}}$ *find a sequence of actions to make $\phi(s)$ true:*
   $$
-  \mathcal{D} \models \forall s .\ executable(s) \supset \forall d, p_1, p_2 .\ (OnPeg(d, p_1, s) \land OnPeg(d, p_2, s) \supset p_1 = p_2)
+  \mathcal{D} \vdash \exists s . \phi(s) \land executable(s)
   $$
+
+* $\color{blue}{\text{Inductive proofs:}}$
+  $$
+  \mathcal{D} \models \forall p, n, n' . s \sqsubset s' \land sal(p, n, s) \land sal(p, n', s') \supset n < n'
+  $$
+
+# Categorical Duality
+
+## Logical interval invariant?
+
+::: {.shrink80}
+
+Inductive structure and coinductive process are two mathematically intertwined ways of evaluating the same invariant truth.
+
+- **Induction** (static space/structure) and 
+- **Coinduction** (unfolding time/process) are the coordinate axes, and 
+- **Realisation** is the invariant interval.
+
+Rotating logical frame of reference changes how much proof exists in spatial topology versus how much unfolds dynamically in computational time, but invariant interval---the **realisation**---is preserved.
+
+- Note in the **situation calculus** that since *regression* is trivially **confluent**, as per Church-Rosser theorem as it is deterministic, the order in which you evaluate it does not change its final semantic truth, so the **realisation** is preserved.
+
+:::
+
 
 ## Property Persistence as a Greatest Fixpoint
 
 ::: {.shrink80}
 
-Verifying universally quantified temporal queries (e.g., "property $\phi$ persists indefinitely") requires second-order induction, however Kelly & Pearce AIJ 2010 show how this can be obtained using a single step regression operator.
+**The Challenge:** Verifying universally quantified temporal queries (e.g., "$\phi$ persists indefinitely") requires second-order induction, which strictly limits automated first-order reasoning.
 
 **The Single-Step Operator:** (Kelly & Pearce, AIJ 2010) captures the condition for $\phi$ holding *now* and being preserved after *any single legal action* via regression ($\mathcal{R}$):
 
@@ -202,6 +165,17 @@ $$ \Gamma(Z) \equiv \phi(s) \land \forall a \big( \textit{Poss}(a, s) \to \mathc
 
 <div style="margin-top: -0.8em;"></div>
 
+**Greatest Fixpoint ($\nu Z$):** 
+
+- Persistence is an infinite-horizon **safety property**.
+- The persistence condition is the **greatest fixpoint** of this operator: $\nu Z.\, \Gamma(Z)$.
+
+:::
+
+---
+
+::: {.shrink80}
+
 Iteratively applying this meta-level calculation computes the maximal invariant without explicitly invoking the induction axiom.
 
 - By wrapping the single-step regression operator inside a monotonic formula transformer, we evaluate the future back in the current state. 
@@ -209,62 +183,35 @@ Iteratively applying this meta-level calculation computes the maximal invariant 
 
 :::
 
-::: {.callout-note icon=false title="Greatest Fixpoint ($\nu Z$)"}
-- Property persistence is an infinite-horizon **safety property**.
-- The persistence condition is the **greatest fixpoint** of this operator: $\nu Z.\, \Gamma(Z)$.
+## Categorical duality
+
+::: {.shrink79}
+
+[Is property persistence just an algorithmic trick with regression?]{style="color:red"} No. It represents a fundamental categorical duality in action theories.
+
+- **The Inductive Action Theory (Standard SitCalc):** 
+  - Builds state histories forward from $S_0$.
+  - Categorically maps to **Initial Algebras** and **Least Fixpoints ($\mu$)**.
+  - Naturally solves *reachability* and *liveness*.
+
+- **The Coinductive Persistence Theory (AIJ 2010):**
+  - Persistence is an infinite-horizon safety property.
+  - Categorically maps to **Terminal Coalgebras** and **Greatest Fixpoints ($\nu$)**.
+  - Employs **Regression** (the *right adjoint* to progression) to compute maximal invariants.
+
 :::
 
-## Defining the Observer: Coinduction
+---
 
-![](figs/towers2.png){width=20% fig-align="center"}
+::: {.shrink82}
 
+By framing persistence as a greatest fixpoint over single-step regression, we embedded the **coinductive dual** of reachability into the Situation Calculus. 
 
-Coalgebras formalize the observable system and Coinduction is the proof engine. 
-Let's stop looking at absolute SitCalc coordinates ($OnPeg$) and observe the *relative movement* $\Delta p \equiv (p_{to} - p_{from}) \pmod 3$
-of the smallest disk.
+- This mathematical duality made the transition to alternating $\mu$-calculus for game synthesis (ECAI 2016) a natural evolution.
 
-The physical puzzle generates an infinite coalgebraic stream of spatial jumps: 
-$$ \langle +1 \rangle, \langle +1 \rangle, \langle -2 \rangle, \langle +1 \rangle \dots $$
+In retrospect, what we were doing in 2010 was exploiting a **categorical duality**. The standard Situation Calculus is fundamentally inductive—an initial algebra. But persistence is fundamentally coinductive—a terminal coalgebra. By evaluating persistence via regression, we mapped a forward-looking infinite problem into its computable, right-adjoint dual.
 
-Suppose we want to coinduce an idealized universe where the disk *always* moves $+1$. We mathematically propose the Greatest Fixpoint:
-$$
-CyclicInvariant \equiv \nu X.\ \langle +1 \rangle X
-$$
-
-*The problem:* Reality eventually generates a jump of $-2$. How can our idealized Greatest Fixpoint survive this physical contradiction?
-
-While standard induction proves a base case and builds up, coinduction *proposes* a Greatest Fixpoint (an infinite rule) and verifies it locally step-by-step. If an observation holds right now, and the rules guarantee it holds in the next step, the Greatest Fixpoint is guaranteed to hold forever.
-
-* $\nu X.\ \Phi(X)$ : *The Greatest Fixpoint.* "Define $X$ as the largest endlessly repeating stream satisfying $\Phi(X)$."
-
-## The Dual Problem & Category Theory
-
-However, to formally synthesize infinite invariants natively, we need a mathematical framework built for continuous forward observation. We must transition from **Algebras** to **Coalgebras**.
-
-In Category Theory, we use an **endofunctor** ($F$) over a state space ($S$) as a structural template that shapes our data. $F(S)$ is simply the resulting combined data object.
-
-* **Algebra (SitCalc / Constructor):** Morphism arrows point *inward*: $\; F(S) \to S$
-  * Our endofunctor shapes the input ingredients: $F(S) = Action \times S$
-  * The morphism evaluates exactly to: $(Action \times State_{current}) \to State_{next}$
-  * *Concept:* We combine pieces to *construct* a history from the bottom-up.
-
-* **Coalgebra (DTLF / Observer):** Morphism arrows point *outward*: $\; S \to F(S)$
-  * Our endofunctor shapes the emitted data: $F(S) = Observation \times S$
-  * The morphism evaluates exactly to: $State_{current} \to (Observation \times State_{next})$
-  * *Concept:* We take an opaque running state, break off a visible *observation*, and silently unfold the remaining state into the future.
-
-## Stone Duality and the Syntactic Transformation
-
-In Category Theory, **Stone Duality** dictates a perfect, inverse mirror-image between Syntax (logical equivalence) and Semantics (topological state space). 
-
-When our coalgebra hits the $-2$ transition, it evaluates the topological future and discovers the physical branching of jumping left twice ($-2$) is completely indistinguishable from jumping right once ($+1$). We enforce this **Bisimulation Equivalence** by injecting a logical cut:
-
-$$
-\forall \phi.\ \langle -2 \rangle \phi \;\equiv\; \langle +1 \rangle \phi
-$$
-
-By *syntactically* equating these propositions, **Stone Duality** automatically forces the underlying *semantic space* to fold into a modulo-3 quotient ring ($\mathbb{Z}_3$). This is our new syntactic transformation!
-
+:::
 
 # Synthetic relativity axioms
 
@@ -313,7 +260,7 @@ $$ \mathit{etc.} $$
 ---
 
 ::: {.callout-note icon=false title="Theorem I: Semantic Realisation"}
-Because this builds strictly upon finite verifiable observables, autonomous progression strictly halts when the topology reaches Algebraic Compactness. This is the moment of mathematical **Realisation**:
+Because progression builds strictly upon finite verifiable observables, autonomous progression strictly halts when the topology reaches Algebraic Compactness. This is the moment of mathematical **Realisation**:
 
 <div style="margin-top: -0.8em;"></div>
 
@@ -344,7 +291,7 @@ $$ \mu (\mathrm{PDo}) = \mathrm{ODo} \left( \bigsqcup_{i \in R} \mathrm{RDo}_i(\
 **Axiom 3: The Transitivity Axiom**
 Once Realisation is achieved, the relativistic reference frame shifts. The categorically preserved invariant (the semantic limit, $O$) becomes the new reference frame ($S_f$) for the next order of progression.
 
-$$ \mathrm{PDo}(N, O, S_f) \longrightarrow \mathrm{PDo}(X, Y, \mathrm{O}) $$
+$$ \mathrm{PDo}(N, O, S_f) \longrightarrow \mathrm{PDo}(X, Y, \mathbf{O}) $$
 
 *   **Left Side:** The fully realised state within the initial reference frame ($S_f$).
 *   **The Arrow ($\longrightarrow$):** The Synthetic Transformation (Topological closure and Change of Base).
@@ -447,7 +394,7 @@ The Transitivity Axiom fires, executing a categorical Change of Base:
 
 <div style="margin-top: -0.6em;"></div>
 
-$$ \mathrm{PDo}(N_{\text{trace}}, {\color{blue}{O_{\text{parity}}}}, S_f) \longrightarrow \mathrm{PDo}(X, Y, {\color{blue}{\mathrm{O_{\text{parity}}}}}) $$
+$$ \mathrm{PDo}(N_{\text{trace}}, {\color{blue}{O_{\text{parity}}}}, S_f) \longrightarrow \mathrm{PDo}(X, Y, {\color{blue}{\mathbf{O_{\text{parity}}}}}) $$
 
 <div style="margin-top: -0.8em;"></div>
 
@@ -499,7 +446,7 @@ Once $O_{\text{parity}}$ is realised, the engine autonomously exports the invari
 
 <div style="margin-top: -0.6em;"></div>
 
-   $$ \mathit{Poss}_{\text{new}}(\text{move}(d, p), s) \equiv \mathit{Poss}_{\text{old}} \land \mathrm{\big(d = D_1 \leftrightarrow \text{LastMoved}(s) \neq D_1\big)} $$
+   $$ \mathit{Poss}_{\text{new}}(\text{move}(d, p), s) \equiv \mathit{Poss}_{\text{old}} \land \mathbf{\big(d = D_1 \leftrightarrow \text{LastMoved}(s) \neq D_1\big)} $$
 
 <div style="margin-top: -0.6em;"></div>
 
