@@ -18,146 +18,186 @@ This module is also available in the following versions
 
 ## The situation calculus (Towers of Hanoi)
 
-![](figs/towers1.png){width=20% fig-align="center"}
+::: {.columns}
+::: {.column width="40%"}
+![](figs/towers1.png){width=50% fig-align="center"}
+:::
+::: {.column width="60%"}
+$\mathit{OnPeg}(d, p, s)$
 
-$$OnPeg(d, p, s)$$
+$move(d, p_{from}, p_{to})$
 
-$$move(d, p_{from}, p_{to})$$
-
-$$OnPeg(D_1, Peg_A, S_0) \land OnPeg(D_2, Peg_A, S_0) \land OnPeg(D_3, Peg_A, S_0)$$
-
-## Action Precondition Axiom
+Initial Situation:
 
 $$
 \begin{align*}
-Poss(move(d, p_{from}, p_{to}), s) \equiv \;& Disk(d) \land Peg(p_{from}) \land Peg(p_{to}) \land (p_{from} \neq p_{to}) \land OnPeg(d, p_{from}, s) \land \\
-& \neg \exists d' \Big( Disk(d') \land Smaller(d', d) \land \big( OnPeg(d', p_{from}, s) \lor OnPeg(d', p_{to}, s) \big) \Big)
+& \mathit{OnPeg}(D_1, Peg_1, S_0) \land \\
+& \mathit{OnPeg}(D_2, Peg_1, S_0) \land \\
+& \mathit{OnPeg}(D_3, Peg_1, S_0) 
 \end{align*}
 $$
 
-## Successor State Axiom
+:::
+:::
 
-The successor state axiom is the heart of the basic action theory. It elegantly resolves the frame problem by compiling the positive and negative effects of an action into a single logically equivalent formula.
+
+## Reiter's Induction Axiom
+
+::: {.callout-note icon=false title="The Foundational (Second Order) Induction Axiom"}
+
+  $$ \forall P.\,[P(S_0) \land \forall a,s\,(P(s)\to P(do(a,s)))]\to \forall s\,P(s) $$
+
+- Every valid situation is mathematically guaranteed to be a finite sequence of actions rooted at $S_0$.
+- Establishes the situation domain as an **inductive** datatype.
+:::
+
+- Note that standard first order logic cannot enforce reachability due to the Compactness Theorem.
+
+## Actions (Situations)
+
+![](figs/towers2.png){width=20% fig-align="center"}
+
+*Initial state:* $S_0$
+
+*Step 1:* $do(move(D_1, Peg_1, Peg_3), S_0)$
+
+*Step 2:* $do(move(D_2, \mathit{Peg}_A, \mathit{Peg}_B), do(move(D_1, Peg_1, Peg_3), S_0))$
+
+*Step 3:* $do(move(D_1, C, B), do(move(D_2, \mathit{Peg}_A, \mathit{Peg}_B), do(move(D_1, Peg_1, Peg_3), S_0))$
+
+## Situations as a Least Fixpoint
+
+Let $\mathcal{A}$ be actions and $\mathcal{S}$ be the universe of situations. Define a monotonic operator $\Gamma$:
+$$ \Gamma(X) = \{S_0\} \cup \{ do(a, s) \mid a \in \mathcal{A}, s \in X \} $$
+
+- $P(S_0) \land \forall a,s\,(P(s)\to P(do(a,s)))$ translates to $\Gamma(P) \subseteq P$. 
+  Here, $P$ is a **pre-fixed point**.
+- $\forall s\,P(s)$ asserts that the universe of situations $\mathcal{S}$ is a subset of $P$.
+- The axiom states $\mathcal{S}$ is a subset of *every* pre-fixed point, meaning it is bounded by their intersection.
+
+::: {.callout-note icon=false title="The Knaster-Tarski Theorem: least fixpoint"}
+The intersection of all pre-fixed points of a monotonic operator is its **least fixpoint**. 
+
+Therefore, the axiom enforces $\mathcal{S} = \mu X.\Gamma(X)$.
+:::
 
 
-$$
-OnPeg(d, p, do(a, s)) \equiv \Big( \exists p_{from}.\ a = move(d, p_{from}, p) \Big) \lor \Big( OnPeg(d, p, s) \land \neg \exists p_{to}.\ a = move(d, p, p_{to}) \Big)
-$$
+## Syntactic transformation to First Order Logic 
 
-A disk is on a specific peg in the next state if and only if the action explicitly moved it to that peg, or it was already on that peg and the action did not explicitly move it away to a different destination.
-## Basic Action Theories [Lin and Reiter 94]
+**Basic Action Theories** [Lin and Reiter 94] define Theory $\mathcal{D} = \Sigma \cup \mathcal{D}_{S_0} \cup \mathcal{D}_{Poss} \cup \mathcal{D}_{SSA} \cup \mathcal{D}_{UNA}$, where:
 
-Theory $\mathcal{D} = \Sigma \cup \mathcal{D}_{S_0} \cup \mathcal{D}_{Poss} \cup \mathcal{D}_{SSA} \cup \mathcal{D}_{UNA}$, where:
-
-* $\color{red}{\mathcal{D}_{S_0}}$: axioms describing the initial state of the fluents in $S_0$;
-  $\implies$ allows for incomplete knowledge!
-* $\color{red}{\mathcal{D}_{poss}}$: axioms describing the prerequisites of the primitive actions, of the form:
+* $\color{blue}{\mathcal{D}_{S_0}}$: axioms describing the initial state of the fluents in $S_0$
+* $\color{blue}{\mathcal{D}_{poss}}$: axioms describing the prerequisites of the primitive actions, of the form:
   $$
   Poss(A(\vec{x}), s) \equiv \Theta_A(\vec{x}, s),
   $$
   one for each primitive action $A$.
-* $\color{red}{\mathcal{D}_{ssa}}$: axioms describing the effects and non-effects of actions, of the form:
+* $\color{blue}{\mathcal{D}_{ssa}}$: axioms describing the effects and non-effects of actions, of the form:
   $$
   F(\vec{x}, do(a, s)) \equiv \psi_F(\vec{x}, a, s),
   $$
   one for each fluent $F$.
-* $\color{red}{\mathcal{D}_{una}}$: unique name axioms for the actions.
-* $\color{red}{\Sigma}$: some foundational domain-independent axioms.
+* $\color{blue}{\mathcal{D}_{una}}$: unique name axioms for the actions and objects, e.g.  $move(d_1, p_1, p_2) = move(d_2, p_3, p_4) \supset (d_1 = d_2 \land p_1 = p_3 \land p_2 = p_4)$, $(D_1 \neq D_2) \land (D_2 \neq D_3) \land (D_1 \neq D_3)$ and $(P_0 \neq P_1) \land (P_1 \neq P_2) \land (P_0 \neq P_2)$.
 
-## A solution to the frame problem (sometimes) [Reiter 91]
+* $\color{blue}{\Sigma}$: some foundational domain-independent axioms, e.g. $Smaller(d^{\prime}, d)$
 
-1. Positive effect axioms:
-   $$
-   Holding(x, s) \land Fragile(x, s) \supset Broken(x, \underline{do(drop(x), s)})
-   $$
-
-2. Positive effect axioms:
-   $$
-   HasGlue(s) \land Broken(x, s) \supset \neg Broken(x, \underline{do(repair(x), s)})
-   $$
-
-3. Frame axiom axioms:
-   $$
-   \neg Broken(x, s) \land (y \neq x \lor \neg Fragile(x, s)) \supset \neg Broken(x, \underline{do(drop(y), s)})
-   $$
-
-4. Completeness assumption:
-   $$
-   \neg Broken(x, s) \land Broken(x, do(a, s)) \supset Fragile(x, s) \land a = drop(x)
-   $$
-
-$\color{red}{\text{Successor state axioms}}$ = positive effect axioms + positive effect axioms + frame axioms + $\color{blue}{\text{completeness assumption}}$
-
-## A solution to the frame problem (sometimes) [Reiter 91]
-
-So, suppose that for fluent $F(\vec{x}, s)$:
-$\gamma_F^+(\vec{x}, a, s)$ encodes all *positive* effects; and
-$\gamma_F^-(\vec{x}, a, s)$ encodes all *negative* effects.
-
-The $\color{red}{\text{successor state axiom}}$ solution has the following form:
-$$
-\color{red}{F(\vec{x}, do(a, s)) \equiv \gamma_F^+(\vec{x}, a, s) \lor F(\vec{x}, s) \land \neg \gamma_F^-(\vec{x}, a, s)}
-$$
-
-In our example:
-$$
-\gamma_{Broken}^+(\vec{x}, a, s) \stackrel{\text{def}}{=} a = drop(x) \land Holding(x, s) \land Fragile(x, s)
-$$
-$$
-\gamma_{Broken}^-(\vec{x}, a, s) \stackrel{\text{def}}{=} a = repair(x) \land HasGlue(x, s)
-$$
+## Action Precondition (Possibility) Axioms
 
 $$
 \begin{align*}
-Broken(x, do(a, s)) &\equiv \\
-& [Holding(x, s) \land Fragile(x, s) \land a = drop(x)] \lor \\
-& \color{blue}{Broken(x, s)} \land \neg[a = repair(x) \land HasGlue(s)]
+Poss(move(d, p_{from}, p_{to}), s) \equiv \;& Disk(d) \land (p_{from} \neq p_{to}) \land OnPeg(d, p_{from}, s) \land \\
+& \neg \exists d' \Big( Disk(d') \land Smaller(d', d) \land \\
+& \big( OnPeg(d', p_{from}, s) \lor OnPeg(d', p_{to}, s) \big) \Big)
+\end{align*}
+$$
+
+
+## A solution to the frame problem ([sometimes]{style="color:blue"}) [Reiter 91]
+
+1. Positive effect axioms:
+
+$$
+\exists p_{from} \ (a = move(d, p_{from}, p)) \supset OnPeg(d, p, do(a, s))
+$$
+
+2. Negative effect axioms:
+
+$$
+\exists p_{to} \ (a = move(d, p, p_{to})) \supset \neg OnPeg(d, p, do(a, s))
+$$
+
+3. Frame axioms:
+
+$$
+OnPeg(d, p, s) \land \neg \exists p_{to} \ (a = move(d, p, p_{to})) \supset OnPeg(d, p, do(a, s))
+$$
+
+4. Completeness assumption (explanation closure):
+
+$$
+\neg OnPeg(d, p, s) \land OnPeg(d, p, do(a, s)) \supset \exists p_{from} \ (a = move(d, p_{from}, p))
+$$
+
+**Successor state axioms** $=$ positive effect axioms $+$ negative effect axioms $+$ frame axioms $+$ [completeness assumption]{style="color:blue"}
+
+## Successor State Axioms & Regression
+
+So, suppose that for fluent $F(\vec{x}, s)$:  
+$\gamma_F^+(\vec{x}, a, s)$ encodes all *positive* effects; and  
+$\gamma_F^-(\vec{x}, a, s)$ encodes all *negative* effects.
+
+The <span style="color:blue;">successor state axiom</span> solution has the following form:
+
+$$
+\color{blue}{F(\vec{x}, do(a, s)) \equiv \gamma_F^+(\vec{x}, a, s) \lor F(\vec{x}, s) \land \neg \gamma_F^-(\vec{x}, a, s)}
+$$
+
+In our example:
+
+$$
+\begin{align*}
+\gamma_{OnPeg}^+(d, p, a, s) \;&\stackrel{\text{def}}{=}\; \exists p_{from} \ (a = move(d, p_{from}, p)) \\
+\gamma_{OnPeg}^-(d, p, a, s) \;&\stackrel{\text{def}}{=}\; \exists p_{to} \ (a = move(d, p, p_{to}))
+\end{align*}
+$$
+
+So successor state axiom is:
+
+$$
+\begin{align*}
+OnPeg(d, p, do(a, s)) \equiv \;& \\
+& [\exists p_{from} \ (a = move(d, p_{from}, p))] \lor \\
+& OnPeg(d, p, s) \land \neg [\exists p_{to} \ (a = move(d, p, p_{to}))]
 \end{align*}
 $$
 
 ## Reasoning about actions
 
-* $\color{blue}{\text{Projection task:}}$ *given a sequence of actions $a_1, \dots, a_n$, does condition $\phi(s)$ holds?:*
+* $\color{blue}{\text{Projection:}}$ *given a sequence of actions $s = a_1, \dots, a_n$, does condition $\phi(s)$ hold?:*
   $$
-  \mathcal{D} \models \phi(do(a_n, do(a_{n-1}, \dots, do(a_1, S_0)))\dots)
-  $$
-
-* $\color{blue}{\text{Deductive planning:}}$ *find a sequence of actions to make $\phi(s)$ true:*
-  $$
-  \mathcal{D} \vdash \exists s . \phi(s) \land executable(s)
+  \mathcal{D} \models OnPeg(D_2, Peg_2, do(move(D_2, Peg_a, Peg_2), do(move(D_1, Peg_1, Peg_3), S_0)))
   $$
 
-* $\color{blue}{\text{Inductive proofs:}}$
+* $\color{blue}{\text{Planning:}}$ *find a sequence of actions to make $\phi(s)$ true (e.g., solve the puzzle):*
   $$
-  \mathcal{D} \models \forall p, n, n' . s \sqsubset s' \land sal(p, n, s) \land sal(p, n', s') \supset n < n'
+  \mathcal{D} \vdash \exists s .\ OnPeg(D_1, Peg_3, s) \land OnPeg(D_2, Peg_3, s) \land OnPeg(D_3, Peg_3, s) \land executable(s)
   $$
-
-# Categorical Duality
-
-## Logical interval invariant?
-
-::: {.shrink80}
-
-Inductive structure and coinductive process are two mathematically intertwined ways of evaluating the same invariant truth.
-
-- **Induction** (static space/structure) and 
-- **Coinduction** (unfolding time/process) are the coordinate axes, and 
-- **Realisation** is the invariant interval.
-
-Rotating logical frame of reference changes how much proof exists in spatial topology versus how much unfolds dynamically in computational time, but invariant interval---the **realisation**---is preserved.
-
-- Note in the **situation calculus** that since *regression* is trivially **confluent**, as per Church-Rosser theorem as it is deterministic, the order in which you evaluate it does not change its final semantic truth, so the **realisation** is preserved.
-
-:::
 
 
 ## Property Persistence as a Greatest Fixpoint
 
 ::: {.shrink80}
 
-**The Challenge:** Verifying universally quantified temporal queries (e.g., "$\phi$ persists indefinitely") requires second-order induction, which strictly limits automated first-order reasoning.
+Verifying universally quantified temporal queries (e.g., "property $\phi$ persists indefinitely").
 
-**The Single-Step Operator:** (Kelly & Pearce, AIJ 2010) captures the condition for $\phi$ holding *now* and being preserved after *any single legal action* via regression ($\mathcal{R}$):
+* $\color{blue}{\text{Inductive proofs:}}$ *proving global invariants across all reachable states (e.g., a disk is never on two pegs at once):*
+  $$
+  \mathcal{D} \models \forall s .\ executable(s) \supset \forall d, p_1, p_2 .\ (OnPeg(d, p_1, s) \land OnPeg(d, p_2, s) \supset p_1 = p_2)
+  $$
+
+## Property Persistence as a Greatest Fixpoint (continued)
+
+**The Single-Step Operator:** This requires second-order induction. Kelly & Pearce AIJ 2010 show how this can be obtained using a single step regression operator. It captures the condition for $\phi$ holding *now* and being preserved after *any single legal action* via regression ($\mathcal{R}$):
 
 <div style="margin-top: -0.8em;"></div>
 
@@ -165,53 +205,79 @@ $$ \Gamma(Z) \equiv \phi(s) \land \forall a \big( \textit{Poss}(a, s) \to \mathc
 
 <div style="margin-top: -0.8em;"></div>
 
-**Greatest Fixpoint ($\nu Z$):** 
-
-- Persistence is an infinite-horizon **safety property**.
-- The persistence condition is the **greatest fixpoint** of this operator: $\nu Z.\, \Gamma(Z)$.
-
-:::
-
----
-
-::: {.shrink80}
-
 Iteratively applying this meta-level calculation computes the maximal invariant without explicitly invoking the induction axiom.
 
 - By wrapping the single-step regression operator inside a monotonic formula transformer, we evaluate the future back in the current state. 
-- Taking the greatest fixpoint of this regression operator yields the exact, most permissive preconditions required for the property to persist indefinitely using only first-order logic.
 
 :::
 
-## Categorical duality
-
-::: {.shrink79}
-
-[Is property persistence just an algorithmic trick with regression?]{style="color:red"} No. It represents a fundamental categorical duality in action theories.
-
-- **The Inductive Action Theory (Standard SitCalc):** 
-  - Builds state histories forward from $S_0$.
-  - Categorically maps to **Initial Algebras** and **Least Fixpoints ($\mu$)**.
-  - Naturally solves *reachability* and *liveness*.
-
-- **The Coinductive Persistence Theory (AIJ 2010):**
-  - Persistence is an infinite-horizon safety property.
-  - Categorically maps to **Terminal Coalgebras** and **Greatest Fixpoints ($\nu$)**.
-  - Employs **Regression** (the *right adjoint* to progression) to compute maximal invariants.
-
+::: {.callout-note icon=false title="Greatest Fixpoint ($\nu Z$)"}
+- Property persistence is an infinite-horizon **safety property**.
+- The persistence condition is the **greatest fixpoint** of this operator: $\nu Z.\, \Gamma(Z)$.
 :::
 
----
+## The Categorial Observer & Coinduction
 
-::: {.shrink82}
 
-By framing persistence as a greatest fixpoint over single-step regression, we embedded the **coinductive dual** of reachability into the Situation Calculus. 
+- **Induction** builds and verifies finite situations from the "bottom up" (starting from the initial base situation $S_{0}$ and progressing via the successor function $do(a, s)$).
 
-- This mathematical duality made the transition to alternating $\mu$-calculus for game synthesis (ECAI 2016) a natural evolution.
+- **Coinduction** verifies infinite situations (histories) by observing ongoing sequences of actions from the "top down" (unfolding next states without ever reaching a final terminating state).
 
-In retrospect, what we were doing in 2010 was exploiting a **categorical duality**. The standard Situation Calculus is fundamentally inductive—an initial algebra. But persistence is fundamentally coinductive—a terminal coalgebra. By evaluating persistence via regression, we mapped a forward-looking infinite problem into its computable, right-adjoint dual.
+## Coinduction in Towers of Hanoi
 
-:::
+![](figs/towers2.png){width=20% fig-align="center"}
+
+For example, observing the *relative movement* of the Sitcalc coordinates of $\mathit{OnPeg}(d,p,s)$: $\Delta p \equiv (p_{to} - p_{from}) \pmod 3$
+of the smallest disk $D_1$ (alternating with disk $D_2$ or $D_3$).
+
+Solving the puzzle of any size with an *odd* number of disks generates an infinite coalgebraic stream of spatial jumps: 
+$$ 
+\langle +2 \rangle, 
+\langle -1 \rangle, 
+\langle -1 \rangle, 
+\langle +2 \rangle
+\dots $$
+
+Suppose we want to coinduce an idealized universe where the disk *always* moves $-1$. We mathematically *propose* the Greatest Fixpoint (using the exact same fixpoint architecture as our property persistence):
+$$
+ParityInvariant \equiv \nu Z.\ \langle -1 \rangle Z
+$$
+
+*The problem:* This sequence also generates a jump of $+2$, so how can our idealized Greatest Fixpoint survive this contradiction?
+
+While standard induction proves a base case and builds up, coinduction *proposes* a Greatest Fixpoint (an infinite rule) and verifies it locally step-by-step. If an observation holds right now, and the rules guarantee it holds in the next step, the Greatest Fixpoint is guaranteed to hold forever.
+
+* $\nu Z.\ \Gamma(Z)$ : *The Greatest Fixpoint.* "Define $Z$ as the largest endlessly repeating stream satisfying the single-step operator $\Gamma(Z)$ (where here, $\Gamma(Z) \equiv \langle -1 \rangle Z$)."
+
+## Stone Duality: Syntactic-Semantic Transformation via Bisimulation Equivalence
+
+In Category Theory, **Stone Duality** dictates a perfect, inverse mirror-image between Syntax (logical equivalence) and Semantics (topological state space). 
+
+Our coalgebra evaluates the topological future and discovers the physical branching of jumping right twice ($+2$) is completely indistinguishable from jumping left once ($-1$). We enforce this **Bisimulation Equivalence** by injecting a logical cut:
+
+$$
+\forall \phi.\ \langle +2 \rangle \phi \;\equiv\; \langle -1 \rangle \phi
+$$
+
+By *syntactically* equating these propositions, **Stone Duality** automatically forces the underlying *semantic space* to fold into a modulo-3 quotient ring ($\mathbb{Z}_3$). 
+
+[This is our new syntactic transformation!]{style="color:blue"}
+
+
+## The Dual Problem: Algebras & Coalgebras 
+
+In Category Theory, we use an **endofunctor** ($F$) over a state space ($S$) as a structural template that shapes our data. $F(S)$ is simply the resulting combined data object.
+
+* **Algebra (SitCalc / Constructor):** Morphism arrows point *inward*: $\; F(S) \to S$
+  * Our endofunctor shapes the input ingredients: $F(S) = Action \times S$
+  * The morphism evaluates to: $(Action \times State_{current}) \to State_{next}$
+  * *Concept:* We combine pieces to *construct* a history from the bottom-up.
+
+* **Coalgebra (Property Persistence / Observer):** Morphism arrows point *outward*: $\; S \to F(S)$
+  * Our endofunctor shapes the emitted data: $F(S) = Observation \times S$
+  * The morphism evaluates to: $State_{current} \to (Observation \times State_{next})$
+  * *Concept:* We take an opaque running state, break off a visible *observation*, and silently unfold the remaining state into the future.
+
 
 # Synthetic relativity axioms
 
@@ -230,17 +296,19 @@ Standard provability logics like $\mathrm{GLB}$ (G&ouml;del-L&ouml;b Bimodal Pro
 
 ::: {.shrink68}
 
-**Dynamic Trimodal Logic with Ternary Relational Semantics:** 
+**Dynamic Trimodal Logic within a Total Category:** 
 
 **Axiom 1: The Ternary Relational Axiom**
-Logical entailment is governed by three interacting modalities relative to a specific baseline Reference Frame ($S_f$):
+Logical entailment operates within a **Total Category**—a mathematically complete Stone Duality that glues syntax and semantics together. This overarching space is governed by three interacting modalities, evaluated relative to a specific baseline Reference Frame:
 
+*   **$S_f$ (The Base Frame / Context): The Reference Frame**
+    The underlying mathematical geometry, logical ontology, or contextual base. It provides the strict rules and symmetries over which the observer's duality is constructed.
 *   **$\mathrm{RDo}$ (The Subproblem / Syntax): The Inductive Accumulator ($\Box_1$)**
     Operates in constructive, non-Boolean logic. Recursively gathers finite, computationally observable properties (compact elements) along a directed logical path. $\mathrm{RDo}$ is equivalent to the $\Box$ modality of bimodal provability logic GLB: *"There exists a finite, step-by-step mechanical proof of this property."*
 *   **$\mathrm{ODo}$ (The Master Problem / Semantics): The Limit/Creator Modality ($\Box_2$)**
     The semantic evaluator and *interval invariant*. Performs topological closure—evaluating the directed set generated by $\mathrm{RDo}$ and snapping it into a discrete, continuous limit. $\mathrm{ODo}$ is equivalent to the $\Box_\omega$ modality of GLB: *"Evaluated at the continuous limit, this property is universally true,"* i.e., this is the modality of *semantic reflection*.
 *   **$\mathrm{PDo}$ (Autonomous Progression): The Relativistic Engine ($\Box_3$)**
-    The dynamic transition operator. It orchestrates the recursive interaction of local syntax ($\mathrm{RDo}$) and global semantics ($\mathrm{ODo}$) relative to $S_f$.
+    The dynamic transition functor. It acts as the mathematical engine of the Total Category, orchestrating the recursive interaction (categorical adjunction) of local syntax ($\mathrm{RDo}$) and global semantics ($\mathrm{ODo}$) relative to $S_f$.
 
 :::
 
@@ -260,7 +328,7 @@ $$ \mathit{etc.} $$
 ---
 
 ::: {.callout-note icon=false title="Theorem I: Semantic Realisation"}
-Because progression builds strictly upon finite verifiable observables, autonomous progression strictly halts when the topology reaches Algebraic Compactness. This is the moment of mathematical **Realisation**:
+Because this builds strictly upon finite verifiable observables, autonomous progression strictly halts when the topology reaches Algebraic Compactness. This is the moment of mathematical **Realisation**:
 
 <div style="margin-top: -0.8em;"></div>
 
@@ -279,9 +347,26 @@ $$ \mu (\mathrm{PDo}) = \mathrm{ODo} \left( \bigsqcup_{i \in R} \mathrm{RDo}_i(\
 
 ::: {.shrink55}
 
-- The ultimate stable fixpoint ($\mu$) is caught exactly when $\mathrm{ODo}$ evaluates the limit (Supremum, $\bigsqcup$) of iteratively applying the recursively enumerable inductive proofs ($\mathrm{RDo}$) from baseline ignorance ($\bot$). 
+- The ultimate stable fixpoint ($\mu$) is caught when $\mathrm{ODo}$ evaluates the limit (Supremum, $\bigsqcup$) of iteratively applying the recursively enumerable inductive proofs ($\mathrm{RDo}$) from baseline ignorance ($\bot$). 
 - This realised limit acts as the interval semantic invariant.
 :::
+
+## Theory-Driven Widening via Reference Theory $S_F$
+
+Instead of relying on blind algebraic widening, as a way of proposing invariants to coinduce, a self-transcending system uses its Reference Theory ($S_F$) as the cognitive scaffolding to autonomously generate coinductive proposals.
+
+* **1. Clause Borrowing (Predicate Abstraction & IC3/PDR)**
+  * The system avoids random guesses by scavenging the logical "DNA" of $S_F$.
+  * It extracts predicates and constraints natively defined in the theory. 
+  * The coinductive proposal is synthesized strictly by recombining the clauses already present in $S_F$, guaranteeing it obeys the framework's fundamental ontology.
+
+* **2. Proof-Guided Generalization (Craig Interpolation)**
+  * When the system executes local, finite steps, it queries $S_F$ for the logical proof of *why* those steps succeeded.
+  * The system mathematically extracts the "core reason" underlying $S_F$'s proof. This purely deductive extraction is automatically proposed as the generalized, infinite boundary.
+
+* **3. Endogenous Rules (Syntax-Guided Synthesis)**
+  * $S_F$ can explicitly encode the meta-rules, symmetries, or "grammar" of generalization for its specific reference frame.
+  * The theory acts as a rigid template, structurally dictating how local finite observations project to global infinity without any human hand-coding.
 
 
 ## The Synthetic Transformation
@@ -291,7 +376,7 @@ $$ \mu (\mathrm{PDo}) = \mathrm{ODo} \left( \bigsqcup_{i \in R} \mathrm{RDo}_i(\
 **Axiom 3: The Transitivity Axiom**
 Once Realisation is achieved, the relativistic reference frame shifts. The categorically preserved invariant (the semantic limit, $O$) becomes the new reference frame ($S_f$) for the next order of progression.
 
-$$ \mathrm{PDo}(N, O, S_f) \longrightarrow \mathrm{PDo}(X, Y, \mathbf{O}) $$
+$$ \mathrm{PDo}(N, O, S_f) \longrightarrow \mathrm{PDo}(X, Y, \mathrm{O}) $$
 
 *   **Left Side:** The fully realised state within the initial reference frame ($S_f$).
 *   **The Arrow ($\longrightarrow$):** The Synthetic Transformation (Topological closure and Change of Base).
@@ -319,7 +404,7 @@ By natively intertwining syntax ($\mathrm{RDo}$) and semantics ($\mathrm{ODo}$),
 <div style="margin-top: -0.8em;"></div>
 
 **Algebraic Compactness ($\mu = \nu$)**
-**Theorem I (Semantic Realisation)** formally computes a **Bilimit**. At the exact coordinate of convergence, the active inductive trace ($\mu$) perfectly fulfills the persistent semantic invariant ($\nu$). 
+**Theorem I (Semantic Realisation)** formally computes a **Bilimit**. At the coordinate of convergence, the active inductive trace ($\mu$) perfectly fulfills the persistent semantic invariant ($\nu$). 
 
 :::
 
@@ -332,6 +417,53 @@ By natively intertwining syntax ($\mathrm{RDo}$) and semantics ($\mathrm{ODo}$),
 :::
 
 # Synthetic relativity logic
+
+## The DTLF Logical Primitives
+
+In this framework, formulas do not describe static states; they describe observable properties as they unfold. The core syntactic building blocks you need are:
+
+* **$X, Y$ (Variables):** Placeholders used to define recursive logical properties.
+* **$\top$ (True):** The baseline trivial observation (meaning a transition occurred and the system did not crash).
+* **$\phi \land \psi \ / \ \phi \lor \psi$ (Conjunction / Disjunction):** "I simultaneously observe both $\phi$ and $\psi$" / "I observe either $\phi$ or $\psi$."
+* **$\langle \delta \rangle \phi$ (The Coalgebraic Transition Modality):** This is the literal "arrow breaking in two." It reads: *"The system makes a visible relativistic jump of $\delta$ (where $\delta \in \mathbb{Z}$), and the continuing, unobserved future stream will satisfy property $\phi$."*
+* **$\nu X.\ \Phi(X)$ (The Greatest Fixpoint / Co-induction Operator):** The primitive for co-induction. It binds a variable $X$ to define a recursive, infinite behavior. It reads: *"Define property $X$ as the largest possible, endlessly repeating stream that continuously satisfies the rule $\Phi(X)$ forever."*
+
+---
+
+## Example: Computing the Hanoi Parity Invariant
+
+We can now express our hypothesis for the Towers of Hanoi natively in DTLF. We want to co-induce an idealized invariant where the smallest disk flawlessly cycles one peg to the right ($+1$) forever. 
+
+**1. Proposing the Idealized Rule:**
+We propose this continuous property as our Greatest Fixpoint:
+$$
+Ideal \equiv \nu X.\ \langle +1 \rangle X
+$$
+
+**2. The Physical Reality:**
+However, the physical puzzle generates a stream that eventually forces a backwards jump of $-2$ when wrapping from $Peg_2$ back to $Peg_0$. The observable physical bounds are:
+$$
+Physical \equiv \nu X.\ (\langle +1 \rangle X \lor \langle -2 \rangle X)
+$$
+
+**3. Syntactic Bisimulation Equivalence:**
+Because the topological futures of $-2$ and $+1$ land on the identical peg, we apply our syntactic equivalence ($\langle -2 \rangle \phi \equiv \langle +1 \rangle \phi$). This cleanly collapses the messy physical stream into our idealized property:
+$$
+\nu X.\ (\langle +1 \rangle X \lor \langle -2 \rangle X) \;\equiv\; \nu X.\ \langle +1 \rangle X
+$$
+
+---
+
+## Architectural Comparison: Building vs. Observing
+
+| Feature | Standard Situation Calculus (The "Building" Frame) | Synthetic Relativity (The "Observing" Frame) |
+| :--- | :--- | :--- |
+| **Objective** | Historical Reachability / Action Execution | Property Persistence / Safety Guarantees |
+| **Conceptual Math** | Least Fixpoint (LFP) | Greatest Fixpoint (GFP) |
+| **Logical Foundation** | Second-Order Induction (Algebraic) | Co-induction (Coalgebraic) |
+| **Syntactic Shift** | Transformation into First-Order Logic (SSAs) | Transformation to Relativistic Differentials |
+| **Computation Engine**| Computed as LFP in the $Do$ modality (Golog) | Computed in the R-DTLF logic |
+| **Resolution Engine** | First-Order Theorem Proving | Bisimulation Equivalence (Quotients) |
 
 ## Domain Theory in Logical Form (Syntax versus Semantics)
 
@@ -353,22 +485,10 @@ To execute our modalities, we require an architecture that natively fuses classi
 The mathematical power of vanilla DTLF lies in **Spatial Completeness** (rooted in Stone Duality).
 
 - **The Guarantee:** It proves a 1-to-1 isomorphism between the algebraic, step-by-step **Syntax** ($\phi \vdash \psi$) and the continuous, geometric **Semantics** ($[\![\phi]\!] \subseteq [\![\psi]\!]$). 
-- **Catching Limits:** Computations resolve exactly when the directed path of finite evidence mathematically catches (satisfies) an infinite continuous topological limit (a Supremum).
+- **Catching Limits:** Computations resolve when the directed path of finite evidence mathematically catches (satisfies) an infinite continuous topological limit (a Supremum).
 
 Vanilla DTLF perfectly describes a single, *static* universe. However, to differentiate induction from coinduction and model dynamic, continuous learning, **the Reference Frame itself must dynamically shift.**
 
-:::
-
-## Encoding Planning in Synthetic Relativity (R-DTLF)
-
-::: {.shrink71}
-
-Classical planning (e.g., Situation Calculus) relies on a global, static Basic Action Theory (BAT), where rigid evaluation across absolute history leads to combinatorial explosion. In **R-DTLF**, planning is constructed dynamically:
-
-- **Initial Database $\rightarrow$ Reference Frame ($S_f$):** Dictates the local inductive bias—bounding exactly which *fluents* [(e.g., Disk positions in Towers of Hanoi)]{style="color:blue"} are currently observable.
-- **The Situation Term ($do(a,s)$) $\rightarrow$ Inductive Accumulation ($\mathrm{RDo}$):** Instead of an endlessly nested string of rigid state-jumps, actions are encoded as verifiable proof steps recursively accumulating along a directed path.
-- **Goal Formula ($\exists s. G(s)$) $\rightarrow$ Semantic Target ($\mathrm{ODo}$):** The goal is not a static Boolean theorem. It is encoded as a **Target Semantic Attractor**—the fluent configuration or overarching invariant the system coinductively attempts to catch.
-- **Deductive Search $\rightarrow$ Relativistic Engine ($\mathrm{PDo}$):** The autonomous, recursive unrolling of these modalities.
 :::
 
 ## Execution & Invariant Synthesis: Towers of Hanoi example
@@ -386,35 +506,23 @@ $$ \mathrm{PDo}\Big(\, \mathrm{RDo}\big({\color{blue}{\text{move}(D_1, P_2)}}, \
 <div style="margin-top: -0.8em;"></div>
 
 **2. Limit Catching:** 
-Through top-down semantic reflection ($\Box_\omega$), the $\mathrm{ODo}$ modality mathematically coinduces a structural property of the optimal traces: [The Parity Invariant ($O_{\text{parity}}$). 
-*(The smallest disk $D_1$ must cycle consistently in one fixed direction, while every alternate move is the single legal play between the remaining two pegs, never involving $D_1$).*]{style="color:blue"}
+Through top-down semantic reflection ($\Box_\omega$), the $\mathrm{ODo}$ modality mathematically coinduces a structural property of the optimal traces: [The Parity Invariant ($O_{\text{parity}}$).]{style="color:blue"}
+
 
 **3. The Synthetic Transformation (Change of Base):** 
 The Transitivity Axiom fires, executing a categorical Change of Base:
 
 <div style="margin-top: -0.6em;"></div>
 
-$$ \mathrm{PDo}(N_{\text{trace}}, {\color{blue}{O_{\text{parity}}}}, S_f) \longrightarrow \mathrm{PDo}(X, Y, {\color{blue}{\mathbf{O_{\text{parity}}}}}) $$
+$$ \mathrm{PDo}(N_{\text{trace}}, {\color{blue}{O_{\text{parity}}}}, S_f) \longrightarrow \mathrm{PDo}(X, Y, {\color{blue}{\mathrm{O_{\text{parity}}}}}) $$
 
 <div style="margin-top: -0.8em;"></div>
 
-:::
+The invariant (cycle $D_1$, alternate move, cycle $D_1$) emerges as the unique, strictly positive proof path through the state space.
 
----
+- The new parity invariant shifts to become the Reference Frame. By adopting this rule as a **lifted axiom**, *the search tree branching factor strictly collapses from 3 down to 1.*
 
-::: {.shrink73}
-
-[Why is the [parity invariant]{style="color:blue"} found in synthetic relativity (R-DTLF)?]{style="color:red"}
-
-- The alternate move is discovered as the only topologically valid way to accumulate new information.
-- In topological terms, reversing the cycle leads to a "dead end" in the domain—a state that cannot act as a supremum for a directed set leading to the goal limit.
-- The invariant (cycle $D_1$, alternate move, cycle $D_1$) emerges as the unique, strictly positive proof path through the state space.
-
-In standard classical planners, the Towers of Hanoi puzzle has a continuous branching factor of 3, leading to intractable combinatorial explosion for deep goals.
-
-- The new parity invariant shifts to become the Reference Frame. By adopting this rule as a **lifted axiom**, *the search tree branching factor strictly collapses from 3 down to exactly 1.*
-
-- Note computational complexity of problem doesn't, just *where* the computational effort is spent between a classical recursive approach versus Synthetic Relativity (DTLF) progression.
+- Note computational complexity of problem doesn't change, $O(2^n)$ for $n$ disks, but *where* the computational effort is spent between a classical recursive approach versus Synthetic Relativity (DTLF) progression changes.
 
 :::
 
@@ -446,7 +554,7 @@ Once $O_{\text{parity}}$ is realised, the engine autonomously exports the invari
 
 <div style="margin-top: -0.6em;"></div>
 
-   $$ \mathit{Poss}_{\text{new}}(\text{move}(d, p), s) \equiv \mathit{Poss}_{\text{old}} \land \mathbf{\big(d = D_1 \leftrightarrow \text{LastMoved}(s) \neq D_1\big)} $$
+   $$ \mathit{Poss}_{\text{new}}(\text{move}(d, p), s) \equiv \mathit{Poss}_{\text{old}} \land \mathrm{\big(d = D_1 \leftrightarrow \text{LastMoved}(s) \neq D_1\big)} $$
 
 <div style="margin-top: -0.6em;"></div>
 
