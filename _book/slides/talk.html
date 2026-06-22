@@ -354,8 +354,8 @@ OnPeg(d, p, do(a, s)) \equiv \;&amp; \\
 </div>
 </div>
 </section>
-<section id="the-categorial-observer-coinduction" class="slide level2">
-<h2>The Categorial Observer &amp; Coinduction</h2>
+<section id="the-categorical-observer-coinduction" class="slide level2">
+<h2>The Categorical Observer &amp; Coinduction</h2>
 <ul>
 <li><p><strong>Induction</strong> builds and verifies finite situations from the “bottom up” (starting from the initial base situation <span class="math inline">\(S_{0}\)</span> and progressing via the successor function <span class="math inline">\(do(a, s)\)</span>).</p></li>
 <li><p><strong>Coinduction</strong> verifies infinite situations (histories) by observing ongoing sequences of actions from the “top down” (unfolding next states without ever reaching a final terminating state).</p></li>
@@ -371,10 +371,10 @@ OnPeg(d, p, do(a, s)) \equiv \;&amp; \\
 \langle -1 \rangle,
 \langle +2 \rangle
 \dots \]</span></p>
-<p>Suppose we want to coinduce an idealized universe where the disk <em>always</em> moves <span class="math inline">\(-1\)</span>. We mathematically <em>propose</em> the Greatest Fixpoint (using the exact same fixpoint architecture as our property persistence): <span class="math display">\[
+<p>Suppose we want to coinduce an idealised universe where the disk <em>always</em> moves <span class="math inline">\(-1\)</span>. We mathematically <em>propose</em> the Greatest Fixpoint (using the exact same fixpoint architecture as our property persistence): <span class="math display">\[
 ParityInvariant \equiv \nu Z.\ \langle -1 \rangle Z
 \]</span></p>
-<p><em>The problem:</em> This sequence also generates a jump of <span class="math inline">\(+2\)</span>, so how can our idealized Greatest Fixpoint survive this contradiction?</p>
+<p><em>The problem:</em> This sequence also generates a jump of <span class="math inline">\(+2\)</span>, so how can our idealised Greatest Fixpoint survive this contradiction?</p>
 <p>While standard induction proves a base case and builds up, coinduction <em>proposes</em> a Greatest Fixpoint (an infinite rule) and verifies it locally step-by-step. If an observation holds right now, and the rules guarantee it holds in the next step, the Greatest Fixpoint is guaranteed to hold forever.</p>
 <ul>
 <li><span class="math inline">\(\nu Z.\ \Gamma(Z)\)</span> : <em>The Greatest Fixpoint.</em> “Define <span class="math inline">\(Z\)</span> as the largest endlessly repeating stream satisfying the single-step operator <span class="math inline">\(\Gamma(Z)\)</span> (where here, <span class="math inline">\(\Gamma(Z) \equiv \langle -1 \rangle Z\)</span>).”</li>
@@ -555,7 +555,7 @@ ParityInvariant \equiv \nu Z.\ \langle -1 \rangle Z
 </section>
 <section id="theory-driven-generalization-via-categorical-duality" class="slide level2">
 <h2>Theory-Driven Generalization via Categorical Duality</h2>
-<p>Instead of relying on algorithmic heuristics (e.g., IC3 or Interpolation) to guess invariants, the system treats generalization as a native categorical operation over its Reference Theory (<span class="math inline">\(S_F\)</span>). We reframe invariant proposal through the foundational duality of fibrations and adjunctions.</p>
+<p>Instead of relying on algorithmic heuristics (e.g., IC3 or Interpolation) to guess invariants, the system treats generalisation as a native categorical operation over its Reference Theory (<span class="math inline">\(S_F\)</span>). We reframe invariant proposal through the foundational duality of fibrations and adjunctions.</p>
 <ul>
 <li><strong>1. Change of Base (The Fibrational Shift)</strong>
 <ul>
@@ -564,9 +564,9 @@ ParityInvariant \equiv \nu Z.\ \langle -1 \rangle Z
 </ul></li>
 <li><strong>2. Adjoint Duality (Swapping the Problem)</strong>
 <ul>
-<li>Generalizing a safe invariant is structurally identical to the problem of deductive planning, simply with the functors reversed (an Adjunction: <span class="math inline">\(Left \dashv Right\)</span>).</li>
+<li>Generalising a safe invariant is structurally identical to the problem of deductive planning, simply with the functors reversed (an Adjunction: <span class="math inline">\(Left \dashv Right\)</span>).</li>
 <li><em>Planning (Left Adjoint):</em> Inductive, bottom-up synthesis of a finite trace (Least Fixpoint).</li>
-<li><em>Generalizing (Right Adjoint):</em> Coinductive, top-down projection of an infinite bound (Greatest Fixpoint). The finite local observations mathematically push across the adjunction to form the exact coinductive proposal.</li>
+<li><em>Generalising (Right Adjoint):</em> Coinductive, top-down projection of an infinite bound (Greatest Fixpoint). The finite local observations mathematically push across the adjunction to form the exact coinductive proposal.</li>
 </ul></li>
 <li><strong>3. Universal Properties (Terminal Coalgebras)</strong>
 <ul>
@@ -600,19 +600,19 @@ ParityInvariant \equiv \nu Z.\ \langle -1 \rangle Z
 <li><strong><span class="math inline">\(\top\)</span> (True):</strong> The baseline trivial observation (meaning a transition occurred and the system did not crash).</li>
 <li><strong><span class="math inline">\(\phi \land \psi \ / \ \phi \lor \psi\)</span> (Conjunction / Disjunction):</strong> “I simultaneously observe both <span class="math inline">\(\phi\)</span> and <span class="math inline">\(\psi\)</span>” / “I observe either <span class="math inline">\(\phi\)</span> or <span class="math inline">\(\psi\)</span>.”</li>
 <li><strong><span class="math inline">\(\langle \delta \rangle \phi\)</span> (The Coalgebraic Transition Modality):</strong> This is the literal “arrow breaking in two.” It reads: <em>“The system makes a visible relativistic jump of <span class="math inline">\(\delta\)</span> (where <span class="math inline">\(\delta \in \mathbb{Z}\)</span>), and the continuing, unobserved future stream will satisfy property <span class="math inline">\(\phi\)</span>.”</em></li>
-<li><strong><span class="math inline">\(\nu X.\ \Phi(X)\)</span> (The Greatest Fixpoint / Co-induction Operator):</strong> The primitive for co-induction. It binds a variable <span class="math inline">\(X\)</span> to define a recursive, infinite behavior. It reads: <em>“Define property <span class="math inline">\(X\)</span> as the largest possible, endlessly repeating stream that continuously satisfies the rule <span class="math inline">\(\Phi(X)\)</span> forever.”</em></li>
+<li><strong><span class="math inline">\(\nu X.\ \Phi(X)\)</span> (The Greatest Fixpoint / Co-induction Operator):</strong> The primitive for co-induction. It binds a variable <span class="math inline">\(X\)</span> to define a recursive, infinite behaviour. It reads: <em>“Define property <span class="math inline">\(X\)</span> as the largest possible, endlessly repeating stream that continuously satisfies the rule <span class="math inline">\(\Phi(X)\)</span> forever.”</em></li>
 </ul>
 </section>
 <section id="example-computing-the-hanoi-parity-invariant" class="slide level2">
 <h2>Example: Computing the Hanoi Parity Invariant</h2>
-<p>We can now express our hypothesis for the Towers of Hanoi natively in DTLF. We want to co-induce an idealized invariant where the smallest disk flawlessly cycles one peg to the right (<span class="math inline">\(+1\)</span>) forever.</p>
-<p><strong>1. Proposing the Idealized Rule:</strong> We propose this continuous property as our Greatest Fixpoint: <span class="math display">\[
+<p>We can now express our hypothesis for the Towers of Hanoi natively in DTLF. We want to co-induce an idealised invariant where the smallest disk flawlessly cycles one peg to the right (<span class="math inline">\(+1\)</span>) forever.</p>
+<p><strong>1. Proposing the Idealised Rule:</strong> We propose this continuous property as our Greatest Fixpoint: <span class="math display">\[
 Ideal \equiv \nu X.\ \langle +1 \rangle X
 \]</span></p>
 <p><strong>2. The Physical Reality:</strong> However, the physical puzzle generates a stream that eventually forces a backwards jump of <span class="math inline">\(-2\)</span> when wrapping from <span class="math inline">\(Peg_2\)</span> back to <span class="math inline">\(Peg_0\)</span>. The observable physical bounds are: <span class="math display">\[
 Physical \equiv \nu X.\ (\langle +1 \rangle X \lor \langle -2 \rangle X)
 \]</span></p>
-<p><strong>3. Syntactic Bisimulation Equivalence:</strong> Because the topological futures of <span class="math inline">\(-2\)</span> and <span class="math inline">\(+1\)</span> land on the identical peg, we apply our syntactic equivalence (<span class="math inline">\(\langle -2 \rangle \phi \equiv \langle +1 \rangle \phi\)</span>). This cleanly collapses the messy physical stream into our idealized property: <span class="math display">\[
+<p><strong>3. Syntactic Bisimulation Equivalence:</strong> Because the topological futures of <span class="math inline">\(-2\)</span> and <span class="math inline">\(+1\)</span> land on the identical peg, we apply our syntactic equivalence (<span class="math inline">\(\langle -2 \rangle \phi \equiv \langle +1 \rangle \phi\)</span>). This cleanly collapses the messy physical stream into our idealised property: <span class="math display">\[
 \nu X.\ (\langle +1 \rangle X \lor \langle -2 \rangle X) \;\equiv\; \nu X.\ \langle +1 \rangle X
 \]</span></p>
 </section>

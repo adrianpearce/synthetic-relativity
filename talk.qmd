@@ -23,11 +23,11 @@ This module is also available in the following versions
 ![](figs/towers1.png){width=50% fig-align="center"}
 :::
 ::: {.column width="60%"}
+::: {.shrink80}
 $\mathit{OnPeg}(d, p, s)$
 
-$move(d, p_{from}, p_{to})$
 
-Initial Situation:
+*Initial Situation:*
 
 $$
 \begin{align*}
@@ -37,35 +37,43 @@ $$
 \end{align*}
 $$
 
+*Actions:* $move(d, p_{from}, p_{to})$
+
+Goal: All disks on $Peg_3$.
+
+:::
 :::
 :::
 
 
 ## Reiter's Induction Axiom
 
-::: {.callout-note icon=false title="The Foundational (Second Order) Induction Axiom"}
+::: {.callout-note icon=false title="The Foundational Induction Axiom: Second Order"}
 
   $$ \forall P.\,[P(S_0) \land \forall a,s\,(P(s)\to P(do(a,s)))]\to \forall s\,P(s) $$
 
 - Every valid situation is mathematically guaranteed to be a finite sequence of actions rooted at $S_0$.
 - Establishes the situation domain as an **inductive** datatype.
+- Note that standard first order logic cannot enforce reachability due to the Compactness Theorem.
 :::
 
-- Note that standard first order logic cannot enforce reachability due to the Compactness Theorem.
+## Situations & Actions
 
-## Actions (Situations)
+![](figs/towers2.png){height=25% width=25% fig-align="center"}
 
-![](figs/towers2.png){width=20% fig-align="center"}
-
-*Initial state:* $S_0$
+::: {.shrink63}
+*Initial situation:* $S_0$
 
 *Step 1:* $do(move(D_1, Peg_1, Peg_3), S_0)$
 
 *Step 2:* $do(move(D_2, \mathit{Peg}_A, \mathit{Peg}_B), do(move(D_1, Peg_1, Peg_3), S_0))$
 
 *Step 3:* $do(move(D_1, C, B), do(move(D_2, \mathit{Peg}_A, \mathit{Peg}_B), do(move(D_1, Peg_1, Peg_3), S_0))$
+:::
 
 ## Situations as a Least Fixpoint
+
+::: {.shrink70}
 
 Let $\mathcal{A}$ be actions and $\mathcal{S}$ be the universe of situations. Define a monotonic operator $\Gamma$:
 $$ \Gamma(X) = \{S_0\} \cup \{ do(a, s) \mid a \in \mathcal{A}, s \in X \} $$
@@ -74,6 +82,7 @@ $$ \Gamma(X) = \{S_0\} \cup \{ do(a, s) \mid a \in \mathcal{A}, s \in X \} $$
   Here, $P$ is a **pre-fixed point**.
 - $\forall s\,P(s)$ asserts that the universe of situations $\mathcal{S}$ is a subset of $P$.
 - The axiom states $\mathcal{S}$ is a subset of *every* pre-fixed point, meaning it is bounded by their intersection.
+:::
 
 ::: {.callout-note icon=false title="The Knaster-Tarski Theorem: least fixpoint"}
 The intersection of all pre-fixed points of a monotonic operator is its **least fixpoint**. 
@@ -84,24 +93,33 @@ Therefore, the axiom enforces $\mathcal{S} = \mu X.\Gamma(X)$.
 
 ## Syntactic transformation to First Order Logic 
 
+::: {.shrink68}
+
 **Basic Action Theories** [Lin and Reiter 94] define Theory $\mathcal{D} = \Sigma \cup \mathcal{D}_{S_0} \cup \mathcal{D}_{Poss} \cup \mathcal{D}_{SSA} \cup \mathcal{D}_{UNA}$, where:
 
 * $\color{blue}{\mathcal{D}_{S_0}}$: axioms describing the initial state of the fluents in $S_0$
 * $\color{blue}{\mathcal{D}_{poss}}$: axioms describing the prerequisites of the primitive actions, of the form:
+<div style="margin-top: -0.8em;"></div>
   $$
   Poss(A(\vec{x}), s) \equiv \Theta_A(\vec{x}, s),
   $$
+<div style="margin-top: -0.8em;"></div>
   one for each primitive action $A$.
 * $\color{blue}{\mathcal{D}_{ssa}}$: axioms describing the effects and non-effects of actions, of the form:
-  $$
-  F(\vec{x}, do(a, s)) \equiv \psi_F(\vec{x}, a, s),
-  $$
-  one for each fluent $F$.
+<div style="margin-top: -0.8em;"></div>
+  $$F(\vec{x}, do(a, s)) \equiv \psi_F(\vec{x}, a, s),$$ 
+<div style="margin-top: -0.8em;"></div>
+one for each fluent $F$.
+
 * $\color{blue}{\mathcal{D}_{una}}$: unique name axioms for the actions and objects, e.g.  $move(d_1, p_1, p_2) = move(d_2, p_3, p_4) \supset (d_1 = d_2 \land p_1 = p_3 \land p_2 = p_4)$, $(D_1 \neq D_2) \land (D_2 \neq D_3) \land (D_1 \neq D_3)$ and $(P_0 \neq P_1) \land (P_1 \neq P_2) \land (P_0 \neq P_2)$.
 
 * $\color{blue}{\Sigma}$: some foundational domain-independent axioms, e.g. $Smaller(d^{\prime}, d)$
 
+:::
+
 ## Action Precondition (Possibility) Axioms
+
+::: {.shrink70}
 
 $$
 \begin{align*}
@@ -111,49 +129,67 @@ Poss(move(d, p_{from}, p_{to}), s) \equiv \;& Disk(d) \land (p_{from} \neq p_{to
 \end{align*}
 $$
 
+:::
+
 
 ## A solution to the frame problem ([sometimes]{style="color:blue"}) [Reiter 91]
 
+::: {.shrink75}
+
 1. Positive effect axioms:
 
+<div style="margin-top: -0.8em;"></div>
 $$
 \exists p_{from} \ (a = move(d, p_{from}, p)) \supset OnPeg(d, p, do(a, s))
 $$
+<div style="margin-top: -0.8em;"></div>
 
 2. Negative effect axioms:
 
+<div style="margin-top: -0.8em;"></div>
 $$
 \exists p_{to} \ (a = move(d, p, p_{to})) \supset \neg OnPeg(d, p, do(a, s))
 $$
+<div style="margin-top: -0.8em;"></div>
 
 3. Frame axioms:
 
+<div style="margin-top: -0.8em;"></div>
 $$
 OnPeg(d, p, s) \land \neg \exists p_{to} \ (a = move(d, p, p_{to})) \supset OnPeg(d, p, do(a, s))
 $$
+<div style="margin-top: -0.8em;"></div>
 
 4. Completeness assumption (explanation closure):
 
+<div style="margin-top: -1.0em;"></div>
 $$
 \neg OnPeg(d, p, s) \land OnPeg(d, p, do(a, s)) \supset \exists p_{from} \ (a = move(d, p_{from}, p))
 $$
 
+<div style="margin-top: -0.3em;"></div>
+
 **Successor state axioms** $=$ positive effect axioms $+$ negative effect axioms $+$ frame axioms $+$ [completeness assumption]{style="color:blue"}
 
-## Successor State Axioms & Regression
+:::
 
-So, suppose that for fluent $F(\vec{x}, s)$:  
+## Successor State Axioms 
+
+::: {.shrink75}
+
+Suppose that for fluent $F(\vec{x}, s)$:  
 $\gamma_F^+(\vec{x}, a, s)$ encodes all *positive* effects; and  
 $\gamma_F^-(\vec{x}, a, s)$ encodes all *negative* effects.
 
 The <span style="color:blue;">successor state axiom</span> solution has the following form:
-
+<div style="margin-top: -0.8em;"></div>
 $$
 \color{blue}{F(\vec{x}, do(a, s)) \equiv \gamma_F^+(\vec{x}, a, s) \lor F(\vec{x}, s) \land \neg \gamma_F^-(\vec{x}, a, s)}
 $$
+<div style="margin-top: -0.8em;"></div>
 
 In our example:
-
+<div style="margin-top: -0.8em;"></div>
 $$
 \begin{align*}
 \gamma_{OnPeg}^+(d, p, a, s) \;&\stackrel{\text{def}}{=}\; \exists p_{from} \ (a = move(d, p_{from}, p)) \\
@@ -165,13 +201,77 @@ So successor state axiom is:
 
 $$
 \begin{align*}
-OnPeg(d, p, do(a, s)) \equiv \;& \\
-& [\exists p_{from} \ (a = move(d, p_{from}, p))] \lor \\
+OnPeg(d, p, do(a, s)) \equiv \;& [\exists p_{from} \ (a = move(d, p_{from}, p))] \lor \\
 & OnPeg(d, p, s) \land \neg [\exists p_{to} \ (a = move(d, p, p_{to}))]
 \end{align*}
 $$
 
+:::
+
+## Syntactic Transformation: Regression ($\mathcal{R}$)
+
+::: {.shrink75}
+
+The **regression operator** ($\mathcal{R}$) evaluates a query about a future state by pushing it backward in time. 
+
+It syntactically replaces a fluent evaluated at $do(a, s)$ with the logically equivalent right-hand side of its Successor State Axiom.
+
+$$
+\mathcal{R}[{\color{blue}{F(\vec{x}, do(a, s))}}] \;\stackrel{\text{def}}{=}\; \gamma_F^+(\vec{x}, a, s) \lor {\color{blue}{F(\vec{x}, s)}} \land \neg \gamma_F^-(\vec{x}, a, s)
+$$
+
+Instead of computing the physical state tree forward (building), the logic engine rewrites the future query into a question strictly about the preceding state $s$. 
+
+- By repeating this recursively, any complex historical query is mathematically reduced to a simple database lookup against the initial state ($S_0$).
+
+:::
+
+## Towers of Hanoi Regression Example
+::: {.shrink70}
+
+[*Is $D_2$ on $Peg_2$ after we move $D_1$ from $Peg_1$ to $Peg_2$?*]{style="color:blue"}
+
+<div style="margin-top: 0.5em;"></div>
+
+**1. Apply $\mathcal{R}$ to the query:**
+<div style="margin-top: -0.5em;"></div>
+$$
+\mathcal{R}[\, OnPeg(D_2, Peg_3, do({\color{red}{move(D_1, Peg_1, Peg_2)}}, S_0)) \,]
+$$
+<div style="margin-top: -0.5em;"></div>
+
+**2. Syntactic substitution (using our SSA):**
+<div style="margin-top: -0.5em;"></div>
+$$
+\begin{align*}
+\equiv \;& [\exists p_{from} \ ({\color{red}{move(D_1, Peg_1, Peg_2)}} = move(D_2, p_{from}, Peg_3))] \lor \\
+& {\color{blue}{OnPeg(D_2, Peg_3, S_0)}} \land \neg [\exists p_{to} \ ({\color{red}{move(D_1, Peg_1, Peg_2)}} = move(D_2, Peg_3, p_{to}))]
+\end{align*}
+$$
+<div style="margin-top: -0.5em;"></div>
+
+**3. Evaluate using Foundational Axioms ($\mathcal{D}_{una}$):**
+Because our Unique Names Axioms explicitly state $D_1 \neq D_2$, both action equivalences mathematically evaluate to $False$:
+
+<div style="margin-top: -0.5em;"></div>
+
+$$
+\equiv \mathbf{False} \lor \color{blue}{OnPeg(D_2, Peg_C, S_0)} \land \neg \mathbf{False}
+$$
+
+<div style="margin-top: -1.0em;"></div>
+
+**4. Logical Result:**
+<div style="margin-top: -1.0em;"></div>
+$$
+\equiv \color{blue}{OnPeg(D_2, Peg_C, S_0)}
+$$
+
+:::
+
 ## Reasoning about actions
+
+::: {.shrink61}
 
 * $\color{blue}{\text{Projection:}}$ *given a sequence of actions $s = a_1, \dots, a_n$, does condition $\phi(s)$ hold?:*
   $$
@@ -183,10 +283,12 @@ $$
   \mathcal{D} \vdash \exists s .\ OnPeg(D_1, Peg_3, s) \land OnPeg(D_2, Peg_3, s) \land OnPeg(D_3, Peg_3, s) \land executable(s)
   $$
 
+:::
+
 
 ## Property Persistence as a Greatest Fixpoint
 
-::: {.shrink80}
+::: {.shrink65}
 
 Verifying universally quantified temporal queries (e.g., "property $\phi$ persists indefinitely").
 
@@ -195,7 +297,11 @@ Verifying universally quantified temporal queries (e.g., "property $\phi$ persis
   \mathcal{D} \models \forall s .\ executable(s) \supset \forall d, p_1, p_2 .\ (OnPeg(d, p_1, s) \land OnPeg(d, p_2, s) \supset p_1 = p_2)
   $$
 
+:::
+
 ## Property Persistence as a Greatest Fixpoint (continued)
+
+::: {.shrink75}
 
 **The Single-Step Operator:** This requires second-order induction. Kelly & Pearce AIJ 2010 show how this can be obtained using a single step regression operator. It captures the condition for $\phi$ holding *now* and being preserved after *any single legal action* via regression ($\mathcal{R}$):
 
@@ -218,42 +324,66 @@ Iteratively applying this meta-level calculation computes the maximal invariant 
 
 ## The Categorical Observer & Coinduction
 
+::: {.shrink85}
 
 - **Induction** builds and verifies finite situations from the "bottom up" (starting from the initial base situation $S_{0}$ and progressing via the successor function $do(a, s)$).
 
 - **Coinduction** verifies infinite situations (histories) by observing ongoing sequences of actions from the "top down" (unfolding next states without ever reaching a final terminating state).
 
+:::
+
 ## Coinduction in Towers of Hanoi
 
-![](figs/towers2.png){width=20% fig-align="center"}
+![](figs/towers2.png){height=20% width=20% fig-align="center"}
 
-For example, observing the *relative movement* of the Sitcalc coordinates of $\mathit{OnPeg}(d,p,s)$: $\Delta p \equiv (p_{to} - p_{from}) \pmod 3$
+<div style="margin-top: -1.1em;"></div>
+
+::: {.shrink70}
+
+We can coinduce by observing the *relative movement* of the Sitcalc coordinates of $\mathit{OnPeg}(d,p,s)$: $\Delta p \equiv (p_{to} - p_{from}) \pmod 3$
 of the smallest disk $D_1$ (alternating with disk $D_2$ or $D_3$).
 
 Solving the puzzle of any size with an *odd* number of disks generates an infinite coalgebraic stream of spatial jumps: 
+<div style="margin-top: -0.8em;"></div>
 $$ 
 \langle +2 \rangle, 
 \langle -1 \rangle, 
 \langle -1 \rangle, 
 \langle +2 \rangle
 \dots $$
+<div style="margin-top: -0.9em;"></div>
 
-Suppose we want to coinduce an idealised universe where the disk *always* moves $-1$. We mathematically *propose* the Greatest Fixpoint (using the exact same fixpoint architecture as our property persistence):
+Suppose we want to coinduce an idealised universe where the disk *always* moves $-1$. We *propose* the Greatest Fixpoint (using property persistence):
+<div style="margin-top: -0.6em;"></div>
 $$
 ParityInvariant \equiv \nu Z.\ \langle -1 \rangle Z
 $$
 
-*The problem:* This sequence also generates a jump of $+2$, so how can our idealised Greatest Fixpoint survive this contradiction?
+:::
 
-While standard induction proves a base case and builds up, coinduction *proposes* a Greatest Fixpoint (an infinite rule) and verifies it locally step-by-step. If an observation holds right now, and the rules guarantee it holds in the next step, the Greatest Fixpoint is guaranteed to hold forever.
+## Coinduction in Towers of Hanoi (continued)
 
-* $\nu Z.\ \Gamma(Z)$ : *The Greatest Fixpoint.* "Define $Z$ as the largest endlessly repeating stream satisfying the single-step operator $\Gamma(Z)$ (where here, $\Gamma(Z) \equiv \langle -1 \rangle Z$)."
+::: {.shrink75}
+
+This sequence initially generates a jump of $+2$, so how can our Greatest Fixpoint survive this contradiction with $-1$?
+
+- While standard induction proves a base case and builds up, coinduction *proposes* a Greatest Fixpoint (an infinite rule) and verifies it locally step-by-step. 
+- If an observation holds right now, and the rules guarantee it holds in the next step, the Greatest Fixpoint is guaranteed to hold forever.
+
+- $\nu Z.\ \Gamma(Z)$ : *The Greatest Fixpoint.* 
+  - "Define $Z$ as the largest endlessly repeating stream satisfying the single-step operator $\Gamma(Z)$, where here, $\Gamma(Z) \equiv \langle -1 \rangle Z$).
+
+:::
 
 ## Stone Duality: Syntactic-Semantic Transformation via Bisimulation Equivalence
 
-In Category Theory, **Stone Duality** dictates a perfect, inverse mirror-image between Syntax (logical equivalence) and Semantics (topological state space). 
+::: {.shrink75}
 
-Our coalgebra evaluates the topological future and discovers the physical branching of jumping right twice ($+2$) is completely indistinguishable from jumping left once ($-1$). We enforce this **Bisimulation Equivalence** by injecting a logical cut:
+In category Theory, **Stone Duality** dictates a perfect, inverse mirror-image between Syntax (logical equivalence) and Semantics (topological state space). 
+
+Our coalgebra evaluates the topological future and discovers the physical branching of jumping right twice ($+2$) is completely indistinguishable from jumping left once ($-1$). 
+
+We enforce this **Bisimulation Equivalence** by injecting a logical cut:
 
 $$
 \forall \phi.\ \langle +2 \rangle \phi \;\equiv\; \langle -1 \rangle \phi
@@ -263,10 +393,13 @@ By *syntactically* equating these propositions, **Stone Duality** automatically 
 
 [This is our new syntactic transformation!]{style="color:blue"}
 
+:::
 
 ## The Dual Problem: Algebras & Coalgebras 
 
-In Category Theory, we use an **endofunctor** ($F$) over a state space ($S$) as a structural template that shapes our data. $F(S)$ is simply the resulting combined data object.
+::: {.shrink73}
+
+We use an **endofunctor** ($F$) over a state space ($S$) as a structural template that shapes our data. $F(S)$ is simply the resulting combined data object.
 
 * **Algebra (SitCalc / Constructor):** Morphism arrows point *inward*: $\; F(S) \to S$
   * Our endofunctor shapes the input ingredients: $F(S) = Action \times S$
@@ -278,6 +411,7 @@ In Category Theory, we use an **endofunctor** ($F$) over a state space ($S$) as 
   * The morphism evaluates to: $State_{current} \to (Observation \times State_{next})$
   * *Concept:* We take an opaque running state, break off a visible *observation*, and silently unfold the remaining state into the future.
 
+:::
 
 # Synthetic relativity axioms
 
@@ -292,17 +426,15 @@ Standard provability logics like $\mathrm{GLB}$ (G&ouml;del-L&ouml;b Bimodal Pro
 
 :::
 
-## Synthetic Relativity: The Structural Axioms
+## Synthetic Relativity Axioms over Total Category
 
-::: {.shrink68}
-
-**Dynamic Trimodal Logic within a Total Category:** 
+::: {.shrink60}
 
 **Axiom 1: The Ternary Relational Axiom**
-Logical entailment operates within a **Total Category**—a mathematically complete Stone Duality that glues syntax and semantics together. This overarching space is governed by three interacting modalities, evaluated relative to a specific baseline Reference Frame:
+Logical entailment operates within a **Total Category**—a mathematically complete Stone Duality glues syntax and semantics together. This space is governed by three interacting modalities, evaluated relative to a specific baseline Reference Frame:
 
 *   **$S_f$ (The Base Frame / Context): The Reference Frame**
-    The underlying mathematical geometry, logical ontology, or contextual base. It provides the strict rules and symmetries over which the observer's duality is constructed.
+    It provides the strict rules and symmetries over which the observer's duality is constructed.
 *   **$\mathrm{RDo}$ (The Subproblem / Syntax): The Inductive Accumulator ($\Box_1$)**
     Operates in constructive, non-Boolean logic. Recursively gathers finite, computationally observable properties (compact elements) along a directed logical path. $\mathrm{RDo}$ is equivalent to the $\Box$ modality of bimodal provability logic GLB: *"There exists a finite, step-by-step mechanical proof of this property."*
 *   **$\mathrm{ODo}$ (The Master Problem / Semantics): The Limit/Creator Modality ($\Box_2$)**
@@ -375,8 +507,7 @@ $$ \mathrm{PDo}(N, O, S_f) \longrightarrow \mathrm{PDo}(X, Y, \mathrm{O}) $$
 
 ## Towers of Hanoi example
 
-::: {.shrink75}
-
+::: {.shrink62}
 
 **1. Local Unrolling (Building the Situation Trace):** 
 The engine recursively accumulates primitive actions [(moving disks)]{style="color:blue"}, generating the topological equivalent of a nested $do()$ sequence:
@@ -404,7 +535,7 @@ The invariant (cycle $D_1$, alternate move, cycle $D_1$) emerges as the unique, 
 
 - The new parity invariant shifts to become the Reference Frame. By adopting this rule as a **lifted axiom**, *the search tree branching factor strictly collapses from 3 down to 1.*
 
-- Note computational complexity of problem doesn't change, $O(2^n)$ for $n$ disks, but *where* the computational effort is spent between a classical recursive approach versus Synthetic Relativity (DTLF) progression changes.
+- Note computational complexity of problem doesn't change, $O(2^n)$ for $n$ disks, but *where* the computational effort is spent between a classical recursive approach versus Synthetic Relativity autonomous theory progression.
 
 :::
 
@@ -436,6 +567,8 @@ By natively intertwining syntax ($\mathrm{RDo}$) and semantics ($\mathrm{ODo}$),
 
 ## Theory-Driven Generalization via Categorical Duality
 
+::: {.shrink52}
+
 Instead of relying on algorithmic heuristics (e.g., IC3 or Interpolation) to guess invariants, the system treats generalisation as a native categorical operation over its Reference Theory ($S_F$). We reframe invariant proposal through the foundational duality of fibrations and adjunctions.
 
 * **1. Change of Base (The Fibrational Shift)**
@@ -450,6 +583,8 @@ Instead of relying on algorithmic heuristics (e.g., IC3 or Interpolation) to gue
 * **3. Universal Properties (Terminal Coalgebras)**
   * The system requires no external engineering templates or "Syntax-Guided" rules.
   * Because $S_F$ natively defines the geometric symmetries of the domain, the coinductive proposal emerges organically as a **Universal Property** (specifically, a Terminal Coalgebra). Stone Duality ensures that the logical syntax automatically folds to perfectly bound the state space's innate topology.
+
+:::
 
 # Synthetic Relativity Logic
 
@@ -469,6 +604,8 @@ To execute our modalities, we require an architecture that natively fuses classi
 
 ## The DTLF Logical Primitives
 
+::: {.shrink70}
+
 In this framework, formulas do not describe static states; they describe observable properties as they unfold. The core syntactic building blocks you need are:
 
 * **$X, Y$ (Variables):** Placeholders used to define recursive logical properties.
@@ -477,27 +614,38 @@ In this framework, formulas do not describe static states; they describe observa
 * **$\langle \delta \rangle \phi$ (The Coalgebraic Transition Modality):** This is the literal "arrow breaking in two." It reads: *"The system makes a visible relativistic jump of $\delta$ (where $\delta \in \mathbb{Z}$), and the continuing, unobserved future stream will satisfy property $\phi$."*
 * **$\nu X.\ \Phi(X)$ (The Greatest Fixpoint / Co-induction Operator):** The primitive for co-induction. It binds a variable $X$ to define a recursive, infinite behaviour. It reads: *"Define property $X$ as the largest possible, endlessly repeating stream that continuously satisfies the rule $\Phi(X)$ forever."*
 
+:::
+
 ## Example: Computing the Hanoi Parity Invariant
+
+::: {.shrink70}
 
 We can now express our hypothesis for the Towers of Hanoi natively in DTLF. We want to co-induce an idealised invariant where the smallest disk flawlessly cycles one peg to the right ($+1$) forever. 
 
 **1. Proposing the Idealised Rule:**
 We propose this continuous property as our Greatest Fixpoint:
+<div style="margin-top: -0.8em;"></div>
 $$
 Ideal \equiv \nu X.\ \langle +1 \rangle X
 $$
+<div style="margin-top: -0.8em;"></div>
 
 **2. The Physical Reality:**
 However, the physical puzzle generates a stream that eventually forces a backwards jump of $-2$ when wrapping from $Peg_2$ back to $Peg_0$. The observable physical bounds are:
+<div style="margin-top: -0.8em;"></div>
 $$
 Physical \equiv \nu X.\ (\langle +1 \rangle X \lor \langle -2 \rangle X)
 $$
+<div style="margin-top: -0.7em;"></div>
 
 **3. Syntactic Bisimulation Equivalence:**
 Because the topological futures of $-2$ and $+1$ land on the identical peg, we apply our syntactic equivalence ($\langle -2 \rangle \phi \equiv \langle +1 \rangle \phi$). This cleanly collapses the messy physical stream into our idealised property:
+<div style="margin-top: -0.6em;"></div>
 $$
 \nu X.\ (\langle +1 \rangle X \lor \langle -2 \rangle X) \;\equiv\; \nu X.\ \langle +1 \rangle X
 $$
+
+:::
 
 ## Spatial Completeness & The Static Limitation
 
@@ -574,7 +722,9 @@ Upon semantic realisation, the continuous intuitionistic trace generated by $\ma
 
 # Comparison 
 
-## Architectural Comparison
+## Comparison
+
+::: {.shrink70}
 
 | Feature | Standard Situation Calculus (The "Building" Frame) | Synthetic Relativity (The "Observing" Frame) |
 | :--- | :--- | :--- |
@@ -584,6 +734,8 @@ Upon semantic realisation, the continuous intuitionistic trace generated by $\ma
 | **Syntactic Shift** | Transformation into First-Order Logic (SSAs) | Transformation to Relativistic Differentials |
 | **Computation Engine**| Computed as LFP in the $Do$ modality (Golog) | Computed in the R-DTLF logic |
 | **Resolution Engine** | First-Order Theorem Proving | Bisimulation Equivalence (Quotients) |
+
+:::
 
 
 ## Synthetic Relativity versus Situation Calculus versus GLB

@@ -4,6 +4,8 @@ See Gemini, it has perfectly written out the logical DTLF form of the parity inv
 
 Think about the widening story, can it be generalised and tightened up a bit?
 
+Do I need the three axioms, isn't the first one just tri-modality?
+
 ============== Additional Material - Probably don't use ===============
 
 Planners can sove this, e.g. a domain-specific heuristics, Hierarchical Task Network (HTN) planners, or pattern databases can solve large numbers of disks in seconds by restricting the search to optimal paths.
