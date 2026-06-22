@@ -258,8 +258,8 @@ The Foundational Induction Axiom: Second Order
 <div class="shrink63">
 <p><em>Initial situation:</em> <span class="math inline">\(S_0\)</span></p>
 <p><em>Step 1:</em> <span class="math inline">\(do(move(D_1, Peg_1, Peg_3), S_0)\)</span></p>
-<p><em>Step 2:</em> <span class="math inline">\(do(move(D_2, \mathit{Peg}_A, \mathit{Peg}_B), do(move(D_1, Peg_1, Peg_3), S_0))\)</span></p>
-<p><em>Step 3:</em> <span class="math inline">\(do(move(D_1, C, B), do(move(D_2, \mathit{Peg}_A, \mathit{Peg}_B), do(move(D_1, Peg_1, Peg_3), S_0))\)</span></p>
+<p><em>Step 2:</em> <span class="math inline">\(do(move(D_2, \mathit{Peg}_1, \mathit{Peg}_2), do(move(D_1, Peg_1, Peg_3), S_0))\)</span></p>
+<p><em>Step 3:</em> <span class="math inline">\(do(move(D_1, C, B), do(move(D_2, \mathit{Peg}_1, \mathit{Peg}_2), do(move(D_1, Peg_1, Peg_3), S_0))\)</span></p>
 </div>
 </section>
 <section id="situations-as-a-least-fixpoint" class="level2">
@@ -509,7 +509,7 @@ OnPeg(d, p, do(a, s)) \equiv \;&amp; [\exists p_{from} \ (a = move(d, p_{from}, 
 <section id="property-persistence-as-a-greatest-fixpoint-continued" class="level2">
 <h2 class="anchored" data-anchor-id="property-persistence-as-a-greatest-fixpoint-continued">Property Persistence as a Greatest Fixpoint (continued)</h2>
 <div class="shrink75">
-<p><strong>The Single-Step Operator:</strong> This requires second-order induction. Kelly &amp; Pearce AIJ 2010 show how this can be obtained using a single step regression operator. It captures the condition for <span class="math inline">\(\phi\)</span> holding <em>now</em> and being preserved after <em>any single legal action</em> via regression (<span class="math inline">\(\mathcal{R}\)</span>):</p>
+<p><strong>The Single-Step Operator:</strong> This requires second-order induction. [Kelly &amp; Pearce AIJ 2010] show how this can be obtained using a single step regression operator. It captures the condition for <span class="math inline">\(\phi\)</span> holding <em>now</em> and being preserved after <em>any single legal action</em> via regression (<span class="math inline">\(\mathcal{R}\)</span>):</p>
 <div style="margin-top: -0.8em;">
 
 </div>
@@ -596,8 +596,8 @@ ParityInvariant \equiv \nu Z.\ \langle -1 \rangle Z
 </ul>
 </div>
 </section>
-<section id="stone-duality-syntactic-semantic-transformation-via-bisimulation-equivalence" class="level2">
-<h2 class="anchored" data-anchor-id="stone-duality-syntactic-semantic-transformation-via-bisimulation-equivalence">Stone Duality: Syntactic-Semantic Transformation via Bisimulation Equivalence</h2>
+<section id="stone-duality-syntactic-semantic-transformation" class="level2">
+<h2 class="anchored" data-anchor-id="stone-duality-syntactic-semantic-transformation">Stone Duality: Syntactic-Semantic Transformation</h2>
 <div class="shrink75">
 <p>In category Theory, <strong>Stone Duality</strong> dictates a perfect, inverse mirror-image between Syntax (logical equivalence) and Semantics (topological state space).</p>
 <p>Our coalgebra evaluates the topological future and discovers the physical branching of jumping right twice (<span class="math inline">\(+2\)</span>) is completely indistinguishable from jumping left once (<span class="math inline">\(-1\)</span>).</p>
@@ -750,7 +750,7 @@ Theorem II: Relativistic Invariance (Preserving the Interval)
 </section>
 <section id="the-dual-fixpoints" class="level2">
 <h2 class="anchored" data-anchor-id="the-dual-fixpoints">The Dual Fixpoints</h2>
-<div class="shrink78">
+<div class="shrink70">
 <p><strong>Unifying Reachability (<span class="math inline">\(\mu\)</span>) and Persistence (<span class="math inline">\(\nu\)</span>)</strong></p>
 <p>By natively intertwining syntax (<span class="math inline">\(\mathrm{RDo}\)</span>) and semantics (<span class="math inline">\(\mathrm{ODo}\)</span>), the Relativistic Engine mathematically fuses two distinct forms of logical progression:</p>
 <ol type="1">
@@ -761,11 +761,9 @@ Theorem II: Relativistic Invariance (Preserving the Interval)
 
 </div>
 <p><strong>Algebraic Compactness (<span class="math inline">\(\mu = \nu\)</span>)</strong> <strong>Theorem I (Semantic Realisation)</strong> formally computes a <strong>Bilimit</strong>. At the coordinate of convergence, the active inductive trace (<span class="math inline">\(\mu\)</span>) perfectly fulfills the persistent semantic invariant (<span class="math inline">\(\nu\)</span>).</p>
-</div>
 <div style="margin-top: -0.3em;">
 
 </div>
-<div class="shrink50">
 <p><em>When this limit shifts to become the new Reference Frame (<span class="math inline">\(S_f\)</span>) via the Transitivity Axiom, <strong>Theorem II</strong> guarantees it acts entirely as a Greatest Fixpoint—a persistent, assumed law of physics for all subsequent computations, natively solving the Frame Problem.</em></p>
 </div>
 </section>
