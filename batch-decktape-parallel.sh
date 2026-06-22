@@ -17,23 +17,26 @@ cd slides
 
 # Build file list safely (NUL-delimited for spaces)
 if [ -n "$PREFIX" ]; then
-  # match exactly PREFIX.html (like your original)
-  if [ -f "${PREFIX}.html" ]; then
+  # Check if the user explicitly asked for index.html
+  if [ "${PREFIX}.html" = "index.html" ]; then
+    echo "Skipping index.html as requested."
+    > /tmp/decktape_files.$$ # Create an empty file so the count check below handles the exit
+  elif [ -f "${PREFIX}.html" ]; then
     printf '%s\0' "${PREFIX}.html" > /tmp/decktape_files.$$
   else
     echo "No matching HTML files found for prefix '${PREFIX}'"
     exit 1
   fi
 else
-  # all *.html in this directory
+  # all *.html in this directory EXCEPT index.html
   # (print0 handles spaces/newlines safely)
-  find . -maxdepth 1 -type f -name '*.html' -print0 > /tmp/decktape_files.$$
+  find . -maxdepth 1 -type f -name '*.html' ! -name 'index.html' -print0 > /tmp/decktape_files.$$
 fi
 
 # Count files
 count=$(tr -cd '\0' < /tmp/decktape_files.$$ | wc -c | tr -d ' ')
 if [ "$count" -eq 0 ]; then
-  echo "No matching HTML files found."
+  echo "No matching HTML files found to process."
   rm -f /tmp/decktape_files.$$
   exit 1
 fi
@@ -64,4 +67,3 @@ cat /tmp/decktape_files.$$ \
 rm -f /tmp/decktape_files.$$
 
 echo "All done."
-

@@ -20,14 +20,14 @@ This module is also available in the following versions
 
 ::: {.columns}
 ::: {.column width="40%"}
-![](figs/towers1.png){width=50% fig-align="center"}
+![](figs/towers1_sharpened_transparent.png){width=50% fig-align="center"}
 :::
 ::: {.column width="60%"}
 ::: {.shrink80}
 $\mathit{OnPeg}(d, p, s)$
 
 
-*Initial Situation:*
+[*Initial Situation:*]{style="color:blue"}
 
 $$
 \begin{align*}
@@ -39,7 +39,7 @@ $$
 
 *Actions:* $move(d, p_{from}, p_{to})$
 
-Goal: All disks on $Peg_3$.
+[Goal:]{Style="color:blue"} All disks on $Peg_3$.
 
 :::
 :::
@@ -59,16 +59,16 @@ Goal: All disks on $Peg_3$.
 
 ## Situations & Actions
 
-![](figs/towers2.png){height=25% width=25% fig-align="center"}
+![](figs/towers2_sharpened_transparent.png){height=25% width=25% fig-align="center"}
 
 ::: {.shrink63}
 *Initial situation:* $S_0$
 
 *Step 1:* $do(move(D_1, Peg_1, Peg_3), S_0)$
 
-*Step 2:* $do(move(D_2, \mathit{Peg}_A, \mathit{Peg}_B), do(move(D_1, Peg_1, Peg_3), S_0))$
+*Step 2:* $do(move(D_2, \mathit{Peg}_1, \mathit{Peg}_2), do(move(D_1, Peg_1, Peg_3), S_0))$
 
-*Step 3:* $do(move(D_1, C, B), do(move(D_2, \mathit{Peg}_A, \mathit{Peg}_B), do(move(D_1, Peg_1, Peg_3), S_0))$
+*Step 3:* $do(move(D_1, C, B), do(move(D_2, \mathit{Peg}_1, \mathit{Peg}_2), do(move(D_1, Peg_1, Peg_3), S_0))$
 :::
 
 ## Situations as a Least Fixpoint
@@ -303,7 +303,7 @@ Verifying universally quantified temporal queries (e.g., "property $\phi$ persis
 
 ::: {.shrink75}
 
-**The Single-Step Operator:** This requires second-order induction. Kelly & Pearce AIJ 2010 show how this can be obtained using a single step regression operator. It captures the condition for $\phi$ holding *now* and being preserved after *any single legal action* via regression ($\mathcal{R}$):
+**The Single-Step Operator:** This requires second-order induction. [Kelly & Pearce AIJ 2010] show how this can be obtained using a single step regression operator. It captures the condition for $\phi$ holding *now* and being preserved after *any single legal action* via regression ($\mathcal{R}$):
 
 <div style="margin-top: -0.8em;"></div>
 
@@ -334,7 +334,7 @@ Iteratively applying this meta-level calculation computes the maximal invariant 
 
 ## Coinduction in Towers of Hanoi
 
-![](figs/towers2.png){height=20% width=20% fig-align="center"}
+![](figs/towers2_sharpened_transparent.png){height=20% width=20% fig-align="center"}
 
 <div style="margin-top: -1.1em;"></div>
 
@@ -375,7 +375,7 @@ This sequence initially generates a jump of $+2$, so how can our Greatest Fixpoi
 
 :::
 
-## Stone Duality: Syntactic-Semantic Transformation via Bisimulation Equivalence
+## Stone Duality: Syntactic-Semantic Transformation 
 
 ::: {.shrink75}
 
@@ -541,7 +541,7 @@ The invariant (cycle $D_1$, alternate move, cycle $D_1$) emerges as the unique, 
 
 ## The Dual Fixpoints
 
-::: {.shrink78}
+::: {.shrink70}
 
 **Unifying Reachability ($\mu$) and Persistence ($\nu$)**
 
@@ -555,11 +555,7 @@ By natively intertwining syntax ($\mathrm{RDo}$) and semantics ($\mathrm{ODo}$),
 **Algebraic Compactness ($\mu = \nu$)**
 **Theorem I (Semantic Realisation)** formally computes a **Bilimit**. At the coordinate of convergence, the active inductive trace ($\mu$) perfectly fulfills the persistent semantic invariant ($\nu$). 
 
-:::
-
 <div style="margin-top: -0.3em;"></div>
-
-::: {.shrink50}
 
 *When this limit shifts to become the new Reference Frame ($S_f$) via the Transitivity Axiom, **Theorem II** guarantees it acts entirely as a Greatest Fixpoint—a persistent, assumed law of physics for all subsequent computations, natively solving the Frame Problem.*
 

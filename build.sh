@@ -14,8 +14,8 @@ cd "$SCRIPT_DIR"
 echo "==> Rendering slides"
 quarto render --profile slides
 
-# echo "==> Running DeckTape batch"
-# ./batch-decktape-parallel.sh "$PREFIX"
+echo "==> Running DeckTape batch"
+./batch-decktape-parallel.sh "$PREFIX"
 
 echo "==> Publishing book"
 quarto publish --profile book gh-pages --no-prompt 
