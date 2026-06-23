@@ -474,18 +474,19 @@ OnPeg(d, p, do(a, s)) \equiv \;&amp; [\exists p_{from} \ (a = move(d, p_{from}, 
 </section>
 <section id="property-persistence-as-a-greatest-fixpoint-continued" class="slide level2">
 <h2>Property Persistence as a Greatest Fixpoint (continued)</h2>
-<div class="shrink75">
-<p><strong>The Single-Step Operator:</strong> This requires second-order induction. [Kelly &amp; Pearce AIJ 2010] show how this can be obtained using a single step regression operator. It captures the condition for <span class="math inline">\(\phi\)</span> holding <em>now</em> and being preserved after <em>any single legal action</em> via regression (<span class="math inline">\(\mathcal{R}\)</span>):</p>
+<div class="shrink68">
+<p><strong>The Single-Step Operator:</strong> This requires second-order induction. [Kelly &amp; Pearce AIJ 2010] show how this can be obtained using a single step regression operator. It captures the condition for <span class="math inline">\(\phi\)</span> holding <em>now</em> and being preserved after <em>any single legal action</em> via regression (<span class="math inline">\(\mathcal{R}\)</span>).</p>
+<p>We define this as the <strong>Persistence operator</strong> (<span class="math inline">\(\mathcal{P}\)</span>):</p>
 <div style="margin-top: -0.8em;">
 
 </div>
-<p><span class="math display">\[ \Gamma(Z) \equiv \phi(s) \land \forall a \big( \textit{Poss}(a, s) \to \mathcal{R}[\, Z(do(a, s)) \,] \big) \]</span></p>
+<p><span class="math display">\[ \mathcal{P}(Z) \equiv \phi(s) \land \forall a \big( \textit{Poss}(a, s) \to \mathcal{R}[\, Z(do(a, s)) \,] \big) \]</span></p>
 <div style="margin-top: -0.8em;">
 
 </div>
 <p>Iteratively applying this meta-level calculation computes the maximal invariant without explicitly invoking the induction axiom.</p>
 <ul>
-<li>By wrapping the single-step regression operator inside a monotonic formula transformer, we evaluate the future back in the current state.</li>
+<li>By wrapping the single-step regression operator inside a monotonic formula transformer (<span class="math inline">\(\mathcal{P}\)</span>), we evaluate the future back in the current state.</li>
 </ul>
 </div>
 <div title="Greatest Fixpoint ($\nu Z$)">
@@ -497,7 +498,7 @@ OnPeg(d, p, do(a, s)) \equiv \;&amp; [\exists p_{from} \ (a = move(d, p_{from}, 
 <div class="callout-content">
 <ul>
 <li>Property persistence is an infinite-horizon <strong>safety property</strong>.</li>
-<li>The persistence condition is the <strong>greatest fixpoint</strong> of this operator: <span class="math inline">\(\nu Z.\, \Gamma(Z)\)</span>.</li>
+<li>The persistence condition is the <strong>greatest fixpoint</strong> of this operator: <span class="math inline">\(\nu Z.\, \mathcal{P}(Z)\)</span>.</li>
 </ul>
 </div>
 </div>
@@ -604,31 +605,61 @@ ParityInvariant \equiv \nu Z.\ \langle -1 \rangle Z
 <div class="shrink85">
 <p>Standard provability logics like <span class="math inline">\(\mathrm{GLB}\)</span> (Gödel-Löb Bimodal Provability Logic) rely on absolute binary provability: <span class="math inline">\(x R y\)</span> assumes an absolute background space where <span class="math inline">\(y\)</span> is provable from <span class="math inline">\(x\)</span>.</p>
 <ul>
-<li>In a ternary structure (drawing from Routley-Meyer semantics for substructural, relevance, and intuitionistic logics), you have a relation <span class="math inline">\(R(x, y, z)\)</span>.</li>
-<li>This allows us to decouple the synthetic transformation from the topological space. The ternary relation natively introduces the Observer’s frame. It reads: “Relative to reference frame <span class="math inline">\(x\)</span>, the accumulation of inductive evidence <span class="math inline">\(y\)</span> yields the coinductively realised semantic limit <span class="math inline">\(z\)</span>.”</li>
+<li>In a ternary structure (drawing from <strong>Routley-Meyer semantics</strong> for substructural, relevance, and intuitionistic logics), you have a relation <span class="math inline">\(R(x, y, z)\)</span>.</li>
+<li>This allows us to decouple the synthetic transformation from the topological space. The ternary relation natively introduces the Observer’s frame. It reads: <span style="color:blue">“Relative to reference frame <span class="math inline">\(x\)</span>, the accumulation of inductive evidence <span class="math inline">\(y\)</span> yields the coinductively realised semantic limit <span class="math inline">\(z\)</span>.”</span></li>
 </ul>
 </div>
 </section>
-<section id="synthetic-relativity-axioms-over-total-category" class="slide level2">
-<h2>Synthetic Relativity Axioms over Total Category</h2>
-<div class="shrink60">
-<p><strong>Axiom 1: The Ternary Relational Axiom</strong> Logical entailment operates within a <strong>Total Category</strong>—a mathematically complete Stone Duality glues syntax and semantics together. This space is governed by three interacting modalities, evaluated relative to a specific baseline Reference Frame:</p>
+<section id="synthetic-relativity-axioms-1" class="slide level2">
+<h2>Synthetic Relativity Axioms</h2>
+<div class="shrink70">
+<p>Logical entailment operates within a <strong>Total Category</strong>—a mathematically complete Stone Duality glues syntax and semantics together, evaluated relative to a specific baseline <strong>Reference Frame</strong>, <span class="math inline">\(\mathrm{S_f}\)</span>, it provides the rules and symmetries over which the observer’s duality is constructed. The space is governed by three interacting modalities.</p>
 <ul>
-<li><strong><span class="math inline">\(S_f\)</span> (The Base Frame / Context): The Reference Frame</strong> It provides the strict rules and symmetries over which the observer’s duality is constructed.</li>
-<li><strong><span class="math inline">\(\mathrm{RDo}\)</span> (The Subproblem / Syntax): The Inductive Accumulator (<span class="math inline">\(\Box_1\)</span>)</strong> Operates in constructive, non-Boolean logic. Recursively gathers finite, computationally observable properties (compact elements) along a directed logical path. <span class="math inline">\(\mathrm{RDo}\)</span> is equivalent to the <span class="math inline">\(\Box\)</span> modality of bimodal provability logic GLB: <em>“There exists a finite, step-by-step mechanical proof of this property.”</em></li>
-<li><strong><span class="math inline">\(\mathrm{ODo}\)</span> (The Master Problem / Semantics): The Limit/Creator Modality (<span class="math inline">\(\Box_2\)</span>)</strong> The semantic evaluator and <em>interval invariant</em>. Performs topological closure—evaluating the directed set generated by <span class="math inline">\(\mathrm{RDo}\)</span> and snapping it into a discrete, continuous limit. <span class="math inline">\(\mathrm{ODo}\)</span> is equivalent to the <span class="math inline">\(\Box_\omega\)</span> modality of GLB: <em>“Evaluated at the continuous limit, this property is universally true,”</em> i.e., this is the modality of <em>semantic reflection</em>.</li>
-<li><strong><span class="math inline">\(\mathrm{PDo}\)</span> (Autonomous Progression): The Relativistic Engine (<span class="math inline">\(\Box_3\)</span>)</strong> The dynamic transition functor. It acts as the mathematical engine of the Total Category, orchestrating the recursive interaction (categorical adjunction) of local syntax (<span class="math inline">\(\mathrm{RDo}\)</span>) and global semantics (<span class="math inline">\(\mathrm{ODo}\)</span>) relative to <span class="math inline">\(S_f\)</span>.</li>
+<li><p><strong><span class="math inline">\(\mathrm{RDo}\)</span> (The Subproblem / Syntax): The Inductive Accumulator (<span class="math inline">\(\Box_1\)</span>)</strong> Operates in constructive, non-Boolean logic. Recursively gathers finite, computationally observable properties (compact elements) along a directed logical path.</p></li>
+<li><p><strong><span class="math inline">\(\mathrm{ODo}\)</span> (The Master Problem / Semantics): The Limit/Creator Modality (<span class="math inline">\(\Box_2\)</span>)</strong> The semantic evaluator and <em>interval invariant</em>. Performs topological closure—evaluating the directed set generated by <span class="math inline">\(\mathrm{RDo}\)</span> and snapping it into a discrete, continuous limit.</p></li>
+<li><p><strong><span class="math inline">\(\mathrm{PDo}\)</span> (Autonomous Progression): The Dynamic Transition Functor (<span class="math inline">\(\Box_3\)</span>)</strong> The transition modality that governs the forward evolution of the system. Mathematically, it acts as an endofunctor within the Total Category, orchestrating the step-by-step recursive interaction (categorical adjunction) of local syntax (<span class="math inline">\(\mathrm{RDo}\)</span>) and global semantics (<span class="math inline">\(\mathrm{ODo}\)</span>) relative to <span class="math inline">\(S_f\)</span>.</p></li>
 </ul>
 </div>
 </section>
-<section id="constructive-accumulation-realisation" class="slide level2">
-<h2>Constructive Accumulation &amp; Realisation</h2>
-<div class="shrink75">
-<p><strong>Axiom 2: The Axiom of Constructive Accumulation</strong> Within a given reference frame (<span class="math inline">\(S_f\)</span>), the Relativistic Engine (<span class="math inline">\(\mathrm{PDo}\)</span>) iteratively drives the state forward, nesting inductive syntax (<span class="math inline">\(\mathrm{RDo}\)</span>) and semantic coinductions (<span class="math inline">\(\mathrm{ODo}\)</span>): <span class="math display">\[ \mathrm{PDo}(S_r, S_o, S_f) \]</span> <span class="math display">\[ \mathrm{PDo}\big(\, \mathrm{RDo}(R_1, S_r),\; \mathrm{ODo}(O_1, S_o),\; S_f \,\big) \]</span> <span class="math display">\[ \mathrm{PDo}\Big(\, \mathrm{RDo}\big(R_2, \mathrm{RDo}(R_1,S_r)\big),\; \mathrm{ODo}\big(O_2, \mathrm{ODo}(O_1,S_o)\big),\; S_f \,\Big) \]</span> <span class="math display">\[ \mathit{etc.} \]</span></p>
+<section id="constructive-accumulation" class="slide level2">
+<h2>Constructive Accumulation</h2>
+<div title="Axiom 1: The Axiom of Constructive Accumulation">
+<div class="callout callout-note no-icon callout-titled callout-style-default">
+<div class="callout-body">
+<div class="callout-title">
+<p><strong>Axiom 1: The Axiom of Constructive Accumulation</strong></p>
+</div>
+<div class="callout-content">
+<p>The Dynamic Transition Functor (<span class="math inline">\(\mathrm{PDo}\)</span>) governs the autonomous progression of the system via a strict recursive transition law relative to the Reference Frame (<span class="math inline">\(S_f\)</span>):</p>
+<ul>
+<li><strong>Base Case (Initialisation):</strong> Let <span class="math inline">\(S_r^{(0)}\)</span> and <span class="math inline">\(S_o^{(0)}\)</span> be the initial states. <span class="math display">\[ \Sigma_0 = \mathrm{PDo}\big(S_r^{(0)},\; S_o^{(0)},\; S_f\big) \]</span></li>
+<li><strong>Successor Rule (Inductive Step):</strong> For any step <span class="math inline">\(n \ge 0\)</span>, the next state strictly nests new inductive syntax (<span class="math inline">\(\mathrm{RDo}\)</span>) and semantic coinduction (<span class="math inline">\(\mathrm{ODo}\)</span>): <span class="math display">\[ \Sigma_{n+1} = \mathrm{PDo}\Big(\, \mathrm{RDo}\big(R_{n+1}, S_r^{(n)}\big),\; \mathrm{ODo}\big(O_{n+1}, S_o^{(n)}\big),\; S_f \,\Big) \]</span></li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+<div style="margin-top: -0.2em;">
+
 </div>
 </section>
-<section class="slide level2">
+<section id="constructive-accumulation-continued" class="slide level2">
+<h2>Constructive Accumulation (continued)</h2>
+<div class="shrink75">
+<em>Unrolling this recursive law mathematically generates an endlessly nested trace of accumulating evidence:</em> <span class="math display">\[ \mathrm{PDo}(S_r^{(0)}, S_o^{(0)}, S_f) \]</span>
+<div style="margin-top: -0.6em;">
 
+</div>
+<span class="math display">\[ \mathrm{PDo}\big(\, \mathrm{RDo}(R_1, S_r^{(0)}),\; \mathrm{ODo}(O_1, S_o^{(0)}),\; S_f \,\big) \]</span>
+<div style="margin-top: -0.8em;">
+
+</div>
+<p><span class="math display">\[ \mathrm{PDo}\Big(\, \mathrm{RDo}\big(R_2, \mathrm{RDo}(R_1,S_r^{(0)})\big),\; \mathrm{ODo}\big(O_2, \mathrm{ODo}(O_1,S_o^{(0)})\big),\; S_f \,\Big) \dots \mathit{etc.} \]</span></p>
+<p>It reads: <em>“Relative to reference frame <span class="math inline">\(S_f\)</span>, the accumulation of inductive evidence <span class="math inline">\(\mathrm{RDo}\)</span> yields the coinductively realised semantic limit <span class="math inline">\(\mathrm{ODo}\)</span>.”</em></p>
+</div>
+</section>
+<section id="semantic-realisation" class="slide level2">
+<h2>Semantic Realisation</h2>
 <div title="Theorem I: Semantic Realisation">
 <div class="callout callout-note no-icon callout-titled callout-style-default">
 <div class="callout-body">
@@ -636,37 +667,47 @@ ParityInvariant \equiv \nu Z.\ \langle -1 \rangle Z
 <p><strong>Theorem I: Semantic Realisation</strong></p>
 </div>
 <div class="callout-content">
-<p>Because this builds strictly upon finite verifiable observables, autonomous progression strictly halts when the topology reaches Algebraic Compactness. This is the moment of mathematical <strong>Realisation</strong>:</p>
+<p><strong>Semantic Realisation</strong> is the mathematical state where syntax and semantics converge. Because the engine builds upon finite, verifiable observables, autonomous progression halts when the topology reaches Algebraic Compactness:</p>
 <div style="margin-top: -0.8em;">
 
 </div>
 <p><span class="math display">\[ \mu (\mathrm{PDo}) = \mathrm{ODo} \left( \bigsqcup_{i \in R} \mathrm{RDo}_i(\bot) \right) \]</span></p>
-<div style="margin-top: -0.8em;">
+<div style="margin-top: -1.1em;">
 
 </div>
 <ul>
 <li><strong><span class="math inline">\(\bigsqcup \mathrm{RDo}\)</span> (Syntax):</strong> The builder generates a raw, directed chain of evidence from the ground up. A syntax string alone has no inherent “meaning.”</li>
 <li><strong><span class="math inline">\(\mathrm{ODo}\)</span> (Semantics):</strong> The top-down evaluator reads the syntax trace and evaluates its truth value.</li>
 </ul>
+<div style="margin-top: -1.0em;">
+
+</div>
 <p><strong>Proof Sketch:</strong> Corresponds to the computation of the <strong>Kleene Fixed-Point Theorem</strong>.</p>
 </div>
 </div>
 </div>
 </div>
-<div style="margin-top: -0.4em;">
-
-</div>
-<div class="shrink55">
+</section>
+<section id="semantic-realisation-continued" class="slide level2">
+<h2>Semantic Realisation (continued)</h2>
+<div class="shrink75">
 <ul>
-<li>The ultimate stable fixpoint (<span class="math inline">\(\mu\)</span>) is caught when <span class="math inline">\(\mathrm{ODo}\)</span> evaluates the limit (Supremum, <span class="math inline">\(\bigsqcup\)</span>) of iteratively applying the recursively enumerable inductive proofs (<span class="math inline">\(\mathrm{RDo}\)</span>) from baseline ignorance (<span class="math inline">\(\bot\)</span>).</li>
-<li>This realised limit acts as the interval semantic invariant.</li>
+<li>The ultimate stable fixpoint (<span class="math inline">\(\mu\)</span>) is caught when <span class="math inline">\(\mathrm{ODo}\)</span> evaluates the limit (Supremum, <span class="math inline">\(\bigsqcup\)</span>) of the recursively enumerable inductive proofs (<span class="math inline">\(\mathrm{RDo}\)</span>).</li>
+<li>This accumulation mathematically begins from an initial state of ignorance (<span class="math inline">\(\bot\)</span>), but is constructed and evaluated strictly relative to the rules of the <strong>reference frame (<span class="math inline">\(S_f\)</span>)</strong>.</li>
+<li>This mathematically realised limit acts as the interval semantic invariant for that specific frame.</li>
 </ul>
 </div>
 </section>
 <section id="the-synthetic-transformation" class="slide level2">
 <h2>The Synthetic Transformation</h2>
-<div class="shrink80">
-<p><strong>Axiom 3: The Transitivity Axiom</strong> Once Realisation is achieved, the relativistic reference frame shifts. The categorically preserved invariant (the semantic limit, <span class="math inline">\(O\)</span>) becomes the new reference frame (<span class="math inline">\(S_f\)</span>) for the next order of progression.</p>
+<div title="Axiom 2: The Transitivity Axiom">
+<div class="callout callout-note no-icon callout-titled callout-style-default">
+<div class="callout-body">
+<div class="callout-title">
+<p><strong>Axiom 2: The Transitivity Axiom</strong></p>
+</div>
+<div class="callout-content">
+<p>Once Realisation is achieved, the relativistic reference frame shifts. The categorically preserved invariant (the semantic limit, <span class="math inline">\(O\)</span>) becomes the new reference frame (<span class="math inline">\(S_f\)</span>) for the next order of progression.</p>
 <p><span class="math display">\[ \mathrm{PDo}(N, O, S_f) \longrightarrow \mathrm{PDo}(X, Y, \mathrm{O}) \]</span></p>
 <ul>
 <li><strong>Left Side:</strong> The fully realised state within the initial reference frame (<span class="math inline">\(S_f\)</span>).</li>
@@ -674,25 +715,13 @@ ParityInvariant \equiv \nu Z.\ \langle -1 \rangle Z
 <li><strong>Right Side:</strong> A new, higher-order autonomous progression begins. The complex limit <span class="math inline">\(O\)</span> has mathematically synthesised into an atomic, discrete baseline coordinate for the new subproblem (<span class="math inline">\(X\)</span>).</li>
 </ul>
 </div>
-</section>
-<section class="slide level2">
-
-<div title="Theorem II: Relativistic Invariance (Preserving the Interval)">
-<div class="callout callout-note no-icon callout-titled callout-style-default">
-<div class="callout-body">
-<div class="callout-title">
-<p><strong>Theorem II: Relativistic Invariance (Preserving the Interval)</strong></p>
-</div>
-<div class="callout-content">
-<p><strong>Proof Sketch:</strong> Category theory mathematically guarantees that under this Transitivity shift (a geometric morphism), the overarching semantic truth-value and geometric integrity of the realised limit (<span class="math inline">\(O\)</span>) are strictly and losslessly preserved across the Change of Base.</p>
-</div>
 </div>
 </div>
 </div>
 </section>
 <section id="towers-of-hanoi-example" class="slide level2">
 <h2>Towers of Hanoi example</h2>
-<div class="shrink62">
+<div class="shrink70">
 <p><strong>1. Local Unrolling (Building the Situation Trace):</strong> The engine recursively accumulates primitive actions <span style="color:blue">(moving disks)</span>, generating the topological equivalent of a nested <span class="math inline">\(do()\)</span> sequence:</p>
 <div style="margin-top: -0.8em;">
 
@@ -701,7 +730,7 @@ ParityInvariant \equiv \nu Z.\ \langle -1 \rangle Z
 <div style="margin-top: -0.8em;">
 
 </div>
-<p><strong>2. Limit Catching:</strong> Through top-down semantic reflection (<span class="math inline">\(\Box_\omega\)</span>), the <span class="math inline">\(\mathrm{ODo}\)</span> modality mathematically coinduces a structural property of the optimal traces: <span style="color:blue">The Parity Invariant (<span class="math inline">\(O_{\text{parity}}\)</span>).</span></p>
+<p><strong>2. Limit Catching:</strong> Through top-down semantic reflection (<span class="math inline">\(\Box_2\)</span>), the <span class="math inline">\(\mathrm{ODo}\)</span> modality mathematically coinduces a structural property of the optimal traces: <span style="color:blue">The Parity Invariant (<span class="math inline">\(O_{\text{parity}}\)</span>).</span></p>
 <p><strong>3. The Synthetic Transformation (Change of Base):</strong> The Transitivity Axiom fires, executing a categorical Change of Base:</p>
 <div style="margin-top: -0.6em;">
 
@@ -712,8 +741,7 @@ ParityInvariant \equiv \nu Z.\ \langle -1 \rangle Z
 </div>
 <p>The invariant (cycle <span class="math inline">\(D_1\)</span>, alternate move, cycle <span class="math inline">\(D_1\)</span>) emerges as the unique, strictly positive proof path through the state space.</p>
 <ul>
-<li><p>The new parity invariant shifts to become the Reference Frame. By adopting this rule as a <strong>lifted axiom</strong>, <em>the search tree branching factor strictly collapses from 3 down to 1.</em></p></li>
-<li><p>Note computational complexity of problem doesn’t change, <span class="math inline">\(O(2^n)\)</span> for <span class="math inline">\(n\)</span> disks, but <em>where</em> the computational effort is spent between a classical recursive approach versus Synthetic Relativity autonomous theory progression.</p></li>
+<li>The new parity invariant shifts to become the Reference Frame. By adopting this rule as a <strong>lifted axiom</strong>, <em>the search tree branching factor strictly collapses from 3 down to 1.</em></li>
 </ul>
 </div>
 </section>
@@ -721,7 +749,7 @@ ParityInvariant \equiv \nu Z.\ \langle -1 \rangle Z
 <h2>The Dual Fixpoints</h2>
 <div class="shrink70">
 <p><strong>Unifying Reachability (<span class="math inline">\(\mu\)</span>) and Persistence (<span class="math inline">\(\nu\)</span>)</strong></p>
-<p>By natively intertwining syntax (<span class="math inline">\(\mathrm{RDo}\)</span>) and semantics (<span class="math inline">\(\mathrm{ODo}\)</span>), the Relativistic Engine mathematically fuses two distinct forms of logical progression:</p>
+<p>By natively intertwining syntax (<span class="math inline">\(\mathrm{RDo}\)</span>) and semantics (<span class="math inline">\(\mathrm{ODo}\)</span>), the dynamic transition functor (<span class="math inline">\(\mathrm{PDo}\)</span>) mathematically fuses two distinct forms of logical progression:</p>
 <ol type="1">
 <li><strong>Induction / Least Fixpoint (<span class="math inline">\(\mu\)</span>):</strong> Governed by the <span class="math inline">\(\mathrm{RDo}\)</span> modality. The bottom-up synthesis of finite evidence from baseline ignorance (<span class="math inline">\(\bot\)</span>). It guarantees computational <em>Reachability</em>.</li>
 <li><strong>Coinduction / Greatest Fixpoint (<span class="math inline">\(\nu\)</span>):</strong> Governed by the <span class="math inline">\(\mathrm{ODo}\)</span> modality. The top-down evaluation of continuous semantics. It guarantees <em>Safety and Property Persistence</em>.</li>
@@ -729,11 +757,9 @@ ParityInvariant \equiv \nu Z.\ \langle -1 \rangle Z
 <div style="margin-top: -0.8em;">
 
 </div>
-<p><strong>Algebraic Compactness (<span class="math inline">\(\mu = \nu\)</span>)</strong> <strong>Theorem I (Semantic Realisation)</strong> formally computes a <strong>Bilimit</strong>. At the coordinate of convergence, the active inductive trace (<span class="math inline">\(\mu\)</span>) perfectly fulfills the persistent semantic invariant (<span class="math inline">\(\nu\)</span>).</p>
-<div style="margin-top: -0.3em;">
-
-</div>
-<p><em>When this limit shifts to become the new Reference Frame (<span class="math inline">\(S_f\)</span>) via the Transitivity Axiom, <strong>Theorem II</strong> guarantees it acts entirely as a Greatest Fixpoint—a persistent, assumed law of physics for all subsequent computations, natively solving the Frame Problem.</em></p>
+<p><strong>Algebraic Compactness (<span class="math inline">\(\mu = \nu\)</span>)</strong></p>
+<p><strong>Theorem I (Semantic Realisation)</strong> formally computes a <em>bilimit</em>. At convergence, the active inductive trace (<span class="math inline">\(\mu\)</span>) fulfills the persistent semantic invariant (<span class="math inline">\(\nu\)</span>).</p>
+<p>When this limit shifts to become the new Reference Frame (<span class="math inline">\(S_f\)</span>) via the Transitivity Axiom, it acts as a Greatest Fixpoint, and is added to the theory for subsequent computations.</p>
 </div>
 </section>
 <section id="theory-driven-generalization-via-categorical-duality" class="slide level2">
@@ -743,8 +769,8 @@ ParityInvariant \equiv \nu Z.\ \langle -1 \rangle Z
 <ul>
 <li><strong>1. Change of Base (The Fibrational Shift)</strong>
 <ul>
-<li>In categorical logic, logical properties form a <em>Total Category</em> fibered over a <em>Base Category</em> of physical states.</li>
-<li>The system performs a mathematical <strong>Change of Base</strong> from the absolute physical space (<span class="math inline">\(ODo\)</span>) to the relativistic space (<span class="math inline">\(RDo\)</span>). This functor maps complex, absolute histories into simplified, periodic differential streams.</li>
+<li>In categorical logic, logical properties form a <em>Total Category</em> fibered over a <em>Base Category</em> of states.</li>
+<li>The system performs a mathematical <strong>Change of Base</strong> from the absolute space (<span class="math inline">\(ODo\)</span>) to the relativistic space (<span class="math inline">\(RDo\)</span>). This functor maps complex, absolute histories into simplified, periodic differential streams.</li>
 </ul></li>
 <li><strong>2. Adjoint Duality (Swapping the Problem)</strong>
 <ul>
@@ -755,7 +781,7 @@ ParityInvariant \equiv \nu Z.\ \langle -1 \rangle Z
 <li><strong>3. Universal Properties (Terminal Coalgebras)</strong>
 <ul>
 <li>The system requires no external engineering templates or “Syntax-Guided” rules.</li>
-<li>Because <span class="math inline">\(S_F\)</span> natively defines the geometric symmetries of the domain, the coinductive proposal emerges organically as a <strong>Universal Property</strong> (specifically, a Terminal Coalgebra). Stone Duality ensures that the logical syntax automatically folds to perfectly bound the state space’s innate topology.</li>
+<li>Because <span class="math inline">\(S_F\)</span> natively defines the geometric symmetries of the domain, the coinductive proposal emerges as a <strong>Universal Property</strong> (specifically, a Terminal Coalgebra). Stone Duality ensures that the logical syntax automatically folds to perfectly bound the state space’s innate topology.</li>
 </ul></li>
 </ul>
 </div>
@@ -874,11 +900,11 @@ Physical \equiv \nu X.\ (\langle +1 \rangle X \lor \langle -2 \rangle X)
 <div class="shrink87">
 <p>R-DTLF does not discard classical logic; it functionally <em>generates</em> it at the semantic limits.</p>
 </div>
-<div title="Theorem III: Topological Booleanization (Compiling Successor State Axioms)">
+<div title="Theorem II: Topological Booleanization (Compiling Successor State Axioms)">
 <div class="callout callout-note no-icon callout-titled callout-style-default">
 <div class="callout-body">
 <div class="callout-title">
-<p><strong>Theorem III: Topological Booleanization (Compiling Successor State Axioms)</strong></p>
+<p><strong>Theorem II: Topological Booleanization (Compiling Successor State Axioms)</strong></p>
 </div>
 <div class="callout-content">
 <p>Upon semantic realisation, the continuous intuitionistic trace generated by <span class="math inline">\(\mathrm{RDo}\)</span> can be losslessly compiled into a discrete, classical First-Order baseline via the <strong>Lawvere-Tierney Double Negation (<span class="math inline">\(\neg\neg\)</span>) Topology</strong>.</p>
@@ -998,6 +1024,11 @@ Physical \equiv \nu X.\ (\langle +1 \rangle X \lor \langle -2 \rangle X)
 </tr>
 </tbody>
 </table>
+<hr>
+<ul>
+<li><p><span class="math inline">\(\mathrm{RDo}\)</span> is equivalent to the <span class="math inline">\(\Box\)</span> modality of bimodal provability logic GLB: <em>“There exists a finite, step-by-step mechanical proof of this property.”</em></p></li>
+<li><p><span class="math inline">\(\mathrm{ODo}\)</span> is equivalent to the <span class="math inline">\(\Box_\omega\)</span> modality of GLB: <em>“Evaluated at the continuous limit, this property is universally true,”</em> i.e., this is the modality of <em>semantic reflection</em>.</p></li>
+</ul>
 </div>
 
 

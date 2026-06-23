@@ -316,84 +316,82 @@ Iteratively applying this meta-level calculation computes the maximal invariant 
 
 :::
 
-::: {.callout-note icon=false title="The Syntactic Limit: Greatest Fixpoints ($\nu Z$)"}
+::: {.callout-note icon=false title="Greatest Fixpoint ($\nu Z$)"}
 - Property persistence is an infinite-horizon **safety property**.
 - The persistence condition is the **greatest fixpoint** of this operator: $\nu Z.\, \mathcal{P}(Z)$.
-- *The Problem:* Regression natively builds finite states. To syntactically evaluate this infinite fixpoint natively, we must shift our mathematical framework.
 :::
 
-# Category Theory
+## Coinduction in Towers of Hanoi
 
-## The Dual Problems: Algebras & Coalgebras 
+![](figs/towers2_sharpened_transparent.png){height=20% width=20% fig-align="center"}
 
-::: {.shrink68}
+<div style="margin-top: -1.1em;"></div>
 
-To transition from finite histories to observing infinite Greatest Fixpoints, we harness **Category Theory**. An *endofunctor* ($F$) over a state space ($S$) is a structural template that shapes the resulting data object, $F(S)$.
+::: {.shrink70}
 
-* **Algebra (Situation Calculus / Constructor):** Morphism arrows point *inward*: $\; F(S) \to S$
-  * Our endofunctor shapes the inputs: $F(S) = Action \times S$
-  * The *morphism* evaluates to: $(Action \times State_{current}) \to State_{next}$
-  * *Concept:* *Construct* a history from the bottom-up.
+We can coinduce by observing the *relative movement* of the smallest disk $D_1$ (alternative moves with disk $D_2$ or $D_3$) on $\mathit{OnPeg}(d,p,s)$: 
+
+<div style="margin-top: -0.6em;"></div>
+$$\Delta p \equiv (p_{to} - p_{from}) \pmod 3$$
+<div style="margin-top: -0.8em;"></div>
+
+- Solving the puzzle generates an infinite coalgebraic stream of spatial jumps: 
+<div style="margin-top: -0.8em;"></div>
+$$ 
+\langle +2 \rangle, 
+\langle -1 \rangle, 
+\langle -1 \rangle, 
+\langle +2 \rangle
+\dots
+$$
+
+<div style="margin-top: -1.0em;"></div>
+
+Suppose we want to coinduce an idealised universe where the disk *always* moves $-1$. We *propose* the Greatest Fixpoint (using property persistence):
+<div style="margin-top: -0.6em;"></div>
+$$
+ParityInvariant \equiv \nu Z.\ \langle -1 \rangle Z
+$$
+
+:::
+
+## Stone Duality & Coinduction in Towers of Hanoi
+
+::: {.shrink60}
+
+The puzzle initially generates a jump of $+2$, so how can our proposed Greatest Fixpoint ($\nu Z.\ \langle -1 \rangle Z$) survive this contradiction with $-1$?
+
+* **1. Local Verification (Coinduction):** While standard induction proves a base case and builds up, coinduction *proposes* a Greatest Fixpoint (an infinite rule) and verifies it locally step-by-step. If an observation holds right now, and the rules guarantee it holds in the next step, the Greatest Fixpoint is guaranteed to hold forever.
+
+* **2. Topological Observation:** Our coalgebra evaluates the topological future and discovers the physical branching of jumping right twice ($+2$) is completely indistinguishable from jumping left once ($-1$). 
+
+* **3. Bisimulation Equivalence:** We enforce this indistinguishability by injecting a logical cut:
+
+$$
+\forall \phi.\ \langle +2 \rangle \phi \;\equiv\; \langle -1 \rangle \phi
+$$
+
+* **4. Stone Duality:** Category Theory dictates a perfect, inverse mirror-image between Syntax (logical equivalence) and Semantics (topological state space). By *syntactically* equating these propositions, **Stone Duality** automatically forces the underlying *semantic space* to fold into a modulo-3 quotient ring ($\mathbb{Z}_3$). 
+
+[This is our new syntactic transformation!]{style="color:blue"}
+
+:::
+
+## The Dual Problem: Algebras & Coalgebras 
+
+::: {.shrink73}
+
+We use an **endofunctor** ($F$) over a state space ($S$) as a structural template that shapes our data. $F(S)$ is simply the resulting combined data object.
+
+* **Algebra (SitCalc / Constructor):** Morphism arrows point *inward*: $\; F(S) \to S$
+  * Our endofunctor shapes the input ingredients: $F(S) = Action \times S$
+  * The morphism evaluates to: $(Action \times State_{current}) \to State_{next}$
+  * *Concept:* We combine pieces to *construct* a history from the bottom-up.
 
 * **Coalgebra (Property Persistence / Observer):** Morphism arrows point *outward*: $\; S \to F(S)$
   * Our endofunctor shapes the emitted data: $F(S) = Observation \times S$
   * The morphism evaluates to: $State_{current} \to (Observation \times State_{next})$
-  * *Concept:* Take a running state, break off an *observation*, and unfold the remaining state into the future.
-
-:::
-
-## Categorical Proof Techniques: Coinduction & Stone Duality
-
-::: {.shrink75}
-
-To reason about infinite streams when operating in **coalgebras**, we require two categorical proof mechanisms .
-
-**1. Coinduction (The Dual of Induction)**
-While standard induction proves a finite base case and builds upward, coinduction works top-down. It *proposes* a Greatest Fixpoint (an infinite rule, $\nu Z$) and verifies it locally. *If the observation holds right now, and the rules guarantee it holds in the next step, the Greatest Fixpoint is guaranteed to hold forever.*
-
-**2. Stone Duality (Syntax-Semantics Mirror)**
-In Category Theory, **Stone Duality** dictates a perfect, inverse mirror-image between **Syntax** (logical formulas) and **Semantics** (topological state space). 
-
-* *The Syntactic Transformation:* If our logic engine formally declares two distinct observational paths to be identical (Bisimulation Equivalence)...
-* *The Semantic Result:* Stone Duality guarantees the underlying semantic space automatically folds (quotients) to make those paths topologically identical.
-
-:::
-
-## Example: Coinduction in Towers of Hanoi
-
-![](figs/towers2_sharpened_transparent.png){height=8% width=8% fig-align="center"}
-
-<div style="margin-top: -1.2em;"></div>
-
-::: {.shrink75}
-
-We observe the *relative movement* of the smallest disk $D_1$ (alternating moves with $D_2$ or $D_3$) on $\mathit{OnPeg}(d,p,s)$: 
-<div style="margin-top: -0.6em;"></div>
-$$ \Delta p \equiv (p_{to} - p_{from}) \pmod 3 $$
-
-**1. The Coalgebraic Stream:** Solving the puzzle generates an infinite stream of spatial jumps: 
-<div style="margin-top: -0.6em;"></div>
-$$ \langle +2 \rangle, \langle -1 \rangle, \langle -1 \rangle, \langle +2 \rangle \dots $$
-
-**2. The Coinductive Proposal:** We propose an idealised Greatest Fixpoint where the disk *always* cycles left:
-<div style="margin-top: -0.6em;"></div>
-$$ ParityInvariant \equiv \nu Z.\ \langle -1 \rangle Z $$
-
-:::
-
-## Example: Coinduction in Towers of Hanoi (Continued)
-
-::: {.shrink75}
-
-**3. The Coinductive Step (Bisimulation):** 
-The physical stream outputs a jump of $+2$. How does our proposed invariant survive this contradiction? To satisfy the local coinductive check, the logic engine natively evaluates the domain's geometry. It formally recognises that jumping right twice ($+2$) is structurally indistinguishable from jumping left once ($-1$). It applies this coinductive equivalence:
-<div style="margin-top: -0.6em;"></div>
-$$ \forall \phi.\ \langle +2 \rangle \phi \;\equiv\; \langle -1 \rangle \phi $$
-
-**4. The Stone Duality Resolution:**
-By syntactically equating these propositions, **Stone Duality** automatically forces the absolute state space to fold into a modulo-3 *quotient ring* ($\mathbb{Z}_3$)!
-
-[This is our new syntactic transformation!]{style="color:blue"}
+  * *Concept:* We take an opaque running state, break off a visible *observation*, and silently unfold the remaining state into the future.
 
 :::
 
@@ -403,20 +401,18 @@ By syntactically equating these propositions, **Stone Duality** automatically fo
 
 ::: {.shrink85}
 
-Logical entailment operates within a **Total Category**—a mathematically complete Stone Duality glues syntax and semantics together.
+Standard provability logics like $\mathrm{GLB}$ (G&ouml;del-L&ouml;b Bimodal Provability Logic) rely on absolute binary provability: $x R y$ assumes an absolute background space where $y$ is provable from $x$.
 
-It is evaluated relative to a specific baseline **Reference Frame**, $\mathrm{S_f}$. This facilitates the rules and symmetries over which the observer's duality is constructed. 
-
-- It utilises a ternary structure, drawing from **Routley-Meyer semantics** for substructural, relevance, and intuitionistic logics, involving relations $R(x, y, \mathrm{S_f})$.
-- This allows us to decouple the synthetic (axiomatic) transformations from the topological space. 
+- In a ternary structure (drawing from **Routley-Meyer semantics** for substructural, relevance, and intuitionistic logics), you have a relation $R(x, y, z)$.
+- This allows us to decouple the synthetic transformation from the topological space. The ternary relation natively introduces the Observer's frame. It reads: ["Relative to reference frame $x$, the accumulation of inductive evidence $y$ yields the coinductively realised semantic limit $z$."]{style="color:blue"}
 
 :::
 
 ## Synthetic Relativity Axioms
 
-::: {.shrink75}
+::: {.shrink70}
 
-The space is governed by three interacting modalities.
+Logical entailment operates within a **Total Category**—a mathematically complete Stone Duality glues syntax and semantics together, evaluated relative to a specific baseline **Reference Frame**, $\mathrm{S_f}$, it provides the rules and symmetries over which the observer's duality is constructed. The space is governed by three interacting modalities.
 
 *   **$\mathrm{RDo}$ (The Subproblem / Syntax): The Inductive Accumulator ($\Box_1$)**
     Operates in constructive, non-Boolean logic. Recursively gathers finite, computationally observable properties (compact elements) along a directed logical path. 
@@ -445,13 +441,12 @@ The Dynamic Transition Functor ($\mathrm{PDo}$) governs the autonomous progressi
 
 ::: {.shrink75}
 
-Unrolling this recursive law mathematically generates an endlessly nested trace of accumulating evidence:
-
-$$ \mathrm{PDo}(S_r, S_o, S_f) $$
+*Unrolling this recursive law mathematically generates an endlessly nested trace of accumulating evidence:*
+$$ \mathrm{PDo}(S_r^{(0)}, S_o^{(0)}, S_f) $$
 <div style="margin-top: -0.6em;"></div>
-$$ \mathrm{PDo}\big(\, \mathrm{RDo}(R_1, S_r),\; \mathrm{ODo}(O_1, S_o),\; S_f \,\big) $$
+$$ \mathrm{PDo}\big(\, \mathrm{RDo}(R_1, S_r^{(0)}),\; \mathrm{ODo}(O_1, S_o^{(0)}),\; S_f \,\big) $$
 <div style="margin-top: -0.8em;"></div>
-$$ \mathrm{PDo}\Big(\, \mathrm{RDo}\big(R_2, \mathrm{RDo}(R_1,S_r)\big),\; \mathrm{ODo}\big(O_2, \mathrm{ODo}(O_1,S_o)\big),\; S_f \,\Big) \dots \mathit{etc.} $$
+$$ \mathrm{PDo}\Big(\, \mathrm{RDo}\big(R_2, \mathrm{RDo}(R_1,S_r^{(0)})\big),\; \mathrm{ODo}\big(O_2, \mathrm{ODo}(O_1,S_o^{(0)})\big),\; S_f \,\Big) \dots \mathit{etc.} $$
 
 It reads: *"Relative to reference frame $S_f$, the accumulation of inductive evidence $\mathrm{RDo}$ yields the coinductively realised semantic limit $\mathrm{ODo}$."*
 :::
@@ -485,17 +480,17 @@ $$ \mu (\mathrm{PDo}) = \mathrm{ODo} \left( \bigsqcup_{i \in R} \mathrm{RDo}_i(\
 - This mathematically realised limit acts as the interval semantic invariant for that specific frame.
 :::
 
+
 ## The Synthetic Transformation
 
-::: {.callout-note icon=false title="Axiom 2: The Axiom of Synthetic Transformation"}
-Once Realisation is achieved, the relativistic reference frame mathematically shifts. The categorically preserved invariant (the semantic limit, $O$) becomes the new reference frame ($S_f$) for the next order of progression.
 
-$$ \mathrm{PDo}(N, O, S_f) \longrightarrow \mathrm{PDo}(X, Y, O) $$
+::: {.callout-note icon=false title="Axiom 2: The Transitivity Axiom"}
+Once Realisation is achieved, the relativistic reference frame shifts. The categorically preserved invariant (the semantic limit, $O$) becomes the new reference frame ($S_f$) for the next order of progression.
 
-<div style="margin-top: -0.7em;"></div>
+$$ \mathrm{PDo}(N, O, S_f) \longrightarrow \mathrm{PDo}(X, Y, \mathrm{O}) $$
 
-*   **Left Side:** The realised state computed within the initial reference frame ($S_f$).
-*   **The Arrow ($\longrightarrow$):** The Synthetic Transformation (Topological closure and categorical Change of Base).
+*   **Left Side:** The fully realised state within the initial reference frame ($S_f$).
+*   **The Arrow ($\longrightarrow$):** The Synthetic Transformation (Topological closure and Change of Base).
 *   **Right Side:** A new, higher-order autonomous progression begins. The complex limit $O$ has mathematically synthesised into an atomic, discrete baseline coordinate for the new subproblem ($X$).
 :::
 
@@ -517,7 +512,7 @@ Through top-down semantic reflection ($\Box_2$), the $\mathrm{ODo}$ modality mat
 
 
 **3. The Synthetic Transformation (Change of Base):** 
-The Transformation Axiom fires, executing a categorical Change of Base:
+The Transitivity Axiom fires, executing a categorical Change of Base:
 
 <div style="margin-top: -0.6em;"></div>
 
@@ -533,51 +528,39 @@ The invariant (cycle $D_1$, alternate move, cycle $D_1$) emerges as the unique, 
 
 ## The Dual Fixpoints
 
-::: {.shrink66}
+::: {.shrink70}
 
-**Unifying Reachability ($\mu$) & Persistence ($\nu$):** By natively intertwining syntax ($\mathrm{RDo}$) and semantics ($\mathrm{ODo}$), the dynamic transition functor ($\mathrm{PDo}$) mathematically fuses two distinct forms of logical progression:
+**Unifying Reachability ($\mu$) and Persistence ($\nu$)**
+
+By natively intertwining syntax ($\mathrm{RDo}$) and semantics ($\mathrm{ODo}$), the dynamic transition functor ($\mathrm{PDo}$) mathematically fuses two distinct forms of logical progression:
 
 1.  **Induction / Least Fixpoint ($\mu$):** Governed by the $\mathrm{RDo}$ modality. The bottom-up synthesis of finite evidence from baseline ignorance ($\bot$). It guarantees computational *Reachability*.
 2.  **Coinduction / Greatest Fixpoint ($\nu$):** Governed by the $\mathrm{ODo}$ modality. The top-down evaluation of continuous semantics. It guarantees *Safety and Property Persistence*.
 
+<div style="margin-top: -0.8em;"></div>
+
+**Algebraic Compactness ($\mu = \nu$)**
+
+**Theorem I (Semantic Realisation)** formally computes a *bilimit*. At convergence, the active inductive trace ($\mu$) fulfills the persistent semantic invariant ($\nu$). 
+
+When this limit shifts to become the new Reference Frame ($S_f$) via the Transitivity Axiom, it acts as a Greatest Fixpoint, and is added to the theory for subsequent computations.
+
 :::
 
-<div style="margin-top: -0.4em;"></div>
+## Theory-Driven Generalization via Categorical Duality
 
-::: {.callout-note icon=false title="Theorem II: Algebraic Compactness"}
-Because **Theorem I (Semantic Realisation)** formally computes a categorical *bilimit*, the system achieves algebraic compactness. At convergence, the initial algebra of the dynamic transition functor perfectly coincides with its final coalgebra:
+::: {.shrink52}
 
-<div style="margin-top: -0.6em;"></div>
-
-$$ \mu(\mathrm{PDo}) \cong \nu(\mathrm{PDo}) $$
-
-<div style="margin-top: -0.6em;"></div>
-
-*The active inductive trace ($\mu$) strictly fulfills the persistent semantic invariant ($\nu$).*
-:::
-
-
-
-## Theory-Driven Generalization
-
-::: {.shrink62}
-
-When the converged limit shifts to become the new Reference Frame ($S_f$) via the **Transformation Axiom**, it acts natively as a global Greatest Fixpoint ($\nu$) and the coinduced property is added to the reference theory for subsequent computations. The system treats **generalisation** as a categorical operation over its Reference Theory ($S_F$) facilitating invariant proposal through the foundational duality of fibrations and adjunctions.
+Instead of relying on algorithmic heuristics (e.g., IC3 or Interpolation) to guess invariants, the system treats generalisation as a native categorical operation over its Reference Theory ($S_F$). We reframe invariant proposal through the foundational duality of fibrations and adjunctions.
 
 * **1. Change of Base (The Fibrational Shift)**
-  * Logical properties form a *Total Category* fibered over a *Base Category* of states. 
-  * The system performs a **Change of Base** from the coinduced space ($ODo$) to the inductive space ($RDo$). This functor maps complex, induced histories into coinduced progressions.
+  * In categorical logic, logical properties form a *Total Category* fibered over a *Base Category* of states. 
+  * The system performs a mathematical **Change of Base** from the absolute space ($ODo$) to the relativistic space ($RDo$). This functor maps complex, absolute histories into simplified, periodic differential streams.
 
 * **2. Adjoint Duality (Swapping the Problem)**
   * Generalising a safe invariant is structurally identical to the problem of deductive planning, simply with the functors reversed (an Adjunction: $Left \dashv Right$).
   * *Planning (Left Adjoint):* Inductive, bottom-up synthesis of a finite trace (Least Fixpoint).
   * *Generalising (Right Adjoint):* Coinductive, top-down projection of an infinite bound (Greatest Fixpoint). The finite local observations mathematically push across the adjunction to form the exact coinductive proposal.
-
-:::
-
-## Theory-Driven Generalization (continued)
-
-::: {.shrink70}
 
 * **3. Universal Properties (Terminal Coalgebras)**
   * The system requires no external engineering templates or "Syntax-Guided" rules.
@@ -622,40 +605,40 @@ In this framework, formulas do not describe static states; they describe observa
 We can now express our hypothesis for the Towers of Hanoi natively in DTLF. We want to co-induce an idealised invariant where the smallest disk flawlessly cycles one peg to the right ($+1$) forever. 
 
 **1. Proposing the Idealised Rule:**
-We propose this property as our Greatest Fixpoint:
+We propose this continuous property as our Greatest Fixpoint:
 <div style="margin-top: -0.8em;"></div>
 $$
-ParityInvariant \equiv \nu X.\ \langle -1 \rangle X
+Ideal \equiv \nu X.\ \langle +1 \rangle X
 $$
 <div style="margin-top: -0.8em;"></div>
 
-**2. The Reality:**
-However, the physical puzzle generates a stream that forces a forward jump of $+2$ from $Peg_1$ back to $Peg_3$. The observable bounds are:
+**2. The Physical Reality:**
+However, the physical puzzle generates a stream that eventually forces a backwards jump of $-2$ when wrapping from $Peg_2$ back to $Peg_0$. The observable physical bounds are:
 <div style="margin-top: -0.8em;"></div>
 $$
-Observed \equiv \nu X.\ (\langle -1 \rangle X \lor \langle +2 \rangle X)
+Physical \equiv \nu X.\ (\langle +1 \rangle X \lor \langle -2 \rangle X)
 $$
 <div style="margin-top: -0.7em;"></div>
 
 **3. Syntactic Bisimulation Equivalence:**
-Because the topological futures of $+2$ and $-1$ land on the identical peg, we apply our syntactic equivalence ($\langle +2 \rangle \phi \equiv \langle -1 \rangle \phi$). This cleanly collapses the stream into our idealised property:
+Because the topological futures of $-2$ and $+1$ land on the identical peg, we apply our syntactic equivalence ($\langle -2 \rangle \phi \equiv \langle +1 \rangle \phi$). This cleanly collapses the messy physical stream into our idealised property:
 <div style="margin-top: -0.6em;"></div>
 $$
-\nu X.\ (\langle -1 \rangle X \lor \langle +2 \rangle X) \;\equiv\; \nu X.\ \langle -1 \rangle X
+\nu X.\ (\langle +1 \rangle X \lor \langle -2 \rangle X) \;\equiv\; \nu X.\ \langle +1 \rangle X
 $$
 
 :::
 
 ## Spatial Completeness & The Static Limitation
 
-::: {.shrink85}
+::: {.shrink87}
 
 The mathematical power of vanilla DTLF lies in **Spatial Completeness** (rooted in Stone Duality).
 
 - **The Guarantee:** It proves a 1-to-1 isomorphism between the algebraic, step-by-step **Syntax** ($\phi \vdash \psi$) and the continuous, geometric **Semantics** ($[\![\phi]\!] \subseteq [\![\psi]\!]$). 
 - **Catching Limits:** Computations resolve when the directed path of finite evidence mathematically catches (satisfies) an infinite continuous topological limit (a Supremum).
 
-Vanilla DTLF perfectly describes a single, *static* universe. However, to differentiate induction from coinduction and model dynamic, continuous learning, **the Reference Frame itself must dynamically shift** so we use a relativistic version, termed R-DTLF. 
+Vanilla DTLF perfectly describes a single, *static* universe. However, to differentiate induction from coinduction and model dynamic, continuous learning, **the Reference Frame itself must dynamically shift.**
 
 :::
 
@@ -703,7 +686,7 @@ R-DTLF does not discard classical logic; it functionally *generates* it at the s
 
 :::
 
-::: {.callout-note icon=false title="Theorem III: Topological Booleanization (Compiling Successor State Axioms)"}
+::: {.callout-note icon=false title="Theorem II: Topological Booleanization (Compiling Successor State Axioms)"}
 Upon semantic realisation, the continuous intuitionistic trace generated by $\mathrm{RDo}$ can be losslessly compiled into a discrete, classical First-Order baseline via the **Lawvere-Tierney Double Negation ($\neg\neg$) Topology**. 
 
 **Proof Sketch:** Topos theory formally guarantees that inside every fluid, intuitionistic space exists a rigid Boolean sub-lattice that can be safely projected onto.
@@ -730,7 +713,7 @@ Upon semantic realisation, the continuous intuitionistic trace generated by $\ma
 | **Objective** | Historical Reachability / Action Execution | Property Persistence / Safety Guarantees |
 | **Conceptual Math** | Least Fixpoint (LFP) | Greatest Fixpoint (GFP) |
 | **Logical Foundation** | Second-Order Induction (Algebraic) | Co-induction (Coalgebraic) |
-| **Syntactic Transformation** | Transformation into First-Order Logic (SSAs) | Transformation to Relativistic Differentials |
+| **Syntactic Shift** | Transformation into First-Order Logic (SSAs) | Transformation to Relativistic Differentials |
 | **Computation Engine**| Computed as LFP in the $Do$ modality (Golog) | Computed in the R-DTLF logic |
 | **Resolution Engine** | First-Order Theorem Proving | Bisimulation Equivalence (Quotients) |
 
@@ -747,15 +730,11 @@ Upon semantic realisation, the continuous intuitionistic trace generated by $\ma
 | *Ordering* | Sequences of finite Posets, non-unique predecessors, non-well ordered                                                                                                      | Successor function, Unique predecessors, non-well ordered                                                                                                                        | Transfinite ordinality: limits, Non-unique predecessors, well-ordered                                                                                                      |
 | *Completeness?* | Spatially complete (continuous geometry) and Turing complete (universal computation via recursive domains); Arithmetically incomplete (triggers Gödel's incompleteness). | Turing complete (can compute anything), but neither spatially complete (no continuous geometry) nor arithmetically complete (subject to Gödel's incompleteness).                 | Arithmetically complete (flawlessly models the bounds of provability), but neither Turing complete (strictly decidable, cannot compute loops) nor spatially complete.      |
 | *Other* | Algebraic compactness. Kleene's Realizability & BHK (Brouwer-Heyting-Kolmogorov) Interpretation.                                                                           | Regression Theorem (solves the frame problem). Fixpoint Semantics & Knaster-Tarski Theorem.                                                                                      | Japaridze's Arithmetical Completeness Theorem. L&ouml;b’s Theorem & Well-founded Kripke Semantics.                                                                              |
-:::
 
 ---
-
-::: {.shrink70}
 
 - $\mathrm{RDo}$ is equivalent to the $\Box$ modality of bimodal provability logic GLB: *"There exists a finite, step-by-step mechanical proof of this property."*
 
 - $\mathrm{ODo}$ is equivalent to the $\Box_\omega$ modality of GLB: *"Evaluated at the continuous limit, this property is universally true,"* i.e., this is the modality of *semantic reflection*.
 :::
-
 
