@@ -156,12 +156,18 @@
 <div class="column" style="width:40%;">
 <div class="quarto-figure quarto-figure-center">
 <figure>
-<p><img data-src="figs/towers1_sharpened_transparent.png" class="quarto-figure quarto-figure-center" style="width:50.0%"></p>
+<p><img data-src="figs/towers1_sharpened_transparent.png" class="quarto-figure quarto-figure-center" style="width:47.0%;height:47.0%"></p>
 </figure>
 </div>
 </div><div class="column" style="width:60%;">
-<div class="shrink80">
-<p><span class="math inline">\(\mathit{OnPeg}(d, p, s)\)</span></p>
+<div class="shrink75">
+<div style="margin-top: 0.6em;">
+
+</div>
+<p><span style="color:blue">Fluents:</span> <span class="math inline">\(\mathit{OnPeg}(d, p, s)\)</span></p>
+<div style="margin-top: 0.1em;">
+
+</div>
 <p><span style="color:blue"><em>Initial Situation:</em></span></p>
 <p><span class="math display">\[
 \begin{align*}
@@ -170,10 +176,23 @@
 &amp; \mathit{OnPeg}(D_3, Peg_1, S_0)
 \end{align*}
 \]</span></p>
-<p><em>Actions:</em> <span class="math inline">\(move(d, p_{from}, p_{to})\)</span></p>
-<p><span data-style="color:blue">Goal:</span> All disks on <span class="math inline">\(Peg_3\)</span>.</p>
+<p><span style="color:blue"><em>Actions:</em></span> <span class="math inline">\(move(d, p_{from}, p_{to})\)</span></p>
+<div style="margin-top: 1.0em;">
+
+</div>
+<p><span style="color:blue"><em>Goal:</em></span> All disks on <span class="math inline">\(Peg_3\)</span>.</p>
 </div>
 </div></div>
+<div style="margin-top: -1.3em;">
+
+</div>
+<div class="shrink75">
+<p><span style="color:blue">Why Towers of Hanoi?</span></p>
+<ul>
+<li>Naturally highly recursive, problem naturally decomposes into subproblems</li>
+<li>You learn how to solve it during search, for larger instances of <span class="math inline">\(n\)</span></li>
+</ul>
+</div>
 </section>
 <section id="reiters-induction-axiom" class="slide level2">
 <h2>Reiter’s Induction Axiom</h2>
@@ -203,10 +222,11 @@
 </figure>
 </div>
 <div class="shrink63">
-<p><em>Initial situation:</em> <span class="math inline">\(S_0\)</span></p>
-<p><em>Step 1:</em> <span class="math inline">\(do(move(D_1, Peg_1, Peg_3), S_0)\)</span></p>
-<p><em>Step 2:</em> <span class="math inline">\(do(move(D_2, \mathit{Peg}_1, \mathit{Peg}_2), do(move(D_1, Peg_1, Peg_3), S_0))\)</span></p>
-<p><em>Step 3:</em> <span class="math inline">\(do(move(D_1, C, B), do(move(D_2, \mathit{Peg}_1, \mathit{Peg}_2), do(move(D_1, Peg_1, Peg_3), S_0))\)</span></p>
+<p><span style="color:blue"><em>Initial situation:</em></span> <span class="math inline">\(S_0\)</span></p>
+<p><span style="color:blue"><em>Step 1:</em></span> <span class="math inline">\(do(move(D_1, Peg_1, Peg_3), S_0)\)</span></p>
+<p><span style="color:blue"><em>Step 2:</em></span> <span class="math inline">\(do(move(D_2, \mathit{Peg}_1, \mathit{Peg}_2), do(move(D_1, Peg_1, Peg_3), S_0))\)</span></p>
+<p><span style="color:blue"><em>Step 3:</em></span> <span class="math inline">\(do(move(D_1, C, B), do(move(D_2, \mathit{Peg}_1, \mathit{Peg}_2), do(move(D_1, Peg_1, Peg_3), S_0))\)</span></p>
+<p><span style="color:blue"><em>Step 4-:</em></span> etc.</p>
 </div>
 </section>
 <section id="situations-as-a-least-fixpoint" class="slide level2">

@@ -95,7 +95,7 @@
     "href": "talk.html#the-situation-calculus-towers-of-hanoi",
     "title": "Synthetic Relativity: Tri-modality and the Fixpoint Semantics of the Logical Observer",
     "section": "The situation calculus (Towers of Hanoi)",
-    "text": "The situation calculus (Towers of Hanoi)\n\n\n\n\n\n\n\n\n\n\\(\\mathit{OnPeg}(d, p, s)\\)\nInitial Situation:\n\\[\n\\begin{align*}\n& \\mathit{OnPeg}(D_1, Peg_1, S_0) \\land \\\\\n& \\mathit{OnPeg}(D_2, Peg_1, S_0) \\land \\\\\n& \\mathit{OnPeg}(D_3, Peg_1, S_0)\n\\end{align*}\n\\]\nActions: \\(move(d, p_{from}, p_{to})\\)\nGoal: All disks on \\(Peg_3\\)."
+    "text": "The situation calculus (Towers of Hanoi)\n\n\n\n\n\n\n\n\n\n\n\n\nFluents: \\(\\mathit{OnPeg}(d, p, s)\\)\n\n\n\nInitial Situation:\n\\[\n\\begin{align*}\n& \\mathit{OnPeg}(D_1, Peg_1, S_0) \\land \\\\\n& \\mathit{OnPeg}(D_2, Peg_1, S_0) \\land \\\\\n& \\mathit{OnPeg}(D_3, Peg_1, S_0)\n\\end{align*}\n\\]\nActions: \\(move(d, p_{from}, p_{to})\\)\n\n\n\nGoal: All disks on \\(Peg_3\\).\n\n\n\n\n\n\nWhy Towers of Hanoi?\n\nNaturally highly recursive, problem naturally decomposes into subproblems\nYou learn how to solve it during search, for larger instances of \\(n\\)"
   },
   {
     "objectID": "talk.html#reiters-induction-axiom",
@@ -109,7 +109,7 @@
     "href": "talk.html#situations-actions",
     "title": "Synthetic Relativity: Tri-modality and the Fixpoint Semantics of the Logical Observer",
     "section": "Situations & Actions",
-    "text": "Situations & Actions\n\n\n\n\n\n\nInitial situation: \\(S_0\\)\nStep 1: \\(do(move(D_1, Peg_1, Peg_3), S_0)\\)\nStep 2: \\(do(move(D_2, \\mathit{Peg}_1, \\mathit{Peg}_2), do(move(D_1, Peg_1, Peg_3), S_0))\\)\nStep 3: \\(do(move(D_1, C, B), do(move(D_2, \\mathit{Peg}_1, \\mathit{Peg}_2), do(move(D_1, Peg_1, Peg_3), S_0))\\)"
+    "text": "Situations & Actions\n\n\n\n\n\n\nInitial situation: \\(S_0\\)\nStep 1: \\(do(move(D_1, Peg_1, Peg_3), S_0)\\)\nStep 2: \\(do(move(D_2, \\mathit{Peg}_1, \\mathit{Peg}_2), do(move(D_1, Peg_1, Peg_3), S_0))\\)\nStep 3: \\(do(move(D_1, C, B), do(move(D_2, \\mathit{Peg}_1, \\mathit{Peg}_2), do(move(D_1, Peg_1, Peg_3), S_0))\\)\nStep 4-: etc."
   },
   {
     "objectID": "talk.html#situations-as-a-least-fixpoint",
