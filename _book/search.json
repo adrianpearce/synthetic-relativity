@@ -64,7 +64,7 @@
     "href": "talk.html#the-situation-calculus-towers-of-hanoi",
     "title": "Synthetic Relativity: Tri-modality and the Fixpoint Semantics of the Logical Observer",
     "section": "The situation calculus (Towers of Hanoi)",
-    "text": "The situation calculus (Towers of Hanoi)\n\n\n\n\n\n\n\n\n\n\n\n\nFluents: \\(\\mathit{OnPeg}(d, p, s)\\)\n\n\n\nInitial Situation:\n\\[\n\\begin{align*}\n& \\mathit{OnPeg}(D_1, Peg_1, S_0) \\land \\\\\n& \\mathit{OnPeg}(D_2, Peg_1, S_0) \\land \\\\\n& \\mathit{OnPeg}(D_3, Peg_1, S_0)\n\\end{align*}\n\\]\nActions: \\(move(d, p_{from}, p_{to})\\)\n\n\n\nGoal: All disks on \\(Peg_3\\).\n\n\n\n\n\n\n\nWhy Towers of Hanoi?\n\nNaturally highly recursive, problem naturally decomposes into subproblems\nYou learn how to solve it during search, for larger instances of \\(n\\)",
+    "text": "The situation calculus (Towers of Hanoi)\n\n\n\n\n\n\n\n\n\n\n\n\nFluents: \\(\\mathit{OnPeg}(d, p, s)\\)\n\n\n\nInitial Situation:\n\\[\n\\begin{align*}\n& \\mathit{OnPeg}(D_1, Peg_1, S_0) \\land \\\\\n& \\mathit{OnPeg}(D_2, Peg_1, S_0) \\land \\\\\n& \\mathit{OnPeg}(D_3, Peg_1, S_0)\n\\end{align*}\n\\]\nActions: \\(move(d, p_{from}, p_{to})\\)\n\n\n\nGoal: All disks on \\(Peg_3\\).",
     "crumbs": [
       "<span class='chapter-number'>2</span>  <span class='chapter-title'>Synthetic Relativity: Tri-modality and the Fixpoint Semantics of the Logical Observer</span>"
     ]
