@@ -233,7 +233,7 @@ Let <span class="math inline">\(\mathcal{A}\)</span> be actions and <span class=
 <div style="margin-top: -0.3em;">
 
 </div>
-<p>Recall that the <strong>Second-Order Induction Axiom</strong> dictates the exact boundaries of the universe:</p>
+<p>From the <strong>Second-Order Induction Axiom</strong>:</p>
 <ul>
 <li><strong>The Premise:</strong> <span class="math inline">\(P(S_0) \land \forall a,s\,(P(s)\to P(do(a,s)))\)</span> translates to <span class="math inline">\(\Gamma(P) \subseteq P\)</span>. Here, <span class="math inline">\(P\)</span> is a <strong>pre-fixed point</strong> <em>(an over-approximation that obeys the rules, but may contain unreachable “junk” like ghost situations or disconnected time loops).</em></li>
 <li><strong>The Consequent:</strong> <span class="math inline">\(\forall s\,P(s)\)</span> asserts that the true universe of situations <span class="math inline">\(\mathcal{S}\)</span> is a subset of <span class="math inline">\(P\)</span>.</li>
@@ -279,7 +279,6 @@ Poss(A(\vec{x}), s) \equiv \Theta_A(\vec{x}, s),
 <div style="margin-top: -0.8em;">
 
 </div>
-<p>For example:</p>
 <p><span class="math display">\[
 \begin{align*}
 Poss(move(d, p_{from}, p_{to}), s) \equiv \;&amp; Disk(d) \land (p_{from} \neq p_{to}) \land OnPeg(d, p_{from}, s) \land \\
@@ -445,7 +444,7 @@ OnPeg(d, p, do(a, s)) \equiv \;&amp; [\exists p_{from} \ (a = move(d, p_{from}, 
 <div class="shrink70">
 <p>While classical induction successfully builds a valid history, enforcing this rigid geometry creates severe structural limits for dynamic, self-reflective systems:</p>
 <ul>
-<li><strong>Strict Tree Topology (Unique Predecessors):</strong> Distinct action histories never converge. Even if two different paths result in the exact same state, the logic traps them in completely isolated parallel universes.</li>
+<li><strong>Strict Tree Topology (Unique Predecessors):</strong> Distinct action histories never converge. Even if two different paths result in the same state, the logic traps them in completely isolated parallel universes.</li>
 <li><strong>Total Ordering &amp; The Reflection Barrier:</strong> The strictly linear sequence of actions restricts true partial ordering and concurrency. The logic cannot step “outside” the sequence to self-reflect or re-evaluate its overarching reference frame.</li>
 <li><strong>No Native State Equivalence:</strong> Because states are strictly defined by their rigid <em>syntactic history</em> rather than their <em>observable behaviour</em>, the topology cannot naturally “fold” or quotient identical states together.</li>
 <li><strong>The Finiteness Barrier:</strong> By mathematical definition, a least fixpoint (<span class="math inline">\(\mu\)</span>) only constructs strictly <em>finite</em> chains. It is fundamentally blind to continuous processes, non-terminating streams, and infinite global invariants.</li>
@@ -858,7 +857,7 @@ Observed \equiv \nu X.\ (\langle -1 \rangle X \lor \langle +2 \rangle X)
 <div class="shrink70">
 <p><strong>1. Action Theories &amp; Fixpoint Verification</strong></p>
 <ul>
-<li><strong>Model Checking in the Situation Calculus:</strong> [De Giacomo et al.] pioneered the synthesis of classical Situation Calculus and the <span class="math inline">\(\mu\)</span>-calculus. By quotienting infinite state spaces via bisimulation into finite abstractions, they enabled the formal verification of dynamic, non-terminating systems (e.g., ConGolog) using standard fixpoint model checking.</li>
+<li><strong>Model Checking in the Situation Calculus:</strong> [De Giacomo et al.] and colleagues introduced the synthesis of classical Situation Calculus and the <span class="math inline">\(\mu\)</span>-calculus. By quotienting infinite state spaces via bisimulation into finite abstractions, they enabled the formal verification of dynamic, non-terminating systems (e.g., ConGolog) using standard fixpoint model checking.</li>
 </ul>
 <p><strong>2. Categorical Logic &amp; Observational Duality</strong></p>
 <ul>
@@ -941,7 +940,7 @@ Observed \equiv \nu X.\ (\langle -1 \rangle X \lor \langle +2 \rangle X)
 <section id="future-work-formalising-relativistic-invariance" class="slide level2">
 <h2>Future Work: Formalising Relativistic Invariance</h2>
 <div class="shrink60">
-<p>In physical relativity, shifting reference frames distorts local spatial and temporal coordinates, but mathematically preserves the fundamental 4D spacetime interval across all frames (<span class="math inline">\(\Delta s^2 = \Delta s'^2\)</span>): <span class="math inline">\(\Delta s^2 = (c\Delta t)^2 - (\Delta x^2 + \Delta y^2 + \Delta z^2)\)</span>. We hypothesise an exact categorical equivalent for our semantic limits.</p>
+<p>In physical relativity, shifting reference frames distorts local spatial and temporal coordinates, but mathematically preserves the fundamental 4D spacetime interval across all frames (<span class="math inline">\(\Delta s^2 = \Delta s'^2\)</span>): <span class="math inline">\(\Delta s^2 = (c\Delta t)^2 - (\Delta x^2 + \Delta y^2 + \Delta z^2)\)</span>. We hypothesise a categorical equivalent for our semantic limits.</p>
 </div>
 <div class="shrink85">
 <div title="Conjecture: Relativistic Invariance of the Semantic Interval">
@@ -960,7 +959,7 @@ Observed \equiv \nu X.\ (\langle -1 \rangle X \lor \langle +2 \rangle X)
 </div>
 <div class="shrink60">
 <ul>
-<li><strong>Next Steps:</strong> Formalising the exact Beck-Chevalley boundary conditions required to ensure seamless quantifier preservation (<span class="math inline">\(\forall, \exists\)</span>) when the system mathematically synthesises higher-order subproblems.</li>
+<li><strong>Next Steps:</strong> Formalising the Beck-Chevalley boundary conditions required to ensure seamless quantifier preservation (<span class="math inline">\(\forall, \exists\)</span>) when the system mathematically synthesises higher-order subproblems.</li>
 </ul>
 </div>
 </section>
@@ -976,9 +975,9 @@ Observed \equiv \nu X.\ (\langle -1 \rangle X \lor \langle +2 \rangle X)
 </ul></li>
 <li><strong>2. Adjoint Duality (Swapping the Problem)</strong>
 <ul>
-<li>Generalising a safe invariant is structurally the exact dual to deductive planning (a Categorical Adjunction: <span class="math inline">\(L \dashv R\)</span>).</li>
+<li>Generalising a safe invariant is structurally the dual to deductive planning (a Categorical Adjunction: <span class="math inline">\(L \dashv R\)</span>).</li>
 <li><em>Planning (Left Adjoint, <span class="math inline">\(L\)</span>):</em> Inductive, bottom-up synthesis of a finite trace (Least Fixpoint, <span class="math inline">\(\mu\)</span>). Left adjoints natively preserve colimits.</li>
-<li><em>Generalising (Right Adjoint, <span class="math inline">\(R\)</span>):</em> Coinductive, top-down projection of an infinite bound (Greatest Fixpoint, <span class="math inline">\(\nu\)</span>). Right adjoints natively preserve limits. Finite local observations mathematically push across the adjunction to rigorously force the exact coinductive proposal.</li>
+<li><em>Generalising (Right Adjoint, <span class="math inline">\(R\)</span>):</em> Coinductive, top-down projection of an infinite bound (Greatest Fixpoint, <span class="math inline">\(\nu\)</span>). Right adjoints natively preserve limits. Finite local observations mathematically push across the adjunction to rigorously force the coinductive proposal.</li>
 </ul></li>
 </ul>
 </div>
@@ -990,7 +989,7 @@ Observed \equiv \nu X.\ (\langle -1 \rangle X \lor \langle +2 \rangle X)
 <li><strong>3. Universal Properties (Terminal Coalgebras)</strong>
 <ul>
 <li>The system requires no external human engineering templates or artificial “Syntax-Guided Synthesis” (SyGuS) biases.</li>
-<li>Because <span class="math inline">\(S_f\)</span> natively encodes the exact geometric symmetries of the domain, the optimal coinductive generalisation automatically emerges as a <strong>Universal Property</strong> (specifically, a <em>Terminal Coalgebra</em>).</li>
+<li>Because <span class="math inline">\(S_f\)</span> natively encodes the geometric symmetries of the domain, the optimal coinductive generalisation automatically emerges as a <strong>Universal Property</strong> (specifically, a <em>Terminal Coalgebra</em>).</li>
 <li><strong>Stone Duality</strong> mathematically guarantees that the internal logical syntax will organically fold to bound the state space’s innate topology—achieving true, self-transcendence.</li>
 </ul></li>
 </ul>
