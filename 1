@@ -123,20 +123,31 @@ $$\mathcal{S} = \mu X.\Gamma(X)$$
 
 ::: {.shrink68}
 
-**Basic Action Theories** [Lin and Reiter 94] define Theory 
+**Basic Action Theories** [Lin and Reiter 94] define Theory $\mathcal{D} = \Sigma \cup \mathcal{D}_{S_0} \cup \mathcal{D}_{Poss} \cup \mathcal{D}_{SSA} \cup \mathcal{D}_{UNA}$, where:
 
-$$\mathcal{D} = \Sigma \cup \mathcal{D}_{S_0} \cup {\color{blue}{\mathcal{D}_{Poss}}} \cup {\color{blue}{\mathcal{D}_{SSA}}} \cup \mathcal{D}_{UNA}$$
-
+* $\color{blue}{\mathcal{D}_{S_0}}$: axioms describing the initial state of the fluents in $S_0$
 * $\color{blue}{\mathcal{D}_{poss}}$: axioms describing the prerequisites of the primitive actions, of the form:
 <div style="margin-top: -0.8em;"></div>
   $$
   Poss(A(\vec{x}), s) \equiv \Theta_A(\vec{x}, s),
   $$
-  one for each primitive action $A$.
-
 <div style="margin-top: -0.8em;"></div>
+  one for each primitive action $A$.
+* $\color{blue}{\mathcal{D}_{ssa}}$: axioms describing the effects and non-effects of actions, of the form:
+<div style="margin-top: -0.8em;"></div>
+  $$F(\vec{x}, do(a, s)) \equiv \psi_F(\vec{x}, a, s),$$ 
+<div style="margin-top: -0.8em;"></div>
+one for each fluent $F$.
 
-For example:
+* $\color{blue}{\mathcal{D}_{una}}$: unique name axioms for the actions and objects, e.g.  $move(d_1, p_1, p_2) = move(d_2, p_3, p_4) \supset (d_1 = d_2 \land p_1 = p_3 \land p_2 = p_4)$, $(D_1 \neq D_2) \land (D_2 \neq D_3) \land (D_1 \neq D_3)$ and $(P_0 \neq P_1) \land (P_1 \neq P_2) \land (P_0 \neq P_2)$.
+
+* $\color{blue}{\Sigma}$: some foundational domain-independent axioms, e.g. $Smaller(d^{\prime}, d)$
+
+:::
+
+## Action Precondition (Possibility) Axioms
+
+::: {.shrink70}
 
 $$
 \begin{align*}
@@ -146,50 +157,47 @@ Poss(move(d, p_{from}, p_{to}), s) \equiv \;& Disk(d) \land (p_{from} \neq p_{to
 \end{align*}
 $$
 
-
 :::
 
 
 ## A solution to the frame problem ([sometimes]{style="color:blue"}) [Reiter 91]
 
-::: {.shrink70}
-
-* $\color{blue}{\mathcal{D}_{ssa}}$: axioms describing the effects and non-effects of actions, of the form $F(\vec{x}, do(a, s)) \equiv \psi_F(\vec{x}, a, s),$ one for each fluent $F$. 
+::: {.shrink75}
 
 1. Positive effect axioms:
 
-<div style="margin-top: -1.1em;"></div>
+<div style="margin-top: -0.8em;"></div>
 $$
 \exists p_{from} \ (a = move(d, p_{from}, p)) \supset OnPeg(d, p, do(a, s))
 $$
-<div style="margin-top: -1.1em;"></div>
+<div style="margin-top: -0.8em;"></div>
 
 2. Negative effect axioms:
 
-<div style="margin-top: -1.1em;"></div>
+<div style="margin-top: -0.8em;"></div>
 $$
 \exists p_{to} \ (a = move(d, p, p_{to})) \supset \neg OnPeg(d, p, do(a, s))
 $$
-<div style="margin-top: -1.1em;"></div>
+<div style="margin-top: -0.8em;"></div>
 
 3. Frame axioms:
 
-<div style="margin-top: -1.1em;"></div>
+<div style="margin-top: -0.8em;"></div>
 $$
 OnPeg(d, p, s) \land \neg \exists p_{to} \ (a = move(d, p, p_{to})) \supset OnPeg(d, p, do(a, s))
 $$
-<div style="margin-top: -1.1em;"></div>
+<div style="margin-top: -0.8em;"></div>
 
 4. Completeness assumption (explanation closure):
 
-<div style="margin-top: -1.1em;"></div>
+<div style="margin-top: -1.0em;"></div>
 $$
 \neg OnPeg(d, p, s) \land OnPeg(d, p, do(a, s)) \supset \exists p_{from} \ (a = move(d, p_{from}, p))
 $$
 
-<div style="margin-top: -0.8em;"></div>
+<div style="margin-top: -0.3em;"></div>
 
-$\color{blue}{\mathcal{D}_{ssa}}$ $=$ positive effect axioms $+$ negative effect axioms $+$ frame axioms $+$ [completeness assumption]{style="color:blue"}
+**Successor state axioms** $=$ positive effect axioms $+$ negative effect axioms $+$ frame axioms $+$ [completeness assumption]{style="color:blue"}
 
 :::
 
@@ -228,20 +236,28 @@ $$
 
 :::
 
-## Regression 
-::: {.shrink65}
+## Syntactic Transformation: Regression ($\mathcal{R}$)
+
+::: {.shrink75}
 
 The **regression operator** ($\mathcal{R}$) evaluates a query about a future state by pushing it backward in time. 
 
-<div style="margin-top: -1.3em;"></div>
+It syntactically replaces a fluent evaluated at $do(a, s)$ with the logically equivalent right-hand side of its Successor State Axiom.
 
 $$
 \mathcal{R}[{\color{blue}{F(\vec{x}, do(a, s))}}] \;\stackrel{\text{def}}{=}\; \gamma_F^+(\vec{x}, a, s) \lor {\color{blue}{F(\vec{x}, s)}} \land \neg \gamma_F^-(\vec{x}, a, s)
 $$
 
-<div style="margin-top: -0.6em;"></div>
+Instead of computing the physical state tree forward (building), the logic engine *rewrites the future query into a question strictly about the preceding state $s$*. 
 
-[*For Example: is $D_2$ on $Peg_2$ after we move $D_1$ from $Peg_1$ to $Peg_2$?*]{style="color:blue"}
+- By repeating this recursively, any complex historical query is mathematically reduced to a simple database lookup against the initial state ($S_0$).
+
+:::
+
+## Towers of Hanoi Regression Example
+::: {.shrink70}
+
+[*Is $D_2$ on $Peg_2$ after we move $D_1$ from $Peg_1$ to $Peg_2$?*]{style="color:blue"}
 
 <div style="margin-top: 0.5em;"></div>
 
@@ -268,7 +284,7 @@ Because our Unique Names Axioms explicitly state $D_1 \neq D_2$, both action equ
 <div style="margin-top: -0.5em;"></div>
 
 $$
-\equiv \mathrm{False} \lor \color{blue}{OnPeg(D_2, Peg_C, S_0)} \land \neg \mathrm{False}
+\equiv \mathbf{False} \lor \color{blue}{OnPeg(D_2, Peg_C, S_0)} \land \neg \mathbf{False}
 $$
 
 <div style="margin-top: -1.0em;"></div>
@@ -286,7 +302,7 @@ $$
 ::: {.shrink70}
 While classical induction successfully builds a valid history, enforcing this rigid geometry creates severe structural limits for dynamic, self-reflective systems:
 
-*   **Strict Tree Topology (Unique Predecessors):** Distinct action histories never converge. Even if two different paths result in the exact same state, the logic traps them in completely isolated parallel universes.
+*   **Strict Tree Topology (Unique Predecessors):** Distinct action histories never converge. Even if two different paths result in the exact same physical state, the logic traps them in completely isolated parallel universes.
 *   **Total Ordering & The Reflection Barrier:** The strictly linear sequence of actions restricts true partial ordering and concurrency. The logic cannot step "outside" the sequence to self-reflect or re-evaluate its overarching reference frame.
 *   **No Native State Equivalence:** Because states are strictly defined by their rigid *syntactic history* rather than their *observable behaviour*, the topology cannot naturally "fold" or quotient identical states together.
 *   **The Finiteness Barrier:** By mathematical definition, a least fixpoint ($\mu$) only constructs strictly *finite* chains. It is fundamentally blind to continuous processes, non-terminating streams, and infinite global invariants.
@@ -351,7 +367,7 @@ While standard induction proves a finite base case and builds upward, coinductio
 **2. Stone Duality (Syntax-Semantics Mirror)**
 In Category Theory, **Stone Duality** dictates a perfect, inverse mirror-image between **Syntax** (logical formulas) and **Semantics** (topological state space). 
 
-* *The Syntactic Transformation:* If our logic formally declares two distinct observational paths to be identical (Bisimulation Equivalence)...
+* *The Syntactic Transformation:* If our logic engine formally declares two distinct observational paths to be identical (Bisimulation Equivalence)...
 * *The Semantic Result:* Stone Duality guarantees the underlying semantic space automatically folds (quotients) to make those paths topologically identical.
 
 :::
@@ -383,7 +399,7 @@ $$ ParityInvariant \equiv \nu Z.\ \langle -1 \rangle Z $$
 ::: {.shrink75}
 
 **3. The Coinductive Step (Bisimulation):** 
-The stream outputs a jump of $+2$. How does our proposed invariant survive this contradiction? To satisfy the local coinductive check, the logic evaluates the domain's geometry. It formally recognises that jumping right twice ($+2$) is structurally indistinguishable from jumping left once ($-1$). It applies this coinductive equivalence:
+The physical stream outputs a jump of $+2$. How does our proposed invariant survive this contradiction? To satisfy the local coinductive check, the logic engine evaluates the domain's geometry. It formally recognises that jumping right twice ($+2$) is structurally indistinguishable from jumping left once ($-1$). It applies this coinductive equivalence:
 <div style="margin-top: -0.6em;"></div>
 $$ \forall \phi.\ \langle +2 \rangle \phi \;\equiv\; \langle -1 \rangle \phi $$
 
@@ -456,7 +472,7 @@ It reads: *"Relative to reference frame $S_f$, the accumulation of inductive evi
 ## Semantic Realisation
 
 ::: {.callout-note icon=false title="Theorem I: Semantic Realisation"}
-**Semantic Realisation** is the mathematical state where syntax and semantics converge. Because the logic builds upon finite, verifiable observables, autonomous progression halts when the topology reaches Algebraic Compactness:
+**Semantic Realisation** is the mathematical state where syntax and semantics converge. Because the engine builds upon finite, verifiable observables, autonomous progression halts when the topology reaches Algebraic Compactness:
 
 <div style="margin-top: -0.8em;"></div>
 
@@ -501,7 +517,7 @@ $$ \mathrm{PDo}(N, O, S_f) \longrightarrow \mathrm{PDo}(X, Y, O) $$
 ::: {.shrink70}
 
 **1. Local Unrolling (Building the Situation Trace):** 
-The logic recursively accumulates primitive actions [(moving disks)]{style="color:blue"}, generating the topological equivalent of a nested $do()$ sequence:
+The engine recursively accumulates primitive actions [(moving disks)]{style="color:blue"}, generating the topological equivalent of a nested $do()$ sequence:
 
 <div style="margin-top: -0.8em;"></div>
 
@@ -553,12 +569,13 @@ $$ \mu(\mathrm{PDo}) \cong \nu(\mathrm{PDo}) $$
 *The active inductive trace ($\mu$) strictly fulfills the persistent semantic invariant ($\nu$).*
 :::
 
-# Relativistic Domain Theory in Logical Form (R-DTLF)
 
 ## DTLF Logical Primitives---No negation or implication
 
-::: {.shrink60}
-We require a logic that fuses classical (inductive) logic with intuitionistic (coinductive) logic, so we ground our system in Abramsky’s **DTLF** (1991) based on an **intuitionistic** construction of truth. DTLF formulas represent observable properties as they unfold, because a system can only assert what it can finitely verify, the baseline syntax is strictly positive:
+::: {.shrink58}
+We require a logic that fuses classical (inductive) logic with intuitionistic (coinductive) logic, so we ground our system in Abramsky’s **DTLF** (1991) based on an **intuitionistic** construction of truth. 
+
+DTLF formulas respresent observable properties as they unfold, because a system can only assert what it can finitely verify, the baseline syntax is strictly positive:
 
 <div style="margin-top: -0.3em;"></div>
 
@@ -590,7 +607,7 @@ $$
 <div style="margin-top: -0.8em;"></div>
 
 **2. The Reality:**
-However, the puzzle generates a stream that forces a forward jump of $+2$ from $Peg_1$ back to $Peg_3$. The observable bounds are:
+However, the physical puzzle generates a stream that forces a forward jump of $+2$ from $Peg_1$ back to $Peg_3$. The observable bounds are:
 <div style="margin-top: -0.8em;"></div>
 $$
 Observed \equiv \nu X.\ (\langle -1 \rangle X \lor \langle +2 \rangle X)
@@ -606,29 +623,10 @@ $$
 
 :::
 
-# Conclusion
-
-## Conclusion
-
-::: {.shrink60}
-
-| Feature | Standard Situation Calculus (Induction) | Synthetic Relativity (R-DTLF) (Coinduction) |
-| :--- | :--- | :--- |
-| **Objective** | Historical Reachability / Action Execution | Property Persistence / Self-transcending reasoning |
-| **Conceptual Math** | Least Fixpoint (LFP) | Greatest Fixpoint (GFP) & Least Fixpoint LFP |
-| **Logical Foundation** | Second-Order Induction (Algebraic) | Co-induction (Coalgebraic) + Induction (Algebraic) |
-| **Syntactic Transformation** | Transformation into First-Order Logic (SSAs) | Transformation to coinduced properties then compiled to SSAs|
-| **Computation**| Computed as LFP in the $Do$ modality (Golog) | Computed in the DTLF + Do modality (Golog) |
-| **Resolution** | First-Order Theorem Proving | Bisimulation Equivalence (Quotients) + First-Order Theorem Proving |
-
-:::
-
-# Appendix
-
 
 ## Spatial Completeness & The Static Limitation
 
-::: {.shrink80}
+::: {.shrink85}
 
 The mathematical power of vanilla DTLF lies in **Spatial Completeness** (rooted in Stone Duality).
 
@@ -639,7 +637,7 @@ Vanilla DTLF perfectly describes a single, *static* universe. However, to differ
 
 :::
 
-## Bridging Worlds: Compilation into SSAs
+## Bridging Worlds: Endogenous Logic Compilation
 
 ::: {.shrink87}
 
@@ -653,51 +651,31 @@ Upon semantic realisation, the continuous intuitionistic trace generated by $\ma
 **Proof Sketch:** Topos theory formally guarantees that inside every fluid, intuitionistic space exists a rigid Boolean sub-lattice that can be safely projected onto.
 :::
 
-## Bridging Worlds: Compilation into SSAs (continued)
+## Bridging Worlds: Endogenous Logic Compilation (continued)
 
 ::: {.shrink85}
 
-- **Compiling Successor State Axioms (SSAs):** This geometric compression is mathematically homologous to Ray Reiter's **Explanation Closure**. The Relativistic approach acts as an endogenous logic compiler—synthesising complex discovered invariants directly into rigid First-Order logical rules.
+- **Compiling Successor State Axioms (SSAs):** This geometric compression is mathematically homologous to Ray Reiter's **Explanation Closure**. The Relativistic Engine acts as an endogenous logic compiler—synthesising complex discovered invariants directly into rigid First-Order logical rules.
 - **Hybrid Execution:** Because of this formal theorem, we can securely export newly learned R-DTLF heuristics directly into standard classical Basic Action Theories (BATs). This allows R-DTLF to handle complex structural learning, and legacy solvers (like Golog).
 
 :::
 
-## Theory-Driven Generalization
-
-::: {.shrink62}
-
-When the converged limit shifts to become the new Reference Frame ($S_f$) via the **Transformation Axiom**, it acts natively as a global Greatest Fixpoint ($\nu$) and the coinduced property is added to the reference theory for subsequent computations. The system treats **generalisation** as a categorical operation over its Reference Theory ($S_F$) facilitating invariant proposal through the foundational duality of fibrations and adjunctions.
-
-* **1. Change of Base (The Fibrational Shift)**
-  * Logical properties form a *Total Category* fibered over a *Base Category* of states. 
-  * The system performs a **Change of Base** from the coinduced space ($ODo$) to the inductive space ($RDo$). This functor maps complex, induced histories into coinduced progressions.
-
-* **2. Adjoint Duality (Swapping the Problem)**
-  * Generalising a safe invariant is structurally identical to the problem of deductive planning, simply with the functors reversed (an Adjunction: $Left \dashv Right$).
-  * *Planning (Left Adjoint):* Inductive, bottom-up synthesis of a finite trace (Least Fixpoint).
-  * *Generalising (Right Adjoint):* Coinductive, top-down projection of an infinite bound (Greatest Fixpoint). The finite local observations mathematically push across the adjunction to form the exact coinductive proposal.
-
-:::
-
-## Theory-Driven Generalization (continued)
+## Conclusion
 
 ::: {.shrink70}
 
-* **3. Universal Properties (Terminal Coalgebras)**
-  * The system requires no external engineering templates or "Syntax-Guided" rules.
-  * Because $S_F$ natively defines the geometric symmetries of the domain, the coinductive proposal emerges as a **Universal Property** (specifically, a Terminal Coalgebra). Stone Duality ensures that the logical syntax automatically folds to perfectly bound the state space's innate topology.
+| Feature | Standard Situation Calculus (The "Building" Frame) | Synthetic Relativity (The "Observing" Frame) |
+| :--- | :--- | :--- |
+| **Objective** | Historical Reachability / Action Execution | Property Persistence / Safety Guarantees |
+| **Conceptual Math** | Least Fixpoint (LFP) | Greatest Fixpoint (GFP) |
+| **Logical Foundation** | Second-Order Induction (Algebraic) | Co-induction (Coalgebraic) |
+| **Syntactic Transformation** | Transformation into First-Order Logic (SSAs) | Transformation to Relativistic Differentials |
+| **Computation Engine**| Computed as LFP in the $Do$ modality (Golog) | Computed in the R-DTLF logic |
+| **Resolution Engine** | First-Order Theorem Proving | Bisimulation Equivalence (Quotients) |
 
 :::
 
-## Synthetic Relativity versus Situation Calculus versus GLB
 
-::: {.shrink55}
 
-| Aspect             | *Synthetic Relativity (R-DTLF)* | *Situation Calculus (BATs/SSAs) $+$ variants of $\mu$-calculus* | *Bimodal Provability logic (GLB)* |
-| :----------------- | :------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | :------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | :------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| *Modalities* | $\mathrm{RDo}$, $\mathrm{ODo}$ & $\mathrm{PDo}$                                                                                                                            | $\mathrm{PDo}$, $\langle a \rangle \phi$ (possibility), $[a] \phi$ (necessity)                                                                                                   | $\Box$, $\Box_\omega$                                                                                                                                                      |
-| *Ordering* | Sequences of finite Posets, non-unique predecessors, non-well ordered                                                                                                      | Successor function, Unique predecessors, non-well ordered                                                                                                                        | Transfinite ordinality: limits, Non-unique predecessors, well-ordered                                                                                                      |
-| *Completeness?* | Spatially complete (continuous geometry) and Turing complete (universal computation via recursive domains); Arithmetically incomplete (triggers Gödel's incompleteness). | Turing complete (can compute anything), but neither spatially complete (no continuous geometry) nor arithmetically complete (subject to Gödel's incompleteness).                 | Arithmetically complete (flawlessly models the bounds of provability), but neither Turing complete (strictly decidable, cannot compute loops) nor spatially complete.      |
-| *Other* | Algebraic compactness. Kleene's Realizability & BHK (Brouwer-Heyting-Kolmogorov) Interpretation.                                                                           | Regression Theorem (solves the frame problem). Fixpoint Semantics & Knaster-Tarski Theorem.                                                                                      | Japaridze's Arithmetical Completeness Theorem. L&ouml;b’s Theorem & Well-founded Kripke Semantics.                                                                              |
-:::
+
 

@@ -16,6 +16,57 @@ This module is also available in the following versions
 
 # Appendix
 
+## Synthetic Relativity versus Situation Calculus versus GLB
+
+::: {.shrink55}
+
+| Aspect             | *Synthetic Relativity (R-DTLF)* | *Situation Calculus (BATs/SSAs) $+$ variants of $\mu$-calculus* | *Bimodal Provability logic (GLB)* |
+| :----------------- | :------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | :------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | :------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| *Modalities* | $\mathrm{RDo}$, $\mathrm{ODo}$ & $\mathrm{PDo}$                                                                                                                            | $\mathrm{PDo}$, $\langle a \rangle \phi$ (possibility), $[a] \phi$ (necessity)                                                                                                   | $\Box$, $\Box_\omega$                                                                                                                                                      |
+| *Ordering* | Sequences of finite Posets, non-unique predecessors, non-well ordered                                                                                                      | Successor function, Unique predecessors, non-well ordered                                                                                                                        | Transfinite ordinality: limits, Non-unique predecessors, well-ordered                                                                                                      |
+| *Completeness?* | Spatially complete (continuous geometry) and Turing complete (universal computation via recursive domains); Arithmetically incomplete (triggers Gödel's incompleteness). | Turing complete (can compute anything), but neither spatially complete (no continuous geometry) nor arithmetically complete (subject to Gödel's incompleteness).                 | Arithmetically complete (flawlessly models the bounds of provability), but neither Turing complete (strictly decidable, cannot compute loops) nor spatially complete.      |
+| *Other* | Algebraic compactness. Kleene's Realizability & BHK (Brouwer-Heyting-Kolmogorov) Interpretation.                                                                           | Regression Theorem (solves the frame problem). Fixpoint Semantics & Knaster-Tarski Theorem.                                                                                      | Japaridze's Arithmetical Completeness Theorem. L&ouml;b’s Theorem & Well-founded Kripke Semantics.                                                                              |
+:::
+
+---
+
+::: {.shrink70}
+
+- $\mathrm{RDo}$ is equivalent to the $\Box$ modality of bimodal provability logic GLB: *"There exists a finite, step-by-step mechanical proof of this property."*
+
+- $\mathrm{ODo}$ is equivalent to the $\Box_\omega$ modality of GLB: *"Evaluated at the continuous limit, this property is universally true,"* i.e., this is the modality of *semantic reflection*.
+:::
+
+
+## Theory-Driven Generalization
+
+::: {.shrink62}
+
+When the converged limit shifts to become the new Reference Frame ($S_f$) via the **Transformation Axiom**, it acts natively as a global Greatest Fixpoint ($\nu$) and the coinduced property is added to the reference theory for subsequent computations. The system treats **generalisation** as a categorical operation over its Reference Theory ($S_F$) facilitating invariant proposal through the foundational duality of fibrations and adjunctions.
+
+* **1. Change of Base (The Fibrational Shift)**
+  * Logical properties form a *Total Category* fibered over a *Base Category* of states. 
+  * The system performs a **Change of Base** from the coinduced space ($ODo$) to the inductive space ($RDo$). This functor maps complex, induced histories into coinduced progressions.
+
+* **2. Adjoint Duality (Swapping the Problem)**
+  * Generalising a safe invariant is structurally identical to the problem of deductive planning, simply with the functors reversed (an Adjunction: $Left \dashv Right$).
+  * *Planning (Left Adjoint):* Inductive, bottom-up synthesis of a finite trace (Least Fixpoint).
+  * *Generalising (Right Adjoint):* Coinductive, top-down projection of an infinite bound (Greatest Fixpoint). The finite local observations mathematically push across the adjunction to form the exact coinductive proposal.
+
+:::
+
+## Theory-Driven Generalization (continued)
+
+::: {.shrink70}
+
+* **3. Universal Properties (Terminal Coalgebras)**
+  * The system requires no external engineering templates or "Syntax-Guided" rules.
+  * Because $S_F$ natively defines the geometric symmetries of the domain, the coinductive proposal emerges as a **Universal Property** (specifically, a Terminal Coalgebra). Stone Duality ensures that the logical syntax automatically folds to perfectly bound the state space's innate topology.
+
+:::
+
+
+
 ## Domain Theory in Logical Form (DTLF)
 
 ::: {.shrink87}

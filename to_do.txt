@@ -1,15 +1,5 @@
 Synthetic Relativity:
 
-Identify the 25 most important slides...then perhaps order them from there.
-
-Bring the relativity/tri-modality stuff forward (somehow)
-
-OK, I think I know how to amend the generalisation slide, but is could come later.
-
-Cutdown amount of info on the trimodality slide itself (too crowded).
-
-See Gemini, it has perfectly written out the logical DTLF form of the parity invariant...go back in and look, anything worth while there, perhaps the logic looked better to my eyes?
-
 ============== Future work ===============
 
 Think about the widening story, can it be generalised and tightened up a bit?
