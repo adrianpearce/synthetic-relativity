@@ -703,7 +703,7 @@ In physical relativity, shifting reference frames distorts local spatial and tem
 
 ::: {.shrink85}
 
-::: {.callout-note icon=false title="Conjecture IV: Relativistic Invariance of the Semantic Interval"}
+::: {.callout-note icon=false title="Conjecture: Relativistic Invariance of the Semantic Interval"}
 **The Hypothesis:** Under the **Synthetic Transformation**, the semantic integrity of the realised limit ($O$) is structurally preserved across the categorical Change of Base.
 
 **Proposed Formalisation:** 
