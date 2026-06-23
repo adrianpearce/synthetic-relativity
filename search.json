@@ -6,7 +6,7 @@
     "section": "",
     "text": "Synthetic Relativity: Tri-modality and the Fixpoint Semantics of the Logical Observer",
     "crumbs": [
-      "<span class='chapter-number'>1</span>  <span class='chapter-title'>Introduction</span>"
+      "<span class='chapter-number'>1</span>  <span class='chapter-title'>Abstract</span>"
     ]
   },
   {
@@ -16,7 +16,7 @@
     "section": "Author",
     "text": "Author\nProfessor Adrian R. Pearce, School of Computing and Information Systems, The University of Melbourne",
     "crumbs": [
-      "<span class='chapter-number'>1</span>  <span class='chapter-title'>Introduction</span>"
+      "<span class='chapter-number'>1</span>  <span class='chapter-title'>Abstract</span>"
     ]
   },
   {
@@ -26,7 +26,7 @@
     "section": "Abstract",
     "text": "Abstract\nThere has been a rich history of using extensions to the Situation Calculus, such as variations of the \\(\\mu\\)-calculus, to compute least and greatest fixpoints for solving problems like strategy synthesis and verifying temporally extended properties. Traditionally, these approaches have relied on the encoding of static, global Basic Action Theories. Here, we show how problems of this nature can more generally be thought of as logical self-reflection, involving both inference duality and categorical duality. We introduce a relativistic framework founded on Stone duality for the computation of greatest and least fixpoints, leading to a more integrated approach not only for solving existing problems, but potentially for progressing basic action theories themselves-yielding self-transcending action theories.\nTo formalise self-reflection as a dynamic, computationally tractable process, this talk introduces Synthetic Relativity, presenting a new and unique set of structural axioms and corresponding mathematical theorems. We show how these foundational axioms can utilise a Relativistic version of Domain Theory in Logical Form (R-DTLF) to establish a trimodal logic, natively dividing computation into an inductive syntactic accumulator (\\(\\mathrm{RDo}\\)), a coinductive semantic observer (\\(\\mathrm{ODo}\\)), and a relativistic progression engine (\\(\\mathrm{PDo}\\)). Through Semantic Realisation, we demonstrate how bottom-up syntactic proof traces and top-down semantic invariants mathematically lock at a state of Algebraic Compactness (\\(\\mu = \\nu\\)). This topological resolution permits a categorical Change of Base via a Transitivity Axiom, allowing an autonomous agent to dynamically shift its baseline reference frame. Finally, via Topological Booleanization, we illustrate how the semantic observer can act as a logic compiler, mathematically deducing hidden structural invariants and compiling them into classical Successor State Axioms (SSAs).",
     "crumbs": [
-      "<span class='chapter-number'>1</span>  <span class='chapter-title'>Introduction</span>"
+      "<span class='chapter-number'>1</span>  <span class='chapter-title'>Abstract</span>"
     ]
   },
   {
@@ -36,7 +36,7 @@
     "section": "Biography",
     "text": "Biography\nAdrian R. Pearce is a Professor and Deputy Head of School (Engagement) in the School of Computer Science and Information Systems at the University of Melbourne.",
     "crumbs": [
-      "<span class='chapter-number'>1</span>  <span class='chapter-title'>Introduction</span>"
+      "<span class='chapter-number'>1</span>  <span class='chapter-title'>Abstract</span>"
     ]
   },
   {
@@ -404,7 +404,7 @@
     "href": "talk.html#self-transcending-theory-driven-generalisation-contd",
     "title": "Synthetic Relativity: Tri-modality and the Fixpoint Semantics of the Logical Observer",
     "section": "Self-Transcending, Theory-Driven Generalisation (cont’d)",
-    "text": "Self-Transcending, Theory-Driven Generalisation (cont’d)\n\n\n3. Universal Properties (Terminal Coalgebras)\n\nThe system requires no external human engineering templates or artificial “Syntax-Guided” (SyGuS) biases.\nBecause \\(S_f\\) natively encodes the exact geometric symmetries of the domain, the optimal coinductive generalisation automatically emerges as a Universal Property (specifically, a Terminal Coalgebra).\nStone Duality mathematically guarantees that the internal logical syntax will organically fold to perfectly bound the state space’s innate topology—achieving true, endogenous self-transcendence.",
+    "text": "Self-Transcending, Theory-Driven Generalisation (cont’d)\n\n\n3. Universal Properties (Terminal Coalgebras)\n\nThe system requires no external human engineering templates or artificial “Syntax-Guided Synthesis” (SyGuS) biases.\nBecause \\(S_f\\) natively encodes the exact geometric symmetries of the domain, the optimal coinductive generalisation automatically emerges as a Universal Property (specifically, a Terminal Coalgebra).\nStone Duality mathematically guarantees that the internal logical syntax will organically fold to perfectly bound the state space’s innate topology—achieving true, endogenous self-transcendence.",
     "crumbs": [
       "<span class='chapter-number'>2</span>  <span class='chapter-title'>Synthetic Relativity: Tri-modality and the Fixpoint Semantics of the Logical Observer</span>"
     ]
