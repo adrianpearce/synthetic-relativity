@@ -51,16 +51,6 @@ $$
 :::
 :::
 
-<div style="margin-top: -1.3em;"></div>
-::: {.shrink75}
-
-[Why Towers of Hanoi?]{style="color:blue"}
-
-- Naturally highly recursive, problem naturally decomposes into subproblems
-- You learn how to solve it during search, for larger instances of $n$
-:::
-
-
 ## Reiter's Induction Axiom
 
 ::: {.callout-note icon=false title="The Foundational Induction Axiom: Second Order"}
