@@ -741,7 +741,7 @@ When the converged limit shifts to become the new Reference Frame ($S_f$) via th
 ::: {.shrink70}
 
 * **3. Universal Properties (Terminal Coalgebras)**
-  * The system requires no external human engineering templates or artificial "Syntax-Guided" (SyGuS) biases.
+  * The system requires no external human engineering templates or artificial "Syntax-Guided Synthesis" (SyGuS) biases.
   * Because $S_f$ natively encodes the exact geometric symmetries of the domain, the optimal coinductive generalisation automatically emerges as a **Universal Property** (specifically, a *Terminal Coalgebra*). 
   * **Stone Duality** mathematically guarantees that the internal logical syntax will organically fold to perfectly bound the state space's innate topology—achieving true, endogenous self-transcendence.
 
