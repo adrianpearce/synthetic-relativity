@@ -141,7 +141,7 @@
 <li><a href="#/the-situation-calculus" id="/toc-the-situation-calculus">The situation calculus</a></li>
 <li><a href="#/category-theory" id="/toc-category-theory">Category Theory</a></li>
 <li><a href="#/synthetic-relativity-axioms" id="/toc-synthetic-relativity-axioms">Synthetic relativity axioms</a></li>
-<li><a href="#/synthetic-relativity-logic" id="/toc-synthetic-relativity-logic">Synthetic Relativity Logic</a></li>
+<li><a href="#/relativistic-domain-theory-in-logical-form-r-dtlf" id="/toc-relativistic-domain-theory-in-logical-form-r-dtlf">Relativistic Domain Theory in Logical Form (R-DTLF)</a></li>
 <li><a href="#/comparison" id="/toc-comparison">Comparison</a></li>
 </ul>
 </nav>
@@ -792,8 +792,8 @@ We observe the <em>relative movement</em> of the smallest disk <span class="math
 </div>
 </section></section>
 <section>
-<section id="synthetic-relativity-logic" class="title-slide slide level1 center">
-<h1>Synthetic Relativity Logic</h1>
+<section id="relativistic-domain-theory-in-logical-form-r-dtlf" class="title-slide slide level1 center">
+<h1>Relativistic Domain Theory in Logical Form (R-DTLF)</h1>
 
 </section>
 <section id="domain-theory-in-logical-form-syntax-versus-semantics" class="slide level2">
@@ -810,15 +810,28 @@ We observe the <em>relative movement</em> of the smallest disk <span class="math
 </section>
 <section id="the-dtlf-logical-primitives" class="slide level2">
 <h2>The DTLF Logical Primitives</h2>
-<div class="shrink70">
-<p>In this framework, formulas do not describe static states; they describe observable properties as they unfold. The core syntactic building blocks you need are:</p>
+<div class="shrink60">
+<p>In DTLF, formulas do not describe static states; they describe observable properties as they unfold. Because a system can only assert what it can finitely verify, the baseline syntax is strictly positive: <span class="math display">\[ \phi, \psi  ::=  \mathbf{t}  \mid  \mathbf{f}  \mid  \phi \land \psi  \mid  \phi \lor \psi  \mid  \text{Constructors}(\phi) \]</span></p>
 <ul>
 <li><strong><span class="math inline">\(X, Y\)</span> (Variables):</strong> Placeholders used to define recursive logical properties.</li>
-<li><strong><span class="math inline">\(\top\)</span> (True):</strong> The baseline trivial observation (meaning a transition occurred and the system did not crash).</li>
+<li><strong><span class="math inline">\(\top\)</span> (True / Top):</strong> The baseline trivial observation (meaning a valid transition occurred and the system did not crash).</li>
+<li><strong><span class="math inline">\(\bot\)</span> (False / Falsum):</strong> The null observation. It represents a paradox, an impossible transition (a crash), or the state of “absolute baseline ignorance” from which new inductive proofs begin.</li>
 <li><strong><span class="math inline">\(\phi \land \psi \ / \ \phi \lor \psi\)</span> (Conjunction / Disjunction):</strong> “I simultaneously observe both <span class="math inline">\(\phi\)</span> and <span class="math inline">\(\psi\)</span>” / “I observe either <span class="math inline">\(\phi\)</span> or <span class="math inline">\(\psi\)</span>.”</li>
 <li><strong><span class="math inline">\(\langle \delta \rangle \phi\)</span> (The Coalgebraic Transition Modality):</strong> This is the literal “arrow breaking in two.” It reads: <em>“The system makes a visible relativistic jump of <span class="math inline">\(\delta\)</span> (where <span class="math inline">\(\delta \in \mathbb{Z}\)</span>), and the continuing, unobserved future stream will satisfy property <span class="math inline">\(\phi\)</span>.”</em></li>
-<li><strong><span class="math inline">\(\nu X.\ \Phi(X)\)</span> (The Greatest Fixpoint / Co-induction Operator):</strong> The primitive for co-induction. It binds a variable <span class="math inline">\(X\)</span> to define a recursive, infinite behaviour. It reads: <em>“Define property <span class="math inline">\(X\)</span> as the largest possible, endlessly repeating stream that continuously satisfies the rule <span class="math inline">\(\Phi(X)\)</span> forever.”</em></li>
+<li><strong><span class="math inline">\(\mu X.\ \Phi(X)\)</span> / <span class="math inline">\(\nu X.\ \Phi(X)\)</span> (Least &amp; Greatest Fixpoints):</strong> The primitives for recursive behaviour. <span class="math inline">\(\mu\)</span> drives finite, bottom-up induction from baseline ignorance (reachability), while <span class="math inline">\(\nu\)</span> defines an endlessly repeating, top-down coinductive stream (persistence).</li>
 </ul>
+</div>
+</section>
+<section class="slide level2">
+
+<div class="shrink70">
+<p><strong>What is missing? Classical Negation (<span class="math inline">\(\neg \phi\)</span>) and Implication (<span class="math inline">\(\phi \rightarrow \psi\)</span>).</strong></p>
+<ul>
+<li><p>You cannot empirically “observe” an infinite negative.</p></li>
+<li><p>If a program runs forever, you can never halt it at a finite step to confidently declare “This will never happen.”</p></li>
+<li><p>Negation only emerges at the continuous limit.</p></li>
+</ul>
+<p><em>During active progression, we must throw out Classical Negation and the Law of Excluded Middle, because as an observer, one cannot empirically observe an infinite negative.</em></p>
 </div>
 </section>
 <section id="example-computing-the-hanoi-parity-invariant" class="slide level2">
