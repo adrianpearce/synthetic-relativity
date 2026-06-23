@@ -2,6 +2,8 @@
 save.yml
 /pdfs/
 /slides/
+/appendix_files/
+/index_files/
 /_book/
 /*_files/
 /figs/*.aux
