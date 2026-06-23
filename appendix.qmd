@@ -281,7 +281,7 @@ Gordon Plotkin proved in 1971 that the Relative Least General Generalisation (RL
 
 - Metainterpretive learning and language bias: Recent systems avoid infinite generalisations by applying strict language biases and utilizing Meta-Interpretive Learning (MIL) (Zhang et al., 2024).
 
-- Equational Anti-Univfication: In modern program synthesis and library learning (such as the systems Babble or DreamCoder), anti-unification is applied over $E$-graphs to compress code and discover common programmatic substructures efficiently without diverging into infinite spaces (Cerna & Kutsia, 2023).
+- Equational Anti-Unification: In modern program synthesis and library learning (such as the systems Babble or DreamCoder), anti-unification is applied over $E$-graphs to compress code and discover common programmatic substructures efficiently without diverging into infinite spaces (Cerna & Kutsia, 2023).
 
 :::
 
