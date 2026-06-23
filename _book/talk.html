@@ -579,7 +579,7 @@ The Syntactic Limit: Greatest Fixpoints (<span class="math inline">\(\nu Z\)</sp
 <div class="shrink75">
 <p>To reason about infinite streams when operating in <strong>coalgebras</strong>, we require two categorical proof mechanisms .</p>
 <p><strong>1. Coinduction (The Dual of Induction)</strong> While standard induction proves a finite base case and builds upward, coinduction works top-down. It <em>proposes</em> a Greatest Fixpoint (an infinite rule, <span class="math inline">\(\nu Z\)</span>) and verifies it locally. <em>If the observation holds right now, and the rules guarantee it holds in the next step, the Greatest Fixpoint is guaranteed to hold forever.</em></p>
-<p><strong>2. Stone Duality (Syntax-Semantics Mirror)</strong> In Category Theory, <strong>Stone Duality</strong> dictates a perfect, inverse mirror-image between <strong>Syntax</strong> (logical formulas) and <strong>Semantics</strong> (topological state space).</p>
+<p><strong>2. Stone Duality (Syntax-Semantics Mirror)</strong> In Category Theory, <strong>Stone Duality</strong> dictates an inverse mirror-image between <strong>Syntax</strong> (logical formulas) and <strong>Semantics</strong> (topological state space).</p>
 <ul>
 <li><em>The Syntactic Transformation:</em> If our logic formally declares two distinct observational paths to be identical (Bisimulation Equivalence)…</li>
 <li><em>The Semantic Result:</em> Stone Duality guarantees the underlying semantic space automatically folds (quotients) to make those paths topologically identical.</li>
@@ -804,7 +804,7 @@ Theorem II: Algebraic Compactness
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>Because <strong>Theorem I (Semantic Realisation)</strong> formally computes a categorical <em>bilimit</em>, the system achieves algebraic compactness. At convergence, the initial algebra of the dynamic transition functor perfectly coincides with its final coalgebra:</p>
+<p>Because <strong>Theorem I (Semantic Realisation)</strong> formally computes a categorical <em>bilimit</em>, the system achieves algebraic compactness. At convergence, the initial algebra of the dynamic transition functor coincides with its final coalgebra:</p>
 <div style="margin-top: -0.6em;">
 
 </div>
@@ -880,7 +880,7 @@ Observed \equiv \nu X.\ (\langle -1 \rangle X \lor \langle +2 \rangle X)
 <li><strong>The Guarantee:</strong> It proves a 1-to-1 isomorphism between the algebraic, step-by-step <strong>Syntax</strong> (<span class="math inline">\(\phi \vdash \psi\)</span>) and the continuous, geometric <strong>Semantics</strong> (<span class="math inline">\([\![\phi]\!] \subseteq [\![\psi]\!]\)</span>).</li>
 <li><strong>Catching Limits:</strong> Computations resolve when the directed path of finite evidence mathematically catches (satisfies) an infinite continuous topological limit (a Supremum).</li>
 </ul>
-<p>Vanilla DTLF perfectly describes a single, <em>static</em> universe. However, to differentiate induction from coinduction and model dynamic, continuous learning, <strong>the Reference Frame itself must dynamically shift</strong> so we use a relativistic version, termed R-DTLF.</p>
+<p>Vanilla DTLF describes a single, <em>static</em> universe. However, to differentiate induction from coinduction and model dynamic, continuous learning, <strong>the Reference Frame itself must dynamically shift</strong> so we use a relativistic version, termed R-DTLF.</p>
 </div>
 </section>
 <section id="compilation-into-ssas-topological-booleanization" class="level2">
@@ -907,7 +907,7 @@ Theorem III: Topological Booleanization (Compiling SSAs)
 <h2 class="anchored" data-anchor-id="compilation-into-ssas-topological-booleanization-contd">Compilation into SSAs &amp; Topological Booleanization (cont’d)</h2>
 <div class="shrink85">
 <ul>
-<li><strong>Compiling Successor State Axioms (SSAs):</strong> This geometric compression is the rigorous categorical homologue to Ray Reiter’s <strong>Explanation Closure</strong>. The Relativistic approach acts as an endogenous logic compiler—mathematically closing the open intuitionistic trace, and synthesising the discovered invariant directly into rigid, First-Order biconditional rules (<span class="math inline">\(\equiv\)</span>).</li>
+<li><strong>Compiling Successor State Axioms (SSAs):</strong> This geometric compression is the rigorous categorical homologue to Ray Reiter’s <strong>Explanation Closure</strong>. The Relativistic approach acts as a logic compiler—mathematically closing the open intuitionistic trace, and synthesising the discovered invariant directly into rigid, First-Order biconditional rules (<span class="math inline">\(\equiv\)</span>).</li>
 <li><strong>Hybrid Execution:</strong> Because of this formal theorem, we can securely export newly learned R-DTLF invariants directly into standard classical Basic Action Theories (BATs). This enables a powerful hybrid architecture: R-DTLF handles complex, infinite structural learning, and hands the compiled, closed-world rules off to legacy First-Order solvers (like Golog) for rapid execution.</li>
 </ul>
 </div>
@@ -1002,13 +1002,13 @@ Theorem III: Topological Booleanization (Compiling SSAs)
 <p>In physical relativity, shifting reference frames distorts local spatial and temporal coordinates, but mathematically preserves the fundamental 4D spacetime interval across all frames (<span class="math inline">\(\Delta s^2 = \Delta s'^2\)</span>): <span class="math inline">\(\Delta s^2 = (c\Delta t)^2 - (\Delta x^2 + \Delta y^2 + \Delta z^2)\)</span>. We hypothesise an exact categorical equivalent for our semantic limits.</p>
 </div>
 <div class="shrink85">
-<div class="callout callout-style-default callout-note no-icon callout-titled" title="Conjecture IV: Relativistic Invariance of the Semantic Interval">
+<div class="callout callout-style-default callout-note no-icon callout-titled" title="Conjecture: Relativistic Invariance of the Semantic Interval">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
 <i class="callout-icon no-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-Conjecture IV: Relativistic Invariance of the Semantic Interval
+Conjecture: Relativistic Invariance of the Semantic Interval
 </div>
 </div>
 <div class="callout-body-container callout-body">
@@ -1050,7 +1050,7 @@ Conjecture IV: Relativistic Invariance of the Semantic Interval
 <ul>
 <li>The system requires no external human engineering templates or artificial “Syntax-Guided Synthesis” (SyGuS) biases.</li>
 <li>Because <span class="math inline">\(S_f\)</span> natively encodes the exact geometric symmetries of the domain, the optimal coinductive generalisation automatically emerges as a <strong>Universal Property</strong> (specifically, a <em>Terminal Coalgebra</em>).</li>
-<li><strong>Stone Duality</strong> mathematically guarantees that the internal logical syntax will organically fold to perfectly bound the state space’s innate topology—achieving true, endogenous self-transcendence.</li>
+<li><strong>Stone Duality</strong> mathematically guarantees that the internal logical syntax will organically fold to bound the state space’s innate topology—achieving true, self-transcendence.</li>
 </ul></li>
 </ul>
 </div>

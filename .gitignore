@@ -2,6 +2,7 @@
 save.yml
 /pdfs/
 /slides/
+/_book/
 /*_files/
 /figs/*.aux
 /figs/*.fdb_latexmk
