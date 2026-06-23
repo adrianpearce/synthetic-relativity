@@ -159,6 +159,7 @@ window.Quarto = {
    
   <ul>
   <li><a href="#the-situation-calculus" id="toc-the-situation-calculus" class="nav-link active" data-scroll-target="#the-situation-calculus">The situation calculus</a></li>
+  <li><a href="#category-theory" id="toc-category-theory" class="nav-link" data-scroll-target="#category-theory">Category Theory</a></li>
   <li><a href="#synthetic-relativity-axioms" id="toc-synthetic-relativity-axioms" class="nav-link" data-scroll-target="#synthetic-relativity-axioms">Synthetic relativity axioms</a></li>
   <li><a href="#synthetic-relativity-logic" id="toc-synthetic-relativity-logic" class="nav-link" data-scroll-target="#synthetic-relativity-logic">Synthetic Relativity Logic</a></li>
   <li><a href="#comparison" id="toc-comparison" class="nav-link" data-scroll-target="#comparison">Comparison</a></li>
@@ -285,13 +286,20 @@ The Foundational Induction Axiom: Second Order
 <section id="situations-as-a-least-fixpoint" class="level2">
 <h2 class="anchored" data-anchor-id="situations-as-a-least-fixpoint">Situations as a Least Fixpoint</h2>
 <div class="shrink70">
-<p>Let <span class="math inline">\(\mathcal{A}\)</span> be actions and <span class="math inline">\(\mathcal{S}\)</span> be the universe of situations. Define a monotonic operator <span class="math inline">\(\Gamma\)</span>: <span class="math display">\[ \Gamma(X) = \{S_0\} \cup \{ do(a, s) \mid a \in \mathcal{A}, s \in X \} \]</span></p>
+Let <span class="math inline">\(\mathcal{A}\)</span> be actions and <span class="math inline">\(\mathcal{S}\)</span> be the universe of situations. Define a monotonic operator <span class="math inline">\(\Gamma\)</span>: <span class="math display">\[ \Gamma(X) = \{S_0\} \cup \{ do(a, s) \mid a \in \mathcal{A}, s \in X \} \]</span>
+<div style="margin-top: -0.3em;">
+
+</div>
+<p>Recall that the <strong>Second-Order Induction Axiom</strong> dictates the exact boundaries of the universe:</p>
 <ul>
-<li><span class="math inline">\(P(S_0) \land \forall a,s\,(P(s)\to P(do(a,s)))\)</span> translates to <span class="math inline">\(\Gamma(P) \subseteq P\)</span>. Here, <span class="math inline">\(P\)</span> is a <strong>pre-fixed point</strong>.</li>
-<li><span class="math inline">\(\forall s\,P(s)\)</span> asserts that the universe of situations <span class="math inline">\(\mathcal{S}\)</span> is a subset of <span class="math inline">\(P\)</span>.</li>
-<li>The axiom states <span class="math inline">\(\mathcal{S}\)</span> is a subset of <em>every</em> pre-fixed point, meaning it is bounded by their intersection.</li>
+<li><strong>The Premise (If):</strong> <span class="math inline">\(P(S_0) \land \forall a,s\,(P(s)\to P(do(a,s)))\)</span> translates to <span class="math inline">\(\Gamma(P) \subseteq P\)</span>. Here, <span class="math inline">\(P\)</span> is a <strong>pre-fixed point</strong> <em>(an over-approximation that obeys the rules, but may contain unreachable “junk” like ghost situations or disconnected time loops).</em></li>
+<li><strong>The Conclusion (Then):</strong> <span class="math inline">\(\forall s\,P(s)\)</span> asserts that the true universe of situations <span class="math inline">\(\mathcal{S}\)</span> is a subset of <span class="math inline">\(P\)</span>.</li>
+<li>The axiom combines these, stating <span class="math inline">\(\mathcal{S}\)</span> is a subset of <em>every</em> valid pre-fixed point. Taking their intersection mathematically acts as a sieve, filtering out all the unshared, unreachable junk.</li>
 </ul>
 </div>
+</section>
+<section id="situations-as-a-least-fixpoint-continued" class="level2">
+<h2 class="anchored" data-anchor-id="situations-as-a-least-fixpoint-continued">Situations as a Least Fixpoint (continued)</h2>
 <div class="callout callout-style-default callout-note no-icon callout-titled" title="The Knaster-Tarski Theorem: least fixpoint">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
@@ -302,8 +310,13 @@ The Knaster-Tarski Theorem: least fixpoint
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>The intersection of all pre-fixed points of a monotonic operator is its <strong>least fixpoint</strong>.</p>
-<p>Therefore, the axiom enforces <span class="math inline">\(\mathcal{S} = \mu X.\Gamma(X)\)</span>.</p>
+<p>The intersection of all pre-fixed points of a monotonic operator yields its <strong>least fixpoint</strong>.</p>
+<div style="margin-top: -0.5em;">
+
+</div>
+<p>Therefore, the Second-Order Induction Axiom rigorously enforces</p>
+<p><span class="math display">\[\mathcal{S} = \mu X.\Gamma(X)\]</span></p>
+<p><em>(leaving only the pure, minimal valid tree).</em></p>
 </div>
 </div>
 </section>
@@ -447,7 +460,7 @@ OnPeg(d, p, do(a, s)) \equiv \;&amp; [\exists p_{from} \ (a = move(d, p_{from}, 
 <p><span class="math display">\[
 \mathcal{R}[{\color{blue}{F(\vec{x}, do(a, s))}}] \;\stackrel{\text{def}}{=}\; \gamma_F^+(\vec{x}, a, s) \lor {\color{blue}{F(\vec{x}, s)}} \land \neg \gamma_F^-(\vec{x}, a, s)
 \]</span></p>
-<p>Instead of computing the physical state tree forward (building), the logic engine rewrites the future query into a question strictly about the preceding state <span class="math inline">\(s\)</span>.</p>
+<p>Instead of computing the physical state tree forward (building), the logic engine <em>rewrites the future query into a question strictly about the preceding state <span class="math inline">\(s\)</span></em>.</p>
 <ul>
 <li>By repeating this recursively, any complex historical query is mathematically reduced to a simple database lookup against the initial state (<span class="math inline">\(S_0\)</span>).</li>
 </ul>
@@ -502,35 +515,11 @@ OnPeg(d, p, do(a, s)) \equiv \;&amp; [\exists p_{from} \ (a = move(d, p_{from}, 
 \]</span></p>
 </div>
 </section>
-<section id="reasoning-about-actions" class="level2">
-<h2 class="anchored" data-anchor-id="reasoning-about-actions">Reasoning about actions</h2>
-<div class="shrink61">
-<ul>
-<li><p><span class="math inline">\(\color{blue}{\text{Projection:}}\)</span> <em>given a sequence of actions <span class="math inline">\(s = a_1, \dots, a_n\)</span>, does condition <span class="math inline">\(\phi(s)\)</span> hold?:</em> <span class="math display">\[
-\mathcal{D} \models OnPeg(D_2, Peg_2, do(move(D_2, Peg_a, Peg_2), do(move(D_1, Peg_1, Peg_3), S_0)))
-\]</span></p></li>
-<li><p><span class="math inline">\(\color{blue}{\text{Planning:}}\)</span> <em>find a sequence of actions to make <span class="math inline">\(\phi(s)\)</span> true (e.g., solve the puzzle):</em> <span class="math display">\[
-\mathcal{D} \vdash \exists s .\ OnPeg(D_1, Peg_3, s) \land OnPeg(D_2, Peg_3, s) \land OnPeg(D_3, Peg_3, s) \land executable(s)
-\]</span></p></li>
-</ul>
-</div>
-</section>
 <section id="property-persistence-as-a-greatest-fixpoint" class="level2">
 <h2 class="anchored" data-anchor-id="property-persistence-as-a-greatest-fixpoint">Property Persistence as a Greatest Fixpoint</h2>
-<div class="shrink65">
-<p>Verifying universally quantified temporal queries (e.g., “property <span class="math inline">\(\phi\)</span> persists indefinitely”).</p>
-<ul>
-<li><span class="math inline">\(\color{blue}{\text{Inductive proofs:}}\)</span> <em>proving global invariants across all reachable states (e.g., a disk is never on two pegs at once):</em> <span class="math display">\[
-\mathcal{D} \models \forall s .\ executable(s) \supset \forall d, p_1, p_2 .\ (OnPeg(d, p_1, s) \land OnPeg(d, p_2, s) \supset p_1 = p_2)
-\]</span></li>
-</ul>
-</div>
-</section>
-<section id="property-persistence-as-a-greatest-fixpoint-continued" class="level2">
-<h2 class="anchored" data-anchor-id="property-persistence-as-a-greatest-fixpoint-continued">Property Persistence as a Greatest Fixpoint (continued)</h2>
 <div class="shrink68">
-<p><strong>The Single-Step Operator:</strong> This requires second-order induction. [Kelly &amp; Pearce AIJ 2010] show how this can be obtained using a single step regression operator. It captures the condition for <span class="math inline">\(\phi\)</span> holding <em>now</em> and being preserved after <em>any single legal action</em> via regression (<span class="math inline">\(\mathcal{R}\)</span>).</p>
-<p>We define this as the <strong>Persistence operator</strong> (<span class="math inline">\(\mathcal{P}\)</span>):</p>
+<p>Property persistence in the situation calculus captures a condition <span class="math inline">\(\phi\)</span> that holds <em>now</em> and is preserved after <em>any legal action</em> via regression (<span class="math inline">\(\mathcal{R}\)</span>).</p>
+<p>[Kelly &amp; Pearce AIJ 2010] define this as the <strong>Persistence operator</strong> (<span class="math inline">\(\mathcal{P}\)</span>):</p>
 <div style="margin-top: -0.8em;">
 
 </div>
@@ -538,116 +527,102 @@ OnPeg(d, p, do(a, s)) \equiv \;&amp; [\exists p_{from} \ (a = move(d, p_{from}, 
 <div style="margin-top: -0.8em;">
 
 </div>
-<p>Iteratively applying this meta-level calculation computes the maximal invariant without explicitly invoking the induction axiom.</p>
+<p>Iteratively applying this meta-level calculation computes the maximal invariant without explicitly invoking the second-order induction axiom.</p>
 <ul>
-<li>By wrapping the single-step regression operator inside a monotonic formula transformer (<span class="math inline">\(\mathcal{P}\)</span>), we evaluate the future back in the current state.</li>
+<li>By wrapping the single-step regression operator inside a monotonic formula transformer (<span class="math inline">\(\mathcal{P}\)</span>), the future can be evaluated back in the current state.</li>
 </ul>
 </div>
-<div class="callout callout-style-default callout-note no-icon callout-titled" title="Greatest Fixpoint ($\nu Z$)">
+<div class="callout callout-style-default callout-note no-icon callout-titled" title="The Syntactic Limit: Greatest Fixpoints ($\nu Z$)">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
 <i class="callout-icon no-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-Greatest Fixpoint (<span class="math inline">\(\nu Z\)</span>)
+The Syntactic Limit: Greatest Fixpoints (<span class="math inline">\(\nu Z\)</span>)
 </div>
 </div>
 <div class="callout-body-container callout-body">
 <ul>
 <li>Property persistence is an infinite-horizon <strong>safety property</strong>.</li>
 <li>The persistence condition is the <strong>greatest fixpoint</strong> of this operator: <span class="math inline">\(\nu Z.\, \mathcal{P}(Z)\)</span>.</li>
+<li><em>The Problem:</em> Regression natively builds finite states. To syntactically evaluate this infinite fixpoint natively, we must shift our mathematical framework.</li>
 </ul>
 </div>
 </div>
 </section>
-<section id="the-categorical-observer-coinduction" class="level2">
-<h2 class="anchored" data-anchor-id="the-categorical-observer-coinduction">The Categorical Observer &amp; Coinduction</h2>
-<div class="shrink85">
-<ul>
-<li><p><strong>Induction</strong> builds and verifies finite situations from the “bottom up” (starting from the initial base situation <span class="math inline">\(S_{0}\)</span> and progressing via the successor function <span class="math inline">\(do(a, s)\)</span>).</p></li>
-<li><p><strong>Coinduction</strong> verifies infinite situations (histories) by observing ongoing sequences of actions from the “top down” (unfolding next states without ever reaching a final terminating state).</p></li>
-</ul>
-</div>
 </section>
-<section id="coinduction-in-towers-of-hanoi" class="level2">
-<h2 class="anchored" data-anchor-id="coinduction-in-towers-of-hanoi">Coinduction in Towers of Hanoi</h2>
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="figs/towers2_sharpened_transparent.png" class="quarto-figure quarto-figure-center figure-img" style="width:20.0%;height:20.0%"></p>
-</figure>
-</div>
-<div style="margin-top: -1.1em;">
-
-</div>
-<div class="shrink70">
-<p>We can coinduce by observing the <em>relative movement</em> of the Sitcalc coordinates of <span class="math inline">\(\mathit{OnPeg}(d,p,s)\)</span>: <span class="math inline">\(\Delta p \equiv (p_{to} - p_{from}) \pmod 3\)</span> of the smallest disk <span class="math inline">\(D_1\)</span> (alternating with disk <span class="math inline">\(D_2\)</span> or <span class="math inline">\(D_3\)</span>).</p>
-Solving the puzzle of any size with an <em>odd</em> number of disks generates an infinite coalgebraic stream of spatial jumps:
-<div style="margin-top: -0.8em;">
-
-</div>
-<span class="math display">\[
-\langle +2 \rangle,
-\langle -1 \rangle,
-\langle -1 \rangle,
-\langle +2 \rangle
-\dots \]</span>
-<div style="margin-top: -0.9em;">
-
-</div>
-Suppose we want to coinduce an idealised universe where the disk <em>always</em> moves <span class="math inline">\(-1\)</span>. We <em>propose</em> the Greatest Fixpoint (using property persistence):
-<div style="margin-top: -0.6em;">
-
-</div>
-<p><span class="math display">\[
-ParityInvariant \equiv \nu Z.\ \langle -1 \rangle Z
-\]</span></p>
-</div>
-</section>
-<section id="coinduction-in-towers-of-hanoi-continued" class="level2">
-<h2 class="anchored" data-anchor-id="coinduction-in-towers-of-hanoi-continued">Coinduction in Towers of Hanoi (continued)</h2>
-<div class="shrink75">
-<p>This sequence initially generates a jump of <span class="math inline">\(+2\)</span>, so how can our Greatest Fixpoint survive this contradiction with <span class="math inline">\(-1\)</span>?</p>
+<section id="category-theory" class="level1">
+<h1>Category Theory</h1>
+<section id="the-dual-problems-algebras-coalgebras" class="level2">
+<h2 class="anchored" data-anchor-id="the-dual-problems-algebras-coalgebras">The Dual Problems: Algebras &amp; Coalgebras</h2>
+<div class="shrink68">
+<p>To transition from finite histories to observing infinite Greatest Fixpoints, we harness <strong>Category Theory</strong>. An <em>endofunctor</em> (<span class="math inline">\(F\)</span>) over a state space (<span class="math inline">\(S\)</span>) is a structural template that shapes the resulting data object, <span class="math inline">\(F(S)\)</span>.</p>
 <ul>
-<li><p>While standard induction proves a base case and builds up, coinduction <em>proposes</em> a Greatest Fixpoint (an infinite rule) and verifies it locally step-by-step.</p></li>
-<li><p>If an observation holds right now, and the rules guarantee it holds in the next step, the Greatest Fixpoint is guaranteed to hold forever.</p></li>
-<li><p><span class="math inline">\(\nu Z.\ \Gamma(Z)\)</span> : <em>The Greatest Fixpoint.</em></p>
+<li><strong>Algebra (Situation Calculus / Constructor):</strong> Morphism arrows point <em>inward</em>: <span class="math inline">\(\; F(S) \to S\)</span>
 <ul>
-<li>“Define <span class="math inline">\(Z\)</span> as the largest endlessly repeating stream satisfying the single-step operator <span class="math inline">\(\Gamma(Z)\)</span>, where here, <span class="math inline">\(\Gamma(Z) \equiv \langle -1 \rangle Z\)</span>).</li>
-</ul></li>
-</ul>
-</div>
-</section>
-<section id="stone-duality-syntactic-semantic-transformation" class="level2">
-<h2 class="anchored" data-anchor-id="stone-duality-syntactic-semantic-transformation">Stone Duality: Syntactic-Semantic Transformation</h2>
-<div class="shrink75">
-<p>In category Theory, <strong>Stone Duality</strong> dictates a perfect, inverse mirror-image between Syntax (logical equivalence) and Semantics (topological state space).</p>
-<p>Our coalgebra evaluates the topological future and discovers the physical branching of jumping right twice (<span class="math inline">\(+2\)</span>) is completely indistinguishable from jumping left once (<span class="math inline">\(-1\)</span>).</p>
-<p>We enforce this <strong>Bisimulation Equivalence</strong> by injecting a logical cut:</p>
-<p><span class="math display">\[
-\forall \phi.\ \langle +2 \rangle \phi \;\equiv\; \langle -1 \rangle \phi
-\]</span></p>
-<p>By <em>syntactically</em> equating these propositions, <strong>Stone Duality</strong> automatically forces the underlying <em>semantic space</em> to fold into a modulo-3 quotient ring (<span class="math inline">\(\mathbb{Z}_3\)</span>).</p>
-<p><span style="color:blue">This is our new syntactic transformation!</span></p>
-</div>
-</section>
-<section id="the-dual-problem-algebras-coalgebras" class="level2">
-<h2 class="anchored" data-anchor-id="the-dual-problem-algebras-coalgebras">The Dual Problem: Algebras &amp; Coalgebras</h2>
-<div class="shrink73">
-<p>We use an <strong>endofunctor</strong> (<span class="math inline">\(F\)</span>) over a state space (<span class="math inline">\(S\)</span>) as a structural template that shapes our data. <span class="math inline">\(F(S)\)</span> is simply the resulting combined data object.</p>
-<ul>
-<li><strong>Algebra (SitCalc / Constructor):</strong> Morphism arrows point <em>inward</em>: <span class="math inline">\(\; F(S) \to S\)</span>
-<ul>
-<li>Our endofunctor shapes the input ingredients: <span class="math inline">\(F(S) = Action \times S\)</span></li>
-<li>The morphism evaluates to: <span class="math inline">\((Action \times State_{current}) \to State_{next}\)</span></li>
-<li><em>Concept:</em> We combine pieces to <em>construct</em> a history from the bottom-up.</li>
+<li>Our endofunctor shapes the inputs: <span class="math inline">\(F(S) = Action \times S\)</span></li>
+<li>The <em>morphism</em> evaluates to: <span class="math inline">\((Action \times State_{current}) \to State_{next}\)</span></li>
+<li><em>Concept:</em> <em>Construct</em> a history from the bottom-up.</li>
 </ul></li>
 <li><strong>Coalgebra (Property Persistence / Observer):</strong> Morphism arrows point <em>outward</em>: <span class="math inline">\(\; S \to F(S)\)</span>
 <ul>
 <li>Our endofunctor shapes the emitted data: <span class="math inline">\(F(S) = Observation \times S\)</span></li>
 <li>The morphism evaluates to: <span class="math inline">\(State_{current} \to (Observation \times State_{next})\)</span></li>
-<li><em>Concept:</em> We take an opaque running state, break off a visible <em>observation</em>, and silently unfold the remaining state into the future.</li>
+<li><em>Concept:</em> Take a running state, break off an <em>observation</em>, and unfold the remaining state into the future.</li>
 </ul></li>
 </ul>
+</div>
+</section>
+<section id="categorical-proof-techniques-coinduction-stone-duality" class="level2">
+<h2 class="anchored" data-anchor-id="categorical-proof-techniques-coinduction-stone-duality">Categorical Proof Techniques: Coinduction &amp; Stone Duality</h2>
+<div class="shrink75">
+<p>To reason about infinite streams when operating in <strong>coalgebras</strong>, we require two categorical proof mechanisms .</p>
+<p><strong>1. Coinduction (The Dual of Induction)</strong> While standard induction proves a finite base case and builds upward, coinduction works top-down. It <em>proposes</em> a Greatest Fixpoint (an infinite rule, <span class="math inline">\(\nu Z\)</span>) and verifies it locally. <em>If the observation holds right now, and the rules guarantee it holds in the next step, the Greatest Fixpoint is guaranteed to hold forever.</em></p>
+<p><strong>2. Stone Duality (Syntax-Semantics Mirror)</strong> In Category Theory, <strong>Stone Duality</strong> dictates a perfect, inverse mirror-image between <strong>Syntax</strong> (logical formulas) and <strong>Semantics</strong> (topological state space).</p>
+<ul>
+<li><em>The Syntactic Transformation:</em> If our logic engine formally declares two distinct observational paths to be identical (Bisimulation Equivalence)…</li>
+<li><em>The Semantic Result:</em> Stone Duality guarantees the underlying semantic space automatically folds (quotients) to make those paths topologically identical.</li>
+</ul>
+</div>
+</section>
+<section id="example-coinduction-in-towers-of-hanoi" class="level2">
+<h2 class="anchored" data-anchor-id="example-coinduction-in-towers-of-hanoi">Example: Coinduction in Towers of Hanoi</h2>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="figs/towers2_sharpened_transparent.png" class="quarto-figure quarto-figure-center figure-img" style="width:8.0%;height:8.0%"></p>
+</figure>
+</div>
+<div style="margin-top: -1.2em;">
+
+</div>
+<div class="shrink75">
+We observe the <em>relative movement</em> of the smallest disk <span class="math inline">\(D_1\)</span> (alternating moves with <span class="math inline">\(D_2\)</span> or <span class="math inline">\(D_3\)</span>) on <span class="math inline">\(\mathit{OnPeg}(d,p,s)\)</span>:
+<div style="margin-top: -0.6em;">
+
+</div>
+<p><span class="math display">\[ \Delta p \equiv (p_{to} - p_{from}) \pmod 3 \]</span></p>
+<strong>1. The Coalgebraic Stream:</strong> Solving the puzzle generates an infinite stream of spatial jumps:
+<div style="margin-top: -0.6em;">
+
+</div>
+<p><span class="math display">\[ \langle +2 \rangle, \langle -1 \rangle, \langle -1 \rangle, \langle +2 \rangle \dots \]</span></p>
+<strong>2. The Coinductive Proposal:</strong> We propose an idealised Greatest Fixpoint where the disk <em>always</em> cycles left:
+<div style="margin-top: -0.6em;">
+
+</div>
+<p><span class="math display">\[ ParityInvariant \equiv \nu Z.\ \langle -1 \rangle Z \]</span></p>
+</div>
+</section>
+<section id="example-coinduction-in-towers-of-hanoi-continued" class="level2">
+<h2 class="anchored" data-anchor-id="example-coinduction-in-towers-of-hanoi-continued">Example: Coinduction in Towers of Hanoi (Continued)</h2>
+<div class="shrink75">
+<strong>3. The Coinductive Step (Bisimulation):</strong> The physical stream outputs a jump of <span class="math inline">\(+2\)</span>. How does our proposed invariant survive this contradiction? To satisfy the local coinductive check, the logic engine natively evaluates the domain’s geometry. It formally recognises that jumping right twice (<span class="math inline">\(+2\)</span>) is structurally indistinguishable from jumping left once (<span class="math inline">\(-1\)</span>). It applies this coinductive equivalence:
+<div style="margin-top: -0.6em;">
+
+</div>
+<p><span class="math display">\[ \forall \phi.\ \langle +2 \rangle \phi \;\equiv\; \langle -1 \rangle \phi \]</span></p>
+<p><strong>4. The Stone Duality Resolution:</strong> By syntactically equating these propositions, <strong>Stone Duality</strong> automatically forces the absolute state space to fold into a modulo-3 <em>quotient ring</em> (<span class="math inline">\(\mathbb{Z}_3\)</span>)!</p>
+<p><span style="color:blue">This is our new syntactic transformation!</span></p>
 </div>
 </section>
 </section>
@@ -656,17 +631,18 @@ ParityInvariant \equiv \nu Z.\ \langle -1 \rangle Z
 <section id="tri-modality-ternary-representation" class="level2">
 <h2 class="anchored" data-anchor-id="tri-modality-ternary-representation">Tri-modality &amp; ternary representation</h2>
 <div class="shrink85">
-<p>Standard provability logics like <span class="math inline">\(\mathrm{GLB}\)</span> (Gödel-Löb Bimodal Provability Logic) rely on absolute binary provability: <span class="math inline">\(x R y\)</span> assumes an absolute background space where <span class="math inline">\(y\)</span> is provable from <span class="math inline">\(x\)</span>.</p>
+<p>Logical entailment operates within a <strong>Total Category</strong>—a mathematically complete Stone Duality glues syntax and semantics together.</p>
+<p>It is evaluated relative to a specific baseline <strong>Reference Frame</strong>, <span class="math inline">\(\mathrm{S_f}\)</span>. This facilitates the rules and symmetries over which the observer’s duality is constructed.</p>
 <ul>
-<li>In a ternary structure (drawing from <strong>Routley-Meyer semantics</strong> for substructural, relevance, and intuitionistic logics), you have a relation <span class="math inline">\(R(x, y, z)\)</span>.</li>
-<li>This allows us to decouple the synthetic transformation from the topological space. The ternary relation natively introduces the Observer’s frame. It reads: <span style="color:blue">“Relative to reference frame <span class="math inline">\(x\)</span>, the accumulation of inductive evidence <span class="math inline">\(y\)</span> yields the coinductively realised semantic limit <span class="math inline">\(z\)</span>.”</span></li>
+<li>It utilises a ternary structure, drawing from <strong>Routley-Meyer semantics</strong> for substructural, relevance, and intuitionistic logics, involving relations <span class="math inline">\(R(x, y, \mathrm{S_f})\)</span>.</li>
+<li>This allows us to decouple the synthetic (axiomatic) transformations from the topological space.</li>
 </ul>
 </div>
 </section>
 <section id="synthetic-relativity-axioms-1" class="level2">
 <h2 class="anchored" data-anchor-id="synthetic-relativity-axioms-1">Synthetic Relativity Axioms</h2>
-<div class="shrink70">
-<p>Logical entailment operates within a <strong>Total Category</strong>—a mathematically complete Stone Duality glues syntax and semantics together, evaluated relative to a specific baseline <strong>Reference Frame</strong>, <span class="math inline">\(\mathrm{S_f}\)</span>, it provides the rules and symmetries over which the observer’s duality is constructed. The space is governed by three interacting modalities.</p>
+<div class="shrink75">
+<p>The space is governed by three interacting modalities.</p>
 <ul>
 <li><p><strong><span class="math inline">\(\mathrm{RDo}\)</span> (The Subproblem / Syntax): The Inductive Accumulator (<span class="math inline">\(\Box_1\)</span>)</strong> Operates in constructive, non-Boolean logic. Recursively gathers finite, computationally observable properties (compact elements) along a directed logical path.</p></li>
 <li><p><strong><span class="math inline">\(\mathrm{ODo}\)</span> (The Master Problem / Semantics): The Limit/Creator Modality (<span class="math inline">\(\Box_2\)</span>)</strong> The semantic evaluator and <em>interval invariant</em>. Performs topological closure—evaluating the directed set generated by <span class="math inline">\(\mathrm{RDo}\)</span> and snapping it into a discrete, continuous limit.</p></li>
@@ -700,15 +676,16 @@ Axiom 1: The Axiom of Constructive Accumulation
 <section id="constructive-accumulation-continued" class="level2">
 <h2 class="anchored" data-anchor-id="constructive-accumulation-continued">Constructive Accumulation (continued)</h2>
 <div class="shrink75">
-<em>Unrolling this recursive law mathematically generates an endlessly nested trace of accumulating evidence:</em> <span class="math display">\[ \mathrm{PDo}(S_r^{(0)}, S_o^{(0)}, S_f) \]</span>
+<p>Unrolling this recursive law mathematically generates an endlessly nested trace of accumulating evidence:</p>
+<span class="math display">\[ \mathrm{PDo}(S_r, S_o, S_f) \]</span>
 <div style="margin-top: -0.6em;">
 
 </div>
-<span class="math display">\[ \mathrm{PDo}\big(\, \mathrm{RDo}(R_1, S_r^{(0)}),\; \mathrm{ODo}(O_1, S_o^{(0)}),\; S_f \,\big) \]</span>
+<span class="math display">\[ \mathrm{PDo}\big(\, \mathrm{RDo}(R_1, S_r),\; \mathrm{ODo}(O_1, S_o),\; S_f \,\big) \]</span>
 <div style="margin-top: -0.8em;">
 
 </div>
-<p><span class="math display">\[ \mathrm{PDo}\Big(\, \mathrm{RDo}\big(R_2, \mathrm{RDo}(R_1,S_r^{(0)})\big),\; \mathrm{ODo}\big(O_2, \mathrm{ODo}(O_1,S_o^{(0)})\big),\; S_f \,\Big) \dots \mathit{etc.} \]</span></p>
+<p><span class="math display">\[ \mathrm{PDo}\Big(\, \mathrm{RDo}\big(R_2, \mathrm{RDo}(R_1,S_r)\big),\; \mathrm{ODo}\big(O_2, \mathrm{ODo}(O_1,S_o)\big),\; S_f \,\Big) \dots \mathit{etc.} \]</span></p>
 <p>It reads: <em>“Relative to reference frame <span class="math inline">\(S_f\)</span>, the accumulation of inductive evidence <span class="math inline">\(\mathrm{RDo}\)</span> yields the coinductively realised semantic limit <span class="math inline">\(\mathrm{ODo}\)</span>.”</em></p>
 </div>
 </section>
@@ -755,21 +732,24 @@ Theorem I: Semantic Realisation
 </section>
 <section id="the-synthetic-transformation" class="level2">
 <h2 class="anchored" data-anchor-id="the-synthetic-transformation">The Synthetic Transformation</h2>
-<div class="callout callout-style-default callout-note no-icon callout-titled" title="Axiom 2: The Transitivity Axiom">
+<div class="callout callout-style-default callout-note no-icon callout-titled" title="Axiom 2: The Axiom of Synthetic Transformation">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
 <i class="callout-icon no-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-Axiom 2: The Transitivity Axiom
+Axiom 2: The Axiom of Synthetic Transformation
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>Once Realisation is achieved, the relativistic reference frame shifts. The categorically preserved invariant (the semantic limit, <span class="math inline">\(O\)</span>) becomes the new reference frame (<span class="math inline">\(S_f\)</span>) for the next order of progression.</p>
-<p><span class="math display">\[ \mathrm{PDo}(N, O, S_f) \longrightarrow \mathrm{PDo}(X, Y, \mathrm{O}) \]</span></p>
+<p>Once Realisation is achieved, the relativistic reference frame mathematically shifts. The categorically preserved invariant (the semantic limit, <span class="math inline">\(O\)</span>) becomes the new reference frame (<span class="math inline">\(S_f\)</span>) for the next order of progression.</p>
+<p><span class="math display">\[ \mathrm{PDo}(N, O, S_f) \longrightarrow \mathrm{PDo}(X, Y, O) \]</span></p>
+<div style="margin-top: -0.7em;">
+
+</div>
 <ul>
-<li><strong>Left Side:</strong> The fully realised state within the initial reference frame (<span class="math inline">\(S_f\)</span>).</li>
-<li><strong>The Arrow (<span class="math inline">\(\longrightarrow\)</span>):</strong> The Synthetic Transformation (Topological closure and Change of Base).</li>
+<li><strong>Left Side:</strong> The realised state computed within the initial reference frame (<span class="math inline">\(S_f\)</span>).</li>
+<li><strong>The Arrow (<span class="math inline">\(\longrightarrow\)</span>):</strong> The Synthetic Transformation (Topological closure and categorical Change of Base).</li>
 <li><strong>Right Side:</strong> A new, higher-order autonomous progression begins. The complex limit <span class="math inline">\(O\)</span> has mathematically synthesised into an atomic, discrete baseline coordinate for the new subproblem (<span class="math inline">\(X\)</span>).</li>
 </ul>
 </div>
@@ -787,7 +767,7 @@ Axiom 2: The Transitivity Axiom
 
 </div>
 <p><strong>2. Limit Catching:</strong> Through top-down semantic reflection (<span class="math inline">\(\Box_2\)</span>), the <span class="math inline">\(\mathrm{ODo}\)</span> modality mathematically coinduces a structural property of the optimal traces: <span style="color:blue">The Parity Invariant (<span class="math inline">\(O_{\text{parity}}\)</span>).</span></p>
-<p><strong>3. The Synthetic Transformation (Change of Base):</strong> The Transitivity Axiom fires, executing a categorical Change of Base:</p>
+<p><strong>3. The Synthetic Transformation (Change of Base):</strong> The Transformation Axiom fires, executing a categorical Change of Base:</p>
 <div style="margin-top: -0.6em;">
 
 </div>
@@ -803,30 +783,47 @@ Axiom 2: The Transitivity Axiom
 </section>
 <section id="the-dual-fixpoints" class="level2">
 <h2 class="anchored" data-anchor-id="the-dual-fixpoints">The Dual Fixpoints</h2>
-<div class="shrink70">
-<p><strong>Unifying Reachability (<span class="math inline">\(\mu\)</span>) and Persistence (<span class="math inline">\(\nu\)</span>)</strong></p>
-<p>By natively intertwining syntax (<span class="math inline">\(\mathrm{RDo}\)</span>) and semantics (<span class="math inline">\(\mathrm{ODo}\)</span>), the dynamic transition functor (<span class="math inline">\(\mathrm{PDo}\)</span>) mathematically fuses two distinct forms of logical progression:</p>
+<div class="shrink66">
+<p><strong>Unifying Reachability (<span class="math inline">\(\mu\)</span>) &amp; Persistence (<span class="math inline">\(\nu\)</span>):</strong> By natively intertwining syntax (<span class="math inline">\(\mathrm{RDo}\)</span>) and semantics (<span class="math inline">\(\mathrm{ODo}\)</span>), the dynamic transition functor (<span class="math inline">\(\mathrm{PDo}\)</span>) mathematically fuses two distinct forms of logical progression:</p>
 <ol type="1">
 <li><strong>Induction / Least Fixpoint (<span class="math inline">\(\mu\)</span>):</strong> Governed by the <span class="math inline">\(\mathrm{RDo}\)</span> modality. The bottom-up synthesis of finite evidence from baseline ignorance (<span class="math inline">\(\bot\)</span>). It guarantees computational <em>Reachability</em>.</li>
 <li><strong>Coinduction / Greatest Fixpoint (<span class="math inline">\(\nu\)</span>):</strong> Governed by the <span class="math inline">\(\mathrm{ODo}\)</span> modality. The top-down evaluation of continuous semantics. It guarantees <em>Safety and Property Persistence</em>.</li>
 </ol>
-<div style="margin-top: -0.8em;">
+</div>
+<div style="margin-top: -0.4em;">
 
 </div>
-<p><strong>Algebraic Compactness (<span class="math inline">\(\mu = \nu\)</span>)</strong></p>
-<p><strong>Theorem I (Semantic Realisation)</strong> formally computes a <em>bilimit</em>. At convergence, the active inductive trace (<span class="math inline">\(\mu\)</span>) fulfills the persistent semantic invariant (<span class="math inline">\(\nu\)</span>).</p>
-<p>When this limit shifts to become the new Reference Frame (<span class="math inline">\(S_f\)</span>) via the Transitivity Axiom, it acts as a Greatest Fixpoint, and is added to the theory for subsequent computations.</p>
+<div class="callout callout-style-default callout-note no-icon callout-titled" title="Theorem II: Algebraic Compactness">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Theorem II: Algebraic Compactness
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Because <strong>Theorem I (Semantic Realisation)</strong> formally computes a categorical <em>bilimit</em>, the system achieves algebraic compactness. At convergence, the initial algebra of the dynamic transition functor perfectly coincides with its final coalgebra:</p>
+<div style="margin-top: -0.6em;">
+
+</div>
+<p><span class="math display">\[ \mu(\mathrm{PDo}) \cong \nu(\mathrm{PDo}) \]</span></p>
+<div style="margin-top: -0.6em;">
+
+</div>
+<p><em>The active inductive trace (<span class="math inline">\(\mu\)</span>) strictly fulfills the persistent semantic invariant (<span class="math inline">\(\nu\)</span>).</em></p>
+</div>
 </div>
 </section>
-<section id="theory-driven-generalization-via-categorical-duality" class="level2">
-<h2 class="anchored" data-anchor-id="theory-driven-generalization-via-categorical-duality">Theory-Driven Generalization via Categorical Duality</h2>
-<div class="shrink52">
-<p>Instead of relying on algorithmic heuristics (e.g., IC3 or Interpolation) to guess invariants, the system treats generalisation as a native categorical operation over its Reference Theory (<span class="math inline">\(S_F\)</span>). We reframe invariant proposal through the foundational duality of fibrations and adjunctions.</p>
+<section id="theory-driven-generalization" class="level2">
+<h2 class="anchored" data-anchor-id="theory-driven-generalization">Theory-Driven Generalization</h2>
+<div class="shrink62">
+<p>When the converged limit shifts to become the new Reference Frame (<span class="math inline">\(S_f\)</span>) via the <strong>Transformation Axiom</strong>, it acts natively as a global Greatest Fixpoint (<span class="math inline">\(\nu\)</span>) and the coinduced property is added to the reference theory for subsequent computations. The system treats <strong>generalisation</strong> as a categorical operation over its Reference Theory (<span class="math inline">\(S_F\)</span>) facilitating invariant proposal through the foundational duality of fibrations and adjunctions.</p>
 <ul>
 <li><strong>1. Change of Base (The Fibrational Shift)</strong>
 <ul>
-<li>In categorical logic, logical properties form a <em>Total Category</em> fibered over a <em>Base Category</em> of states.</li>
-<li>The system performs a mathematical <strong>Change of Base</strong> from the absolute space (<span class="math inline">\(ODo\)</span>) to the relativistic space (<span class="math inline">\(RDo\)</span>). This functor maps complex, absolute histories into simplified, periodic differential streams.</li>
+<li>Logical properties form a <em>Total Category</em> fibered over a <em>Base Category</em> of states.</li>
+<li>The system performs a <strong>Change of Base</strong> from the coinduced space (<span class="math inline">\(ODo\)</span>) to the inductive space (<span class="math inline">\(RDo\)</span>). This functor maps complex, induced histories into coinduced progressions.</li>
 </ul></li>
 <li><strong>2. Adjoint Duality (Swapping the Problem)</strong>
 <ul>
@@ -834,6 +831,13 @@ Axiom 2: The Transitivity Axiom
 <li><em>Planning (Left Adjoint):</em> Inductive, bottom-up synthesis of a finite trace (Least Fixpoint).</li>
 <li><em>Generalising (Right Adjoint):</em> Coinductive, top-down projection of an infinite bound (Greatest Fixpoint). The finite local observations mathematically push across the adjunction to form the exact coinductive proposal.</li>
 </ul></li>
+</ul>
+</div>
+</section>
+<section id="theory-driven-generalization-continued" class="level2">
+<h2 class="anchored" data-anchor-id="theory-driven-generalization-continued">Theory-Driven Generalization (continued)</h2>
+<div class="shrink70">
+<ul>
 <li><strong>3. Universal Properties (Terminal Coalgebras)</strong>
 <ul>
 <li>The system requires no external engineering templates or “Syntax-Guided” rules.</li>
@@ -874,44 +878,44 @@ Axiom 2: The Transitivity Axiom
 <h2 class="anchored" data-anchor-id="example-computing-the-hanoi-parity-invariant">Example: Computing the Hanoi Parity Invariant</h2>
 <div class="shrink70">
 <p>We can now express our hypothesis for the Towers of Hanoi natively in DTLF. We want to co-induce an idealised invariant where the smallest disk flawlessly cycles one peg to the right (<span class="math inline">\(+1\)</span>) forever.</p>
-<strong>1. Proposing the Idealised Rule:</strong> We propose this continuous property as our Greatest Fixpoint:
+<strong>1. Proposing the Idealised Rule:</strong> We propose this property as our Greatest Fixpoint:
 <div style="margin-top: -0.8em;">
 
 </div>
 <span class="math display">\[
-Ideal \equiv \nu X.\ \langle +1 \rangle X
+ParityInvariant \equiv \nu X.\ \langle -1 \rangle X
 \]</span>
 <div style="margin-top: -0.8em;">
 
 </div>
-<strong>2. The Physical Reality:</strong> However, the physical puzzle generates a stream that eventually forces a backwards jump of <span class="math inline">\(-2\)</span> when wrapping from <span class="math inline">\(Peg_2\)</span> back to <span class="math inline">\(Peg_0\)</span>. The observable physical bounds are:
+<strong>2. The Reality:</strong> However, the physical puzzle generates a stream that forces a forward jump of <span class="math inline">\(+2\)</span> from <span class="math inline">\(Peg_1\)</span> back to <span class="math inline">\(Peg_3\)</span>. The observable bounds are:
 <div style="margin-top: -0.8em;">
 
 </div>
 <span class="math display">\[
-Physical \equiv \nu X.\ (\langle +1 \rangle X \lor \langle -2 \rangle X)
+Observed \equiv \nu X.\ (\langle -1 \rangle X \lor \langle +2 \rangle X)
 \]</span>
 <div style="margin-top: -0.7em;">
 
 </div>
-<strong>3. Syntactic Bisimulation Equivalence:</strong> Because the topological futures of <span class="math inline">\(-2\)</span> and <span class="math inline">\(+1\)</span> land on the identical peg, we apply our syntactic equivalence (<span class="math inline">\(\langle -2 \rangle \phi \equiv \langle +1 \rangle \phi\)</span>). This cleanly collapses the messy physical stream into our idealised property:
+<strong>3. Syntactic Bisimulation Equivalence:</strong> Because the topological futures of <span class="math inline">\(+2\)</span> and <span class="math inline">\(-1\)</span> land on the identical peg, we apply our syntactic equivalence (<span class="math inline">\(\langle +2 \rangle \phi \equiv \langle -1 \rangle \phi\)</span>). This cleanly collapses the stream into our idealised property:
 <div style="margin-top: -0.6em;">
 
 </div>
 <p><span class="math display">\[
-\nu X.\ (\langle +1 \rangle X \lor \langle -2 \rangle X) \;\equiv\; \nu X.\ \langle +1 \rangle X
+\nu X.\ (\langle -1 \rangle X \lor \langle +2 \rangle X) \;\equiv\; \nu X.\ \langle -1 \rangle X
 \]</span></p>
 </div>
 </section>
 <section id="spatial-completeness-the-static-limitation" class="level2">
 <h2 class="anchored" data-anchor-id="spatial-completeness-the-static-limitation">Spatial Completeness &amp; The Static Limitation</h2>
-<div class="shrink87">
+<div class="shrink85">
 <p>The mathematical power of vanilla DTLF lies in <strong>Spatial Completeness</strong> (rooted in Stone Duality).</p>
 <ul>
 <li><strong>The Guarantee:</strong> It proves a 1-to-1 isomorphism between the algebraic, step-by-step <strong>Syntax</strong> (<span class="math inline">\(\phi \vdash \psi\)</span>) and the continuous, geometric <strong>Semantics</strong> (<span class="math inline">\([\![\phi]\!] \subseteq [\![\psi]\!]\)</span>).</li>
 <li><strong>Catching Limits:</strong> Computations resolve when the directed path of finite evidence mathematically catches (satisfies) an infinite continuous topological limit (a Supremum).</li>
 </ul>
-<p>Vanilla DTLF perfectly describes a single, <em>static</em> universe. However, to differentiate induction from coinduction and model dynamic, continuous learning, <strong>the Reference Frame itself must dynamically shift.</strong></p>
+<p>Vanilla DTLF perfectly describes a single, <em>static</em> universe. However, to differentiate induction from coinduction and model dynamic, continuous learning, <strong>the Reference Frame itself must dynamically shift</strong> so we use a relativistic version, termed R-DTLF.</p>
 </div>
 </section>
 <section id="translating-continuous-syntax-into-successor-state-axioms" class="level2">
@@ -954,13 +958,13 @@ Physical \equiv \nu X.\ (\langle +1 \rangle X \lor \langle -2 \rangle X)
 <div class="shrink87">
 <p>R-DTLF does not discard classical logic; it functionally <em>generates</em> it at the semantic limits.</p>
 </div>
-<div class="callout callout-style-default callout-note no-icon callout-titled" title="Theorem II: Topological Booleanization (Compiling Successor State Axioms)">
+<div class="callout callout-style-default callout-note no-icon callout-titled" title="Theorem III: Topological Booleanization (Compiling Successor State Axioms)">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
 <i class="callout-icon no-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-Theorem II: Topological Booleanization (Compiling Successor State Axioms)
+Theorem III: Topological Booleanization (Compiling Successor State Axioms)
 </div>
 </div>
 <div class="callout-body-container callout-body">
@@ -1012,7 +1016,7 @@ Theorem II: Topological Booleanization (Compiling Successor State Axioms)
 <td style="text-align: left;">Co-induction (Coalgebraic)</td>
 </tr>
 <tr class="even">
-<td style="text-align: left;"><strong>Syntactic Shift</strong></td>
+<td style="text-align: left;"><strong>Syntactic Transformation</strong></td>
 <td style="text-align: left;">Transformation into First-Order Logic (SSAs)</td>
 <td style="text-align: left;">Transformation to Relativistic Differentials</td>
 </tr>
@@ -1075,7 +1079,9 @@ Theorem II: Topological Booleanization (Compiling Successor State Axioms)
 </tr>
 </tbody>
 </table>
+</div>
 <hr>
+<div class="shrink70">
 <ul>
 <li><p><span class="math inline">\(\mathrm{RDo}\)</span> is equivalent to the <span class="math inline">\(\Box\)</span> modality of bimodal provability logic GLB: <em>“There exists a finite, step-by-step mechanical proof of this property.”</em></p></li>
 <li><p><span class="math inline">\(\mathrm{ODo}\)</span> is equivalent to the <span class="math inline">\(\Box_\omega\)</span> modality of GLB: <em>“Evaluated at the continuous limit, this property is universally true,”</em> i.e., this is the modality of <em>semantic reflection</em>.</p></li>
