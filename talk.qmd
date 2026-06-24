@@ -782,7 +782,7 @@ When the converged limit shifts to become the new Reference Frame ($S_f$) via th
 ::: {.shrink75}
 
 * **2. Adjoint Duality (Swapping the Problem)**
-  * Generalising a safe invariant is structurally the dual to deductive planning (a Categorical Adjunction: $L \dashv R$).
+  * [Generalising a safe invariant is structurally the dual to deductive planning]{style="color:blue"} (a Categorical Adjunction: $L \dashv R$).
   * *Planning (Left Adjoint, $L$):* Inductive, bottom-up synthesis of a finite trace (Least Fixpoint, $\mu$). Left adjoints natively preserve colimits.
   * *Generalising (Right Adjoint, $R$):* Coinductive, top-down projection of an infinite bound (Greatest Fixpoint, $\nu$). Right adjoints natively preserve limits. Finite local observations mathematically push across the adjunction to rigorously force the coinductive proposal.
 
