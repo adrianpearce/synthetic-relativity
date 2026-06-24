@@ -108,7 +108,7 @@ From the **Second-Order Induction Axiom**:
 ## Situations as a Least Fixpoint (continued)
 
 ::: {.callout-note icon=false title="The Knaster-Tarski Theorem: least fixpoint"}
-The intersection of all pre-fixed points of a monotonic operator yields its **least fixpoint**. 
+The intersection of all **pre-fixed** points of a monotonic operator yields its **least fixpoint**. 
 
 <div style="margin-top: -0.5em;"></div>
 
@@ -178,7 +178,7 @@ OnPeg(d, p, s) \land \neg \exists p_{to} \ (a = move(d, p, p_{to})) \supset OnPe
 $$
 <div style="margin-top: -1.1em;"></div>
 
-4. Completeness assumption (explanation closure):
+4. Completeness assumption ([explanation closure]{style="color:blue"}):
 
 <div style="margin-top: -1.1em;"></div>
 $$
@@ -246,7 +246,7 @@ $$
 **1. Apply $\mathcal{R}$ to the query:**
 <div style="margin-top: -0.5em;"></div>
 $$
-\mathcal{R}[\, OnPeg(D_2, Peg_3, do({\color{red}{move(D_1, Peg_1, Peg_2)}}, S_0)) \,]
+\mathcal{R}[\, OnPeg(D_2, Peg_2, do({\color{red}{move(D_1, Peg_1, Peg_2)}}, S_0)) \,]
 $$
 <div style="margin-top: -0.5em;"></div>
 
@@ -254,8 +254,8 @@ $$
 <div style="margin-top: -0.5em;"></div>
 $$
 \begin{align*}
-\equiv \;& [\exists p_{from} \ ({\color{red}{move(D_1, Peg_1, Peg_2)}} = move(D_2, p_{from}, Peg_3))] \lor \\
-& {\color{blue}{OnPeg(D_2, Peg_3, S_0)}} \land \neg [\exists p_{to} \ ({\color{red}{move(D_1, Peg_1, Peg_2)}} = move(D_2, Peg_3, p_{to}))]
+\equiv \;& [\exists p_{from} \ ({\color{red}{move(D_1, Peg_1, Peg_2)}} = move(D_2, p_{from}, Peg_2))] \lor \\
+& {\color{blue}{OnPeg(D_2, Peg_2, S_0)}} \land \neg [\exists p_{to} \ ({\color{red}{move(D_1, Peg_1, Peg_2)}} = move(D_2, Peg_2, p_{to}))]
 \end{align*}
 $$
 <div style="margin-top: -0.5em;"></div>
@@ -266,7 +266,7 @@ Because our Unique Names Axioms explicitly state $D_1 \neq D_2$, both action equ
 <div style="margin-top: -0.5em;"></div>
 
 $$
-\equiv \mathrm{False} \lor \color{blue}{OnPeg(D_2, Peg_C, S_0)} \land \neg \mathrm{False}
+\equiv \mathrm{False} \lor {\color{blue}{OnPeg(D_2, Peg_2, S_0)}} \land \neg \mathrm{False}
 $$
 
 <div style="margin-top: -1.0em;"></div>
@@ -274,20 +274,21 @@ $$
 **4. Logical Result:**
 <div style="margin-top: -1.0em;"></div>
 $$
-\equiv \color{blue}{OnPeg(D_2, Peg_C, S_0)}
+\equiv {\color{blue}{OnPeg(D_2, Peg_2, S_0)}}
 $$
 
 :::
+
 
 ## Foundational Limitations of Least Fixpoints?
 
 ::: {.shrink70}
 While classical induction successfully builds a valid history, enforcing this rigid geometry creates severe structural limits for dynamic, self-reflective systems:
 
-*   **Strict Tree Topology ([Unique Predecessors]{style="color:blue"}):** Distinct action histories never converge. Even if two different paths result in the same state, the logic traps them in completely isolated parallel universes.
+*   **Strict Tree Topology ([Unique Predecessors]{style="color:blue"}):** Distinct action histories never converge. Even if two different paths result in the same state, the logic traps them in isolated parallel universes.
 *   **Total Ordering ([The Self-Reflection Barrier]{style="color:blue"}):** The strictly linear sequence of actions restricts true partial ordering and concurrency. The logic cannot step "outside" the sequence to self-reflect or re-evaluate its overarching reference frame.
 *   **No Native State Equivalence:** Because states are strictly defined by their rigid *syntactic history* rather than their *observable behaviour*, [the topology cannot naturally "fold" or quotient identical states together.]{style="color:blue"}
-*   **The Finiteness Barrier:** By mathematical definition, a least fixpoint ($\mu$) only constructs strictly *finite* chains. [It is fundamentally blind to continuous processes, nn
+*   **The Finiteness Barrier:** By mathematical definition, a least fixpoint ($\mu$) only constructs strictly *finite* chains. [It is blind to infinite, continuous processes]{style="color:blue"}.
 :::
 
 
@@ -307,14 +308,14 @@ $$ \mathcal{P}(Z) \equiv \phi(s) \land \forall a \big( \textit{Poss}(a, s) \to \
 
 [Iteratively applying this meta-level calculation computes the maximal invariant without explicitly invoking the second-order induction axiom.]{style="color:blue"}
 
-- By wrapping the single-step regression operator inside a monotonic formula transformer ($\mathcal{P}$), the future can be evaluated back in the current state. 
+- By wrapping the single-step regression operator $\mathcal{R}$ inside a monotonic formula transformer ($\mathcal{P}$), the future can be evaluated back in the current state. 
 
 :::
 
 ::: {.callout-note icon=false title="The Syntactic Limit: Greatest Fixpoints ($\nu Z$)"}
 - Property persistence is an infinite-horizon **safety property**.
 - The persistence condition is the **greatest fixpoint** of this operator: $\nu Z.\, \mathcal{P}(Z)$.
-- *The Problem:* Regression builds finite states. To syntactically evaluate this infinite fixpoint, we must shift our mathematical framework.
+- *The Problem:* [Regression builds finite states. To syntactically evaluate this infinite fixpoint, we must shift our mathematical framework.]{style="color:blue"}
 :::
 
 # Category Theory
@@ -327,12 +328,12 @@ To transition from finite histories to observing infinite Greatest Fixpoints, we
 
 * **Algebra (Situation Calculus / Constructor):** Morphism arrows point *inward*: $\; F(S) \to S$
   * Our endofunctor shapes the inputs: $F(S) = Action \times S$
-  * The *morphism* evaluates to: $(Action \times State_{current}) \to State_{next}$
+  * The *morphism* evaluates to: ${\color{blue}{(Action \times State_{current}) \to State_{next}}}$
   * *Concept:* [*Construct* a history from the bottom-up.]{style="color:blue"}
 
 * **Coalgebra (Property Persistence / Observer):** Morphism arrows point *outward*: $\; S \to F(S)$
   * Our endofunctor shapes the emitted data: $F(S) = Observation \times S$
-  * The morphism evaluates to: $State_{current} \to (Observation \times State_{next})$
+  * The morphism evaluates to: ${\color{blue}{State_{current} \to (Observation \times State_{next}}})$
   * *Concept:* [Take a running state, break off an *observation*, and unfold the remaining state into the future.]{style="color:blue"}
 
 :::
@@ -341,15 +342,15 @@ To transition from finite histories to observing infinite Greatest Fixpoints, we
 
 ::: {.shrink72}
 
-To reason about infinite streams when operating in [coalgebras]{style="color:blue"}, we harness two categorical proof mechanisms.
+To reason about infinite streams when operating in *coalgebras*, we harness two categorical proof mechanisms.
 
 **1. Coinduction (The Dual of Induction)**
 While standard induction proves a finite base case and builds upward, coinduction works top-down. It *proposes* a Greatest Fixpoint (an infinite rule, $\nu Z$) and verifies it locally. 
 
 *If the observation holds right now, and the rules guarantee it holds in the next step, the Greatest Fixpoint is guaranteed to hold forever.*
 
-**2. Stone Duality (Syntax-Semantics Mirror)**
-In Category Theory, **Stone Duality** dictates an inverse mirror-image between **Syntax** (logical formulas) and **Semantics** (topological state space). 
+**2. Stone Duality (Syntax-Semantics)**
+In Category Theory, **Stone Duality** dictates an duality between Syntax (logical formulas) and Semantics (topological state space). 
 
 * [*The Syntactic Transformation:* If our logic formally declares two distinct observational paths to be identical (Bisimulation Equivalence) $\ldots$]{style="color:blue"}
 * [$\ldots$ *The Semantic Result:* Stone Duality guarantees the underlying semantic space automatically folds (quotients) to make those paths topologically identical.]{style="color:blue"}
@@ -383,7 +384,9 @@ $$ ParityInvariant \equiv \nu Z.\ \langle -1 \rangle Z $$
 ::: {.shrink75}
 
 **3. The Coinductive Step (Bisimulation):** 
-Following $+2$, the stream outputs a jump of $-1$. How does our *proposed invariant* survive this paradox? 
+Following $+2$, the stream outputs a jump of $-1$. [How does our *proposed invariant* survive this paradox?]{style="color:blue"}
+
+<div style="margin-top: 0.3em;"></div>
 
 To satisfy the local coinductive check, the logic evaluates the domain's geometry. It formally recognises that jumping right twice ($+2$) is structurally indistinguishable from jumping left once ($-1$). It applies this coinductive equivalence:
 <div style="margin-top: -0.6em;"></div>
@@ -417,15 +420,19 @@ It is evaluated relative to a specific baseline **Reference Frame**, $\mathrm{S_
 
 The space is governed by three interacting modalities.
 
-*   **$\mathrm{RDo}$ (The Subproblem / Syntax): The Inductive Accumulator ($\Box_1$)**
+*   **${\color{blue}{\mathrm{RDo}}}$ (The Subproblem / Syntax): The Inductive Accumulator ($\Box_1$)**
     Operates in constructive, non-Boolean logic. Recursively gathers finite, computationally observable properties (compact elements) along a directed logical path. 
-*   **$\mathrm{ODo}$ (The Master Problem / Semantics): The Limit/Creator Modality ($\Box_2$)**
+*   **${\color{blue}{\mathrm{ODo}}}$ (The Master Problem / Semantics): The Limit/Creator Modality ($\Box_2$)**
     The semantic evaluator and *interval invariant*. 
+
+<div style="margin-top: -0.3em;"></div>
 
 *Performs topological closure—evaluating the directed set generated by $\mathrm{RDo}$ and snapping it into a discrete, continuous limit.*
 
-*   **$\mathrm{PDo}$ (Autonomous Progression): The Dynamic Transition Functor ($\Box_3$)**
+*   **${\color{blue}{\mathrm{PDo}}}$ (Autonomous Progression): The Dynamic Transition Functor ($\Box_3$)**
     The transition modality that governs the forward evolution of the system. 
+
+<div style="margin-top: -0.3em;"></div>
 
 *Mathematically, it acts as an endofunctor within the Total Category, orchestrating the step-by-step recursive interaction (categorical adjunction) of local syntax ($\mathrm{RDo}$) and global semantics ($\mathrm{ODo}$) relative to $S_f$.*
 
@@ -456,7 +463,7 @@ $$ \mathrm{PDo}\big(\, \mathrm{RDo}(R_1, S_r),\; \mathrm{ODo}(O_1, S_o),\; S_f \
 <div style="margin-top: -0.8em;"></div>
 $$ \mathrm{PDo}\Big(\, \mathrm{RDo}\big(R_2, \mathrm{RDo}(R_1,S_r)\big),\; \mathrm{ODo}\big(O_2, \mathrm{ODo}(O_1,S_o)\big),\; S_f \,\Big) \dots \mathit{etc.} $$
 
-It reads: *"Relative to reference frame $S_f$, the accumulation of inductive evidence $\mathrm{RDo}$ yields the coinductively realised semantic limit $\mathrm{ODo}$."*
+*"Relative to reference frame $S_f$, the accumulation of inductive evidence $\mathrm{RDo}$ yields the coinductively realised semantic limit $\mathrm{ODo}$."*
 :::
 
 ## Semantic Realisation
@@ -470,22 +477,38 @@ $$ \mu (\mathrm{PDo}) = \mathrm{ODo} \left( \bigsqcup_{i \in R} \mathrm{RDo}_i(\
 
 <div style="margin-top: -1.1em;"></div>
 
-- **$\bigsqcup \mathrm{RDo}$ (Syntax):** The builder generates a raw, directed chain of evidence from the ground up. A syntax string alone has no inherent "meaning."
-- **$\mathrm{ODo}$ (Semantics):** The top-down evaluator reads the syntax trace and evaluates its truth value.
+- **$\bigsqcup \mathrm{RDo}$ (Syntax):** [By induction builds a raw chain of evidence from the ground up.]{style="color:blue"}
+- **$\mathrm{ODo}$ (Semantics):** [The top-down evaluator reads the syntax trace and evaluates its truth value.]{style="color:blue"}
 
 <div style="margin-top: -1.0em;"></div>
 
-**Proof Sketch:** Corresponds to the computation of the **Kleene Fixed-Point Theorem**.
+**Proof Sketch:** Corresponds to the computation of the **Kleene Fixed-Point Theorem** $+$ **Algebraic Compactness** (next slide).
 
 :::
 
-## Semantic Realisation (continued)
+## The Dual Fixpoints: Algebraic Compactness
 
-::: {.shrink75}
+::: {.shrink66}
 
-- The ultimate stable fixpoint ($\mu$) is caught when $\mathrm{ODo}$ evaluates the limit (Supremum, $\bigsqcup$) of the recursively enumerable inductive proofs ($\mathrm{RDo}$). 
-- This accumulation mathematically begins from an initial state of ignorance ($\bot$), but is constructed and evaluated strictly relative to the rules of the **reference frame ($S_f$)**.
-- This mathematically realised limit acts as the interval semantic invariant for that specific frame.
+**Unifying Reachability ($\mu$) & Persistence ($\nu$):** By intertwining syntax ($\mathrm{RDo}$) and semantics ($\mathrm{ODo}$), the dynamic transition functor ($\mathrm{PDo}$) mathematically fuses two distinct forms of logical progression:
+
+1.  **Induction / Least Fixpoint ($\mu$):** Governed by the $\mathrm{RDo}$ modality. The bottom-up synthesis of finite evidence from baseline ignorance ($\bot$). It guarantees computational *Reachability*.
+2.  **Coinduction / Greatest Fixpoint ($\nu$):** Governed by the $\mathrm{ODo}$ modality. The top-down evaluation of continuous semantics. It guarantees *Safety and Property Persistence*.
+
+:::
+
+<div style="margin-top: -0.4em;"></div>
+
+::: {.callout-note icon=false title="Theorem II: Algebraic Compactness"}
+Because **Theorem I (Semantic Realisation)** formally computes a categorical *bilimit*, the system achieves algebraic compactness. [At convergence, the initial algebra of the dynamic transition functor coincides with its final coalgebra:]{style="color:blue"}
+
+<div style="margin-top: -0.6em;"></div>
+
+$$ \mu(\mathrm{PDo}) \cong \nu(\mathrm{PDo}) $$
+
+<div style="margin-top: -0.6em;"></div>
+
+*The active inductive trace ($\mu$) strictly fulfills the persistent semantic invariant ($\nu$).*
 :::
 
 ## The Synthetic Transformation
@@ -501,7 +524,7 @@ $$ \mathrm{PDo}(N, {\color{blue}{O}}, S_f) \longrightarrow \mathrm{PDo}(X, Y, {\
 *   **The Arrow ($\longrightarrow$):** The Synthetic Transformation (Topological closure and categorical Change of Base).
 *   **Right Side:** A new, higher-order autonomous progression begins. 
 
-*The semantic limit $O$ has mathematically synthesised into an syntactic, discrete baseline coordinate for the new subproblem ($X$).*
+[The semantic limit $O$ has mathematically synthesised into an syntactic, discrete baseline Reference Frame $S_f$ for the new subproblem ($X$).]{style="color:blue"}
 :::
 
 ## Towers of Hanoi example
@@ -536,30 +559,6 @@ The invariant (cycle $D_1$, alternate move, cycle $D_1$) emerges as the unique, 
 
 :::
 
-## The Dual Fixpoints
-
-::: {.shrink66}
-
-**Unifying Reachability ($\mu$) & Persistence ($\nu$):** By intertwining syntax ($\mathrm{RDo}$) and semantics ($\mathrm{ODo}$), the dynamic transition functor ($\mathrm{PDo}$) mathematically fuses two distinct forms of logical progression:
-
-1.  **Induction / Least Fixpoint ($\mu$):** Governed by the $\mathrm{RDo}$ modality. The bottom-up synthesis of finite evidence from baseline ignorance ($\bot$). It guarantees computational *Reachability*.
-2.  **Coinduction / Greatest Fixpoint ($\nu$):** Governed by the $\mathrm{ODo}$ modality. The top-down evaluation of continuous semantics. It guarantees *Safety and Property Persistence*.
-
-:::
-
-<div style="margin-top: -0.4em;"></div>
-
-::: {.callout-note icon=false title="Theorem II: Algebraic Compactness"}
-Because **Theorem I (Semantic Realisation)** formally computes a categorical *bilimit*, the system achieves algebraic compactness. [At convergence, the initial algebra of the dynamic transition functor coincides with its final coalgebra:]{style="color:blue"}
-
-<div style="margin-top: -0.6em;"></div>
-
-$$ \mu(\mathrm{PDo}) \cong \nu(\mathrm{PDo}) $$
-
-<div style="margin-top: -0.6em;"></div>
-
-*The active inductive trace ($\mu$) strictly fulfills the persistent semantic invariant ($\nu$).*
-:::
 
 # Relativistic Domain Theory in Logical Form (R-DTLF)
 
