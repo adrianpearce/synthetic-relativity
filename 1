@@ -331,7 +331,7 @@ To transition from finite histories to observing infinite Greatest Fixpoints, we
 
 ::: {.shrink72}
 
-To reason about infinite streams when operating in [coalgebras]{style="color:blue"}, we harness two categorical proof mechanisms.
+To reason about infinite streams when operating in [coalgebras]{style="color:blue"}, we harness two categorial proof mechanisms.
 
 **1. Coinduction (The Dual of Induction)**
 While standard induction proves a finite base case and builds upward, coinduction works top-down. It *proposes* a Greatest Fixpoint (an infinite rule, $\nu Z$) and verifies it locally. 
@@ -565,7 +565,7 @@ $$ \phi, \psi  ::=  \top  \mid  \bot  \mid  \phi \land \psi  \mid  \phi \lor \ps
 <div style="margin-top: -0.8em;"></div>
 
 * **$X, Y$ (Variables):** Placeholders used to define recursive logical properties.
-* **$\top$ (True / Top):** The trivial observation (a valid transition occurred). **$\bot$ (False / Falsum):** The null observation (a paradox occurred)---The baseline ignorance from which new inductive proofs begin.
+* **$\top$ (True / Top):** The trivial observation (a valid transition occurred). **$\bot$ (False / Falsum):** The null observation (a paradox occured)---The baseline ignorance from which new inductive proofs begin.
 * **$\phi \land \psi \ / \ \phi \lor \psi$ (Conjunction / Disjunction):** "I simultaneously observe both $\phi$ and $\psi$" / "I observe either $\phi$ or $\psi$."
 * **$\langle \delta \rangle \phi$ (The Coalgebraic Transition Modality):** This is the literal "arrow breaking in two." It reads: *"The system makes a visible relativistic jump of $\delta$ (where $\delta \in \mathbb{Z}$), and the continuing, unobserved future stream will satisfy property $\phi$."* [Because this evaluates future observation rather than past history, it serves as the formal logical engine for bisimulation and state-folding.]{style="color:blue"}
 
@@ -608,7 +608,7 @@ $$
 
 :::
 
-## Spatial Completeness & The Static Limitation: R-DTLF
+## Spatial Completeness & The Static Limitation
 
 ::: {.shrink78}
 
@@ -619,7 +619,7 @@ The mathematical power of vanilla DTLF lies in **Spatial Completeness** (rooted 
 
 Vanilla DTLF describes a single, *static* universe. 
 
-- To model the *dynamic* aspects of the Relativity Axioms, the Reference Frame itself must dynamically shift, so [we use a relativistic version of DTLF, termed R-DTLF]{style="color:blue"}. 
+- To differentiate induction from coinduction and model dynamic, continuous learning, the Reference Frame itself must dynamically shift, so [we use a relativistic version of DTLF, termed R-DTLF]{style="color:blue"}. 
 
 :::
 
@@ -694,15 +694,11 @@ OnPeg(d, p, do(a, s)) \equiv \;& \Big( [\exists p_{from} \ (a = move(d, p_{from}
 
 **1. Action Theories & Fixpoint Verification**
 
-* **Model Checking in the Situation Calculus with the $\mu$ calculus:** [De Giacomo et al.] 
-
-By quotienting infinite state spaces via bisimulation into finite abstractions, they enabled the formal verification of dynamic, non-terminating systems using standard fixpoint model checking.
+* **Model Checking in the Situation Calculus:** [De Giacomo et al.] and colleagues introduced the synthesis of classical Situation Calculus and the $\mu$-calculus. By quotienting infinite state spaces via bisimulation into finite abstractions, they enabled the formal verification of dynamic, non-terminating systems (e.g., ConGolog) using standard fixpoint model checking.
 
 **2. Categorical Logic & Observational Duality**
 
-* **Domain Theory in Logical Form (DTLF):** [Abramsky, 1991] established the foundational Stone Duality connecting denotational semantics (continuous topological domains) to program logic (finite observable properties). 
-
-Modern Coalgebraic Logic extends this duality to state-transition systems, directly mirroring our framework's state-collapse mechanism.
+* **Domain Theory in Logical Form (DTLF):** [Abramsky, 1991] established the foundational Stone Duality connecting denotational semantics (continuous topological domains) to program logic (finite observable properties). Modern Coalgebraic Logic extends this duality to state-transition systems, directly mirroring our framework's state-collapse mechanism.
 
 :::
 
@@ -712,15 +708,11 @@ Modern Coalgebraic Logic extends this duality to state-transition systems, direc
 
 **3. Bounding Infinite Search & Forcing Convergence**
 
-* **Abstract Interpretation & Widening:** To guarantee least fixpoint convergence in infinite lattices, [Cousot & Cousot, 1977] introduced the **widening operator ($\nabla$)**. 
+* **Abstract Interpretation & Widening:** To guarantee least fixpoint convergence in infinite lattices, [Cousot & Cousot, 1977] introduced the **widening operator ($\nabla$)**. Similar to our topological limit ($\mathrm{ODo}$), widening mathematically extrapolates a diverging inductive sequence, forcing it to snap to a safe, stable limit in finite time.
 
-Similar to our topological limit ($\mathrm{ODo}$), widening mathematically extrapolates a diverging inductive sequence, forcing it to snap to a safe, stable limit in finite time.
+* **Inverse Entailment (ILP):** To avoid generating infinite RLGGs, IE bounds the inductive search strictly between the empty clause (most general) and a finite bottom clause (most specific), grounding background knowledge relative to finite examples [Muggleton, 1995].
 
-* **Inverse Entailment for Inductive Logic Programming (ILP):** [Muggleton 1995] avoids generating infinite relative least general generalisations (RLGGs).
-
-Inverse Entailment bounds the inductive search strictly between the empty clause (most general) and a finite bottom clause (most specific), grounding background knowledge relative to finite examples.
-
-* **Equational Anti-Unification:** [Cerna & Kutsia, 2023] In modern program synthesis, anti-unification is applied over $E$-graphs to efficiently extract common programmatic substructures and compress code without diverging into infinite logical spaces.
+* **Equational Anti-Unification:** In modern program synthesis, anti-unification is applied over $E$-graphs to efficiently extract common programmatic substructures and compress code without diverging into infinite logical spaces [Cerna & Kutsia, 2023].
 
 :::
 
@@ -729,14 +721,13 @@ Inverse Entailment bounds the inductive search strictly between the empty clause
 
 ## Future Work: Formalising Relativistic Invariance
 
-::: {.shrink68}
+::: {.shrink60}
 
-In physical relativity, shifting reference frames mathematically preserves the fundamental 4D spacetime interval across all frames ($\Delta s^2 = \Delta s'^2$): $\Delta s^2 = (c\Delta t)^2 - (\Delta x^2 + \Delta y^2 + \Delta z^2)$.<br>
-We hypothesise a categorical equivalent for our semantic limits.
+In physical relativity, shifting reference frames distorts local spatial and temporal coordinates, but mathematically preserves the fundamental 4D spacetime interval across all frames ($\Delta s^2 = \Delta s'^2$): $\Delta s^2 = (c\Delta t)^2 - (\Delta x^2 + \Delta y^2 + \Delta z^2)$. We hypothesise a categorical equivalent for our semantic limits.
 
 :::
 
-::: {.shrink88}
+::: {.shrink85}
 
 ::: {.callout-note icon=false title="Conjecture: Relativistic Invariance of the Semantic Interval"}
 **The Hypothesis:** Under the **Synthetic Transformation**, the semantic integrity of the realised limit ($O$) is structurally preserved across the categorical Change of Base.
@@ -748,9 +739,7 @@ Because our inductive trace is built purely on these observable primitives, its 
 
 :::
 
-::: {.shrink65}
-
-<div style="margin-top: -0.5em;"></div>
+::: {.shrink60}
 
 - **Next Steps:** Formalising the Beck-Chevalley boundary conditions required to ensure seamless quantifier preservation ($\forall, \exists$) when the system mathematically synthesises higher-order subproblems.
 
@@ -758,19 +747,13 @@ Because our inductive trace is built purely on these observable primitives, its 
 
 ## Self-Transcending, Theory-Driven Generalisation
 
-::: {.shrink75}
+::: {.shrink56}
 
 When the converged limit shifts to become the new Reference Frame ($S_f$) via the **Synthetic Transformation**, it acts natively as a global Greatest Fixpoint ($\nu$) and the coinduced property is permanently added to the reference theory. The system treats **generalisation** not as a heuristic search, but as a rigorous categorical operation over $S_f$, governed by the foundational duality of fibrations and adjunctions:
 
 * **1. Change of Base (The Fibrational Shift)**
   * Logical properties form a *Total Category* fibered over a *Base Category* of states and reference frames. 
   * The system performs a categorical **Change of Base**, pulling the fully realised semantic space ($\mathrm{ODo}$) down to become the new geometric foundation for future inductive proofs ($\mathrm{RDo}$). Complex, inductively proven histories are safely compressed into the atomic geometry of the new baseline frame.
-
-:::
-
-## Self-Transcending, Theory-Driven Generalisation (cont'd)
-
-::: {.shrink75}
 
 * **2. Adjoint Duality (Swapping the Problem)**
   * Generalising a safe invariant is structurally the dual to deductive planning (a Categorical Adjunction: $L \dashv R$).
