@@ -14,6 +14,16 @@ This module is also available in the following versions
 
 :::
 
+# Talk Introduction
+
+## Synthetic Relativity: Tri-modality and the Fixpoint Semantics of the Logical Observer 
+
+Adrian R. Pearce
+
+School of Computing and Information Systems
+
+The University of Melbourne
+
 # The situation calculus
 
 ## The situation calculus (Towers of Hanoi)
