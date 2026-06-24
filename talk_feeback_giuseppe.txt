@@ -1,0 +1,25 @@
+
+This relativistic approach might resolve the problem with progression in the situation calculus.
+
+Progression is what is done in (propositional) planning, which is not a problem in A* search, but when you move to first order logic it is a problem.
+
+Want to forget about the past, but you can't in progression in sit calc.
+
+Recall Stavros' work: showed you have to replace with existential quantifiers the past.
+
+Giuseppe recalls having a discussion with the late Ray Rieter about the ider of having a reference frame, which means you can not worry about the past, as you have this reference.
+
+It allows you to only need to reason about the future, is the huge benefit.
+
+So this is relativistic progression - and could be in fact an integration of autonomous theory progression and (situation calculus) progression.
+
+This relativistic approach could help this.
+
+
+
+Strategic reasoning (Giuseppe's new project):
+
+Strategies could come from LLMs, humans, etc.
+
+Looking at strategic space, and make sure you are following at least one of the strategies in the strategic space.
+
