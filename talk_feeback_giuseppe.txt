@@ -1,7 +1,11 @@
+Feedback on my Synthetic Relativity talk:
+----------------------------------------
 
 This relativistic approach might resolve the problem with progression in the situation calculus.
 
 Progression is what is done in (propositional) planning, which is not a problem in A* search, but when you move to first order logic it is a problem.
+
+At present, people use two different mechanisms: situation calculus (for regression) and the \mu calculus (for verification/model checking) but not the same formalism - this puts reasoning like self-transcending reasoning, and partial order reasoning out of reach.
 
 Want to forget about the past, but you can't in progression in sit calc.
 
@@ -15,9 +19,21 @@ So this is relativistic progression - and could be in fact an integration of aut
 
 This relativistic approach could help this.
 
+Giuseppe asked if it could be used beyond just towers of Hanoi.
+
+Questions:
+
+Algebraic compactness: Giuseppe pointed out that they might not meet (greatest and least fixpoints), I acknowledged (at least for property persistence) that it is sound but not complete, but what is the actual situation? 
+
+What are the benefits of beinf first order in representation over propositional (in order to e.g. wanting to be able to do progression?
+
+Can the (Stavros Vassos) view of progression extend to autonomous theory progression (i.e. the relativistic version of it) and how are these two modalities related?
+
+Future work: a lot is there, what is the promise of proving the invariance conjecture?
 
 
 Strategic reasoning (Giuseppe's new project):
+--------------------------------------------
 
 Strategies could come from LLMs, humans, etc.
 
