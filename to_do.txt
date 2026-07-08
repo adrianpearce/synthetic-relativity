@@ -2,8 +2,18 @@ To Do Synthetic Relativity
 ==========================
 
 Update talk
-Update the proof pathway based on to_do & the hard questions (and archive the old one)
-Read through the key papers
+
+What needs to be done:
+- Read the key paper(s) on domain and category theory.
+- Complete the axioms, theorems and proof sketches.
+- Audit the proof pathway - is there stuff there that is needed?
+- Complete the body text (stay in Quarto/markdown, probably just add to it for now)
+- Stay with the same example for now (swap it out later on)
+- Simply utilise ::: {.content-visible when-profile="book"}
+- Complete the proofs.
+- Progress the related work, much of that is in the to_do.txt file in the project directory
+- Develop the progression aspect of this
+- Pose the problem as progressig one theory with respect of the ajunct of another (the generalisation aspect), will need theorems for this too.
 
 Progress asking the hard questions
 - Source those papers
@@ -925,4 +935,71 @@ If we accept this rigorous categorical view of search, representation, and topol
 
 **Conclusion**
 Sutton was empirically right about *what* wins, but theoretically misaligned on *why* it wins. Massive compute doesn't beat human cleverness because scale is inherently magical. Compute wins because it provides the immense energy required to shatter our flat, static ontologies, allowing the native categorical duality of **Synthetic Relativity** to organically emerge, mathematically quotient the past, and self-transcend."
+
+
+=====================================================================
+Theorem 3 - additional theorem I can prove
+=====================================================================
+
+Theorem: Synthetic relativity is Turing complete with respect to one reference frame, and is complete with respect to transfinitely ordinalality with respect to the transitive closure of reference frames.
+
+Proof sketch:
+
+Booleanisation + Serialization of proof (is it Godel or something)
+
+Note that Synthetic relativity remains partially ordered and compact, it is just the proof technique that uses serialisation and booleanisation.
+
+
+=====================================================================
+Everything human is anthropomorphic
+=====================================================================
+
+Everything is essentialy anthromorphic, everything is just a realiseation.
+
+Language (LLMs),  PDDL, etc.
+
+=====================================================================
+Proof technique - Evidential approach
+=====================================================================
+
+Descriptive complexity.
+
+Show what native langauges lead to complexity classes.
+
+Might need to look at proofs for complexity classes for this.
+
+E.g. Monadic second order complexity leads to class NP.
+
+In particular, how does one prove the existence of a fixpoint which might not exist (is sound and incomplete)?
+
+The question is: can we prove that if we know something exists (e.g. class NP or PSPACE or P) then I can prove realisations exist.
+
+Question: What logic corresponds to P?
+
+=====================================================================
+Proof technique - Implementation
+=====================================================================
+
+The good thing is it will be relatively easy to implmenet, due to DTLF foundations
+
+=====================================================================
+Continuous
+=====================================================================
+
+What is this continuous thing, is it continuous in a more formal sense?
+
+Scott continunity, \omega-continuity (see Chat on Situation Calculus and LEast fixpoints)
+
+PDo is continuous.
+
+"When you use the word "continuous" in standard conversation (or in deep learning), people assume you mean "smooth," "flowing," or "using real numbers and gradients."
+
+You must discard that definition immediately. In formal logic, Category Theory, and Domain Theory, "continuous" means something completely different. It is not about floating-point numbers; it is about how information grows and how mathematical limits are preserved."
+
+===================================
+Descriptive complexity
+===================================
+
+"Through the lens of Synthetic Relativity, the complexity classes P and NP are extensional shadows of a deeper categorical duality. By Immerman-Vardi, P corresponds strictly to Semantic Realisation achieved via endogenous, monotonic inductive accumulation ($\mu$) within a static, ordered Reference Frame ($S_f$).Conversely, by Fagin’s Theorem, NP is defined by Existential Second-Order logic ($\exists \mathbf{\Phi}$). In our framework, $\exists \mathbf{\Phi}$ is formally recognized as the necessity of a Fibrational Shift. Solving an NP-complete problem requires the Right Adjoint ($\nu$) to coinduce a global geometric invariant and mathematically shift the Reference Frame before local First-Order verification can succeed.Thus, Synthetic Relativity reframes the P vs. NP problem not merely as a boundary of polynomial time, but as a question of Fibrational completeness: Can every top-down coinductive Change of Base ($\nu$) ultimately be generated natively via bounded, bottom-up inductive syntaxes ($\mu$)? "
+
 
