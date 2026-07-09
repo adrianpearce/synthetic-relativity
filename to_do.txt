@@ -1002,4 +1002,9 @@ Descriptive complexity
 
 "Through the lens of Synthetic Relativity, the complexity classes P and NP are extensional shadows of a deeper categorical duality. By Immerman-Vardi, P corresponds strictly to Semantic Realisation achieved via endogenous, monotonic inductive accumulation ($\mu$) within a static, ordered Reference Frame ($S_f$).Conversely, by Fagin’s Theorem, NP is defined by Existential Second-Order logic ($\exists \mathbf{\Phi}$). In our framework, $\exists \mathbf{\Phi}$ is formally recognized as the necessity of a Fibrational Shift. Solving an NP-complete problem requires the Right Adjoint ($\nu$) to coinduce a global geometric invariant and mathematically shift the Reference Frame before local First-Order verification can succeed.Thus, Synthetic Relativity reframes the P vs. NP problem not merely as a boundary of polynomial time, but as a question of Fibrational completeness: Can every top-down coinductive Change of Base ($\nu$) ultimately be generated natively via bounded, bottom-up inductive syntaxes ($\mu$)? "
 
+SUPER IMPORTANT
+
+So use Fibrational incompleteness and N does not equal NP (to show  Turing completeness)
+
+The majic here is: Can also use proof to bimodal provability + serialiation to show that it is complete with respect to transfinite ordinality at the same time.
 
