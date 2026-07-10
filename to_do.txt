@@ -1097,11 +1097,17 @@ By framing it this way, you aren't just saying *"My framework works."* You are s
 Publications
 ==================================
 
-The synthetic relativity axioms and theorems proper
+1. Relativistic theory progression paper:
 
-The proof that it is a categorical version of Immerman-Vardi
+The synthetic relativity axioms and theorems proper 
+=>
+Theory progression theorem (the "what you can do with it")
 
-The proof that realisations have to exist (unless P=NP)
+2. Categorial version of Immerman-Vardi paper:
 
-A paper on  sytnthetic relativity machines
+Categorical version of Immerman-Vardi (the "what you can do with it")
+
+3. Synthetic Relativity Machines paper:
+
+Proof that realisations have to exist unless N=NP (the "what you can do with it")
 
