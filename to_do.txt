@@ -1107,7 +1107,141 @@ Theory progression theorem (the "what you can do with it")
 
 Categorical version of Immerman-Vardi (the "what you can do with it")
 
-3. Synthetic Relativity Machines paper:
+3. Synthetic Relativity Machines & Realisations paper:
 
 Proof that realisations have to exist unless N=NP (the "what you can do with it")
+
+4. Topology of Thought
+
+...for attention-based transformers.
+
+
+==================================
+Topological spaces form a category
+==================================
+
+Yes, topology and category theory are deeply and fundamentally connected. In fact, category theory was originally invented by mathematicians Saunders Mac Lane and Samuel Eilenberg in the 1940s specifically to solve problems in **algebraic topology**.
+
+Here is a breakdown of how topology is associated with category theory from a mathematical perspective.
+
+## 1. Topological Spaces Form a Category ($\mathbf{Top}$)
+
+The most direct association is that topological spaces naturally form their own category, denoted as $\mathbf{Top}$. Category theory provides the framework for studying mathematical objects and the relationships (morphisms) between them.
+
+In the category $\mathbf{Top}$:
+
+* **Objects** are topological spaces (sets equipped with a topology).
+* **Morphisms** (the "arrows" connecting objects) are continuous functions between these spaces.
+* **Isomorphisms** (the equivalences) are homeomorphisms—continuous functions with continuous inverses, meaning the two spaces are topologically identical.
+
+By treating topology as a category, mathematicians can use universal properties (like limits and colimits) to construct new topological spaces, such as product spaces, quotient spaces, and disjoint unions, in a highly systematic way.
+
+## 2. Functors and Algebraic Topology
+
+Category theory really shines as a bridge between topology and other areas of math, particularly algebra. This is done using **functors**, which are mappings from one category to another that preserve the categorical structure.
+
+In algebraic topology, mathematicians study topological spaces by assigning algebraic structures (like groups or rings) to them.
+
+* **The Fundamental Group:** You can define a functor $F: \mathbf{Top_*} \to \mathbf{Grp}$ that takes a topological space (with a base point) and assigns it a group (the fundamental group), while mapping continuous functions between spaces to group homomorphisms.
+* **Homology and Cohomology:** Similarly, homology provides a sequence of functors from topological spaces to the category of abelian groups ($\mathbf{Ab}$).
+
+This allows mathematicians to translate incredibly difficult topological problems (e.g., "Are these two shapes continuously deformable into each other?") into simpler algebraic problems (e.g., "Are these two groups isomorphic?"). If the algebraic objects are different, the topological spaces must be fundamentally different.
+
+## 3. Grothendieck Topologies and Topos Theory
+
+Category theory doesn't just study topology; it actually *generalizes* the concept of a topology itself.
+
+In the 1960s, Alexander Grothendieck realized that you don't need a space made of "points" to do topology. He generalized the notion of an open cover of a topological space into what is now called a **Grothendieck topology** on an arbitrary category.
+
+* This allows mathematicians to define concepts like **sheaves** on categories that have nothing to do with traditional topological spaces (such as categories of rings or algebraic varieties).
+* This led to the creation of **Topos Theory**. A "topos" is a category that behaves like the category of sheaves on a topological space. It acts as a bridge uniting topology, algebraic geometry, and even mathematical logic.
+
+## 4. Categorical Topology
+
+There is also a distinct subfield called **categorical topology**. Rather than using algebra to study topology, this field uses pure category theory to investigate topological concepts. It looks at how structural properties (like compactness, separation axioms, or convergence) can be described purely in the language of categories and functors, allowing these concepts to be applied to a much wider array of mathematical structures.
+
+================================================
+Intuitionistic, Nonmonotonic?
+================================================
+
+Yes on the first count, no on the second. Domain Theory in Logical Form (DTLF) is fundamentally **intuitionistic** (specifically, geometric), and it is strictly **monotonic**.
+
+Here is the breakdown of how those two logical properties map to Abramsky's framework:
+
+## 1. Why DTLF is Intuitionistic
+
+At its core, DTLF relies on Stone duality to bridge denotational semantics (computational spaces) and program logic (formal theories). The underlying logic of DTLF is **geometric logic**, which is a heavily restricted fragment of intuitionistic logic.
+
+* **Observable Properties:** In DTLF's topological semantics, Scott-open sets correspond to *observable properties*. A property is observable if it can be verified in a finite amount of time (e.g., "the computation eventually produced a value").
+* **The Failure of Classical Negation:** You can finitely observe that a program *has* reached a certain state, but you cannot finitely observe that it will *never* reach a state (due to the halting problem). Because you cannot verify the absence of an observable property in finite time, the logic rejects classical negation.
+* **Topological Structure:** Scott-open sets are closed under finite intersections (logical conjunction) and arbitrary unions (logical disjunction), but they are explicitly *not* closed under complementation. This makes the logical framework strictly positive and intuitionistic.
+
+## 2. Why DTLF is Monotonic
+
+DTLF does not support nonmonotonic reasoning (such as default logic, belief revision, or negation-as-failure). It is inherently **monotonic** because it is built entirely on the partial orders of standard domain theory.
+
+* **Information Approximation:** In domain theory, a computation is modeled as a progression up a partial order. You start at the bottom element $\bot$ (no information) and monotonically accumulate more precise information as the process unfolds.
+* **Scott Continuity:** The fundamental mapping between domains requires functions to be Scott-continuous, which strictly requires them to be monotonic. Providing more information to a process can never cause it to retract or output *less* information than it already had.
+* **Irreversible Entailment:** In the logical form, if a property is entailed by a certain state of information, acquiring further information will never invalidate that entailment. The theory progresses strictly forward.
+
+================================================
+I have a question about how the class PSPACE is related to the question of whether P=NP?
+================================================
+
+The relationship between PSPACE and the P vs NP problem comes down to how these complexity classes nest within one another and what happens if those boundaries collapse.
+
+At the core of the relationship is the established inclusion hierarchy:
+
+
+$$P \subseteq NP \subseteq PSPACE$$
+
+Because of this nesting, any resolution to the P vs NP problem interacts directly with PSPACE, depending on which direction a hypothetical proof takes.
+
+## Scenario 1: What if P = PSPACE? (Top-Down Collapse)
+
+If it were proven that $P = PSPACE$, the P vs NP question would be automatically resolved. Because $NP$ is sandwiched between the two, a proof that the outer boundary ($PSPACE$) is equivalent to the inner boundary ($P$) forces everything in the middle to collapse.
+
+In this scenario, $P = NP = PSPACE$. Every problem that can be solved in polynomial space, and every problem whose solution can be verified in polynomial time, could be solved outright in polynomial time.
+
+## Scenario 2: What if P = NP? (Bottom-Up Collapse)
+
+If it were proven that $P = NP$, it does **not** necessarily mean that $P = PSPACE$.
+
+If $P = NP$, it implies that $NP = coNP$, which causes the entire Polynomial Hierarchy ($PH$) to collapse down to $P$. We know that $PH \subseteq PSPACE$. However, it is a major open question whether $PH = PSPACE$. Many complexity theorists suspect that $PH \subsetneq PSPACE$.
+
+Therefore, even if we found a polynomial-time algorithm for NP-complete problems, PSPACE-complete problems might still strictly require exponential time to solve, even though they only use polynomial space.
+
+## The Difference in Quantifiers: SAT vs QBF
+
+The structural difference between NP and PSPACE is easiest to see through their flagship complete problems, which mirror the leap from single-agent planning to adversarial game structures.
+
+* **NP (SAT):** Boolean Satisfiability (SAT) asks if there is *some* assignment of variables that makes a formula true. It relies purely on existential quantifiers:
+
+$$\exists x_1 \exists x_2 \dots \exists x_n \ \phi(x_1, \dots, x_n)$$
+
+
+* **PSPACE (TQBF):** True Quantified Boolean Formula (TQBF) allows for alternating quantifiers. It asks if a formula is true when variables can be universally or existentially quantified:
+
+$$\exists x_1 \forall x_2 \exists x_3 \dots Q_n x_n \ \phi(x_1, \dots, x_n)$$
+
+
+
+This alternation of quantifiers is why PSPACE naturally captures two-player games and generalized planning under uncertainty. To solve a PSPACE problem, you often have to verify that *there exists* a winning move such that *for all* opponent responses, *there exists* a counter-move, and so on.
+
+While NP allows you to non-deterministically "guess" a single valid trajectory, PSPACE requires you to evaluate a branching tree of all possible trajectories, which is why it is considered a vastly more powerful complexity class.
+
+
+===============================================
+Synthetic relativity maintains a intuinistic dual, with repect to a frame of reference.
+===============================================
+
+IMPORTANT
+
+"Synthetic relativity maintains an intuitionistic dual with respect to the observer's frame of reference. 
+
+The framework requires Scott continuity, grounded in a topology of open sets representing finitely observable properties. 
+
+Through Stone duality, the inductive accumulation of these properties is strictly monotonic, while the coinductive dual captures infinite invariants as topologically closed constraints."
+
+Both the inductive and coinductive duals are strictly monotonic.
 
