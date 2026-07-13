@@ -1103,6 +1103,8 @@ The synthetic relativity axioms and theorems proper
 =>
 Theory progression theorem (the "what you can do with it")
 
+It makes progression Markov
+
 2. Categorial version of Immerman-Vardi paper:
 
 Categorical version of Immerman-Vardi (the "what you can do with it")
@@ -1111,9 +1113,34 @@ Categorical version of Immerman-Vardi (the "what you can do with it")
 
 Proof that realisations have to exist unless N=NP (the "what you can do with it")
 
+PSPACE may be a lemma of the other theorem that realisation exists elesnP=NP
+
+Relativistic version of Turng oracle machines
+
 4. Topology of Thought
 
 ...for attention-based transformers.
+
+....topology of thought makes Markov, and hence LRMs copatiblenwith RL
+
+5. Large reasoning models are synthetic relativity complete
+
+6. Synthetic relativity machines subsumes planning
+
+Idea that base changes are sort of the verification witnesses they are decidable...
+
+Theorem A
+Could do for PSPACE too, this might be an easier proof
+Theorem B
+If it exists, a verifier, I.e. realisation will exist
+Via Booleanisation to PDDL
+
+It subsumed planning, PSPace
+PSPACE is a lemma of the other theorem that realisation exists elesnP=NP
+
+...the transitive closure of PDo is the verifier.
+
+Probably best to focus on decidability rather than one of the complexity classes, but could use them as proof widgets
 
 
 ==================================
