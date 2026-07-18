@@ -1403,3 +1403,24 @@ Through Stone duality, the inductive accumulation of these properties is strictl
 
 Both the inductive and coinductive duals are strictly monotonic.
 
+=========================================
+What you can do with Synthetic Relativity
+=========================================
+
+PDo*
+
+Four things:
+
+The transitive closure of PDo (probably not '*') and the idea insight I had for this.
+
+The fact P and NP are in space and time - what language specifies P, or PSPACE or EXPSpace or double EXPSpace?
+
+Not in space or time...
+
+What you can do with realisations...need to lean into this...this goes beyond game or strategy synthesis as it is continuous.
+
+•	Read that paper of Mike Wooldridge
+
+What implementation of compactness in DTLF?
+
+
