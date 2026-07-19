@@ -1424,3 +1424,65 @@ What you can do with realisations...need to lean into this...this goes beyond ga
 What implementation of compactness in DTLF?
 
 
+===========================================================
+In relation to descriptive complexity which class of logic or logic fragment defines the class P? What about PSPACE and/or EXPSPACE, Double EXPSPACE?
+===========================================================
+
+Answer:
+
+In descriptive complexity, the mapping between computational complexity classes and logical formalisms relies heavily on adding fixed-point operators to first-order (FO) and higher-order (HO) logics. A crucial caveat across the foundational results—like the Immerman-Vardi theorem—is that the finite structures must be **linearly ordered**. Without a built-in linear order, these logics cannot express simple counting properties (like determining if the domain size is even) and fall short of capturing their respective complexity classes.
+
+Here is the exact breakdown from $\text{P}$ up through the exponential space hierarchy:
+
+## Polynomial Time ($\text{P}$)
+
+The class $\text{P}$ is defined by **First-Order Logic augmented with a Least Fixed Point operator**, denoted as $FO(LFP)$.
+
+The $LFP$ operator allows the logic to define predicates recursively, creating monotone inductive definitions. Because the domain is finite and the operations are monotone, the recursion is guaranteed to reach a fixed point in a polynomial number of steps, exactly mirroring the polynomial-time bounded loops of a deterministic Turing machine.
+
+## Polynomial Space ($\text{PSPACE}$)
+
+$\text{PSPACE}$ is defined by **First-Order Logic with a Partial Fixed Point operator**, denoted as $FO(PFP)$.
+
+Unlike $LFP$, the $PFP$ operator can iterate over non-monotone operations. It will either eventually converge to a fixed point or enter an infinite cycle. Because an arity-$k$ relation over a domain of size $n$ has $2^{n^k}$ possible states, evaluating a $PFP$ query requires tracking the "current" and "next" states of the relation. This requires exactly a polynomial amount of space, perfectly characterizing $\text{PSPACE}$.
+
+## $\text{EXPTIME}$ and $\text{EXPSPACE}$
+
+To shift the complexity up by an exponential factor, the logic must step up from First-Order to **Second-Order ($SO$) Logic**, which corresponds to $HO^2$ in the higher-order hierarchy. Applying the same fixed-point operators to $SO$ yields the exponential classes:
+
+* **$\text{EXPTIME}$** is captured by **Second-Order Logic with a Least Fixed Point operator**, $SO(LFP)$.
+* **$\text{EXPSPACE}$** is captured by **Second-Order Logic with a Partial Fixed Point operator**, $SO(PFP)$.
+
+*(For context: without these fixed-point operators, pure $SO$ captures the Polynomial Hierarchy ($\text{PH}$), and its existential fragment $\exists SO$ captures $\text{NP}$ via Fagin's Theorem).*
+
+## Double $\text{EXPSPACE}$ (and Beyond)
+
+For $k$-fold exponential classes, descriptive complexity generalizes into a clean hierarchy using $k$-th order logics, $HO^k$, where $HO^1 = FO$ and $HO^2 = SO$.
+
+The established relationship for higher-order logics with fixed points is:
+
+* **$(k-1)\text{-EXPTIME}$** is captured by $HO^k(LFP)$.
+* **$(k-1)\text{-EXPSPACE}$** is captured by $HO^k(PFP)$.
+
+Following this hierarchy, setting $k = 3$ provides the answer for double exponential space. **Double $\text{EXPSPACE}$** ($2\text{-EXPSPACE}$) is captured by **Third-Order Logic with a Partial Fixed Point operator**, $HO^3(PFP)$.
+
+In this class, the logic allows quantification over sets of sets of elements (third-order), and the $PFP$ operator drives the space complexity up to the doubly exponential bound of $O(2^{2^{n^c}})$.
+
+=================================
+Need examples that cannot be described causally for PDo closure, including paradox and investigate continuation etc.
+=================================
+
+By representing limit in transfinite ordinatlity it can:
+
+It can capture and reason about transfinite paradoxes with no finit predecessors.
+
+This means paradoxes can be treated as Markov and be reasoned about causally.
+
+Paradox examples (was it Bell's paradox or something) articulated by Samsan Abransky in databases
+
+This is what can be represented
+
+Add to this realisation, it is realisation that faciliates the base change.
+
++ Scott continuitiy aspect
+
