@@ -1486,3 +1486,10 @@ Add to this realisation, it is realisation that faciliates the base change.
 
 + Scott continuitiy aspect
 
+=================================
+Proof - do realisations exist?
+=================================
+
+It should be consistent that realisation always exists and that it is also complete with respect to local frame.
+
+
